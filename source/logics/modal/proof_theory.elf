@@ -1,0 +1,41 @@
+%* Proof theory of modal logic
+   @author F. Horozal and F. Rabe *%
+
+%namespace "http://latin.omdoc.org/logics/proof_theory".
+%namespace syn = "syntax".
+
+
+%sig MLPf = {
+  %include syn.ML.
+  %include MPL.
+  ax_◇ : ded ◇ P ⇔ ¬ □ (¬ P).
+  nec  : ded P -> ded □ P.
+  ax_k : ded □ (P ⇒ Q) ⇒ □ P ⇒ □ Q.
+}.
+
+%sig D = {
+  %include syn.ML.
+  ax_d : ded □ P ⇒ ◇ P.
+}.
+
+%sig T = {
+  %include syn.ML.
+  ax_t : ded □ P ⇒ P.
+}.
+
+%sig S4 = {
+  %include T.
+  ax_4 : ded □ P ⇒ □ (□ P).
+}.
+
+%sig S4b = {
+  %include S4.
+  ax_4b : ded P ⇒ □ (◇ P).
+}.
+
+%sig S5 = {
+  %include T.
+  ax_5 : ded ◇ P ⇒ □ (◇ P). 
+}.
+
+%% TODO views from S4 and S4b to S5 and from S5 to S4b.

@@ -1,0 +1,250 @@
+%*
+  Natural numbers
+  axiomatically, based on Peano's axioms
+  @author: Florian Rabe
+*%
+
+%namespace "http://latin.omdoc.org/math".
+%namespace syn = "logics/syntax".
+%namespace pf = "logics/proof_theory".
+
+%sig Nat = {
+   %meta pf.InEqLogic.
+   %include pf.NEGExt.
+   
+   nat : type = u.
+   ' : nat -> nat.                        %prefix 35 '.
+   0 : nat.
+   1 : nat = ' 0.
+   
+   wellfounded : 0 !=^ ' N.
+   linear : ' M ==^ ' N -> M ==^ N.
+   
+   induction  : {P: nat -> o} ⊦ P 0 -> ({n} ⊦ P n -> ⊦ P (' n)) -> {n} ⊦ P n.
+   induction2 : {P: nat -> nat -> o} ({n} ⊦ P 0 n)
+                                  -> ({m} ⊦ P m 0)
+                                  -> ({m}{n} ⊦ P m n -> ⊦ P (' m) (' n))
+                                  -> ({m}{n} ⊦ P m n).
+%{  proof needs forall            = [P][f][g][h] [m] induction ([n] P m n)
+                                     (g m)
+                                     ([n][hypn: ⊦ P m n] induction ([x] P x (' n))
+                                                         (f (' n))
+                                                         ([x][hypx: ⊦ P x (' n)] }%
+   wellfoundedE : ⊦ 0 == ' N -> ⊦ F = [p] notE' p wellfounded. 
+   cong' : X ==^ Y -> ' X ==^ ' Y = [p] cong ([x] ' x) p.
+}.
+
+%% Recursion: if f = ind_fun base step, then f(0) = base, f(n+1) = step(f(n))
+%sig Recursion = {
+   %meta pf.InEqLogic.
+   %include Nat.
+   
+   ind_fun      : nat -> (nat -> nat) -> (nat -> nat).
+   ind_fun_0    : (ind_fun B S) 0 ==^ B.
+   ind_fun_succ : (ind_fun B S) (' N) ==^ S ((ind_fun B S) N).
+   
+%{   ind_fun'      : Elem A -> (nat -> Elem A -> Elem A) -> (nat -> Elem A).
+   ind_fun'_0    : ⊦ (ind_fun' A F) 0 == A.
+   ind_fun'_succ : ⊦ (ind_fun' A F) (' N) == F N ((ind_fun' A F) N).
+   
+   ind_fun''  : Elem A -> (nat -> Elem A) -> (nat -> Elem A).}%
+}.
+
+%sig Addition = {
+   %meta pf.FOLEQ.
+   %include Nat.
+   %include Recursion.
+   + : nat -> nat -> nat = [n] ind_fun n ([x] ' x). %infix left 30 +.
+
+   %view +Magma : Magma -> = {
+      %include pf.Equal.equniv.
+      ∘ := [x][y] x + y.
+   }.
+   %struct +magma = +Magma. 
+   
+   plus_0r    : ⊦ N + 0 == N = ind_fun_0.
+   plus_succr : ⊦ M + (' N) == ' (M + N) = ind_fun_succ.
+   plus_1r    : ⊦ N + 1 == ' N = trans plus_succr (cong' plus_0r).
+   plus_assoc : ⊦ (L + M) + N == L + (M + N)
+     = induction ([n] (L + M) + n == L + (M + n))
+     (trans plus_0r (+magma.applyL L (sym plus_0r)))
+     ([n][p] trans4 plus_succr (cong' p) (sym plus_succr) (+magma.applyL L (sym plus_succr)))
+     N.
+   plus_0l    : ⊦ 0 + N == N
+     = induction ([n] 0 + n == n) plus_0r ([n][p: ⊦ 0 + n == n] trans plus_succr (cong' p)) N.
+   plus_1l    : ⊦ 1 + N == ' N
+     = induction ([x] 1 + x == ' x) plus_0r ([n][p] trans plus_succr (cong' p)) N.
+   plus_succl : ⊦ (' M) + N == ' (M + N)
+     = trans3 (+magma.applyR N (sym plus_1l)) plus_assoc plus_1l.
+   plus_succlr: ⊦ (' M) + N == M + (' N) = trans plus_succl (sym plus_succr).
+   plus_comm  : ⊦ M + N == N + M = induction ([x] M + x == x + M)
+     (trans plus_0r (sym plus_0l))
+     ([n][p] trans3 plus_succr (cong' p) (sym plus_succl))
+     N.
+   %view +Semigroup : Semigroup -> = {
+      %include +Magma.
+      assoc := [X][Y][Z] plus_assoc.
+   }.
+   %view +PointedMagma : PointedMagma -> = {
+      %include +Magma.
+      point := 0.
+   }.
+   %view +NeutralElement : NeutralElementRight -> = {
+      %include +PointedMagma.
+      neutral := [X] plus_0r.
+   }.
+   %view +Commutative : Commutative -> = {
+      %include +Magma.
+      commut := [X][Y] plus_comm.
+   }.
+   %view +CommutativeSemigroup : CommutativeSemigroup -> = {
+      %include +Semigroup.
+      %include +Commutative.
+   }.
+   %struct +semigroupCommut = +CommutativeSemigroup.  
+   diff_unique : ⊦ M + N == M + N' imp N == N' = induction ([m] m + N == m + N' imp N == N')
+     (impI [p] trans3 (sym plus_0l) p plus_0l)
+     ([m][p] impI [q] impE p (linear (trans3 (sym plus_succl) q plus_succl)))
+     M. 
+   plus_0sum : ⊦ M + N == 0 imp M == 0 = induction ([m] m + N == 0 imp m == 0)
+     (impI [_] refl)
+     ([m][p] impI [q: ⊦ (' m) + N == 0] wellfoundedE (sym (trans (sym plus_succl) q))) 
+     M.
+}.
+
+%sig Multiplication = {
+   %meta pf.FOLEQ.
+   %include Addition.
+   *       : nat -> nat -> nat = [m] ind_fun 0 ([r] r + m).   %infix left 31 *.
+
+   %view *Magma : Magma -> = {
+      %include pf.Equal.equniv.
+      ∘ := [x][y] x * y.
+   }.
+   %struct *magma = *Magma. 
+
+   *_0r    : ⊦ M * 0 == 0 = ind_fun_0.
+   *_succr : ⊦ M * (' N) == M * N + M = ind_fun_succ.
+   *_0l    : ⊦ 0 * M == 0
+     = induction ([m] 0 * m == 0) ind_fun_0 ([n][p] trans3 *_succr (+magma.applyR 0 p) plus_0r) M.
+   *_1r    : ⊦ N * 1 == N = trans3 *_succr (+magma.applyR N *_0r) plus_0l.
+   *_1l    : ⊦ 1 * N == N = induction ([n] 1 * n == n) *_0r ([n][p] trans3 *_succr (+magma.applyR 1 p) plus_1r) N.
+   distribr : ⊦ (L + M) * N == L * N + M * N
+     = induction ([n] (L + M) * n == L * n + M * n)
+        (trans *_0r (sym (trans (+magma.combine *_0r *_0r) plus_0r)))
+        ([n][p] trans4 *_succr (+magma.applyR (L + M) p) +semigroupCommut.ab∘cd==ac∘bd (+magma.combine (sym *_succr) (sym *_succr)))
+        N.
+   *_succl : ⊦ (' M) * N == M * N + N
+     = trans3 (*magma.applyR N (sym plus_1r)) distribr (+magma.applyL (M * N) *_1l). 
+   *_comm  : ⊦ M * N == N * M
+     = induction ([m] m * N == N * m)
+         (trans *_0l (sym *_0r))
+         ([m][p] trans3 *_succl (+magma.applyR N p) (sym *_succr)) M.
+   distribl : ⊦ L * (M + N) == L * M + L * N = trans3 *_comm distribr (+magma.combine *_comm *_comm). 
+   *_assoc : ⊦ (L * M) * N == L * (M * N)
+     = induction ([n] (L * M) * n == L * (M * n))
+         (trans3 *_0r (sym *_0r) (*magma.applyL L (sym *_0r)))
+         ([n][p] trans4 *_succr (+magma.applyR (L * M) p) (sym distribl) (*magma.applyL L (sym *_succr)))
+         N.
+   %view *Semigroup : Semigroup -> = {
+      %include *Magma.
+      assoc := [X][Y][Z] *_assoc.
+   }.
+   %view *PointedMagma : PointedMagma -> = {
+      %include *Magma.
+      point := 1.
+   }.
+   %view *NeutralElement : NeutralElementRight -> = {
+      %include *PointedMagma.
+      neutral := [X] *_1r.
+   }.
+   %view *Commutative : Commutative -> = {
+      %include *Magma.
+      commut := [X][Y] *_comm.
+   }.
+   %view *CommutativeSemigroup : CommutativeSemigroup -> = {
+      %include *Semigroup.
+      %include *Commutative.
+   }.
+   %struct *commutativeSemigroup = *CommutativeSemigroup.  
+   %view *+Distrib : Distrib -> = {
+       %include pf.Equal.equniv.
+       %struct mag1 := +Magma.
+       %struct mag2 := *Magma.
+       right.dist := [X][Y][Z] distribr.
+       left.dist := [X][Y][Z] distribl.
+   }.
+}.
+
+%sig OrderedNat = {
+   %meta pf.FOLEQ.
+   %include pf.DISJExt.
+   %include pf.Inequal.
+   %include Addition.
+   %% the declarations below should come from a %struct +order : OrderBottom = OMOrderedMonoid(+Commutative +Monoid +Cancellation). 
+   %struct leq : RelationEqLogic = {rel := [m][n] exists [d] d + m == n.} %open rel %as <=. 
+   <=_0      : ⊦ 0 <= N = existsI N plus_0r.
+   <=_refl   : ⊦ M <= M = existsI 0 plus_0l.
+   <=_trans  : ⊦ L <= M -> ⊦ M <= N -> ⊦ L <= N
+             = [p][q] existsE p [d][r: ⊦ d + L == M] existsE q [e][s: ⊦ e + M == N]
+                 existsI (e + d) (trans3 plus_assoc (cong ([x] e + x) r) s).
+   <=_antisym: ⊦ M <= N -> ⊦ N <= M -> ⊦ M == N
+             = [p][q] existsE p [d][r: ⊦ d + M == N] existsE q [e][s: ⊦ e + N == M]
+               trans3 (sym s)
+                 (cong ([x] x + N)
+                          (impE plus_0sum
+                               (impE diff_unique (trans3 plus_comm (trans3 plus_assoc (cong ([x] e + x) r) s) (sym plus_0r)))
+                          )
+                 ) plus_0l.
+   %% similarly, we get %struct *order : OrderBottom = OMOrderedMonoid(*Commutative *Monoid *Cancellation) %open ≤ %as |. 
+
+   <=_succ   : ⊦ M <= N -> ⊦ ' M <= ' N = [p] existsE p [d][q: ⊦ d + M == N] existsI d (trans plus_succr (cong' q)).
+   <=_total  : ⊦ M <= N or N <= M
+             = induction2 ([m][n] m <= n or n <= m)
+                 ([n] orIl <=_0)
+                 ([m] orIr <=_0)
+                 ([m][n][r: ⊦ m <= n or n <= m] orE r
+                    ([s: ⊦ m <= n] orIl (<=_succ s))
+                    ([s: ⊦ n <= m] orIr (<=_succ s))
+                 ) M N.
+   %% these views will be redundant
+   %view <=Reflexive : Reflexive -> = {
+      %include syn.RelationInLogic leq..syn.RelationLogic.
+      refl := [X] <=_refl.
+   }.
+   %view <=Transitive : Transitive -> = {
+      %include syn.RelationInLogic leq..syn.RelationLogic.
+      trans := [X][Y][Z] <=_trans.
+   }.
+   %view <=Antisymmetric : Antisymmetric -> = {
+      %include pf.Equal.equniv.
+      %include syn.RelationInLogic leq..syn.RelationLogic.
+      antisym := [X][Y] <=_antisym.
+   }.
+   %view <=Preorder : Preorder -> = {
+      %include <=Reflexive.
+      %include <=Transitive.
+   }.
+   %view <=Order : Order -> = {
+      %include <=Preorder.
+      %include <=Antisymmetric.
+   }.
+   %% This view should not have to be named; it is the unique morphism out of the pushout OrderLogic
+   %view <=OrderLogic : OrderLogic -> = {
+      %include leq.
+      %struct order := <=Order.
+   }.
+   %view <=Total : Total -> = {
+      %include <=OrderLogic.
+      ≤_total := [X][Y] <=_total.
+   }.
+}.
+
+%{
+%sig ORDERMULT = {
+   %include MULT.
+   %include ORDER.   
+   <=_* : ded M <= N -> ded M' <= N' -> ded M * M' <= N * N'.
+   %% proof needs definition of <=
+}.
+}%

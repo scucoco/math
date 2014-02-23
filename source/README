@@ -1,0 +1,76 @@
+------------------------------------------------
+Namespaces
+------------------------------------------------
+
+cat          http://latin.omdoc.org/category_theory
+
+minimal      http://latin.omdoc.org/foundations/minimal
+hol          http://latin.omdoc.org/foundations/hol
+isabelle     http://latin.omdoc.org/foundations/isabelle
+mizar        http://latin.omdoc.org/foundations/mizar
+zfc          http://latin.omdoc.org/foundations/zfc
+
+syn          http://latin.omdoc.org/logics/syntax
+pf           http://latin.omdoc.org/logics/proof_theory
+mod          http://latin.omdoc.org/logics/model_theory
+mod_cat      http://latin.omdoc.org/logics/model_theory/categorical
+mod_kripke   http://latin.omdoc.org/logics/model_theory/kripke
+sound        http://latin.omdoc.org/logics/soundness
+sound_cat    http://latin.omdoc.org/logics/soundness/categorical
+sound_kripke http://latin.omdoc.org/logics/soundness/kripke
+
+math         http://latin.omdoc.org/math
+
+prop_cat     http://latin.omdoc.org/translations/prop_cat
+fol_ifol     http://latin.omdoc.org/translations/fol_ifol
+prop_iprop   http://latin.omdoc.org/translations/prop_iprop
+fol_sfol     http://latin.omdoc.org/translations/fol_sfol
+ml_fol       http://latin.omdoc.org/translations/ml_fol
+prop_hol     http://latin.omdoc.org/translations/prop_hol
+sfol_fol     http://latin.omdoc.org/translations/sfol_fol
+sfol_hol     http://latin.omdoc.org/translations/sfol_hol
+tt_zfc       http://latin.omdoc.org/translations/tt_zfc
+
+tt           http://latin.omdoc.org/type_theories
+
+------------------------------------------------
+Broken files (please remove entry once you fix it)
+------------------------------------------------
+
+finish up soundness and universe-zf
+casl is ongoing work
+
+foundations/mizar/mizar-curry.elf: Leading infix operator
+foundations/mizar/mizar-zfc.elf: view not total: missing case for singleton_uniqueness
+foundations/mizar/zfc-mizar.elf: unfinished
+
+logics/common_logic/model_theory.elf: name udlist.Base already declared
+logics/common_logic/proof_theory.elf: name iforallpf.Base already declared
+logics/common_logic/soundness.elf: depends on proof_theory.elf
+
+logics/description/model_theory_ZFC.elf: unfinished; using old version of ZFC
+logics/description/soundness.elf: morphism does not have expected type (****** compiler bug? ******)
+logics/description/owl/add.elf: not modular
+logics/description/owl/DLtoOWL.elf: incomplete
+logics/description/owl/OWLtoFOL.elf: assignment to "literal" which doesn't exist in D1
+logics/description/owl/OWL2toFOL.elf: depends on OWLtoFOL.elf
+
+minor namespace problems:
+translations/ml-fol/model_theory.elf
+translations/ml-fol/model_expansion.elf
+translations/ml-fol/satisfaction.elf
+translations/ml-fol/proof_theory.elf: using old version of math relations
+
+translations/type_theory-zfc/mltt.elf: using old version of mltt
+
+------------------------------------------------
+Folders kept in the old repository at 
+https://svn.kwarc.info/repos/twelf
+------------------------------------------------
+
+admin
+projects
+Unsorted
+
+casl
+various stuff in zfc (classes, openmath)

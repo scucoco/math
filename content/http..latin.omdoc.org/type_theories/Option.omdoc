@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
+  <theory name="Option" base="http://latin.omdoc.org/type_theories" meta="http://cds.omdoc.org/urtheories?LF">
+    <import from="http://latin.omdoc.org/type_theories?TypesTerms"> </import>
+    <import from="http://latin.omdoc.org/type_theories?UNIT"> </import>
+    <import from="http://latin.omdoc.org/type_theories?DUNION"> </import>
+    <constant name="opt" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/type_theories" module="TypesTerms" name="types/cl"/>
+            <om:OMS position="2" base="http://latin.omdoc.org/type_theories" module="TypesTerms" name="types/cl"/>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+      <definition>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="a">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/type_theories" module="TypesTerms" name="types/cl"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+              <om:OMS position="2_1" base="http://latin.omdoc.org/type_theories" module="DUNION" name="+'"/>
+              <om:OMV position="2_2" name="a"/>
+              <om:OMS position="2_3" base="http://latin.omdoc.org/type_theories" module="UNIT" name="unit'"/>
+            </om:OMA>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </definition>
+    </constant>
+    <constant name="none" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/type_theories" module="TypesTerms" name="types/cl"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+              <om:OMS position="2_1" base="http://latin.omdoc.org/type_theories" module="TypesTerms" name="types/exp"/>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_2_1" base="http://latin.omdoc.org/type_theories" module="Option" name="opt"/>
+                <om:OMV position="2_2_2" name="A"/>
+              </om:OMA>
+            </om:OMA>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </type>
+      <definition>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/type_theories" module="TypesTerms" name="types/cl"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+              <om:OMS position="2_1" base="http://latin.omdoc.org/type_theories" module="DUNION" name="inj2"/>
+              <om:OMS position="2_2" base="http://latin.omdoc.org/type_theories" module="UNIT" name="unit'"/>
+              <om:OMV position="2_3" name="A"/>
+              <om:OMS position="2_4" base="http://latin.omdoc.org/type_theories" module="UNIT" name="!"/>
+            </om:OMA>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </definition>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/type_theories?Option?none" precedence="0" fixity="prefix" arguments="1"/>
+      </notation>
+    </constant>
+    <constant name="some" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/type_theories" module="TypesTerms" name="types/cl"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+              <om:OMA position="2_1">
+                <om:OMS position="2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_1_1" base="http://latin.omdoc.org/type_theories" module="TypesTerms" name="types/exp"/>
+                <om:OMV position="2_1_2" name="A"/>
+              </om:OMA>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_2_1" base="http://latin.omdoc.org/type_theories" module="TypesTerms" name="types/exp"/>
+                <om:OMA position="2_2_2">
+                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/type_theories" module="Option" name="opt"/>
+                  <om:OMV position="2_2_2_2" name="A"/>
+                </om:OMA>
+              </om:OMA>
+            </om:OMA>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </type>
+      <definition>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/type_theories" module="TypesTerms" name="types/cl"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="a">
+                  <type>
+                    <om:OMA position="2_0_1">
+                      <om:OMS position="2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_0_1_1" base="http://latin.omdoc.org/type_theories" module="TypesTerms" name="types/exp"/>
+                      <om:OMV position="2_0_1_2" name="A"/>
+                    </om:OMA>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_2_1" base="http://latin.omdoc.org/type_theories" module="DUNION" name="inj1"/>
+                <om:OMV position="2_2_2" name="A"/>
+                <om:OMS position="2_2_3" base="http://latin.omdoc.org/type_theories" module="UNIT" name="unit'"/>
+                <om:OMV position="2_2_4" name="a"/>
+              </om:OMA>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </definition>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/type_theories?Option?some" precedence="0" fixity="prefix" arguments="1"/>
+      </notation>
+    </constant>
+    <constant name="cases" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/type_theories" module="TypesTerms" name="types/cl"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+              <om:OMA position="2_1">
+                <om:OMS position="2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_1_1" base="http://latin.omdoc.org/type_theories" module="TypesTerms" name="types/exp"/>
+                <om:OMA position="2_1_2">
+                  <om:OMS position="2_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_1_2_1" base="http://latin.omdoc.org/type_theories" module="Option" name="opt"/>
+                  <om:OMV position="2_1_2_2" name="A"/>
+                </om:OMA>
+              </om:OMA>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                <om:OMA position="2_2_1">
+                  <om:OMS position="2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_1_1" base="http://latin.omdoc.org/type_theories" module="TypesTerms" name="types/exp"/>
+                  <om:OMV position="2_2_1_2" name="A"/>
+                </om:OMA>
+                <om:OMA position="2_2_2">
+                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/type_theories" module="TypesTerms" name="types/exp"/>
+                  <om:OMV position="2_2_2_2" name="A"/>
+                </om:OMA>
+              </om:OMA>
+            </om:OMA>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </type>
+      <definition>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/type_theories" module="TypesTerms" name="types/cl"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="o">
+                  <type>
+                    <om:OMA position="2_0_1">
+                      <om:OMS position="2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_0_1_1" base="http://latin.omdoc.org/type_theories" module="TypesTerms" name="types/exp"/>
+                      <om:OMA position="2_0_1_2">
+                        <om:OMS position="2_0_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                        <om:OMS position="2_0_1_2_1" base="http://latin.omdoc.org/type_theories" module="Option" name="opt"/>
+                        <om:OMV position="2_0_1_2_2" name="A"/>
+                      </om:OMA>
+                    </om:OMA>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMBIND position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+                <om:OMBVAR>
+                  <om:OMV position="2_2_0" name="else">
+                    <type>
+                      <om:OMA position="2_2_0_1">
+                        <om:OMS position="2_2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                        <om:OMS position="2_2_0_1_1" base="http://latin.omdoc.org/type_theories" module="TypesTerms" name="types/exp"/>
+                        <om:OMV position="2_2_0_1_2" name="A"/>
+                      </om:OMA>
+                    </type>
+                    <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                      <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                    </attribution>
+                  </om:OMV>
+                </om:OMBVAR>
+                <om:OMA position="2_2_2">
+                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/type_theories" module="DUNION" name="case"/>
+                  <om:OMV position="2_2_2_2" name="A"/>
+                  <om:OMS position="2_2_2_3" base="http://latin.omdoc.org/type_theories" module="UNIT" name="unit'"/>
+                  <om:OMV position="2_2_2_4" name="A"/>
+                  <om:OMV position="2_2_2_5" name="o"/>
+                  <om:OMBIND position="2_2_2_6">
+                    <om:OMS position="2_2_2_6_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+                    <om:OMBVAR>
+                      <om:OMV position="2_2_2_6_0" name="a">
+                        <type>
+                          <om:OMA position="2_2_2_6_0_1">
+                            <om:OMS position="2_2_2_6_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                            <om:OMS position="2_2_2_6_0_1_1" base="http://latin.omdoc.org/type_theories" module="TypesTerms" name="types/exp"/>
+                            <om:OMV position="2_2_2_6_0_1_2" name="A"/>
+                          </om:OMA>
+                        </type>
+                        <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                          <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                        </attribution>
+                      </om:OMV>
+                    </om:OMBVAR>
+                    <om:OMV position="2_2_2_6_2" name="a"/>
+                  </om:OMBIND>
+                  <om:OMBIND position="2_2_2_7">
+                    <om:OMS position="2_2_2_7_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+                    <om:OMBVAR>
+                      <om:OMV position="2_2_2_7_0" name="x">
+                        <type>
+                          <om:OMA position="2_2_2_7_0_1">
+                            <om:OMS position="2_2_2_7_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                            <om:OMS position="2_2_2_7_0_1_1" base="http://latin.omdoc.org/type_theories" module="TypesTerms" name="types/exp"/>
+                            <om:OMS position="2_2_2_7_0_1_2" base="http://latin.omdoc.org/type_theories" module="UNIT" name="unit'"/>
+                          </om:OMA>
+                        </type>
+                        <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                          <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                        </attribution>
+                      </om:OMV>
+                    </om:OMBVAR>
+                    <om:OMV position="2_2_2_7_2" name="else"/>
+                  </om:OMBIND>
+                </om:OMA>
+              </om:OMBIND>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </definition>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/type_theories?Option?cases" precedence="0" fixity="prefix" arguments="1"/>
+      </notation>
+    </constant>
+  </theory>
+</omdoc>

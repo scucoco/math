@@ -1,0 +1,214 @@
+%* CASL (without subsorting, without datatypes)
+   infix and precedence declarations missing everywhere *%
+
+%namespace "http://latin.omdoc.org/logics/syntax".
+
+
+%sig CASLSorts = {
+   sort     : type.
+   
+   %{ %% pattern for sorts, ie. S : sort.
+	%pattern sorts = { 
+	  _ : sort. 
+	}.
+	}%
+
+   sortlist : type.
+   
+	%{ %% pattern for list of sorts (typed by sortlist), ie. SS : sortlist.
+	%pattern sortlists = { 
+	  _ : sortlist. 
+	}.
+	}%
+   
+   sortnil  : sortlist.
+   *        : sort -> sortlist -> sortlist.      %infix right 30 *.   
+
+}.
+
+%sig CASLSorted = {
+   %include CASLSorts.
+   o    : type.
+   
+	%{ %% pattern for formulas typed by o.
+	%pattern form = { 
+	  _ : o. 
+	}.
+	}%
+   
+   wff  : o -> type.        %prefix 1 wff.
+   
+	%{ %% pattern for well-formed formulas, ie. (ax : wff F) for some formula F:o
+	%pattern wffs = [F : o] { 
+	  _ : wff F. 
+	}. 
+	}%
+   
+   ded  : o -> type.        %prefix 0 ded.
+   
+	%{ %% pattern for deducibility of formulas, ie. (ax : ded F) for some formula F:o
+	%pattern axiom = [F : o] { 
+	  _ : ded F. 
+	}. 
+	}%   
+
+   tm     : type.
+   
+   %{ %% pattern for terms (typed by tm)
+	%pattern term = { 
+	  _ : tm.  
+	}.
+	}%
+   
+   tmlist : type.
+   
+	%{ %% pattern for list of terms (typed by tmlist).
+	%pattern termlist = { 
+	  _ : tmlist.  
+	}.	
+	}%
+   
+   tmnil  : tmlist.
+   ,      : tm -> tmlist -> tmlist.       %infix right 30 , .
+   >      : tm -> tmlist = [x] x , tmnil. %postfix 35 >.
+
+   %************  2.3.1. Sorts ******************%
+   #      : tm -> sort -> type.                %infix none 25 #.
+	
+   %{ %% pattern for relating a term with a sort using #.
+	%pattern typingTerm = [t : tm] [s : sort] {
+	  _ : t # s.
+	}.
+   }%
+
+   ##     : tmlist -> sortlist -> type.       %infix none 25 ##.
+   %{ %% pattern for relating a list of terms with a list of sorts using ##.
+   %pattern typingList= [tt : tmlist] [ss : sortlist] {
+	  _ : tt ## ss.
+	}.
+	}%
+
+   % ##nil  : tmnil ## sortnil.
+   % ##cons : X # S -> XX ## SS -> (X , XX) ## (S * SS). %infix right 25 ##cons.
+
+   %************  2.3.2. Operations *%
+   =>!  : sortlist -> sort -> type.       %infix none 25 =>! . 
+	%{	%% pattern for total functions, ie. f : SS =>! S. for a list SS of sorts and a sort S. 
+	%pattern total = [ss : sortlist] [s : sort] {
+		_ : ss =>! s.
+	}.
+	}%
+   
+   =>?  : sortlist -> sort -> type.       %infix none 25 =>? .
+   %{ %% pattern for partial functions, ie. f : SS =>? S. for a list SS of sorts and a sort S.
+	%pattern partial = [ss : sortlist] [s : sort] {
+	  _ : ss =>? s.
+	}.
+	}%
+   
+   =>   : sortlist -> sort -> type.       %infix none 25 =>  .   
+   
+   !=>  : SS =>! S -> SS => S.
+   ?=>  : SS =>? S -> SS => S.
+   @    : SS => S -> tmlist -> tm.        %infix none 25 @.
+   @!   : SS =>! S -> tmlist -> tm 
+        = [f][tl] (!=> f) @ tl.           %infix none 25 @!.
+   !<   : SS =>! S -> tmlist -> tm 
+        = [f][tl] (!=> f) @ tl.           %infix none 25 !<.
+   @!1  : (S * sortnil) =>! T -> tm -> tm 
+        = [f][s] f @! (s , tmnil).        %infix none 25 @!1.
+   @?   : SS =>? S -> tmlist -> tm 
+        = [f][tl] (?=> f) @ tl.           %infix none 25 @?.
+   ?<   : SS =>? S -> tmlist -> tm 
+        = [f][tl] (?=> f) @ tl.           %infix none 25 ?<.
+   @?1  : (S * sortnil) =>? T -> tm -> tm 
+        = [f][s] f @? (s , tmnil).        %infix none 25 @?1.
+%   #@   : {F: SS => S} TT ## SS -> (F @ TT) # S.
+%   #@1  : {F: S * sortnil => T} X # S -> (F @ (X , tmnil)) # T
+%       = [F][p] #@ F (p ##cons ##nil).
+
+   %**          a. Operation declarations *******************
+   ************ b. Operation definitions ********************
+
+   ************ 2.3.3. Predicates *%
+   pred   : sortlist -> type.                 %prefix 25 pred.
+	%{   %%pattern for predicates taking a list of sorted arguments, ie. p : pred SS, for some list SS of sorts.
+	%pattern predicate = [ss : sortlist] {
+	  _ : pred ss.
+	}.
+	}%
+   
+   @pred  : pred SS -> tmlist -> o.
+   *< : pred SS -> tmlist -> o 
+      = [p][xx] @pred p xx. %infix none 25 *<.
+   wff_@pred : {P : pred SS} TT ## SS -> wff (@pred P TT).
+
+   %*********** a. Predicate declarations ******************
+   ************ b. Predicate definitions *******************
+   ************ 2.3.4. Datatypes ***************************
+   ************ 2.3.5. Sort generation *********************
+   ************ 2.4. Variables ****************************%
+
+   Var : sort -> type.   
+   '   : Var S -> tm.      %prefix 100 '.
+   #'  : {X : Var S} ' X # S. 
+
+   then-when-else : sort -> tm -> o -> tm -> tm.
+
+%* 2.5. Axioms *%
+   and : o -> o -> o.                 %infix none 25 and.
+   or : o -> o -> o.                  %infix none 25 or.          
+   imp : o -> o -> o.                 %infix none 20 imp.
+   if : o -> o -> o.                  %infix none 20 if.
+   equiv : o -> o -> o.               %infix none 20 equiv.
+   not   : o -> o.                    %prefix 45 not.
+   true  : o.
+   false : o.
+   =e=   : tm -> tm -> o.             
+%  =e=   : sort -> tm -> tm -> o.  
+   forall  : (Var S -> o) -> o.
+   exists  : (Var S -> o) -> o.
+   exists! : (Var S -> o) -> o
+           = [f : Var S -> o] exists [x : Var S] ((f x) and (forall [y : Var S] ((f y) imp (=e= (' y) (' x))))).
+    
+   def      : tm -> o 
+            = [x] =e= x x.            %prefix 15 def.
+%           = [S][x] =e= S x x.       %prefix 15 def.
+%    def*     : {SS : sortlist} tmlist -> o.   %%           %prefix 15 def*.
+%    def*nil  : ded (def* sortnil tmnil).
+%    def*cons : ded (def S T) -> ded (def* SS TT) -> ded (def* (S * SS) (T , TT)).
+
+   == : tm -> tm -> o
+      = [x][y] ((def x) imp (=e= x y)) and ((def y) imp (=e= x y)).
+%       sort -> tm -> tm -> o
+%     = [s][x][y] (=e= s x y) or (not (def s x) and not (def s y)).   
+
+
+%* Well-formedness *%
+%   wff_forall  : ({x : Var S} wff (F x)) -> wff forall [x : Var S] (F x).
+%   wff_exists  : ({x : Var S} wff (F x)) -> wff exists [x : Var S] (F x).
+%   wff_exists! : ({x : tm} wff (F x)) -> wff exists! [x : Var S] (F (' x)).
+   wff_and   : wff A -> wff B -> wff A and B. 
+   wff_or    : wff A -> wff B -> wff A or B.
+   wff_imp   : wff A -> wff B -> wff A imp B.
+   wff_if    : wff A -> wff B -> wff A if B.
+   wff_equiv : wff A -> wff B -> wff A equiv B.
+   wff_not   : wff F -> wff not F.
+   wff_true  : wff true.
+   wff_false : wff false.
+   wff_=e=   : A # S -> B # S -> wff (=e= A B).
+%  wff_=e=   : A # S -> B # S -> wff (=e= S A B).
+   wff_def   : A # S -> wff (def A)
+             = [p] wff_=e= p p.
+   wff_==    : A # S -> B # S -> wff (==  A B)
+             = [p][q]
+               wff_and (wff_imp (wff_def p)
+                                (wff_=e= p q) )
+                       (wff_imp (wff_def q)
+                                (wff_=e= p q) ).   
+}.
+
+%sig Typing = {
+   %include CASLSorted.
+   %% everything related to #
+}.

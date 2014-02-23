@@ -1,0 +1,80 @@
+%* Views representing the Curry-Howard isomorphism between categories and proof
+   systems. Categories are implemented in DFOL and proof systems in LF directly. *%
+
+%namespace "http://latin.omdoc.org/translations/prop_cat".
+%namespace syn = "../logics/syntax".
+%namespace pf = "../logics/proof_theory".
+%namespace cat = "../category_theory/dfol_based".
+
+
+%* View from a proof system containing formulas and their proofs to a category 
+   with a top. Formulas are mapped to objects; proofs for a formula are mapped 
+   to morphisms from top to the corresponding object. *%
+%view Base : syn.Logic -> cat.CatTop = {
+  o   := Obj.
+  ded := [A] top --> A.
+}.   
+%view BasePF : pf.Base -> cat.CatTop = {
+  %include Base.
+}.
+
+%* View from a proof system with truth to a category with a top. Truth is mapped to top. *%
+%view Truth : syn.Truth -> cat.CatTop  = {
+  %include Base.
+  true  := top.
+}.
+%view TruthPF : pf.Truth -> cat.CatTop  = {
+  %include BasePF.
+  %include Truth.    
+  trueI := id top.
+}.
+
+%* View from a proof system with conjunction to a category with products. 
+   A conjunction of two formulas is mapped to the product of the respective 
+   objects. *%
+%view Conj : syn.CONJ -> cat.ProdTop = {
+  %include Base cat_top.
+  and := [A][B] A * B.
+}.
+%view ConjPF : pf.CONJ -> cat.ProdTop = {
+  %include BasePF cat_top.
+  %include Conj.    
+  andI  := [A][B][f : top --> A][g : top --> B] f *' g.
+  andEl := [A][B][f : top --> A * B] f ; (pi1 A B).
+  andEr := [A][B][f : top --> A * B] f ; (pi2 A B).  
+}.
+
+%view Disj : syn.DISJ -> cat.CoprodTop = {
+  %include Base cat_top.
+  or := [A][B] A + B.
+}.
+
+%{
+This view cannot be completed because the deduction theorem is needed for categories.
+It should be proved using the Twelf meta-theory and then used in these views.
+That will require to integrate module system and meta-theory though.
+%view DisjPF : pf.DISJ -> cat.CoprodTop = {
+  %include BasePF cat_top.
+  %include Disj.    
+  orIl := [A][B][f : top --> A] f ; (in1 A B).
+  orIr := [B][A][f : top --> B] f ; (in2 A B).
+  orE  := ?? 
+}.
+}%
+
+%view Imp : syn.IMP -> cat.ExpTop = {
+  %include Base prod_top.cat_top.
+  imp  := [Y][Z] Z ^ Y.
+}.
+%{
+This view cannot be completed because the deduction theorem is needed for categories.
+It should be proved using the Twelf meta-theory and then used in these views.
+That will require to integrate module system and meta-theory though.
+%view ImpPF : pf.IMP -> cat.ExpTop = {
+  %include Imp.
+  %include BasePF prod_top.cat_top.
+
+  impI := ??
+  impE := [A][B][f : top --> B ^ A] [g : top --> A] (f *' g) ; (eval B A).
+}.
+}%

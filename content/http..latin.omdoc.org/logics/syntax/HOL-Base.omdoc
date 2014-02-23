@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
+  <theory name="HOL-Base" base="http://latin.omdoc.org/logics/syntax" meta="http://cds.omdoc.org/urtheories?LF">
+    <import from="http://latin.omdoc.org/type_theories?SimpTypes"> </import>
+    <constant name="o" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/type_theories" module="TypesTerms" name="types/cl"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="⊦" role="type">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMA position="1">
+              <om:OMS position="1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+              <om:OMS position="1_1" base="http://latin.omdoc.org/type_theories" module="TypesTerms" name="types/exp"/>
+              <om:OMS position="1_2" base="http://latin.omdoc.org/logics/syntax" module="HOL-Base" name="o"/>
+            </om:OMA>
+            <om:OMS position="2" base="http://cds.omdoc.org/urtheories" module="Typed" name="type"/>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/syntax?HOL-Base?⊦" precedence="0" fixity="prefix" arguments="0"/>
+      </notation>
+    </constant>
+  </theory>
+</omdoc>

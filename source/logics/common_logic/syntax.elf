@@ -1,0 +1,35 @@
+%namespace "http://latin.omdoc.org/logics/syntax".
+
+
+%sig BaseCL = {
+  %include Base.
+  i : type.
+  sq   : type.
+
+  arg    : type.
+  nil    : arg.
+  cons   : i  -> arg -> arg.   
+  app    : sq -> arg -> arg.
+
+  % example
+  % func_symb : arg -> i.
+  % pred_symb : arg -> o.
+}.
+
+%view UnivToInd : BaseFOL -> BaseCL = {i := i. }.
+%view UnivToSeq : BaseFOL -> BaseCL = {i := sq.}.
+
+%sig CL = {
+  %include BaseCL.
+  %include PL.
+  %struct iforall : Forall = {%include UnivToInd.}    %open forall.
+  %struct sforall : Forall = {%include UnivToSeq.}    %open forall %as foralls.
+
+  %struct iexists : Exists = {%include UnivToInd.}    %open exists.
+  %struct sexists : Exists = {%include UnivToSeq.}    %open exists %as existss.
+
+  %struct equal : Equal = {%include UnivToInd.}       %open eq.
+}.
+
+
+

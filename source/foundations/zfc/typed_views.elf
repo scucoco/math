@@ -1,0 +1,138 @@
+%* This file contains views that prove that inclusions into TypedZF are conservative. *%
+
+%namespace "http://latin.omdoc.org/foundations/zfc".
+
+%view _UQ : UniversalQuantifier -> TypedZFBase = {
+   tforall  := [A] [F] forall [x] A x Imp [p] (F (celem x p)).
+   tforallI := [A][F] [p] forallI [x] ImpI [q] p (celem x q).
+   tforallE := [A][F] [p][a] EqcongEl F ceq_which (ImpE (forallE p (cwhich a)) (cwhy a)).
+}.
+
+%view _EQ : ExistentialQuantifier -> TypedZFBase = {
+   texists  := [A] [F] exists [x] A x And [p] (F (celem x p)).
+   texistsI := [A][F] [a][p] existsI (cwhich a) (AndI (cwhy a) (EqcongEr F ceq_which p)).
+   texistsE := [A][F][C] [p][Q] existsE p [x][r] (Q (celem x (AndEl r)) (AndEr r)).
+}.
+
+%view _I : ImageTypes -> TypedZFBase = {
+   Image := [A] [F] replace ([x][y] x in A And [p] y eq (F (elem x p))) A
+                (forallI [x] impI [q]
+                   existsUI (existsI (F (elem x q)) (AndI q refl))
+                            [u][v][r][s] trans (AndEr r) (trans (eq_why F) (sym (AndEr s)))
+                ).
+   ImageI := [A][F] [a] equivEl (forallE replace_prop (F a)) (existsI (which a) (andI (why a) (AndI (why a) (EqcongF F (sym eq_which) )  )   )).
+
+   ImageI' := [A] [a][f] equivEl (forallE replace_prop  (f a)) (existsI (which a) (andI (why a) (AndI (why a) (EqcongF f (sym eq_which) )  )   )).
+   ImageE := [A][F][C] [b][f] existsE (equivEr (forallE replace_prop (which b)) (why b)) 
+           ([x][q] f (elem x (AndEl (andEr q))) (sym (AndEr (andEr q)))).
+}.
+
+%view _BU : BigUnion -> ImageTypes = {
+   Bigunion  := [A] [F] bigunion (Image F).
+   BigunionI := [X][A][F] [a][p] bigunionI p (ImageI a).
+   BigunionE := [X][A][F][C] [p][f] existsE (bigunionE p) [x][q: ded x in Image F and X in x]
+           ImageE (elem x (andEl q)) [a][r]
+           f a (in_eq (andEr q) (sym (trans r eq_which))).
+}.
+
+%view _BI : BigInter -> ImageTypes = {
+   %* Biginter F = \bigcap [x] F x *%
+   Biginter  := [A] [F] biginter (Image F).
+   BiginterE := [X][A][F] [p][a] biginterE p (ImageI a).
+   BiginterI := [X][A][F] [p][f] existsE p [w][q] biginterI (existsI (F (elem w q)) (ImageI (elem w q)))
+         ([b][r: ded b in Image F] ImageE (elem b r) [a][s] in_eq (f a) (trans s eq_which)).  
+}.
+
+%view _P : Products -> TypedZFBase = {
+   Pair:= [A][B] [a][b] elem (pair (which a) (which b)) (prodI (why a) (why b)).
+   Pi1 := [A][B] [u] elem (pi1 (which u)) (prodEl (why u)).
+   Pi2 := [A][B] [u] elem (pi2 (which u)) (prodEr (why u)).
+   conv_Pi1  := [A][B][X][Y] trans3 eq_which (congF eq_which pi1) conv_pi1.
+   conv_Pi2  := [A][B][X][Y] trans3 eq_which (congF eq_which pi2) conv_pi2.
+   conv_Pair := [A:i][B:i][U: Elem (A prod B)]
+               trans3 eq_which
+                      (trans (congF eq_which ([x] pair x (which (elem (pi2 (which U)) (prodEr (why U))))))
+                             (congF eq_which ([y] pair (pi1 (which U)) y))
+                      )
+                     ((existsE (prodE (why U)) ([a][p] existsE p ([b][q] conv_pair (existsI a (existsI b (andEr q))))))).
+}.
+
+%view _F : PredSubTypes -> TypedZFBase = {
+   predsub := [A][F] filter A ([x] x in A And [p] F (elem x p)).
+   predsubI  := [A][F] [X][p] elem (which X) (filterI (why X) (AndI (why X) (EqcongEr F eq_which p))).
+   predsubEl := [A][F] [X] elem (which X) (filterEl (why X)).
+   predsubEr := [A][F] [X] EqcongEl F eq_why' (AndEr (filterEr (why X))).
+   conv_predsubEI := [A][F][X][P] trans eq_which eq_which.
+   conv_predsubIE := [A][F][X][P] trans eq_which eq_which.
+   eq_predsub     := [A][F][X][Y][p] trans3 (sym eq_which) p eq_which.
+}.
+
+%sig ConditionalTermsAux = {
+   %include Powersets.
+
+   caseaux : {f:o}{g:o} (ded f -> Elem A) -> (ded g -> Elem A) -> Powerset A
+         = [f][g][X][Y] those ([x:Elem A] (f And [p] x Eq (X p)) or (g And [p] x Eq (Y p))).
+   lem1  : {p: ded F} {q: ded not G} ded (caseaux F G X Y) ⚌ ↑ (X p)
+            = [p][q] ⊆antisym (⊆‍I [a][r] (eq_in (orE (thoseE r) 
+                                                ([s] trans (AndEr s) (proofirrel X))
+                                                ([s] notE' (AndEl s) q)
+                                           ) ↑I
+                                    )
+                        )
+                        (⊆‍I [a][r] thoseI (orIl (AndI p (↑E r)))).
+   lem1' : {p: ded F}{q: ded not G} ded bigunion (which (caseaux F G X Y)) eq which (X p)
+         = [p][q] trans (congF (trans (lem1 p q) eq_which) bigunion) bigsingE.
+   lem2  : {p: ded G}{q: ded not F} ded (caseaux F G X Y) ⚌ ↑ (Y p)
+         = [p][q] ⊆antisym (⊆‍I [a][r] (eq_in (orE (thoseE r) 
+                                                ([s] notE' (AndEl s) q)
+                                                ([s] trans (AndEr s) (proofirrel Y))
+                                           ) ↑I
+                                    )
+                        )
+                        (⊆‍I [a][r] thoseI (orIr (AndI p (↑E r)))).
+   lem2' : {p: ded G}{q: ded not F} ded bigunion (which (caseaux F G X Y)) eq which (Y p)
+         = [p][q] trans (congF (trans (lem2 p q) eq_which) bigunion) bigsingE.
+}.
+
+%view _C : ConditionalTerms -> ConditionalTermsAux = {
+    case := [F][A][G][X][Y][exh][cons] elem
+             (bigunion (which (caseaux F G X Y)))
+             (orE exh
+               ([p: ded F] eq_in (lem1' p (notI [q][_] notE' (andI p q) cons)) (why (X p)))
+               ([p: ded G] eq_in (lem2' p (notI [q][_] notE' (andI q p) cons)) (why (Y p)))
+             ).
+    case1 := [F][A][G][X][Y][P][Q] [p] trans eq_which (lem1' p (notI [q][_] notE' (andI p q) Q)).
+    case2 := [F][A][G][X][Y][P][Q] [q] trans eq_which (lem2' q (notI [p][_] notE' (andI p q) Q)).
+}.
+
+%view _DU : DisjUnion -> ConditionalTerms = {
+   Injl := [A][B] [a] elem (pair 0 (which a)) (disjUnionIl (why a)).
+   Injr := [A][B] [b] elem (pair 1 (which b)) (disjUnionIr (why b)).
+   Case := [A][B][C] [x][f][g] case
+           ([p: ded pi1 (which x) eq 0] f (elem (pi2 (which x))
+              (orE (disjUnionE (why x)) ([q] andEr q) ([q] 0neq1E (trans (sym p) (andEl q)))) 
+           ))
+           ([p: ded pi1 (which x) eq 1] g (elem (pi2 (which x))
+              (orE (disjUnionE (why x)) ([q] 0neq1E (trans (sym (andEl q)) p)) ([q] andEr q))
+           ))
+           (orE (disjUnionE (why x)) ([p] orIl (andEl p)) ([p] orIr (andEl p)))
+           (notI [p][_] 0neq1E (trans (sym (andEl p)) (andEr p))).
+   conv_Injl := [A][B][C][X][F][G] trans (case1 (trans (congF eq_which pi1) conv_pi1))
+                             (EqCongF F (trans3 eq_which (congF eq_which pi2) conv_pi2)).
+   conv_Injr := [A][B][C][X][F][G] trans (case2 (trans (congF eq_which pi1) conv_pi1))
+                             (EqCongF G (trans3 eq_which (congF eq_which pi2) conv_pi2)).
+   DisjUnionE := [A][B][C] [x][f][g] orE (disjUnionE (why x))
+       ([p] f (elem (pi2 (which x)) (andEr p))
+              (sym (trans4 eq_which
+                           (congF eq_which ([u] pair 0 u))
+                           (congF (sym (andEl p)) ([u] pair u (pi2 (which x))))
+                           (conv_pair (disjUnionE' (why x)))
+              ))
+       )([p] g (elem (pi2 (which x)) (andEr p))
+               (sym (trans4 eq_which
+                           (congF eq_which ([u] pair 1 u))
+                           (congF (sym (andEl p)) ([u] pair u (pi2 (which x))))
+                           (conv_pair (disjUnionE' (why x)))
+               ))
+       ).
+}.

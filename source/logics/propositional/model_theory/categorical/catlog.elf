@@ -1,0 +1,68 @@
+%* DFOL signature for Categorical Logic (= preorder-enriched categories with one designated object)
+   @author Florian Rabe *%
+
+%namespace "http://latin.omdoc.org/logics/model_theory/categorical".
+%namespace pf = "../proof_theory".
+
+%sig Category = {
+   %meta pf.DFOL.
+
+   %* sort of objects *%
+   ob : Sort.
+   %* terms of sort ob in DFOL *%
+   Ob = Terms ob.
+   %* mor A B: sort of morphisms form A to B *%
+   mor : Ob -> Ob -> Sort.
+   %* A => B: terms of this sort in DFOL *%
+   => = [a:Ob] [b:Ob] Terms (mor a b).	%infix none 16 =>.
+   %* identity *%
+   id : {A : Ob} (A => A).
+   %* composition *%
+   ; : A => B -> B => C -> A => C.	%infix left 12 ;.
+   
+   %% Laws
+   law_id_1 : |- forall [f: A => B] id A ; f == f.
+   law_id_2 : |- forall [f: B => A] f ; id A == f.
+   law_assoc   : |- forall [f: A => B] forall [g: B => C] forall [h: C => D] f ; (g ; h) == (f ; g) ; h.
+
+   law_assoc'  : |- F ; (G ; H) == (F ; G) ; H = forallE (forallE (forallE law_assoc F) G) H. 
+   law_assoc'4 : |- (F ; G) ; (H ; K) == F ; (G ; H) ; K
+               = trans law_assoc' (cong ([x] x ; K) (sym law_assoc')).
+
+   %% abbreviations
+   isos : A => B -> B => A -> Form = [f][g] f ; g == id A and g ; f == id B.
+   iso  : A => B -> Form = [f] exists [g] isos f g.
+   ~    : Ob -> Ob -> Form = [a][b] exists [f: a => b] iso f. %infix none 16 ~.
+   ~_refl : |- A ~ A
+          = existsI (id A) (existsI (id A) (andI (forallE law_id_1 (id A)) (forallE law_id_1 (id A)))).
+   ~_sym  : |- A ~ B -> |- B ~ A
+          = [p1] existsE p1 [f][p2] existsE p2 [f'][p: |- isos f f'] existsI f' (existsI f (andI (andEr p) (andEl p))).
+   ~_trans: |- A ~ B -> |- B ~ C -> |- A ~ C
+          = [p1][q1] existsE p1 [f][p2] existsE p2 [f'][p: |- isos f f']
+                     existsE q1 [g][q2] existsE q2 [g'][q: |- isos g g']
+                     existsI (f ; g) (existsI (g' ; f') (andI
+                       (trans law_assoc'4
+                       (trans (cong ([x] f ; x ; f') (andEl q))
+                       (trans (cong ([x] x ; f') (forallE law_id_2 f))
+                              (andEl p)
+                       )))
+                       (trans law_assoc'4
+                       (trans (cong ([x] g' ; x ; g) (andEr p))
+                       (trans (cong ([x] x ; g) (forallE law_id_2 g'))
+                              (andEr q)
+                       )))
+                     )).
+}.
+
+%sig CatLog = {
+   %meta pf.DFOL.
+   %include Category.
+
+   %* predicate for rewrites/preordering *%
+   ~> : {f : A => B} {g : A => B} Form.	%infix none 10 ~>.
+   %* distinguished object for the smallest designated truth value *%
+   Des : Ob.
+   
+   law_refl : |- forall [f: A => B] f ~> f.
+   law_trans : |- forall [f: A => B] forall [g: A => B] forall [h: A => B] f ~> g and g ~> h impl f ~> h.
+}.

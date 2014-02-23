@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
+  <theory name="DepTypes" base="http://latin.omdoc.org/type_theories" meta="http://cds.omdoc.org/urtheories?LF">
+    <metadata>
+      <meta property="http://purl.org/dc/terms?_?description">
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMSTR>Barendregt's rule (star, star): function types/dependent types (terms occuring in types, terms applied to terms)</om:OMSTR>
+        </om:OMOBJ>
+      </meta>
+    </metadata>
+    <import from="http://latin.omdoc.org/type_theories?KindsTypesTerms"> </import>
+    <import name="deptypes" from="http://latin.omdoc.org/type_theories?DepFun">
+      <import name="domain" from="http://latin.omdoc.org/type_theories?Level">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/type_theories" module="KindsTypesTerms" name="types"/>
+        </definition>
+      </import>
+      <import name="scope" from="http://latin.omdoc.org/type_theories?Level">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/type_theories" module="KindsTypesTerms" name="types"/>
+        </definition>
+      </import>
+    </import>
+  </theory>
+</omdoc>

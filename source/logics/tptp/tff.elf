@@ -1,0 +1,139 @@
+%*
+   Syntax of typed FOL in the TPTP family of languages
+   @author Florian Rabe
+   based on
+    - "The TPTP Typed First-order Form and Arithmetic" (TFF) by Sutcliffe, Schulz, Claessen, Baumgartner
+    - the polymorpic extension PFF of TFF, by Jasmin Blanchette, Andrei Paskevich, and others
+   proof rules are omitted, the semantics is implicitly classical first-order logic
+*%
+
+%namespace "http://latin.omdoc.org/logics/tptp".
+
+%* the type system
+   This is in a separate signature so that it can be shared between the first- and the higher-order languages.
+   We use a Church-style formalization where terms have a unique intrinsic type.
+*%
+%sig Types = {
+  %* types *%
+  $tType: type.
+  %* terms of a type *%
+  $tm   : $tType -> type.                %prefix 2 $tm.
+  %* the predefined base type *%
+  $i    : $tType.
+}.
+
+%* TFF: sorted first-order logic *%
+%sig TFF = {
+   
+  %include Types. 
+
+  %* formulas
+     We use external formulas, i.e., $form:type is a meta-level type.
+     The TFF reference would suggest internal formulas, i.e., $o:$tType.
+     But external formulas better match the first-order spirit of the language and in fact appear to be intention of the authors,
+     who explicitly exclude the consequences of internal formulas (e.g., quantification over formulas).
+  *%
+  $form : type.
+
+  %* typed equality *%
+  ==  : $tm A -> $tm A -> $form.                 %infix none 10 ==.
+  !=  : $tm A -> $tm A -> $form.                 %infix none 10 !=.
+
+  %* typed quantification *%
+  ! : ($tm A -> $form) -> $form.                 %prefix 5 !.
+  ? : ($tm A -> $form) -> $form.                 %prefix 5 ?.
+
+  %* importing untyped first-order logic (FOF)
+     The unnamed universe of FOF ($term) is instantiated with the type $tm $i.
+     This formally recovers FOF as a sublanguage of TFF.
+  *%
+  %struct fof : FOF = {
+     $term := $tm $i.
+     $form := $form.
+     ==    := [a: $tm $i][b: $tm $i] a == b.
+     !=    := [a: $tm $i][b: $tm $i] a != b.
+     !     := [f: $tm $i -> $form] ! f.
+     ?     := [f: $tm $i -> $form] ? f.
+  } %open $false $true & | ~ => <= <=> <~> ~& ~| $istrue.
+
+%% legal declarations in theories
+%% types
+%% t: $tType.
+%{ 
+   %pattern types = {t : $tType.}.
+}%   
+
+%% typed function symbols
+%% f : $tm A_1 -> ... -> $tm A_n -> $tm A.  for some A_1:$tType, ..., A_n:$tType, A:$tType
+%{ 
+   %pattern typedFun = [n : Nat][tps : $tType ^ n][A : $tType] {
+     f : (⟨i : 1.. n⟩ $tm (ind tps i)) -> $tm A.
+     %%Alternatively, f : ([x] $tm x) @ tps -> $tm A.
+   }.
+}%
+
+%% predicate symbols
+%% p : $tm A_1 -> ... -> $tm A_n -> $form.  for some A_1:$tType, ..., A_n:$tType
+%{ 
+   %pattern typedPred = [n : Nat][tps : $tType ^ n] {
+     f : (⟨i : 1.. n⟩ $tm (ind tps x)) -> $form.
+     %%Alternatively, f : ([x] $tm x) @ tps -> $form.
+   }.
+}%   
+
+%% axioms/conjectures etc.
+%% a : $istrue F. for some F : $form
+%{
+   %include %pattern FOF.axioms.
+}%   
+}.
+
+%* PFF: the extension of TFF with shallow polymorphism *%
+%sig PFF = {
+   %include TFF.
+
+   %* quantification over types
+      The TPTP syntax uses the same symbols (here: ! and ?) both for operators on terms and their analogs on types.
+      Because Twelf does not support overloading, we add use ° to distinguish the ones on types. The translation from TPTP to LF has to disambiguate them.
+   *%
+   !° : ($tType -> $form) -> $form.              %prefix 5 !°.
+   ?° : ($tType -> $form) -> $form.              %prefix 5 ?°.
+   
+%% legal declarations in theories
+%% type operators
+%% t: $tType -> ... -> $tType -> $tType.
+%{ 
+   %pattern typeOp = [n : Nat] {
+     t : $tType$ ^ n -> $tType.
+   }.
+}%
+
+%% polymorphic function symbols
+%% f : {a_1:$tType} ... {a_m:$tType} $tm (A_1 a1 ... am) -> ... -> $tm A_n -> $tm A.
+%%    for some G |- A_1:$tType, ..., G |- A_n:$tType, G |- A:$tType where G is the context a_1:$tType,...,a_m:$tType
+%%    or (using pattern notation) for some m: Nat, n: Nat, A: ({a: $tType ^ m} $tType) ^ n
+%{ 
+   %pattern polyFun = [m : Nat][n : Nat][argTypes : ($tType ^ m -> $tType) ^ n][A : $tType] { 
+     f : {params : $tType ^ m} ⟨i : 1.. n⟩ $tm ((ind argTypes i) params) -> $tm (A params).
+     %% Alternatively, 
+     %% f : {params : $tType ^ m} (([argType] $tm (argType params)) @ argTypes) -> $tm (A params).
+   }.
+}%
+
+%% polymorphic predicate symbols
+%% p : {a_1:$tType} ... {a_m:$tType} $tm A_1 -> ... -> $tm A_n -> $form.
+%%   for some G |- A_1:$tType, ..., G |- A_n:$tType where G is the context a_1:$tType,...,a_m:$tType
+%{ 
+   %pattern polyPred = [m : Nat][n : Nat][argTypes : (($tType ^ m) -> $tType) ^ n] { 
+     p : {params : $tType ^ m} (⟨i : 1.. n⟩ $tm (ind argTypes i) params) -> $form. 
+     %%Alternatively,   
+     %%p : {params : $tType ^ m} (([argType] $tm (argType params)) @ argTypes) -> $form.
+   }.
+}%   
+
+%% axioms/conjectures etc.
+%% a : $istrue F. for some F : $form
+%{ 
+   %include %pattern TFF.FOF.axioms.
+}%   
+}.

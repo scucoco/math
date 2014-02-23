@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
+  <theory name="Adjunction" base="http://latin.omdoc.org/category_theory/dfol_based" meta="http://latin.omdoc.org/logics/proof_theory?DFOL">
+    <import name="C" from="http://latin.omdoc.org/category_theory/dfol_based?Category"> </import>
+    <import name="D" from="http://latin.omdoc.org/category_theory/dfol_based?Category"> </import>
+    <import name="F" from="http://latin.omdoc.org/category_theory/dfol_based?Functor">
+      <import name="dom" from="http://latin.omdoc.org/category_theory/dfol_based?Category">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="Adjunction" name="D"/>
+        </definition>
+      </import>
+      <import name="cod" from="http://latin.omdoc.org/category_theory/dfol_based?Category">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="Adjunction" name="C"/>
+        </definition>
+      </import>
+    </import>
+    <import name="G" from="http://latin.omdoc.org/category_theory/dfol_based?Functor">
+      <import name="dom" from="http://latin.omdoc.org/category_theory/dfol_based?Category">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="Adjunction" name="C"/>
+        </definition>
+      </import>
+      <import name="cod" from="http://latin.omdoc.org/category_theory/dfol_based?Category">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="Adjunction" name="D"/>
+        </definition>
+      </import>
+    </import>
+    <import name="IC" from="http://latin.omdoc.org/category_theory/dfol_based?IdFunctor">
+      <import name="cat" from="http://latin.omdoc.org/category_theory/dfol_based?Category">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="Adjunction" name="C"/>
+        </definition>
+      </import>
+    </import>
+    <import name="ID" from="http://latin.omdoc.org/category_theory/dfol_based?IdFunctor">
+      <import name="cat" from="http://latin.omdoc.org/category_theory/dfol_based?Category">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="Adjunction" name="D"/>
+        </definition>
+      </import>
+    </import>
+    <import name="FG" from="http://latin.omdoc.org/category_theory/dfol_based?Comp">
+      <import name="C" from="http://latin.omdoc.org/category_theory/dfol_based?Category">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="Adjunction" name="C"/>
+        </definition>
+      </import>
+      <import name="D" from="http://latin.omdoc.org/category_theory/dfol_based?Category">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="Adjunction" name="D"/>
+        </definition>
+      </import>
+      <import name="E" from="http://latin.omdoc.org/category_theory/dfol_based?Category">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="Adjunction" name="C"/>
+        </definition>
+      </import>
+      <import name="f" from="http://latin.omdoc.org/category_theory/dfol_based?Functor">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="Adjunction" name="G"/>
+        </definition>
+      </import>
+      <import name="g" from="http://latin.omdoc.org/category_theory/dfol_based?Functor">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="Adjunction" name="F"/>
+        </definition>
+      </import>
+    </import>
+    <import name="GF" from="http://latin.omdoc.org/category_theory/dfol_based?Comp">
+      <import name="C" from="http://latin.omdoc.org/category_theory/dfol_based?Category">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="Adjunction" name="D"/>
+        </definition>
+      </import>
+      <import name="D" from="http://latin.omdoc.org/category_theory/dfol_based?Category">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="Adjunction" name="C"/>
+        </definition>
+      </import>
+      <import name="E" from="http://latin.omdoc.org/category_theory/dfol_based?Category">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="Adjunction" name="D"/>
+        </definition>
+      </import>
+      <import name="f" from="http://latin.omdoc.org/category_theory/dfol_based?Functor">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="Adjunction" name="F"/>
+        </definition>
+      </import>
+      <import name="g" from="http://latin.omdoc.org/category_theory/dfol_based?Functor">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="Adjunction" name="G"/>
+        </definition>
+      </import>
+    </import>
+    <import name="eta" from="http://latin.omdoc.org/category_theory/dfol_based?NatTrans">
+      <import name="nt_dom" from="http://latin.omdoc.org/category_theory/dfol_based?Functor">
+        <definition>
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/mmt" module="mmt" name="composition"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/category_theory/dfol_based" module="Composition"/>
+            <om:OMS position="2" base="http://latin.omdoc.org/category_theory/dfol_based" module="Adjunction" name="FG"/>
+          </om:OMA>
+        </definition>
+      </import>
+      <import name="nt_cod" from="http://latin.omdoc.org/category_theory/dfol_based?Functor">
+        <definition>
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/mmt" module="mmt" name="composition"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/category_theory/dfol_based" module="IsFunctor"/>
+            <om:OMS position="2" base="http://latin.omdoc.org/category_theory/dfol_based" module="Adjunction" name="IC"/>
+          </om:OMA>
+        </definition>
+      </import>
+    </import>
+    <import name="miu" from="http://latin.omdoc.org/category_theory/dfol_based?NatTrans">
+      <import name="nt_dom" from="http://latin.omdoc.org/category_theory/dfol_based?Functor">
+        <definition>
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/mmt" module="mmt" name="composition"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/category_theory/dfol_based" module="IsFunctor"/>
+            <om:OMS position="2" base="http://latin.omdoc.org/category_theory/dfol_based" module="Adjunction" name="ID"/>
+          </om:OMA>
+        </definition>
+      </import>
+      <import name="nt_cod" from="http://latin.omdoc.org/category_theory/dfol_based?Functor">
+        <definition>
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/mmt" module="mmt" name="composition"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/category_theory/dfol_based" module="Composition"/>
+            <om:OMS position="2" base="http://latin.omdoc.org/category_theory/dfol_based" module="Adjunction" name="GF"/>
+          </om:OMA>
+        </definition>
+      </import>
+    </import>
+    <import name="etaF" from="http://latin.omdoc.org/category_theory/dfol_based?CompFunNat">
+      <import name="C" from="http://latin.omdoc.org/category_theory/dfol_based?Category">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="Adjunction" name="D"/>
+        </definition>
+      </import>
+      <import name="D" from="http://latin.omdoc.org/category_theory/dfol_based?Category">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="Adjunction" name="C"/>
+        </definition>
+      </import>
+      <import name="E" from="http://latin.omdoc.org/category_theory/dfol_based?Category">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="Adjunction" name="C"/>
+        </definition>
+      </import>
+      <import name="F" from="http://latin.omdoc.org/category_theory/dfol_based?Functor">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="Adjunction" name="F"/>
+        </definition>
+      </import>
+      <import name="G" from="http://latin.omdoc.org/category_theory/dfol_based?Functor">
+        <definition>
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/mmt" module="mmt" name="composition"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/category_theory/dfol_based" module="Composition"/>
+            <om:OMS position="2" base="http://latin.omdoc.org/category_theory/dfol_based" module="Adjunction" name="FG"/>
+          </om:OMA>
+        </definition>
+      </import>
+      <import name="H" from="http://latin.omdoc.org/category_theory/dfol_based?Functor">
+        <definition>
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/mmt" module="mmt" name="composition"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/category_theory/dfol_based" module="IsFunctor"/>
+            <om:OMS position="2" base="http://latin.omdoc.org/category_theory/dfol_based" module="Adjunction" name="IC"/>
+          </om:OMA>
+        </definition>
+      </import>
+      <import name="n" from="http://latin.omdoc.org/category_theory/dfol_based?NatTrans">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="Adjunction" name="eta"/>
+        </definition>
+      </import>
+    </import>
+    <import name="Fmiu" from="http://latin.omdoc.org/category_theory/dfol_based?CompNatFun">
+      <import name="C" from="http://latin.omdoc.org/category_theory/dfol_based?Category">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="Adjunction" name="D"/>
+        </definition>
+      </import>
+      <import name="D" from="http://latin.omdoc.org/category_theory/dfol_based?Category">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="Adjunction" name="D"/>
+        </definition>
+      </import>
+      <import name="E" from="http://latin.omdoc.org/category_theory/dfol_based?Category">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="Adjunction" name="C"/>
+        </definition>
+      </import>
+      <import name="F" from="http://latin.omdoc.org/category_theory/dfol_based?Functor">
+        <definition>
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/mmt" module="mmt" name="composition"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/category_theory/dfol_based" module="IsFunctor"/>
+            <om:OMS position="2" base="http://latin.omdoc.org/category_theory/dfol_based" module="Adjunction" name="ID"/>
+          </om:OMA>
+        </definition>
+      </import>
+      <import name="G" from="http://latin.omdoc.org/category_theory/dfol_based?Functor">
+        <definition>
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/mmt" module="mmt" name="composition"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/category_theory/dfol_based" module="Composition"/>
+            <om:OMS position="2" base="http://latin.omdoc.org/category_theory/dfol_based" module="Adjunction" name="GF"/>
+          </om:OMA>
+        </definition>
+      </import>
+      <import name="H" from="http://latin.omdoc.org/category_theory/dfol_based?Functor">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="Adjunction" name="F"/>
+        </definition>
+      </import>
+      <import name="n" from="http://latin.omdoc.org/category_theory/dfol_based?NatTrans">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="Adjunction" name="miu"/>
+        </definition>
+      </import>
+    </import>
+    <import name="Geta" from="http://latin.omdoc.org/category_theory/dfol_based?CompNatFun">
+      <import name="C" from="http://latin.omdoc.org/category_theory/dfol_based?Category">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="Adjunction" name="C"/>
+        </definition>
+      </import>
+      <import name="D" from="http://latin.omdoc.org/category_theory/dfol_based?Category">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="Adjunction" name="C"/>
+        </definition>
+      </import>
+      <import name="E" from="http://latin.omdoc.org/category_theory/dfol_based?Category">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="Adjunction" name="D"/>
+        </definition>
+      </import>
+      <import name="F" from="http://latin.omdoc.org/category_theory/dfol_based?Functor">
+        <definition>
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/mmt" module="mmt" name="composition"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/category_theory/dfol_based" module="Composition"/>
+            <om:OMS position="2" base="http://latin.omdoc.org/category_theory/dfol_based" module="Adjunction" name="FG"/>
+          </om:OMA>
+        </definition>
+      </import>
+      <import name="G" from="http://latin.omdoc.org/category_theory/dfol_based?Functor">
+        <definition>
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/mmt" module="mmt" name="composition"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/category_theory/dfol_based" module="IsFunctor"/>
+            <om:OMS position="2" base="http://latin.omdoc.org/category_theory/dfol_based" module="Adjunction" name="IC"/>
+          </om:OMA>
+        </definition>
+      </import>
+      <import name="H" from="http://latin.omdoc.org/category_theory/dfol_based?Functor">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="Adjunction" name="G"/>
+        </definition>
+      </import>
+      <import name="n" from="http://latin.omdoc.org/category_theory/dfol_based?NatTrans">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="Adjunction" name="eta"/>
+        </definition>
+      </import>
+    </import>
+    <import name="miuG" from="http://latin.omdoc.org/category_theory/dfol_based?CompFunNat">
+      <import name="C" from="http://latin.omdoc.org/category_theory/dfol_based?Category">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="Adjunction" name="C"/>
+        </definition>
+      </import>
+      <import name="D" from="http://latin.omdoc.org/category_theory/dfol_based?Category">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="Adjunction" name="D"/>
+        </definition>
+      </import>
+      <import name="E" from="http://latin.omdoc.org/category_theory/dfol_based?Category">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="Adjunction" name="D"/>
+        </definition>
+      </import>
+      <import name="F" from="http://latin.omdoc.org/category_theory/dfol_based?Functor">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="Adjunction" name="G"/>
+        </definition>
+      </import>
+      <import name="G" from="http://latin.omdoc.org/category_theory/dfol_based?Functor">
+        <definition>
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/mmt" module="mmt" name="composition"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/category_theory/dfol_based" module="IsFunctor"/>
+            <om:OMS position="2" base="http://latin.omdoc.org/category_theory/dfol_based" module="Adjunction" name="ID"/>
+          </om:OMA>
+        </definition>
+      </import>
+      <import name="H" from="http://latin.omdoc.org/category_theory/dfol_based?Functor">
+        <definition>
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/mmt" module="mmt" name="composition"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/category_theory/dfol_based" module="Composition"/>
+            <om:OMS position="2" base="http://latin.omdoc.org/category_theory/dfol_based" module="Adjunction" name="GF"/>
+          </om:OMA>
+        </definition>
+      </import>
+      <import name="n" from="http://latin.omdoc.org/category_theory/dfol_based?NatTrans">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="Adjunction" name="miu"/>
+        </definition>
+      </import>
+    </import>
+  </theory>
+</omdoc>

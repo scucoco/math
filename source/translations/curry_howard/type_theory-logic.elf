@@ -1,0 +1,45 @@
+%* Curry-Howard correspondence: interpreting simple type theory in propositional logic *%
+
+%namespace "http://latin.omdoc.org/translations/stt_prop".
+%namespace syn = "../logics/syntax".
+%namespace pf = "../logics/proof_theory".
+%namespace tt = "../type_theories".
+
+
+%* the target signature: propositional logic with a predicate for equality of proofs
+   for simplicity we use proof irrelevance *%
+%sig CH-IPL = {
+   %include pf.IPL %open.
+   peq : ded A -> ded A -> type.
+   pirrel : peq P Q.
+}.
+
+%view TypesTerms : tt.TypesTerms -> CH-IPL = {
+   tp := o.
+   tm := [a] ded a.
+   == := [A] peq.
+   types.refl := [_][_] pirrel.
+   types.sym := [_][_][_][_] pirrel.
+   types.trans := [_][_][_][_][_][_] pirrel.
+   types.cong := [_][_][_][_][_][_] pirrel.     
+}.
+
+%view Product : tt.Product -> CH-IPL = {
+   %include TypesTerms.
+   * := [x][y] x and y.
+   pair := [A][B] andI.
+   pi1 := [A][B] andEl.
+   pi2 := [A][B] andEr.
+   convpi1 := [_][_][_][_] pirrel.
+   convpi2 := [_][_][_][_] pirrel.
+   convpair := [_][_][_] pirrel.
+}.
+
+%view SimpTypes : tt.SimpTypes -> CH-IPL = {
+   %include TypesTerms.
+   → := [x][y] x imp y.
+   λ := [A][B] impI.
+   @ := [A][B] impE.
+   funtypes.beta := [_][_][_][_] pirrel.
+   funtypes.eta := [_][_][_] pirrel.
+}.

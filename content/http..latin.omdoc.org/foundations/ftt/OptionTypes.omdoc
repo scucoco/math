@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
+  <theory name="OptionTypes" base="http://latin.omdoc.org/foundations/ftt" meta="http://cds.omdoc.org/urtheories?LF">
+    <import from="http://latin.omdoc.org/foundations/ftt?Church"> </import>
+    <constant name="option" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/foundations/ftt" module="Church" name="tp"/>
+            <om:OMS position="2" base="http://latin.omdoc.org/foundations/ftt" module="Church" name="tp"/>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="Option" role="type">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/foundations/ftt" module="Church" name="tp"/>
+            <om:OMS position="2" base="http://cds.omdoc.org/urtheories" module="Typed" name="type"/>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+      <definition>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="a">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/foundations/ftt" module="Church" name="tp"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+              <om:OMS position="2_1" base="http://latin.omdoc.org/foundations/ftt" module="Church" name="ttm"/>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_2_1" base="http://latin.omdoc.org/foundations/ftt" module="OptionTypes" name="option"/>
+                <om:OMV position="2_2_2" name="a"/>
+              </om:OMA>
+            </om:OMA>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </definition>
+    </constant>
+    <constant name="some" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/foundations/ftt" module="Church" name="tp"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+              <om:OMA position="2_1">
+                <om:OMS position="2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_1_1" base="http://latin.omdoc.org/foundations/ftt" module="Church" name="ttm"/>
+                <om:OMV position="2_1_2" name="A"/>
+              </om:OMA>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_2_1" base="http://latin.omdoc.org/foundations/ftt" module="OptionTypes" name="Option"/>
+                <om:OMV position="2_2_2" name="A"/>
+              </om:OMA>
+            </om:OMA>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/foundations/ftt?OptionTypes?some" precedence="0" fixity="prefix" arguments="1"/>
+      </notation>
+    </constant>
+    <constant name="none" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/foundations/ftt" module="Church" name="tp"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+              <om:OMS position="2_1" base="http://latin.omdoc.org/foundations/ftt" module="OptionTypes" name="Option"/>
+              <om:OMV position="2_2" name="A"/>
+            </om:OMA>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/foundations/ftt?OptionTypes?none" precedence="0" fixity="prefix" arguments="1"/>
+      </notation>
+    </constant>
+  </theory>
+</omdoc>

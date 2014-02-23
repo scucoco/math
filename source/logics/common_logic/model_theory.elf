@@ -1,0 +1,39 @@
+%namespace "http://latin.omdoc.org/logics/model_theory".
+%namespace syn = "syntax".
+%namespace minimal = "../foundations/minimal".
+
+
+%sig CLMOD = {
+  %include minimal.STTIFOLEQ.
+  %include minimal.Universes.
+  ur : set.
+  ud : set.  
+  non_empty_universe : ded (∃ [x: elem ud] 1) eq 1.
+
+  %struct udlist : minimal.List = {a := ud.} %open list %as ud*.
+  fun : elem ur -> elem (ud* → ud).
+  rel : elem ur -> elem (ud* → bool').
+}.
+
+%view BaseCL : syn.BaseCL -> CLMOD = {
+  %include Base.
+  i    := elem ud.
+  sq   := elem ud*.
+  arg  := elem ud*.
+  nil  := udlist.nil.
+  cons := [A][B] udlist.cons A B.
+  app  := [A][B] udlist.app A B.
+}.
+
+%view CL : syn.CL -> CLMOD = {
+  %include BaseCL.
+  %include PL.
+
+  forall  := [p : elem ud  -> elem bool'] ∀ p.
+  foralls := [p : elem ud* -> elem bool'] ∀ p.
+
+  exists  := [p : elem ud  -> elem bool'] ∃ p.
+  existss := [p : elem ud* -> elem bool'] ∃ p.
+
+  eq := [A][B] equal @ A @ B.
+}.

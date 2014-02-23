@@ -1,0 +1,74 @@
+%namespace "http://latin.omdoc.org/translations/prop_hol".
+%namespace pf = "../logics/proof_theory".
+%namespace hol = "../foundations/hol".
+
+
+%view BasePF : pf.Base -> hol.SFOL-Pf = {
+   %include Base.
+}.
+
+%view TruthPF : pf.Truth -> hol.SFOL-Pf = {
+  %include BasePF.
+  %include Truth.
+  trueI  := ⊤I.
+}.
+
+%view FalsityPF : pf.Falsity -> hol.SFOL-Pf = {
+  %include BasePF.
+  %include Falsity.
+  falseE := [p: ⊦ ⊥] [a: tm o] ⊥E p.
+}.
+
+%view NEGPF : pf.NEG -> hol.SFOL-Pf = {
+  %include BasePF.
+  %include NEG.
+  notI   := [a] [p: ⊦ a -> {b} ⊦ b] ¬I [pa: ⊦ a] (¬E (p pa (¬ a)) (p pa a)).
+  notE   := [a] [pna: ⊦ ¬ a] [pa: ⊦ a] [b: tm o] ⊥E (¬E pna pa).
+}.
+
+%view CONJPF : pf.CONJ -> hol.SFOL-Pf = {
+  %include BasePF.
+  %include CONJ.
+  andI   := [a] [b] ∧I.
+  andEl  := [a] [b] ∧El.
+  andEr  := [a] [b] ∧Er.
+}.
+
+%view DISJPF : pf.DISJ -> hol.SFOL-Pf = {
+  %include BasePF.
+  %include DISJ.
+  orIl   := [a] [b] ∨Il.
+  orIr   := [b] [a] ∨Ir.
+  orE    := [a] [b] [c] ∨E.
+}.
+
+%view IMPPF : pf.IMP -> hol.SFOL-Pf = {
+  %include BasePF.
+  %include IMP.
+  impI   := [a][b] ⇒I.
+  impE   := [a][b] ⇒E.
+}.
+
+%view TND : pf.TND -> hol.SFOL-Pf hol.Classical = {
+  %include BasePF.
+  %include NEGPF.
+  %include DISJPF.
+  tnd   := [a] tnd.
+}.
+
+%view IPLPF : pf.IPL -> hol.SFOL-Pf = {
+   %include BasePF.
+   %include Prop.
+   %include TruthPF.
+   %include FalsityPF.
+   %include NEGPF.
+   %include DISJPF.
+   %include CONJPF.
+   %include IMPPF.
+}.
+
+%view CPLPF : pf.CPL -> hol.SFOL-Pf hol.Classical = {
+  %include BasePF.
+  %include IPLPF.
+  %include TND.
+}.

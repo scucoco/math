@@ -1,0 +1,67 @@
+%*
+  pointwise definitions of operations
+  @author: Florian Rabe
+*%
+
+%namespace "http://latin.omdoc.org/math".
+
+%sig Points = {
+   %include Universe.
+   points : type.
+}.
+
+%view PointwiseUniverse : Universe -> Universe Points = {
+   u := points -> u.
+}.
+
+%view PointwiseRelation : Relation -> Relation Points = {
+   %include PointwiseUniverse.
+   r := [f][g] {x} (f x) r (g x).
+}.
+
+%view PointwiseReflexive : Reflexive -> Reflexive Points = {
+   %include PointwiseRelation.
+   refl := [X] [x] refl.
+}.
+
+%view PointwiseSymmetric : Symmetric -> Symmetric Points = {
+   %include PointwiseRelation.
+   sym := [X][Y] [p][x] sym (p x).
+}.
+
+%view PointwiseTransitive : Transitive -> Transitive Points = {
+   %include PointwiseRelation.
+   trans := [X][Y][Z] [p][q] [x] trans (p x) (q x).
+}.
+
+%view PointwiseEquivalence : Equivalence -> Equivalence Points = {
+   %include PointwiseRelation.
+   %include PointwiseReflexive.
+   %include PointwiseSymmetric.
+   %include PointwiseTransitive.
+}.
+
+%% pointwise congruence cannot be proved; so introduce a new base signature
+%sig PointsEq = {
+   %include EqUniverse.
+   %include Points.
+   %struct pointwiseEqUniverse : EqUniverse = {
+      %include PointwiseUniverse.
+      eq..Relation..r := [f:points -> u][g:points -> u] {x} (f x) == (g x).
+   }.
+}.
+
+%view PointwiseMagma : Magma -> Magma PointsEq = {
+   %include pointwiseEqUniverse.
+   ∘ := [f][g] [x] (f x) ∘ (g x).
+}.
+
+%view PointwiseCommutative : Commutative -> Commutative PointsEq = {
+   %include PointwiseMagma.
+   commut := [F][G] [x] commut.
+}.
+
+%view PointwiseSemigroup : Semigroup -> Semigroup PointsEq = {
+   %include PointwiseMagma.
+   assoc := [F][G][H] [x] assoc.
+}.

@@ -1,0 +1,156 @@
+%%OWL to FOLEQD
+
+%read "FOLEQD.elf".
+%read "owl.elf".
+
+%namespace "http://latin.omdoc.org/logics/description/owl/owl.omdoc".
+
+%view D1FOLEQD : OWL1Datatype -> FOLEQD = { 
+ dataType := dataType.
+ data     := i.
+ is       := [d: i] [dt : dataType] ded (is d dt).
+ tm       := [dt : dataType] (tm dt). 
+
+ string             := string.
+ normalizedString   := normalizedString.
+ boolean            := boolean.
+ decimal            := decimal.
+ float              := float.
+ double             := double.
+ integer            := integer.
+ nonNegativeInteger := nonNegativeInteger. 
+ nonPositiveInteger := nonPositiveInteger.
+ positiveInteger    := positiveInteger.
+ negativeInteger    := negativeInteger.
+ long 		    := long.
+ int                := int.
+ short              := short.
+ byte               := byte.
+ unsignedLong       := unsignedLong.
+ unsignedInt        := unsignedInt.
+ unsignedShort      := unsignedShort.
+ unsignedByte       := unsignedByte.
+ hexBinary          := hexBinary.
+ base64Binary       := base64Binary.
+ dateTime           := dateTime.
+ time               := time.
+ date               := date.
+ gYearMonth         := gYearMonth.
+ gYear              := gYear.
+ gMonthDay          := gMonthDay.
+ gDay               := gDay.
+ gMonth             := gMonth.
+ anyURI             := anyURI.
+ token              := token.
+ language           := language.
+ NMToken            := NMToken.
+ name               := name.
+ NCName             := NCName.
+}.
+
+
+%view OWLBaseFOLEQD : OWLBase -> FOLEQD = {
+ class            := i -> o.
+ objectProperty   := i -> i -> o.
+ individual       := i.
+ dataTypeProperty := i -> dataType -> o.
+}.
+
+
+%view OWLLiteFOLEQD : OWLLite -> FOLEQD = {
+ %include D1FOLEQD.
+ %include OWLBaseFOLEQD.
+  
+ %%ded := [f: i -> o] ded (forall [x] (f x)). 
+ thing   := [x: i] true.
+ nothing := [x: i] false.
+ 
+ subClassOf     := [f: i -> o] [g: i -> o] ded (forall [x: i] ((f x) imp (g x))).
+ subPropertyOf  := [r: i -> i -> o] [q: i -> i -> o] ded (forall [x: i] (forall [y: i] ((r x y) imp (q x y)) )).
+ Domain         := [r: i -> i -> o] [f: i -> o] ded (forall [x: i] (forall [y: i] ((r x y) imp (f x))) ).
+ Range          := [r: i -> i -> o] [f: i -> o] ded (forall [y: i] (forall [x: i] ((r x y) imp (f y))) ).
+                                                                 
+ equivalentClass     := [f: i -> o] [g: i -> o] ded (forall [x: i] ((f x) imp (g x)) and ((g x) imp (f x)) ).
+ equivalentProperty  := [r: i -> i -> o] [q: i -> i -> o] ded (forall [x: i] (forall [y: i] (  ((r x y ) imp (q x y)) and ((q x y) imp (r x y)) ))).
+ differentFrom       := [x: i][y: i] ded (not (x eq y)).
+ sameAs			 	   := [x: i][y: i] ded (x eq y).
+ %%distinctMembers           
+  
+ inverseOf    := [r: i -> i -> o] ([x: i] [y: i] (r x y) imp (r y x)).
+ 
+ intersectionOf  := [f: i -> o] [g: i -> o]  [x: i] ((f x) and (g x)).
+ 
+ transitiveProperty  := [r: i -> i -> o] ded (forall [x: i] (forall [y: i] (forall [z: i] ( ((r x y) and (r y z)) imp (r x z) ) ))).
+ symmetricProperty   := [r: i -> i -> o] ded (forall [x: i] (forall [y: i] ( (r x y) imp (r y x) ))).
+ functionalProperty  := [r: i -> i -> o] ded (forall [x: i] (forall [y: i] (forall [z: i] ( ((r x y) and (r x z)) imp (y eq z) ) ))).
+ inverseFunctionalProperty := [r: i -> i -> o] ded (forall [x:i] (forall [y: i] (forall [z: i] ( ((r x y) and (r z y)) imp (x eq z) ) ))).
+ 
+ %%restriction 
+ %%onProperty  
+ someValuesFrom := [r: i -> i -> o] [f: i -> o] [x: i] (exists [y: i] ((r x y) and (f y)) ).
+ allValuesFrom  := [r: i -> i -> o] [f: i -> o] [x: i] (forall [y: i] ((r x y) imp (f y)) ).
+
+ 
+ %%Restricted Cardinality  0 or 1  
+%% maxCardinalityFull   
+%% minCardinalityFull   
+%% cardinalityFull     
+  
+
+ %{
+ %%Header Information
+ ontology 
+ import   
+ 
+ annotationProperty 
+ ontologyProperty   
+ 
+ %%Annotation Properties 
+ lable      
+ comment    
+ seeAlso    
+ isDefinedBy
+ 
+ %%Versioning 
+ versionInfo           
+ priorVersion          
+ backwardCompatibleWith
+ incompatibleWith      
+ deprecatedClass       
+ deprecatedProperty    
+}% 
+ 
+%%no union and  no complement, restricts cardinality
+}.
+ 
+ 
+%view OWLDLFOLEQD : OWLDL -> FOLEQD = {
+ %include OWLLiteFOLEQD.
+ %include D1FOLEQD.
+ 	 
+ %%OneOf  
+ disjointWith   := [f: i -> o] [g: i -> o] ded(forall [x: i] (forall[y: i] ( ((f x) imp (not(g x))) or ((g x) imp (not(f x))) ) )).
+ 
+ unionOf        := [f: i -> o] [g: i -> o]  [x: i] ((f x) or (g x)).
+ complementOf   := [f: i -> o] [x: i] (not (f x)).
+ 
+ %% objectMaxCardinalityFull     
+ %% objectMinCardinalityFull    
+ %% objectExactCardinalityFull 
+  
+ hasValue := [r: i -> i -> o] [x: i] [y: i] (r x y).
+ 
+ %%complex classes 
+ %%classes cannot be instances
+}.
+ 
+%view OWLFullFOLEQD : OWLFull -> FOLEQD = {
+
+ %include OWLDLFOLEQD.
+ %%meta class - classes can be instances
+}.
+
+
+%%list, rest, nil 
+ 
+ 

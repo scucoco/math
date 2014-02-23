@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
+  <theory name="Necessity" base="http://latin.omdoc.org/logics/syntax" meta="http://cds.omdoc.org/urtheories?LF">
+    <import from="http://latin.omdoc.org/logics/syntax?Logic"> </import>
+    <constant name="□" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+            <om:OMS position="2" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/syntax?Necessity?□" precedence="30" fixity="prefix" arguments="0"/>
+      </notation>
+    </constant>
+  </theory>
+</omdoc>

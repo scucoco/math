@@ -1,0 +1,125 @@
+%* @author Fulya Horozal and Florian Rabe *%
+
+%namespace "http://latin.omdoc.org/foundations/minimal".
+%namespace zfc = "zfc".
+%namespace syn = "../logics/syntax".
+%namespace pf = "../logics/proof_theory".
+
+
+%view BaseSFOL-ZF : syn.BaseSFOL -> zfc.TypedZF = {
+  sort := i.
+  tm := [a] Elem a. 
+}.
+
+%view SForall-ZF : syn.SForall -> zfc.TypedZF = {
+  %include BaseSFOL-ZF.
+  forall := [S][F] tforall F.
+}.
+
+%view SExists-ZF : syn.SExists -> zfc.TypedZF = {
+  %include BaseSFOL-ZF.
+  exists := [S][F] texists F.
+}.
+
+%view SFOL-ZF : syn.SFOL -> zfc.TypedZF = {
+   %include BaseSFOL-ZF.
+   %include SForall-ZF.
+   %include SExists-ZF.
+}.
+
+%view SEqual-ZF : syn.SEqual -> zfc.TypedZF = {
+  %include BaseSFOL-ZF.
+  eq := [S][a][b] a Eq b.
+}.
+
+%view BaseSFOLPF-ZF : pf.BaseSFOL -> zfc.TypedZF = {
+  %include BaseSFOL-ZF.
+}.
+
+%view SForallPF-ZF : pf.SForall -> zfc.TypedZF = {
+   %include BaseSFOLPF-ZF.
+   %include SForall-ZF.
+   forallI := [S][F][p] tforallI p.
+   forallE := [S][F][p][x] tforallE p x.
+}.
+
+%view SExistsPF-ZF : pf.SExists -> zfc.TypedZF = {
+   %include BaseSFOLPF-ZF.
+   %include SExists-ZF.
+   existsI := [S][F][x][p] texistsI x p.
+   existsE := [S][F][H][p][Q] texistsE p Q.
+}.
+
+%view SEqualPF-ZF : pf.SEqual -> zfc.TypedZF = {
+   %include BaseSFOLPF-ZF.
+   %include SEqual-ZF.
+   refl   := [S][x] refl.
+   sym    := [S][x][y][p] sym p.
+   trans  := [S][x][y][z][p][q] trans p q.
+   congF  := [S][x][y][T][p][F] EqCongF F p.
+   congP  := [S][x][y][p][F][q] EqcongEl F p q.
+}.
+
+%view SIFOLPF-ZF : pf.SIFOL -> zfc.TypedZF = {
+  %include SFOL-ZF.
+  %% IPLPF already included into TypedZF
+  %include SForallPF-ZF.
+  %include SExistsPF-ZF.
+}.
+
+%view SIFOLEQPF-ZF : pf.SIFOLEQ -> zfc.TypedZF = {
+  %include SIFOLPF-ZF.
+  %include SEqualPF-ZF.
+}.
+
+%view SForallPFExt-ZF : pf.SForallExt -> zfc.TypedZF = {
+  %include SForallPF-ZF.
+}.
+
+%view SFOLEQ-ZF : syn.SFOLEQ -> zfc.TypedZF = {
+  %include SFOL-ZF.
+  %include SEqual-ZF.
+}.
+
+%view SExistsUnique-ZF : syn.SExistsUnique -> zfc.TypedZF = {
+  %include SFOLEQ-ZF.
+}.
+
+%view SExistsUniquePF-ZF : pf.SExistsUnique -> zfc.TypedZF = {
+  %include SExistsUnique-ZF.
+  %include SIFOLEQPF-ZF.
+}.
+
+%view SIFOLPFExt-ZF : pf.SIFOLExt -> zfc.TypedZF = {
+  %include SIFOLEQPF-ZF.
+  %include SForallPFExt-ZF.
+  %include SExistsUniquePF-ZF.
+}.
+
+%view SEqualPFExt-ZF : pf.SEqualExt -> zfc.TypedZF = {
+  %include SEqualPF-ZF.
+}.
+
+%view SInequal-ZF : syn.SInequal -> zfc.TypedZF = {
+  %include SEqual-ZF.
+}.
+
+%view SInequalPF-ZF : pf.SInequal -> zfc.TypedZF = {
+  %include SInequal-ZF.
+  %include SEqualPF-ZF.
+}.
+
+%view SIFOLEQPFExt-ZF : pf.SIFOLEQExt -> zfc.TypedZF = {
+  %include SIFOLPFExt-ZF.
+  %include SEqualPFExt-ZF.
+  %include SInequalPF-ZF.
+}.
+
+%view STTIFOLEQ-ZF : STTIFOLEQ -> zfc.TypedZF = {
+  %include SIFOLEQPFExt-ZF.
+  fun.→   := [A][B] (func A B).
+  fun.λ   := [A][B][f] Lambda f.
+  fun.@   := [A][B][f][a] Apply f a.
+  fun.beta := [A][B][F][X] beta.
+  fun.eta  := [A][B][F] eta.
+}.

@@ -1,0 +1,31 @@
+%namespace "http://latin.omdoc.org/translations/fol_ifol".
+%namespace prop_iprop = "prop_iprop".
+%namespace math = "../math".
+%namespace syn = "../logics/syntax".
+%namespace pf = "../logics/proof_theory".
+
+
+%sig DN-IFOL = {
+     %include pf.IFOL.
+     %include pf.IFOLExt.
+     %include prop_iprop.DN-IPL. 
+}.
+
+%view Universe : math.Universe -> DN-IFOL = {
+     u := i.
+}.
+
+%view UniverseLogic : syn.UniverseLogic -> DN-IFOL = {
+     %include prop_iprop.Base.
+     %include Universe.
+}.
+
+%view Forall : syn.Forall -> DN-IFOL = {
+     %include UniverseLogic.  			      
+     forall := [F : i -> o] forall [x] nn (F x).
+}. 
+ 
+%view Exists : syn.Exists -> DN-IFOL = {
+      %include UniverseLogic.
+      exists := [F : i -> o] exists [x] (F x).
+}.

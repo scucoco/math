@@ -1,0 +1,60 @@
+%namespace "http://latin.omdoc.org/foundations/mizar".
+
+
+%sig Tarski = {
+  %include Mizar %open.
+
+  in : be set -> be set -> prop.                     %infix right 35 in.
+  
+   %* extensionality *%
+   eqI : proof for [x : be set] for [y : be set] ((for [z : be set] z in x iff z in y) implies (x eq y)).
+   eq_idem : proof A eq A = impliesE (consider (consider eqI A) A) (let [z] iff_refl).
+
+   %% singleton 
+   singleton_existence : {y : be set} proof ex [it : be set] (for [x : be set] (x in it) iff (x eq y)).  
+   singleton_uniqueness : {y : be set} proof for [it] for [it'] ( (for [x : be set] x in it iff x eq y) and for [x : be set] x in it' iff x eq y) implies it eq it'.
+   singleton : be set -> be set = [y] func ([it] for [x : be set] x in it iff x eq y) (singleton_existence y) (singleton_uniqueness y). 
+   singleton_prop : proof for [X] X in (singleton Y) iff X eq Y = func_prop (singleton Y) (eq_idem).
+   %%func_prop ([it] for [x : be set] x in it iff x eq Y) (singleton_existence Y) (singleton_uniqueness Y).
+   
+   %% unordered pair
+   uopair_existence : {y : be set}{z : be set} proof ex [it : be set] (for [x : be set] (x in it) iff ((x eq y) or (x eq z))).  
+   uopair_uniqueness : {y : be set}{z : be set} proof for [it] for [it'] ( (for [x : be set] x in it iff (x eq y or x eq z)) and for [x : be set] x in it' iff (x eq y or x eq z)) implies it eq it'.
+   uopair : be set -> be set -> be set = [y][z] func ([it] for [x : be set] x in it iff (x eq y or x eq z)) (uopair_existence y z) (uopair_uniqueness y z). 
+   uopair_prop : proof for [X] X in (uopair Y Z) iff ((X eq Y) or (X eq Z)) =  func_prop (uopair Y Z) (eq_idem).
+
+   %* subset *%   
+   c= : be set -> be set -> prop = [X][Y] for [x : be set] x in X implies x in Y.          %infix none 40 c=. 
+
+   %% union   
+   union_existence : {X : be set} proof ex [it : be set] (for [x : be set] (x in it) iff ex [Y : be set] x in Y and Y in X).  
+   union_uniqueness : {X : be set} proof for [it : be set] for [it' : be set] ((for [x : be set] (x in it) iff ex [y : be set] x in y and y in X) and (for [x : be set] (x in it') iff ex [y : be set] x in y and y in X)) implies it eq it'.
+   union : be set -> be set = [X] func ([it] for [x : be set] (x in it) iff ex [Y : be set] x in Y and Y in X) (union_existence X) (union_uniqueness X). 
+   union_prop : proof for [x] x in union X iff ex [y] x in y and y in X.
+   
+   
+   theorem : proof for [x : be set] for [X : be set] x in X implies (ex [Y : be set] Y in X and (for [z : be set] not z in X or not z in Y)). 
+   
+   %* Fraenkel scheme *%
+   fraenkel : {A : be set} {P : be set -> be set -> prop} proof (for [x : be set] for [y : be set] for [z : be set] ((P x y) and (P x z)) implies (y eq z))
+            -> proof (ex [X] for [x] ((x in X) iff (ex [y] y in A and (P y x)))).
+
+   %* Kuratowski ordered pairs *%
+   pair : be set -> be set -> be set = [x][y] uopair (uopair x y) (singleton x).
+   
+   %% Tarski's axiom, existence of universes
+   isomorphic: be set -> be set -> prop = [x][y] ex [z] (
+                   for [a] (a in x implies ex [b] b in y and (pair a b) in z) and
+                   for [b] (b in y implies ex [a] a in x and (pair a b) in z) and
+                   for [a] (for [b] ( for [c] ( for [d](
+                     (pair a b) in Z and (pair c d ) in Z implies (a eq c) and (b eq d)
+                    ))))). 
+   subset_closed: {m} prop = [m] for [x] (for [y] ((( x in m) and (y c= x)) implies (y in m) )).
+   powerset_closed : {m} prop = [m] for [x] ( x in m implies (ex [z] z in m and (for [y] y c= x implies y in z))). 
+   tarski_axiom: proof for [n] (ex [m] (
+                     n in m and subset_closed m and powerset_closed m and
+                     for [x] (x c= m implies ((isomorphic x m) or x in m))
+                 )).   
+  
+
+}.

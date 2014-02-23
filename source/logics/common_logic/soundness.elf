@@ -1,0 +1,76 @@
+%namespace "http://latin.omdoc.org/logics/soundness".
+%namespace pf = "proof_theory".
+%namespace mod = "model_theory".
+
+
+%view BaseCL : pf.BaseCL -> mod.CLMOD = {
+  %% %include SoundBase.
+  %include mod.BaseCL.
+}.
+
+%view CL : pf.CL -> mod.CLMOD = {
+  %include BaseCL.
+  %include mod.CL.
+ %% %include FOLEQMOD.
+
+  iforallpf.forallI  :=  [F][p : {x : elem ud} ded (F x) eq 1] 
+                         forall1I 
+                                (forallI [x : elem ud] (p x)).
+  forallsI := [F][p : {x : elem ud*} ded (F x) eq 1] 
+                        forall1I 
+                                (forallI [x : elem ud*] (p x)).
+
+  iforallpf.forallE := [F][p : ded (∀ [x : elem ud] F x) eq 1] [c] 
+                       (
+                        not-boole1 
+                             (notI ([q : ded (F c) eq 0] 
+                                   (falseE (contra (forall0I (existsI c q)) p)
+                                    )
+                                  )
+                             )
+                       ).
+  forallsE  := [F][p : ded (∀ [x : elem ud*] F x) eq 1] [c] 
+               (
+                not-boole1 
+                     (notI ([q : ded (F c) eq 0] 
+                           (falseE (contra (forall0I (existsI c q)) p)
+                            )
+                          )
+                     )
+               ).
+
+  iexistspf.existsI  := [F][x : elem ud][p : ded (F x) eq 1] exists1I  (existsI x p).
+  existssI := [F][x : elem ud*][p : ded (F x) eq 1] exists1I  (existsI x p).
+
+  iexistspf.existsE  := [F][G][p : ded (∃ [x : elem ud] F x) eq 1]
+                        [f : {y} ded (F y) eq 1 -> ded G eq 1] 
+                          not-boole1
+                              (notI  ([q : ded G eq 0] 
+                                       (falseE (contra (exists0I (forallI [y]      (not-boole0 (notI  ([r : ded F y eq 1] (falseE (contra q (f y r))))))    )) p)
+                                        )
+                                     )
+                               ).
+  existssE := [F][G][p : ded (∃ [x : elem ud*] F x) eq 1]
+              [f : {y} ded (F y) eq 1 -> ded G eq 1] 
+                not-boole1
+                    (notI  ([q : ded G eq 0] 
+                             (falseE (contra (exists0I (forallI [y]      (not-boole0 (notI  ([r : ded F y eq 1] (falseE (contra q (f y r))))))    )) p)
+                              )
+                           )
+                     ).
+
+  refl  := [X] equivEl eq1 refl. 
+  sym   := [X: elem ud][Y: elem ud][p : ded (equal @ X @ Y) eq 1] 
+             equivEl eq1 (sym (equivEr eq1 p)).          
+  trans := [X][Y][Z][p : ded (equal @ X @ Y) eq 1][q : ded (equal @ Y @ Z) eq 1]
+             equivEl eq1 (trans (equivEr eq1 p)
+                                (equivEr eq1 q)).
+  congF := [X][Y][p : ded (equal @ X @ Y)  eq 1][F : elem ud -> elem ud]
+             equivEl eq1 (congF (equivEr eq1 p) F).
+  congP := [X][Y][p : ded (equal @ X @ Y) eq 1][F][q : ded (F X) eq 1]
+              (congP (equivEr eq1 p) 
+                     ([a] (F a) eq 1)  
+                     q).
+
+  non_empty_universe := non_empty_universe.
+}.

@@ -1,0 +1,116 @@
+%namespace "http://latin.omdoc.org/logics/soundness/kripke".
+%namespace mod_kripke = "../model_theory/kripke".
+%namespace math = "../../math".
+%namespace syn = "../syntax".
+%namespace pf = "../proof_theory".
+
+
+%view Truth : pf.Truth -> mod_kripke.Kripke = {
+   %include mod_kripke.BasePL.
+   %include mod_kripke.Truth.
+   trueI := refl.    %% : ded (1 eq 1)
+}.
+
+%view Falsity : pf.Falsity -> mod_kripke.Kripke = {
+  %include mod_kripke.BasePL.
+  %include mod_kripke.Falsity. 
+  falseE := [p: ded 0 eq 1] [A] indirect ([q: ded A eq 0] boole-false (sym p)).
+         %% : ded 0 eq 1 -> {A} ded A eq 1.
+}.
+
+%view NEG : pf.NEG -> mod_kripke.Kripke = {
+  %include mod_kripke.BasePL.
+  %include mod_kripke.NEG. 
+  notI := [A] [p: ded A eq 1 -> {B} ded B eq 1] not1I (indirect' [q: ded A eq 1] (contra refl (p q 0))).
+       %% : {A} (ded A eq 1 -> {B} ded B eq 1) -> ded ¬A eq 1.
+  notE := [A] [p: ded ¬ A eq 1] [q: ded A eq 1]
+            [B] indirect ([r: ded B eq 0]  boole-false ((false-boole (contra (not1E p) q)))).
+       %% : {A} ded ¬ A eq 1 -> ded A eq 1 -> {B} ded B eq 1.
+}.
+
+%view IMP : pf.IMP -> mod_kripke.Kripke = {
+  %include mod_kripke.BasePL.
+  %include mod_kripke.IMP. 
+  impI := [A] [B] [p: ded A eq 1 -> ded B eq 1] imp1I (orE boole ([q] orIr (p q)) ([r] orIl r)).
+       %% : {A} {B} (ded A eq 1 -> ded B eq 1) -> ded (A ⇒ B eq 1).
+  impE := [A] [B] [p] [q] trans (sym (impE ifteT q)) p.
+       %% : {A} {B} ded (A ⇒ B) eq 1 -> ded A eq 1 -> ded B eq 1.
+}.
+
+%view CONJ : pf.CONJ -> mod_kripke.Kripke = {
+  %include mod_kripke.BasePL.
+  %include mod_kripke.CONJ. 
+  andI := [A] [B] [p] [q] and1I (andI p q). 
+       %% : {A} {B} ded A eq 1 -> ded B eq 1 -> ded (A ∧ B) eq 1
+  andEl := [A] [B] [p: ded (A ∧ B) eq 1] indirect ([q: ded A eq 0] contra (impE ifteE q) p).
+        %% : {A} {B} ded (A ∧ B) eq 1 -> ded A eq 1.
+  andEr := [A] [B] [p: ded (A ∧ B) eq 1] indirect ([q: ded B eq 0] contra (and0I (orIr q)) p).
+        %% : {A} {B} ded (A ∧ B) eq 1 -> ded B eq 1.
+}.
+
+%view DISJ : pf.DISJ -> mod_kripke.Kripke = {
+  %include mod_kripke.BasePL.
+  %include mod_kripke.DISJ. 
+  orIl := [A] [B] [p] or1I (orIl p).
+       %% : {A} {B} ded A eq 1 -> ded (A ∨ B) eq 1.
+  orIr := [A] [B] [p] or1I (orIr p).
+        %% : {A} {B} ded B eq 1 -> ded (A ∨ B) eq 1.
+  orE := [A] [B] [C] [AorB] [AtoC] [BtoC] orE boole AtoC ([Aeq0] BtoC (trans (sym (impE ifteE Aeq0)) AorB)).
+        %% : {A} {B} {C} ded (A ∨ B) eq 1 -> (ded A eq 1 -> ded C eq 1) -> (ded B eq 1 -> ded C eq 1) -> ded C eq 1. 
+}.
+
+%view TND : pf.TND -> mod_kripke.Kripke = {
+  %include mod_kripke.BasePL.
+  %include mod_kripke.NEG. 
+  %include mod_kripke.DISJ.
+  tnd := [A] orE boole ([Aeq1] or1I (orIl Aeq1)) ([Aeq0] or1I (orIr (not1I Aeq0))).
+      %% : ded (A ∨ ¬ A) eq 1.
+}.
+
+%{
+%view BaseFOL : syn.BaseFOL -> Kripke = {
+   %include BasePL.
+   i := elem world.
+}.
+
+%view Forall : syn.Forall -> Kripke = {
+   %include mod_kripke.BaseFOL.
+   forall := ∀.
+}.
+
+%view Exists : syn.Exists -> Kripke = {
+   %include mod_kripke.BaseFOL.
+   exists := ∃.
+}.
+
+%view Equal : syn.Equal -> Kripke = {
+   %include mod_kripke.BaseFOL.
+   eq := [a: elem world] [b] equal @ a @ b.
+}.
+
+%view BaseFOL : pf.BaseFOL -> Kripke = {
+   %include mod_kripke.BasePL.
+   %include mod_kripke.BaseFOL.
+}.
+
+%view Forall : pf.Forall -> Kripke = {
+   %include mod_kripke.BaseFOL.
+   %include mod_kripke.Forall.
+   forallI := [F] [p] forall1 (forallI p).
+           %% : {F} ({x} ded F x eq 1) -> ded ∀ ([x] F x) eq 1.
+   forallE := refl.
+           %% : {F} ded ∀ ([x] F x) eq 1 -> {c} ded F c eq 1. 
+}.
+
+%sig IKripke = {
+  %include Kripke %open.
+  %struct poset : math.PartialOrder = {
+     %include mod_kripke.PL.
+     
+     %%rel := acc.
+     }.
+  monotone : {f: elem (world → bool')} {w} {v} ded (((f @ w) ⇒ ((acc w v) ⇒ (f @ v))) eq 1).
+  reflexive : {w} ded ((acc w w) eq 1).
+  antisymmetric : {w} {v} ded ((acc w v) eq 1) -> ded ((acc v w) eq 1) -> ded (w eq v).
+  transitive : {w} {v} {t} ded ((acc w v) eq 1) -> ded ((acc v t) eq 1) -> ded ((acc w t) eq 1).
+}.   }%

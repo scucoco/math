@@ -1,0 +1,71 @@
+%namespace "http://latin.omdoc.org/foundations/typed_theory/curry".
+
+%namespace logic = "../logic/firs-order".
+%namespace zf = "../foundations/zfc".
+
+%% @II: reorder according to order in features.elf
+
+%% @II: add semantics of 2x2 funs/prods
+
+%view _UniversalQuantifier : UniversalQuantifier -> zf.ZFC = {
+    %include _Logic.
+    forall := [f : i -> o] forall f.
+    forallI := [F : i -> o][p : {x : i} ded (F X)] forallI p.
+    forallE := [F : i -> o][p : ded (forall [x] F x)] forallE p.
+}.
+
+%view _ExistentialQuantifier : ExistentialQuantifier -> zf.ZFC = {
+    %include _Logic.
+    exists := [f : i -> o] exists f.
+    existsI := [x : i][F : i -> o][p : ded (F x)] existsI x p.
+    existsE := [F : i -> o][G : o][p : ded (exists [x] F x)][q : {y:i} ded (F y) -> ded G]
+               existsE p q.
+}.
+
+%view _NonEmpty : NonEmpty -> zf.ZFC = {
+    %include _ClassifiedUniverse.
+    nonempty := [a : i] nonempty a.
+    nonemptyI := [X : i][A : i][p : X in A] nonemptyI p.
+}.
+
+%view _ImageTypes : ImageTypes -> zf.ZFC = {
+    %include _Logic. %include Equality.
+    Image := [f : i -> i] image f.
+    ImageI := [X : i][A : i][F : i -> i][p : X in A] imageI p.
+    ImageE := [X : i][F : i -> i][C : o]
+              [p : ded X in (image F)][q : {a : i} ded (F a) == X -> ded C]
+              existsE (imageE p) q.
+}.
+
+%view _PowerTypes : PowerTypes -> zf.ZFC = {
+    Power := [A : i] powerset A.
+    PowerI := [A : i][B : i][p : ded A subset B] powersetI p.
+    PowerE := [A : i][B : i][p : ded A in (powerset B)] powersetE p.
+}.
+
+%view _BigUnion : BigUnion -> zf.ZFC = {
+    Bigunion := [A : i] bigunion i.
+    BigunionI := [A : i][B : i][X : i][p : ded A in B][q : ded B in X] bigunionI p q.
+    BigunionE := [A : i][X : i][p : ded A in bigunion X]
+                 existsE (bigunionE p) ([x][q] andEl (bigunionE p) andEr (bigunionE p)).
+}.
+
+%view _BigInter : BigInter -> zf.ZFC = {
+    %include _NonEmpty.
+    Biginter :=  [A : i] biginter i.
+    BiginterI := [p : {a} ded a in A -> X in a] biginterI p.
+    BiginterE := [p : ded X in (biginter A)][q : ded Y in A] biginterE p q.
+}.   
+
+%view _PredSubTypes : PredSubTypes -> zf.ZFC = {
+    %include Logic. 
+    %include Equality.
+    predsub := [A : i][P : i -> o] filter A P.
+    pred_subtype := pred_subtype.
+    predsubI := [X : i][A : i][P : i -> o]
+               [p : ded X in A][q : ded (P X)] predsubI p q.
+    predsubEl := [X : i][A : i][P : i -> o][p : ded X in (filter A P)]
+                predsubEl p.
+    predsubEr := [X : i][A : i][P : i -> o][p : ded X in (filter A P)]
+                predsubEr p.
+}.

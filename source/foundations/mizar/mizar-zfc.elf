@@ -1,0 +1,69 @@
+%namespace "http://latin.omdoc.org/foundations/mizar".
+
+
+%view MizarView : Mizar -> Mizar_ZFC = {
+ prop := o.
+ %%any := i.
+ tm := i.
+ tp := i -> o.
+ %%sub := [f][g] ded forall [x] (f x) imp (g x).
+ %%; := [a][f] ded f a.
+ proof := [a] ded a. 
+ is := [a][F] F a.
+ be := [f] Class f.
+ be! := [A][x][p] celem x p.
+ 
+ true := true.
+ false := false.
+ not := [x] not x.
+ and := [x][y] x and y.
+ notE := [A][p][q] notE p q false.
+ proof_by_contradiction := [A][p] nnotE (notI ([q] falseE (p q))). 
+ contradictionE := falseE.
+ trueI := trueI.
+ andI := [A][B][p][q] andI p q.
+ andEl := [A][B][p] andEl p.
+ andEr := [A][B][p] andEr p.
+ per_cases := [A][C][B] [p][q][r] orE (h5 r) p q. %%tnd
+ eq :=[A][X][Y] (cwhich X) eq (cwhich Y).
+ for := [A][f] tforall f.
+ ex := [A][f] texists f.
+
+ set := [x] true. 
+ set_ax := [x] trueI.
+
+ let := [A][F][p] tforallI p.
+ consider := [A][F][p][a] tforallE p a.
+ take := [A][F][a][p] texistsI a p.
+ given := [A][F][C][p][Q : {a : Class A} ded F a -> ded C] texistsE p Q.
+
+
+ func := [A][F : Class A -> o][EX][UNQ] func_def F EX UNQ.
+ congP := [A][X][Y][p][F][q] EqcongEr F (p) q.
+ congF := [A][X][Y][B][p][F] EqCongF F p.
+ refl := [A][X] refl.
+ sym := [A][X][Y][p] sym p.
+ trans := [A][X][Y][Z][p][q] trans p q.
+
+ func_prop' :=[A][F][EX][UNQ] func_prop' F EX UNQ.
+ mode := [A][F][EX] [x] ((A x) And [p] F (celem x p)).
+ adjective := [A][F : Class A -> o] [x] (A x) And [p] F (celem x p).
+ adjI := [A][F][x][p] adjI x F p.
+ adjE := [A : i -> o][F : Class A -> o][x : Class ([x] A x And [p] F (celem x p))] adjE A F x.
+ adjE' := [A][F][x] adjE' A F x.
+ adjective-non := [A][F : Class A -> o] [x] (A x) And [p] not (F (celem x p)).
+ adj-nonI := [A][F][x][p] adj-nonI x F p.
+ adj-nonE := [A : i -> o][F : Class A -> o][x : Class ([x] A x And [p] not F (celem x p))] adj-nonE A F x.
+ adj-nonE' := [A][F][x] adj-nonE' A F x.
+}.
+
+
+%view TarskiView : Tarski -> Mizar_ZFC = {
+  %include MizarView.
+  in := [A][B] (cwhich A) in (cwhich B).
+  %%iff := [x][y] x equiv y.
+  %%singleton_existence := [x] existsI (singleton x) (singletonI).
+  eqI := eqh2.
+  %%congP := [A][X : Class A][Y : Class A][p : ded cwhich X eq cwhich Y]([F : Class A -> o][r : ded F Y] congpH A Y X F (sym p) r).  
+  singleton_existence := [y] singleton_existence y.  
+}.

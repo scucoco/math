@@ -1,0 +1,26 @@
+%* @author Fulya Horozal and Florian Rabe *%
+
+%namespace "http://latin.omdoc.org/logics/proof_theory".
+%namespace syn = "syntax".
+
+%sig BaseSecOL = {
+  %include BaseFOL.
+  %include syn.BaseSecOL.
+}.
+
+%{
+%sig ISecOL = {
+  %include IFOL.
+  %include syn.SecOL.
+  %struct ffp : Forall = {%include ff.}.
+  %struct eep : Exists = {%include ee.}.
+  
+  %view qqp : Equal -> = {
+     %include qq.
+     refl  := .
+     sym   := .
+     trans := .
+     cong  := .
+  }.
+}.
+}%

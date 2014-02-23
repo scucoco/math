@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
+  <view name="OMBottom" base="http://latin.omdoc.org/math" from="http://latin.omdoc.org/math?Bottom" to="http://latin.omdoc.org/math?NeutralElementFOL">
+    <import from="http://latin.omdoc.org/math?Relation">
+      <definition>
+        <om:OMS base="http://latin.omdoc.org/math" module="OMRelation"/>
+      </definition>
+    </import>
+    <constant name="bot">
+      <definition>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/math" module="NeutralElementFOL" name="Neutral/[http:%2F%2Flatin.omdoc.org%2Fmath%3FPointedMagma]/point"/>
+        </om:OMOBJ>
+      </definition>
+    </constant>
+    <constant name="bound">
+      <definition>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="X">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/math" module="Universe" name="u"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+              <om:OMS position="2_1" base="http://latin.omdoc.org/logics/proof_theory" module="Exists" name="existsI"/>
+              <om:OMBIND position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+                <om:OMBVAR>
+                  <om:OMV position="2_2_0" name="x">
+                    <type>
+                      <om:OMS position="2_2_0_1" base="http://latin.omdoc.org/math" module="Universe" name="u"/>
+                    </type>
+                    <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                      <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                    </attribution>
+                  </om:OMV>
+                </om:OMBVAR>
+                <om:OMA position="2_2_2">
+                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="Equal" name="=="/>
+                  <om:OMA position="2_2_2_2">
+                    <om:OMS position="2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_2_2_1" base="http://latin.omdoc.org/math" module="MagmaFOL" name="Magma/∘"/>
+                    <om:OMS 
+                    position="2_2_2_2_2" base="http://latin.omdoc.org/math" module="NeutralElementFOL" name="Neutral/[http:%2F%2Flatin.omdoc.org%2Fmath%3FPointedMagma]/point">
+</om:OMS>
+                    <om:OMV position="2_2_2_2_3" name="x"/>
+                  </om:OMA>
+                  <om:OMV position="2_2_2_3" name="X"/>
+                </om:OMA>
+              </om:OMBIND>
+              <om:OMV position="2_3" name="X"/>
+              <om:OMA position="2_4">
+                <om:OMS position="2_4_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS 
+                position="2_4_1" base="http://latin.omdoc.org/math" module="NeutralElementFOL" name="Neutral/[http:%2F%2Flatin.omdoc.org%2Fmath%3FNeutralElementLeft]/neutral">
+</om:OMS>
+                <om:OMV position="2_4_2" name="X"/>
+              </om:OMA>
+            </om:OMA>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </definition>
+    </constant>
+  </view>
+</omdoc>

@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
+  <theory name="FOF" base="http://latin.omdoc.org/logics/tptp" meta="http://cds.omdoc.org/urtheories?LF">
+    <constant name="$term" role="type">
+      <metadata>
+        <meta property="http://purl.org/dc/terms?_?description">
+          <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+            <om:OMSTR>terms</om:OMSTR>
+          </om:OMOBJ>
+        </meta>
+      </metadata>
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://cds.omdoc.org/urtheories" module="Typed" name="type"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="$form" role="type">
+      <metadata>
+        <meta property="http://purl.org/dc/terms?_?description">
+          <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+            <om:OMSTR>formulas</om:OMSTR>
+          </om:OMOBJ>
+        </meta>
+      </metadata>
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://cds.omdoc.org/urtheories" module="Typed" name="type"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="$false" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/logics/tptp" module="FOF" name="$form"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="$true" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/logics/tptp" module="FOF" name="$form"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="&amp;" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/logics/tptp" module="FOF" name="$form"/>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+              <om:OMS position="2_1" base="http://latin.omdoc.org/logics/tptp" module="FOF" name="$form"/>
+              <om:OMS position="2_2" base="http://latin.omdoc.org/logics/tptp" module="FOF" name="$form"/>
+            </om:OMA>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/tptp?FOF?&amp;" precedence="5" fixity="infix-left" arguments="0"/>
+      </notation>
+    </constant>
+    <constant name="|" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/logics/tptp" module="FOF" name="$form"/>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+              <om:OMS position="2_1" base="http://latin.omdoc.org/logics/tptp" module="FOF" name="$form"/>
+              <om:OMS position="2_2" base="http://latin.omdoc.org/logics/tptp" module="FOF" name="$form"/>
+            </om:OMA>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/tptp?FOF?|" precedence="5" fixity="infix-left" arguments="0"/>
+      </notation>
+    </constant>
+    <constant name="~" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/logics/tptp" module="FOF" name="$form"/>
+            <om:OMS position="2" base="http://latin.omdoc.org/logics/tptp" module="FOF" name="$form"/>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="=&gt;" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/logics/tptp" module="FOF" name="$form"/>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+              <om:OMS position="2_1" base="http://latin.omdoc.org/logics/tptp" module="FOF" name="$form"/>
+              <om:OMS position="2_2" base="http://latin.omdoc.org/logics/tptp" module="FOF" name="$form"/>
+            </om:OMA>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/tptp?FOF?=&gt;" precedence="5" fixity="infix" arguments="0"/>
+      </notation>
+    </constant>
+    <constant name="&lt;=" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/logics/tptp" module="FOF" name="$form"/>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+              <om:OMS position="2_1" base="http://latin.omdoc.org/logics/tptp" module="FOF" name="$form"/>
+              <om:OMS position="2_2" base="http://latin.omdoc.org/logics/tptp" module="FOF" name="$form"/>
+            </om:OMA>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/tptp?FOF?&lt;=" precedence="5" fixity="infix" arguments="0"/>
+      </notation>
+    </constant>
+    <constant name="&lt;=&gt;" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/logics/tptp" module="FOF" name="$form"/>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+              <om:OMS position="2_1" base="http://latin.omdoc.org/logics/tptp" module="FOF" name="$form"/>
+              <om:OMS position="2_2" base="http://latin.omdoc.org/logics/tptp" module="FOF" name="$form"/>
+            </om:OMA>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/tptp?FOF?&lt;=&gt;" precedence="5" fixity="infix" arguments="0"/>
+      </notation>
+    </constant>
+    <constant name="&lt;~&gt;" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/logics/tptp" module="FOF" name="$form"/>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+              <om:OMS position="2_1" base="http://latin.omdoc.org/logics/tptp" module="FOF" name="$form"/>
+              <om:OMS position="2_2" base="http://latin.omdoc.org/logics/tptp" module="FOF" name="$form"/>
+            </om:OMA>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/tptp?FOF?&lt;~&gt;" precedence="5" fixity="infix" arguments="0"/>
+      </notation>
+    </constant>
+    <constant name="~&amp;" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/logics/tptp" module="FOF" name="$form"/>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+              <om:OMS position="2_1" base="http://latin.omdoc.org/logics/tptp" module="FOF" name="$form"/>
+              <om:OMS position="2_2" base="http://latin.omdoc.org/logics/tptp" module="FOF" name="$form"/>
+            </om:OMA>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/tptp?FOF?~&amp;" precedence="5" fixity="infix" arguments="0"/>
+      </notation>
+    </constant>
+    <constant name="~|" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/logics/tptp" module="FOF" name="$form"/>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+              <om:OMS position="2_1" base="http://latin.omdoc.org/logics/tptp" module="FOF" name="$form"/>
+              <om:OMS position="2_2" base="http://latin.omdoc.org/logics/tptp" module="FOF" name="$form"/>
+            </om:OMA>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/tptp?FOF?~|" precedence="5" fixity="infix" arguments="0"/>
+      </notation>
+    </constant>
+    <constant name="==" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/logics/tptp" module="FOF" name="$term"/>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+              <om:OMS position="2_1" base="http://latin.omdoc.org/logics/tptp" module="FOF" name="$term"/>
+              <om:OMS position="2_2" base="http://latin.omdoc.org/logics/tptp" module="FOF" name="$form"/>
+            </om:OMA>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/tptp?FOF?==" precedence="10" fixity="infix" arguments="0"/>
+      </notation>
+    </constant>
+    <constant name="!=" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/logics/tptp" module="FOF" name="$term"/>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+              <om:OMS position="2_1" base="http://latin.omdoc.org/logics/tptp" module="FOF" name="$term"/>
+              <om:OMS position="2_2" base="http://latin.omdoc.org/logics/tptp" module="FOF" name="$form"/>
+            </om:OMA>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/tptp?FOF?!=" precedence="10" fixity="infix" arguments="0"/>
+      </notation>
+    </constant>
+    <constant name="!" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMA position="1">
+              <om:OMS position="1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+              <om:OMS position="1_1" base="http://latin.omdoc.org/logics/tptp" module="FOF" name="$term"/>
+              <om:OMS position="1_2" base="http://latin.omdoc.org/logics/tptp" module="FOF" name="$form"/>
+            </om:OMA>
+            <om:OMS position="2" base="http://latin.omdoc.org/logics/tptp" module="FOF" name="$form"/>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/tptp?FOF?!" precedence="5" fixity="prefix" arguments="0"/>
+      </notation>
+    </constant>
+    <constant name="%3F" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMA position="1">
+              <om:OMS position="1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+              <om:OMS position="1_1" base="http://latin.omdoc.org/logics/tptp" module="FOF" name="$term"/>
+              <om:OMS position="1_2" base="http://latin.omdoc.org/logics/tptp" module="FOF" name="$form"/>
+            </om:OMA>
+            <om:OMS position="2" base="http://latin.omdoc.org/logics/tptp" module="FOF" name="$form"/>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/tptp?FOF?%3F" precedence="5" fixity="prefix" arguments="0"/>
+      </notation>
+    </constant>
+    <constant name="$istrue" role="type">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/logics/tptp" module="FOF" name="$form"/>
+            <om:OMS position="2" base="http://cds.omdoc.org/urtheories" module="Typed" name="type"/>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/tptp?FOF?$istrue" precedence="1" fixity="prefix" arguments="0"/>
+      </notation>
+    </constant>
+  </theory>
+</omdoc>

@@ -1,0 +1,57 @@
+%namespace "http://latin.omdoc.org/translations/prop_hol".
+%namespace syn = "../logics/syntax".
+%namespace hol = "../foundations/hol".
+
+
+%view Base : syn.Logic -> hol.SFOL-Syn = {
+   o := tm o.
+   ded := [a] ⊦ a.
+   %%patterns for o and ded transl.
+		%{
+		%pattern po = {
+			p : tm o.
+		}.
+		%pattern pax = {
+			ax : [a] ⊦ a.
+		}.
+		}%
+}.
+
+%view Truth : syn.Truth -> hol.SFOL-Syn = {
+  %include Base.
+  true  := ⊤.
+}.
+
+%view Falsity : syn.Falsity -> hol.SFOL-Syn = {
+  %include Base.
+  false := ⊥.
+}.
+
+%view NEG : syn.NEG -> hol.SFOL-Syn = {
+  %include Base.
+  not   := [a] ¬ a.
+}.
+
+%view CONJ : syn.CONJ -> hol.SFOL-Syn = {
+  %include Base.
+  and   := [a][b] a ∧ b.
+}.
+
+%view DISJ : syn.DISJ -> hol.SFOL-Syn = {
+  %include Base.
+  or   := [a][b] a ∨ b.
+}.
+
+%view IMP : syn.IMP -> hol.SFOL-Syn = {
+  %include Base.
+  imp   := [a][b] a ⇒ b.
+}.
+
+%view Prop : syn.PL -> hol.SFOL-Syn = {
+   %include Truth.
+   %include Falsity.
+   %include NEG.
+   %include DISJ.
+   %include CONJ.
+   %include IMP.
+}.

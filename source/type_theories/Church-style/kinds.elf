@@ -1,0 +1,147 @@
+%namespace "http://latin.omdoc.org/foundations/type_theory/church".
+
+%% @II: update names
+%% DepFun ----> PTSRule
+%% struct types -----> ∗
+%% struct kinds -----> □
+%% remove %open's
+
+%% %include TypesTerms ----> %include Equality
+%% no _ at beginning of names
+
+
+%sig KindsTypesTerms = {
+  %struct □ : Equality  %open tp  %as kd
+                                tm %as tf.
+  tp' : kd.
+  %struct %implicit ∗ : Equality = {tp := tf tp'.} %open tp tm.
+}.
+
+%sig PTSRule = {
+    %struct domain  : Equality %open tp %as domaintp tm %as domaintm.
+    %struct scope   : Equality %open tp %as scopetp tm %as scopetm.
+
+    Π  : (domain.tm A -> scopetp) -> scopetp.                                         %prefix 50 Π.
+    λ  : ({x : domain.tm A} scope.tm (B x)) -> scope.tm Π [x : domain.tm A] B x.
+    @    : scope.tm (Π [x : domain.tm A] (B x)) -> {a : domain.tm A} scope.tm (B a).     %infix left 100 @.
+
+    beta : ((λ F) @ T) scopeEq.== (F T).
+    eta  : (λ [x](F @ x)) scopeEq.== F.
+
+    →    : domain.tp -> scope.tp -> scope.tp 
+        = [A][B] Π ([x : domain.tm A] B).           %infix right 50 →.
+    %abbrev ; : (domain.tm A -> domain.tm B) -> 
+                (domain.tm B -> domain.tm C) -> 
+                domain.tm A 
+            -> domain.tm C
+            = [f][g][x] g (f x).                                   %infix left 5 ;.
+    %abbrev ∘ : (domain.tm B -> domain.tm C) -> 
+                (domain.tm A -> domain.tm B) -> 
+                domain.tm A 
+            -> domain.tm C
+            = [f][g][x] f (g x).                                   %infix left 5 ∘.
+}.
+
+%* function types/dependent types (terms occuring in types, terms applied to terms) *%
+%sig DepTypes = {
+  %include KindsTypesTerms %open kd tf === tp tm ==.
+  %struct deptypes : DepFun = {
+    %struct domain := ∗.
+    %struct scope  := ∗.
+  }.
+}. 
+
+%* dependent kinds (terms occuring in kinds, terms applied to types) *%
+%sig DepKinds = {
+  %include KindsTypesTerms.
+  %struct depkinds : DepFun = {
+    %struct domain := ∗.
+    %struct scope  := □.
+  }.
+}.
+
+%* function kinds/type operators (types occuring in kinds, types applied to types) *%
+%sig TypeOper = {
+  %include KindsTypesTerms.
+  %struct funkinds : DepFun = {
+    %struct domain := □.
+    %struct scope  := □.
+  }.
+}.
+
+%* polymorphism (types occuring in types, terms applied to types) *%
+%sig PolyTypes = {
+  %include KindsTypesTerms.
+  
+  %struct poly : DepFun = {
+    %struct domain := □.
+    %struct scope  := ∗.
+  }.
+}.
+
+%* Universal types *%
+%sig UnivTypes = {
+  %include TypesTerms %open tp tm ==.
+  ∀  : (tp -> tp) -> tp.
+  Λ : ({a : tp} tm A a) -> tm ∀ [a] A a. 
+  @   : tm ∀ ([a : tp] A a) -> {B : tp} tm A B.  %infix left 100 @.
+  beta : (Λ F) @ T == F T.
+  eta  : (Λ [x](F @ x)) == F.
+}.
+
+%* inclusion of universal types into polymorphism:                         *%
+%* Universal is the special case of PolyTypes when "type" is the only kind *%
+%view UnivToPoly : UnivTypes -> PolyTypes = {
+  %include TypesToTypes.
+  ∀    := [A] poly.Π [a : tp] (A a).
+  Λ    := [A][f] poly.λ f.
+  @    := [A][f][x] f poly.@ x.
+  beta := [A][F][T] poly.beta.
+  eta  := [A][F] poly.eta.
+}.
+
+%sig SimpFun = {
+  %struct level : Church %open tp tm ==.
+  →   : tp -> tp -> tp.                        %infix right 50 →.
+  λ  : (tm A -> tm B) -> tm A → B.
+  @    : tm A → B -> tm A -> tm B.          %infix left 100 @.
+  beta : (λ F) @ T == F T.
+  eta  : (λ [x](F @ x)) == F.
+  %abbrev ; : (tm A -> tm B) -> (tm B -> tm C) -> tm A -> tm C
+            = [f][g][x] g (f x).
+            %infix left 5 ;.
+  %abbrev ∘ : (tm B -> tm C) -> (tm A -> tm B) -> tm A -> tm C
+            = [f][g][x] f (g x).
+            %infix left 5 ∘.
+}.
+
+%* type-level simple abstraction (simple function types) *%
+%sig SimpTypes = {
+  %include TypesTerms %open tp tm.
+  %struct funtypes : SimpFun = {%struct level := TypesTerms.types.} %open → λ @ ; ∘.
+}.
+
+%* inclusion of simple functions types into dependent functions types *%
+%view SimpToDep : SimpTypes -> DepTypes = {
+  %include TypesToTypes.
+  funtypes.→       := [A][B] A deptypes.→ B.
+  funtypes.λ       := [A][B][f] deptypes.λ f.
+  funtypes.@       := [A][B][f][x] (f deptypes.@ x).
+  funtypes.beta    := [B][A][F][T] deptypes.beta.
+  funtypes.eta     := [B][A][F] deptypes.eta.
+}.
+
+%* kind-level simple abstraction (simple function kinds) *%
+%sig SimpKinds = {
+  %include KindsTypesTerms.
+  %struct funkinds : SimpFun = {%struct level := KindsTypesTerms.kinds.}.
+}.
+
+%* inclusion of simple functions kinds into dependent functions kinds *%
+%view SimpToOper : SimpKinds -> TypeOper = {
+  funkinds.→         := [A][B] A funkinds.→ B.
+  funkinds.λ         := [A][B][f] funkinds.λ f.
+  funkinds.@         := [A][B][f][x] (f funkinds.@ x).
+  funkinds.beta      := [B][A][F][T] funkinds.beta.
+  funkinds.eta       := [B][A][F] funkinds.eta.
+}.

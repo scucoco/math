@@ -1,0 +1,171 @@
+%*
+   Modular extensions of THF0
+   The proof rules should be given here, but are omitted at the moment.
+   @author Florian Rabe, based on discussions with Chad Brown, Christoph Benzmüller, Geoff Sutcliffe
+*%
+
+%namespace "http://latin.omdoc.org/logics/tptp".
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% axiomatizations
+
+%sig IHOL = {
+  %include THF0.
+  %%intuitionistic higher-order logic
+}.
+
+%sig CHOL = {
+  %include IHOL.
+  %%classical, types-non-empty
+}.
+
+%sig Eta = {
+  %include CHOL.
+  %%eta-conversion
+}.
+
+%sig Xi = {
+  %include CHOL.
+  %%xi-conversion
+}.
+
+%sig B = {
+  %include CHOL.
+  %%boolean extensionality
+}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% modular features
+
+%sig Products = {
+   %include THF0.
+   * : $tType -> $tType -> $tType.                  %infix right 10 *.
+}.
+
+%sig Description = {
+  %include CHOL.
+  @-  : ($tm A -> $tm $o) -> $tm A.                 %prefix 5 @-.
+  @@- : ($tm (A > $o)) -> $tm A = [f] @- [x] f @ x.
+}.
+
+%sig Choice = {
+  %include IHOL.
+  @+  : ($tm A -> $tm $o) -> $tm A.                  %prefix 5 @+.
+  @@+ : ($tm (A > $o)) -> $tm A = [f] @+ [x] f @ x.
+}.
+
+%% equality and quantifiers over types
+%sig QuantTypes = {
+   %include THF0.   
+   ==° : $tm A -> $tm A -> $tm $o.                 %infix none 10 ==°.
+   !° : ($tType -> $tm $o) -> $tm $o.              %prefix 5 !°.
+   ?° : ($tType -> $tm $o) -> $tm $o.              %prefix 5 ?°.
+}.
+
+%% dependent typing
+%sig DTT = {
+   %include THF0.   
+   %% dependent sum and product type
+   ?* : ($tm A -> $tType) -> $tType.                %prefix 5 ?*.
+   !> : ($tm A -> $tType) -> $tType.                %prefix 5 !>.
+}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% important combinations of features (from Christophs's list)
+
+%sig Henkin = {
+  %include CHOL.
+  %include Eta.
+  %include Xi.
+  %include B.
+}.
+
+%sig Henkin-Eta = {
+  %include CHOL.
+  %include Xi.
+  %include B.
+}.
+
+%sig Henkin-Xi = {
+  %include CHOL.
+  %include Eta.
+  %include B.
+}.
+
+%sig Henkin-B = {
+  %include CHOL.
+  %include Eta.
+  %include Xi.
+}.
+
+%sig Henkin-FuncExt = {
+  %include CHOL.
+  %include B.
+}.
+
+%sig Henkin+Desc = {
+  %include Henkin.
+  %include Description.
+}.
+
+%sig Henkin+Choice = {
+  %include Henkin.
+  %include Choice.
+}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%* arithmetic
+   The signature THF-Arithmetic and the view FirstToHigherArithmetic are obtained from TFF-Arithmetic by functor application.
+*%
+%sig THF-Arithmetic = {
+   %include THF0.
+   %include Arithmetic.
+
+   %% comparisons
+   $less      : $tm ($arithtype D) > ($arithtype D) > $o.
+   $lesseq    : $tm ($arithtype D) > ($arithtype D) > $o.
+   $greater   : $tm ($arithtype D) > ($arithtype D) > $o.
+   $greatereq : $tm ($arithtype D) > ($arithtype D) > $o.
+   
+   %% operations
+   $uminus     : $tm ($arithtype D) > ($arithtype D).
+   $sum        : $tm ($arithtype D) > ($arithtype D) > ($arithtype D).
+   $difference : $tm ($arithtype D) > ($arithtype D) > ($arithtype D).
+   $product    : $tm ($arithtype D) > ($arithtype D) > ($arithtype D).
+   $quotient   : $tm ($arithtype D) > ($arithtype D) > ($arithtype D).
+   
+   %% testing for arithmetic types
+   $is_int  : $tm ($arithtype D) > $o.
+   $is_rat  : $tm ($arithtype D) > $o.
+   $is_real : $tm ($arithtype D) > $o.
+   
+   %% coercion to arithmetic types
+   $to_int  : $tm ($arithtype D) > $int.
+   $to_rat  : $tm ($arithtype D) > $rat.
+   $to_real : $tm ($arithtype D) > $real.
+}.
+
+%view FirstToHigherArithmetic : TFF-Arithmetic -> THF-Arithmetic = {
+   %include FirstToHigher.
+   $less      := [D] [x][y] $less @ x @ y.
+   $lesseq    := [D] [x][y] $lesseq @ x @ y.
+   $greater   := [D] [x][y] $greater @ x @ y.
+   $greatereq := [D] [x][y] $greatereq @ x @ y.
+   
+   %% operations
+   $uminus     := [D] [x] $uminus @ x.
+   $sum        := [D] [x][y] $sum @ x @ y.
+   $difference := [D] [x][y] $difference @ x @ y.
+   $product    := [D] [x][y] $product @ x @ y.
+   $quotient   := [D] [x][y] $quotient @ x @ y.
+   
+   %% testing for arithmetic types
+   $is_int  := [D] [x] $is_int @ x.
+   $is_rat  := [D] [x] $is_rat @ x.
+   $is_real := [D] [x] $is_real @ x.
+   
+   %% coercion to arithmetic types
+   $to_int  := [D] [x] $to_int @ x.
+   $to_rat  := [D] [x] $to_rat @ x.
+   $to_real := [D] [x] $to_real @ x.
+}.

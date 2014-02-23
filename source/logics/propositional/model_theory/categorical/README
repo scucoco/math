@@ -1,0 +1,41 @@
+This folder contains the encodings of categorical models for propositional logics.
+It follows the paper
+ author = {J. Goguen and T. Mossakowski and V. de Paiva and F. Rabe and L. Schr{\"o}der},
+ title = "{An Institutional View on Categorical Logic}",
+ journal = {International Journal of Software and Informatics},
+ volume = 1,
+ number = 1,
+ year = 2007,
+ pages = "129--152"
+
+Categories are used as models interpreting objects as types and proofs as morphisms (Curry-Howard correspondence). Such models were introduced in
+ author = {J. Lambek and P. Scott},
+ title = {Introduction to Higher-Order Categorical Logic},
+ publisher = {Cambridge University Press},
+ series = {Cambridge Studies in Advanced Mathematics},
+ volume = 7,
+ year = 1986
+ 
+The present encodings comprise intuitionistic and classical propositional logic, modal logic (S4), and linear logic. Monoidal comonads are used to represent modal and linear logic.
+
+Categories are formalized in dependently-typed first-order logic (DFOL). Categories use an ordering on each Hom-set to model proof rewriting, and a distinguished object to model the least designated truth value.
+
+base module
+catlog.elf                   categories
+
+feature modules
+cartesian.elf                cartesian categories (conjuction and truth)
+cocartesian.elf              cocartesian categories (disjuction and falsity)
+cocartesian_alt.elf          alternative formulation that only adds constant symbols so that the deduction theorem can be proved easily
+cartesian_closed.elf         cartesian closed categories (implication)
+int_negation.elf             negation
+classical.elf                classical negation (can be added to any logic with negation)
+monoidal.elf                 monoidal categories (multiplicative conjunction and truth)
+monoidal_closed.elf          monoidal closed categories (linear implication)
+monoidal_comonad.elf         monoidal comonads (necessity or exponentials)
+
+logic modules
+iprop.elf                    intuitionistic propositional logic (= cartesian closed + cocartesian + negation)
+is4.elf                      intuitionistic modal logic (S4) (= IProp + monoidal comonad)
+mill.elf                     multiplicative intuitionistic linear logic (= monoidal closed + monoidal comonad + ...)
+ill.elf                      intuitionistic linear logic (= MILL + IProp)

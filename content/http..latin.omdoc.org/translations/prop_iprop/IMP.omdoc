@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
+  <view 
+  name="IMP" base="http://latin.omdoc.org/translations/prop_iprop" from="http://latin.omdoc.org/logics/syntax?IMP" to="http://latin.omdoc.org/translations/prop_iprop?DN-IPL">
+    <import from="http://latin.omdoc.org/logics/syntax?Logic">
+      <definition>
+        <om:OMS base="http://latin.omdoc.org/translations/prop_iprop" module="Base"/>
+      </definition>
+    </import>
+    <constant name="imp">
+      <definition>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="x">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="y">
+                  <type>
+                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/syntax" module="IMP" name="imp"/>
+                <om:OMV position="2_2_2" name="x"/>
+                <om:OMV position="2_2_3" name="y"/>
+              </om:OMA>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </definition>
+    </constant>
+</view>
+</omdoc>

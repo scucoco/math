@@ -1,0 +1,57 @@
+%* Verification of the satisfaction condition for the translation of modal to first-order logic *%
+
+%namespace "http://latin.omdoc.org/translations/ml_fol".
+%namespace mod_kripke = "../logics/model_theory/kripke".
+ 
+
+%* First a logical relation is specified *%
+%rel SC_Base : mod_kripke.Base Kripke -> Base ML-FOLMOD.po = {
+	o   := [f : elem (univ → bool')][g : elem univ -> elem bool'] ded f eq (λ g).
+	ded := [f : elem (univ → bool')][g : elem univ -> elem bool'][p : ded f eq (λ g)]
+	       [r : ded (∀[w] f @ w) eq 1][s : ded (∀ g) eq 1]
+	       ded true.
+}.
+
+%rel SC_MPL : mod_kripke.MPL Kripke -> MPL ML-FOLMOD.po = {
+	%include SC_Base.
+	⊥   := refl.
+	⇒ := [f1 : elem (univ → bool')][g1 : elem univ -> elem bool'][p1 : ded f1 eq (λ g1)]
+        [f2 : elem (univ → bool')][g2 : elem univ -> elem bool'][p2 : ded f2 eq (λ g2)]
+        fun_ext λ [w] congF2 (trans (congF p1 ([h] h @ w)) beta)
+           (trans (congF p2 ([h] h @ w)) beta) [x][y] x ⇒ y.
+}.
+
+%rel SC_Necessity : mod_kripke.Necessity Kripke -> Necessity ML-FOLMOD.po = {
+	%include SC_Base.
+	□ := [f : elem (univ → bool')][g : elem univ -> elem bool'][p : ded f eq (λ g)]
+	     fun_ext λ [x] fun_ext ∀ [y] congF2 (trans (congF beta ([h] h @ y)) beta)
+           (trans (congF p ([h] h @ y)) beta) [x][y] x ⇒ y.
+}.
+
+%rel SC_Possibility : mod_kripke.Possibility Kripke -> Possibility ML-FOLMOD.po = {
+	%include SC_Base.
+	◇ := [f : elem (univ → bool')][g : elem univ -> elem bool'][p : ded f eq (λ g)]
+	     fun_ext λ [x] fun_ext ∃ [y] congF2 (trans (congF beta ([h] h @ y)) beta)
+           (trans (congF p ([h] h @ y)) beta) [x][y] x ∧ y.     
+}.
+
+%rel SC_ML : mod_kripke.ML Kripke -> ML ML-FOLMOD.po = {
+	%include SC_MPL.
+	%include SC_Necessity.
+	%include SC_Possibility.
+}.
+
+%* The satisfaction condition is verified by providing the above logical relation and the following signature *%
+%sig Satisfaction = {
+	%include ML-FOLMOD.
+	
+	psi : {f : elem (univ → bool')}{g : elem univ -> elem bool'}{p : ded f eq (λ g)}
+	      ded (∀[w] f @ w) eq 1 -> ded (∀ g) eq 1
+	    = [f][g][p][r] forall1I (forallI [w] trans (sym (trans (congF p ([h] h @ w)) beta))
+	          (forallE (forall1E r) w)).
+	
+	xi  : {f : elem (univ → bool')}{g : elem univ -> elem bool'}{p : ded f eq (λ g)}
+	      ded (∀ g) eq 1 -> ded (∀[w] f @ w) eq 1
+	    = [f][g][p][s] forall1I (forallI [w] trans (trans (congF p ([h] h @ w)) beta) 
+             (forallE (forall1E s) w)).            
+}.

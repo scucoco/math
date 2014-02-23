@@ -1,0 +1,56 @@
+%namespace "http://latin.omdoc.org/translations/sfol_hol".
+%namespace prop_hol = "prop_hol".
+%namespace pf = "../logics/proof_theory".
+%namespace hol = "../foundations/hol".
+
+
+%view BaseSFOLPF : pf.BaseSFOL -> hol.SFOL-Pf = {
+   %include prop_hol.BasePF.
+   %include BaseSFOL.
+}.
+
+%view SForallPF : pf.SForall -> hol.SFOL-Pf = {
+  %include BaseSFOLPF.
+  %include SForall. 
+  forallI  := [A] [F] ∀I.
+  forallE  := [A] [F] ∀E.
+}.
+
+%view SExistsPF : pf.SExists -> hol.SFOL-Pf = {
+  %include BaseSFOLPF.
+  %include SExists.
+  existsI  := [A] [F] ∃I.
+  existsE  := [A] [F] [G] ∃E.
+}.
+
+%view SEqualPF : pf.SEqual -> hol.SFOL-Pf = {
+  %include BaseSFOLPF.
+  %include SEqual.
+  refl  := [T] [A: tm T] eqrefl.
+  sym   := [T] [A: tm T] [B: tm T] eqsym.
+  trans := [T] [A: tm T] [B: tm T] [C: tm T] [pAB: ⊦ A == B] [pBC: ⊦ B == C] eqtrans pAB pBC.
+  congF := [S] [X] [Y] [T] [p: ⊦ X == Y] [F: tm S -> tm T]
+            eqcongF F p.
+  congP := [S] [X] [Y] [p: ⊦ X == Y] [F: tm S -> tm o] [q: ⊦ F X]
+            eqcongP F p q.
+}.
+
+%view SIFOLPF : pf.SIFOL -> hol.SFOL-Pf = {
+   %include BaseSFOLPF.
+   %include SFOL.
+   %include prop_hol.IPLPF.
+   %include SForallPF.
+   %include SExistsPF.
+}.
+
+%view SIFOLEQPF : pf.SIFOLEQ -> hol.SFOL-Pf = {
+   %include SIFOLPF.
+   %include SEqualPF.
+}.
+
+%view SFOLPF : pf.SFOL -> hol.SFOL-Pf hol.Classical hol.Types-Nonempty = {
+   %include BaseSFOLPF.
+   %include SIFOLPF.
+   %include prop_hol.TND.
+   non_empty_universe := [S] nonempty.
+}.

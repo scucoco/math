@@ -1,0 +1,81 @@
+%namespace "http://latin.omdoc.org/foundations/isabelle".
+%namespace zfc = "zfc".
+
+
+%sig NesetZFC = {
+   %include zfc.TypedZFBase.
+   %include zfc.UniversalQuantifier.
+   %include zfc.Functions.
+   %include zfc.If.
+
+   %* the type of non-empty sets *%
+   neset : type = Class nonempty.
+
+   %* the type of elements of a non-empty set *%
+   elems : neset -> type = [a] Elem (cwhich a).
+   
+   %* assume a global choice function *%
+   choice         : {a: neset} elems a.
+
+   %* functions between non-empty sets *%
+   funh0 : ded nonempty (cwhich A) -> ded nonempty (cwhich B) -> ded nonempty (func (cwhich A) (cwhich B)).
+   fun : neset -> neset -> neset = [a][b] celem (func (cwhich a) (cwhich b)) (funh0 (cwhy a) (cwhy b)).
+   
+   %* lambda abstraction for functions between non-empty sets *%
+   lam : (elems A -> elems B) -> elems (fun A B) = [f] elem (which (Lambda f)) 
+         (congP (sym ceq_which) ([x] (which (Lambda f)) in x) (why (Lambda f))).
+
+
+   %* function application for functions between non-empty sets *%
+   app : elems (fun A B) -> elems A -> elems B = [f][a] elem (which (Apply (cast (subset_eq subset_refl ceq_which) f) a))
+   (why ((Apply (cast (subset_eq subset_refl ceq_which) f) a))).
+ 
+   idemp : ded (cast (subset_eq  subset_refl ceq_which) (elem (which F) P)) Eq F = trans castE ceq_which.
+
+   %* the booleans as a non-empty set *%
+   boolne: neset = celem bool (existsI (which ⟙) (why ⟙)).
+   %* casting back and forth between the booleans and their variant as a non-empty set *% 
+   bbne  : ℬ -> elems boolne = cast (subset_eq subset_refl (sym ceq_which)). 
+   bneb  : elems boolne -> ℬ = cast (subset_eq subset_refl ceq_which).
+   b_idem : ded bneb (bbne A) Eq A = trans ceq_which ceq_which.
+   proof : elems boolne -> type = [a] ded (bneb a) Eq ⟙.
+
+   beta' : ded (app (lam ([x: elems A] F x)) X) Eq (F X).
+   eta'  : ded (lam ([x: elems A] app F x)) Eq F.
+   beta : proof (bbne (reflect ( (app (lam ([x: elems A] F x)) X) Eq (F X)))) = trans (b_idem) (reflectI1 
+         (trans (trans (EqCongF ([f] elem (which (Apply f X)) (why (Apply f X)) )
+         (trans castE eq_which))eq_which) (beta))).
+  
+   
+
+   etah0 : ded Lambda ([x] elem (which (Apply F x)) (why (Apply F x))) Eq F.
+   eta  : proof (bbne (reflect ( (lam ([x: elems A] app F x)) Eq F))) = trans (b_idem) (reflectI1 ((trans eq_which (trans (etah0)castE)))).  
+
+   %* an undefined element of arbitrary type *%
+   undefined : elems A = choice A.
+   
+   %* choice binder *%
+   some : (elems A -> o) -> elems A
+       = [f] zfc.If.ifte (nonempty (which (those f)))
+               ([p] cast (subsetI [x][q] subsetE (powersetE (why (those f))) (in_eq q ceq_which))
+                          (choice (celem (which (those f)) p)))
+               ([_] undefined).
+   some_prop : ded nonempty (which (those F)) -> ded F (some F)
+            = [p] thoseE (in_eq (eq_in (trans (ifte_then p) ceq_which)
+                                        (cwhy (choice (celem (which (those F)) p))))
+                                  ceq_which
+                  ).
+   the : (elems A -> o) -> elems A
+       = [f] zfc.If.ifte (existsU ([x] x in (which (those f))))
+               ([p] cast (subsetI [x][q] subsetE (powersetE (why (those f))) (in_eq q ceq_which))
+                          (choice (celem (which (those f)) 
+                (existsE p ([x][s] existsI x (andEl s)))  )))
+               ([_] undefined).
+  
+  the_prop : ded existsU ([x] x in (which (those F))) -> ded F (the F)
+            = [p] thoseE (in_eq (eq_in (trans (ifte_then p) ceq_which)
+                                        (cwhy (choice (celem (which (those F))  (existsE p ([x][s] existsI x (andEl s)))))))
+                                  ceq_which
+                  ).
+
+}.

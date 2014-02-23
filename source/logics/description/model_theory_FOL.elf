@@ -1,0 +1,236 @@
+%namespace "http://latin.omdoc.org/logics/model_theory".
+%namespace syn = "syntax".
+
+%view DLBase : syn.DLBase -> syn.FOLEQ = {
+  conc := i -> o.
+  role := i -> i -> o.
+  atom := i -> o.
+  %%ded := [f: i -> o] ded (forall ([x] f x)).
+  atomic := [a : i -> o] a.
+  subsume := [f] [g] ded (forall [x] ((f x) imp (g x))).
+  equiv := [f : i -> o] [g : i -> o] ded (forall [x] ((f x) imp (g x)) and ((g x) imp (f x)) ). %% == is in FOLEQ, cannot be used 
+
+  %{
+  %pattern atoms := {a : i -> o.}.
+  %pattern aConc := [a : i -> o] {
+    c : i -> o = a.
+  }.
+  %pattern cConc := [d : i -> o] {
+    c : i -> o = d.
+  }.
+  %pattern roles := {r : i -> i -> o.}.
+  %pattern subConc := [c : i -> o] [d : i -> o] {
+    ax : type =  ded (forall [x] ((c x) imp (d x))).    
+  }.
+  %pattern eqConc := [c : i -> o] [d : i -> o] {
+    ax : type = ded forall [x] (c x) == (d x).
+  }.
+  }%
+
+}.
+
+%view FL0 : syn.FL0 -> syn.FOLEQ = {
+  %include DLBase.
+  top := [x] true.
+  bot := [x] false.
+  inter := [f: i -> o] [g: i -> o] [x] (f x and g x). %% concept intersection
+  forall := [r: i -> i -> o] [f: i -> o] [x] (forall [y] ((r x y) imp (f y))).
+ 
+}.
+
+%view FLminus : syn.FLminus -> syn.FOLEQ = {
+ %include FL0.
+ lim_exists := [r] [x] (exists [y] (r x y)).
+}.
+
+%view Catom : syn.Catom -> syn.FOLEQ = {
+  %include DLBase.
+  aneg :=  [f: i -> o] [x] not( f x ).
+}.
+
+%view AL : syn.AL -> syn.FOLEQ = {
+ %include FLminus .
+ %include Catom.
+}.
+
+%view C : syn.C -> syn.FOLEQ = {
+ %include DLBase .
+neg := [f: i -> o] [x] not( f x ).
+}.
+
+%view E : syn.E -> syn.FOLEQ = {
+ %include DLBase .
+ exists := [r: i -> i -> o] [f: i -> o] [x] (exists [y] ((r x y) and (f y))).
+}.
+
+%view U : syn.U -> syn.FOLEQ = {
+ %include DLBase .
+ union := [f: i -> o] [g: i -> o] [x] (f x or g x).
+}.
+
+%view ALC : syn.ALC -> syn.FOLEQ = {
+ %include FLminus .
+ %include C .
+}.
+
+  %% functional roles
+%view F : syn.F -> syn.FOLEQ = {
+  %include DLBase.
+  functional := [r : i -> i -> o] ded  forall [y] exists [x] r x y.
+  %{
+  %pattern funcR := [r : i -> i -> o] {
+    ax : type = ded  forall [y] exists [x] r x y.
+  }.
+  }%
+}.
+
+  %% hierarchy on roles
+%view H : syn.H -> syn.FOLEQ = {
+  %include DLBase.
+  sub := [r : i -> i -> o] [s : i -> i -> o] ded forall [x] forall [y] s x y imp r x y.
+  %{
+  %pattern subRoles := [r : i -> i -> o] [s : i -> i -> o] {
+    ax : type =  ded (forall [x] forall [y] ((r x y) imp (s x y))).    
+  }.
+  }%
+}.
+
+%% additional rules
+
+%view R : syn.R -> syn.FOLEQ = {
+  %include DLBase.
+
+  refl := [r : i -> i -> o] ded forall [x] forall [y] r x y imp x == y.
+  %{
+  %pattern Refl := [r : i -> i -> o] {
+    ax : type = ded forall [x] forall [y] r x y imp x == y.
+  }.
+  }%
+
+  irrefl := [r : i -> i -> o] ded forall [x] forall [y] r x y imp not (x == y).
+  %{
+  %pattern Irrefl := [r : i -> i -> o] {
+    ax : type = ded forall [x] forall [y] r x y imp not (x == y).
+  }.
+  }%
+  
+  disj := [r : i -> i -> o] [s : i -> i -> o] ded forall [x] forall [y] not (r x y and s x y). %% axiom
+  %{
+  %pattern Disj := [r : i -> i -> o] [s : i -> i -> o] {
+    ax : type = ded  forall [x] forall [y] not (r x y == s x y).
+  }.
+  }%
+
+  crole := i -> i -> o.
+  %{
+  %pattern Crole := {
+   cr : i -> i -> o.
+  }.
+  }%
+
+  ' := [r : i -> i -> o] r.
+%% role composition 
+   comp := [cr : i -> i -> o] [cs : i -> i -> o] [a] [b] exists [y] cr a y and cs y b.
+ %% (i -> i -> o) -> (i -> i -> o) -> (i -> i -> o)
+		csub := [cr : i -> i -> o] [cs : i -> i -> o] ded forall [x] forall [y] cr x y imp cs x y. %% x R y in x S y if x R y => x S y.
+
+		%{
+			%pattern Csub1 := [r : i -> i -> o] [s : i -> i -> o] {
+				ax : type = ded forall [x] forall [y] ' r x y imp ' s x y. %% x R y in x S y if x R y => x S y.
+			}.
+
+		%pattern Csub2 := [r : i -> i -> o] [s : i -> i -> o] [t : i -> i -> o] {
+			%% csub (comp ' r ' s) ' t.
+				ax : type = ded forall [x] forall [y] ' r x y imp ' s x y. %% x R y in x S y if x R y => x S y.
+			}.
+
+		%pattern Csub3 := [r : i -> i -> o] [s : i -> i -> o] [t : i -> i -> o] {
+			%% csub ' r (comp ' s ' t).
+				ax : type = ded forall [x] forall [y] ' r x y imp ' s x y. %% x R y in x S y if x R y => x S y.
+			}.
+		}%
+}.
+
+
+
+%view O : syn.O -> syn.FOLEQ = {
+		 %include DLBase.
+     ind := i.
+    %% assertion function in FOLEQ?
+    %% i -> (i -> o) 
+     conc_assert := [indiv : i] [concept : i -> o] ded concept indiv.
+    %% (i -> i -> o) -> i -> i : type
+    role_assert := [role : i -> i -> o] [ind1 : i] [ind2 : i] ded role ind1 ind2.
+
+%{
+  %pattern individual = {ind : i.}.
+  %pattern concept_assertion = [indiv : i] [concept : i -> o] {
+			ax : type = ded concept indiv.
+  }.
+  %pattern role_assertion = [role : i -> i -> o] [ind1 : i] [ind2 : i]  {
+			ax : type = ded role ind1 ind2.
+	}.
+}%
+}.
+
+%% inverse role 
+%view I : syn.I -> syn.FOLEQ = {
+		 %include DLBase.
+		inv := [r : i -> i -> o] [x] [y]  not r x y. %% must return a role : i -> i -> o
+		%{
+			%pattern inverseRole = [r : i -> i -> o] [x : i] [y : i] {
+				r : o = not r x y.
+			}.
+		}%
+}.
+
+%% the following is commented out, currently not in the map
+%% anything that included fragment N or Q is also commented out
+%{
+%view N : syn.N -> syn.FOLEQ = {
+	 nat := i.
+  zero := i.
+  succ := [x] x.
+  atleast := [n : i] [r : i -> i -> o] [c : i -> o] [m : i] 
+}.
+%view Q : syn.Q -> syn.FOLEQ = {
+	%include N.
+}.
+
+%view ALN : syn.ALN -> syn.FOLEQ = {
+  %include AL.
+  %include N.
+}.
+}%
+
+%% transitive role
+%view S : syn.S -> syn.FOLEQ = {
+		  %include ALC.
+trans := [r : i -> i -> o] ded forall [x] forall [y] forall [z] r x y and r y z imp r x z.
+
+		%{
+			%pattern Trans :=  [r : i -> i -> o] {
+					ax : type = [r : i -> i -> o] ded forall [x] forall [y] forall [z] r x y and r y z imp r x z.
+			}.
+		}%
+}.
+
+%{
+%% commented out since it includes O, which is not working yet
+%% SHOIN, SROIQ, no new patterns here
+%view SHOIN : syn.SHOIN -> syn.FOLEQ = {
+ %include S.
+ %include H.
+ %include O.
+ %include I.
+ %include N.
+}.
+
+%view SROIQ : syn.SROIQ -> syn.FOLEQ = {
+ %include S.
+ %include R.
+ %include O.
+ %include I.
+ %include Q.
+}.
+}%

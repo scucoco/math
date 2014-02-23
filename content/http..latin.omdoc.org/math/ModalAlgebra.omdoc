@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
+  <theory name="ModalAlgebra" base="http://latin.omdoc.org/math" meta="http://latin.omdoc.org/math?EqUniverse">
+    <import from="http://latin.omdoc.org/math?BooleanAlgebra"> </import>
+    <constant name="□" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/math" module="Universe" name="u"/>
+            <om:OMS position="2" base="http://latin.omdoc.org/math" module="Universe" name="u"/>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="◇" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/math" module="Universe" name="u"/>
+            <om:OMS position="2" base="http://latin.omdoc.org/math" module="Universe" name="u"/>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+      <definition>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="x">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/math" module="Universe" name="u"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+              <om:OMS position="2_1" base="http://latin.omdoc.org/math" module="ComplementedLattice" name="¬"/>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_2_1" base="http://latin.omdoc.org/math" module="ModalAlgebra" name="□"/>
+                <om:OMA position="2_2_2">
+                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/math" module="ComplementedLattice" name="¬"/>
+                  <om:OMV position="2_2_2_2" name="x"/>
+                </om:OMA>
+              </om:OMA>
+            </om:OMA>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </definition>
+    </constant>
+  </theory>
+</omdoc>

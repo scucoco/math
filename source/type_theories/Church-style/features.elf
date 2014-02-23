@@ -1,0 +1,265 @@
+%namespace "http://latin.omdoc.org/foundations/type_theory/church".
+
+%namespace log = "../../logics/proof_theory".
+
+%sig Unit = {
+    %include Equality.
+    %include Logic.
+    unit  : tp.
+    *     : tm unit.
+    coind : {x : tm unit} x == *.
+}.
+
+%sig Void = {
+    %include Logic.
+    void : tp.
+    ind  : tm void -> {F} ded F.
+}.
+
+%sig NonEmpty = {
+    %include IndexedUniverse.
+    nonempty  : tp -> type.
+    nonemptyI : tm A -> nonempty A.
+}.
+
+%sig IdentityTypes = {
+    %include Equality.
+    id    : tm A -> tm A -> tp.
+    refl  : X == Y -> tm (id X Y).
+}.
+
+%sig DisjUnion = {
+    %include Equality.
+    %include Logic.
+    disjUnion: tp -> tp -> tp.
+    DisjUnion: tp -> tp -> type = [a][b] tm (disjUnion a b). 
+    Injl : tm A -> DisjUnion A B.
+    Injr : tm B -> DisjUnion A B.
+    Case : DisjUnion A B -> (tm A -> tm C) -> (tm B -> tm C) -> tm C.
+    conv_Injl : Case (Injl X) F G == F X. 
+    conv_Injr : Case (Injr X) F G == G X.
+    DisjUnionE : {x: DisjUnion A B} 
+                ({a: tm A} (x == (Injl a)) -> ded C) -> 
+                ({b: tm B} (x == (Injr b)) -> ded C) 
+                -> ded C.
+    conv_Case : Case X Injl Injr == X.
+}.
+
+%sig Products = {
+    %include Equality.
+    prod: tp -> tp -> tp.
+    Prod: tp -> tp -> type = [x][y] tm (prod x y).
+    Pair: tm A -> tm B -> Prod A B.
+    Pi1 : Prod A B -> tm A.
+    Pi2 : Prod A B -> tm B.
+    conv_Pi1  : Pi1 (Pair X Y) == X.
+    conv_Pi2  : Pi2 (Pair X Y) == Y.
+    conv_Pair : Pair (Pi1 U) (Pi2 U) == U.
+    eq_Prod   : Pi1 U == (Pi1 V) -> (Pi2 U) == (Pi2 V) -> (U == V).
+    inj_Pair1 : Pair X Y == Pair X' Y' -> X == X'.
+    inj_Pair2 : Pair X Y == Pair X' Y' -> Y == Y'.
+}.
+
+%sig Functions = {
+    %include Equality.
+    →   : tp -> tp -> tp.                             %infix right 50 →.
+    λ  : (tm A -> tm B) -> tm (A → B).
+    @    : tm (A → B) -> tm A -> tm B.             %infix left 100 @.
+    beta : ((λ F) @ X) == (F X).
+    extensionality : ({a : tm A} (F @ a) == (G @ a)) -> F == G.
+    eta  : (λ [x](F @ x)) == F
+         = extensionality [a] beta.
+    xi  : {x: tm A} (T x) == (S x) -> (λ ([x: tm A] T x)) == (λ ([x: tm A] S x))
+        =  [f] extensionality [a] trans beta (f a) (sym beta).
+    %abbrev ; : (tm A -> tm B) -> (tm B -> tm C) -> tm A -> tm C
+              = [f][g][x] g (f x).                    %infix left 5 ;.
+    %abbrev ∘ : (tm B -> tm C) -> (tm A -> tm B) -> tm A -> tm C
+              = [f][g][x] f (g x).                    %infix left 5 ∘.
+    eqapp  : F == G -> S == T -> (F @ S) == (G @ T).
+}.
+
+%sig PartialFunctions = {
+    %include Equality.
+    %include Logic.
+    %include log.Truth.
+    %* pfunc A B: type of partial functions from A to B *%
+    pfunc  : tp -> tp -> tp.
+    PFunc  : tp -> tp -> type = [x][y] tm (pfunc x y).
+
+    lambda : {p : tm A -> o} ({x: tm A} ded (p x) -> tm B) -> PFunc A B.
+    def    : PFunc A B -> tm A -> o.   
+    apply  : {f: PFunc A B} {x: tm A} ded (def f x) -> tm B.
+    conv_def1 : ded (def (lambda P F) X) -> ded (P X).
+    conv_def2 : ded (P X) -> ded (def (lambda P F) X).
+    %    beta   : (apply (lambda P F) X D) == (F X D).
+    %    eta    : lambda D [x][p] (apply F x p) == F.
+    %    id     : PFunc A A 
+    %            = lambda ([x] true) ([x][_] x).
+    %    comp   : {f: PFunc A B} PFunc B C -> PFunc A C.
+}.
+
+%sig PartialFunctionsDom = {
+    %include Equality.
+    %include Logic.
+    %* pfunc A D B: type of partial functions from A to B with definedness predicate D *%
+    pfunc  : {a:tp} (tm A -> o) -> tp -> tp.
+    PFunc  : {a} (tm A -> o) -> tp -> type 
+            = [x][d][y] tm (pfunc x d y).
+    lambda : ({x: tm A} ded D x -> tm B) -> PFunc A D B.
+    apply  : PFunc A D B -> {x: tm A} ded D x -> tm B.
+    beta   : apply (lambda F) X P == F X P.
+    %   eta    : lambda [x][p] (apply F x p) == F.
+    %   id     : PFunc A ([x] true) A = lambda [x][_] x.
+    %   comp   : {f: PFunc A D B} PFunc B D' C -> PFunc A ([a] D a and [p] D' (apply f a p)) C.
+}.
+
+%% @II: this only works for curry encodings
+%sig DependentSum = {
+   %include Equality.
+   %% depSum A B = { (a,b) | a ‍∈ A, b ‍∈ B(a) }
+   Σ  : (tm A -> tp) -> tp.
+   Sig  : (tm A -> tp) -> type 
+        = [F] tm (Σ F).
+   pair : {a : tm A} tm (B a) -> tm (Σ [x: tm A] B x).
+   pi1  : {u : Sig [x: tm A] (B x)} tm A.
+   pi2  : {u : Sig [x: tm A] (B x)} tm (B (pi1 u)).
+   conv_pi1    :  pi1 (pair X Y) == X.
+   conv_pi2    :  pi2 (pair X Y) == Y.
+   conv_pair   :  pair (pi1 U) (pi2 U) == U.
+   coind       :  (pi1 U) == (pi1 V) ->  (pi2 U) == (pi2 V) ->  U == V.
+}.
+
+%sig PredSubTypes = {
+	%include Equality.
+	%include Logic.
+	pr = [a] tm a -> prop.
+	
+	%% formation
+	subtype : {A: tp} pr A -> tp.
+	
+	%% introduction
+	intro : {x: tm A} ded (P x) -> tm (subtype A P).
+	%% evaluation
+	eval  : tm (subtype A P) -> tm A.
+	%% elimination
+   elim  : {x: tm (subtype A P)} ded (P (eval x)).
+
+	%% congruence
+   cong  : ded X == Y -> ded (intro X K) == (intro Y L).
+	%% soundness
+	conv_eval : ded (eval (intro X K)) == X.
+	%% computation rule (provable from soundness)
+	%% elim (intro X K) (of type ded (P (eval (intro X K))) proves the same formula as K
+
+	%% completeness
+	conv_eqclass : ded intro (eval X) K == X.
+	%% extensionality (equivalent to completeness)
+	extensionality : ded (eval X) == (eval Y) -> ded X == Y.
+}.	
+
+%sig Quotients = {
+	%include Equality.
+	%include Logic.
+	rel : tp -> type = [a] tm A -> tm A -> prop.
+	refl  = [r: rel A] {x} r x x.
+	sym   = [r: rel A] {x}{y} r x y -> r y x.
+	trans = [r: rel A] {x}{y}{z} r x y -> r y z -> r x z.
+
+	eqr : tp -> type.
+	eqrI : {r: rel A} refl r -> sym r -> trans r -> eqr A.
+	eqrE : eqr A -> rel A.
+	eqrErefl  : {r: eqr A} refl  (eqrE r).
+	eqrEsym   : {r: eqr A} sym   (eqrE r).
+	eqrEtrans : {r: eqr A} trans (eqrE r).
+	
+	quotient : {A:tp} per A -> tp.
+
+	%% introduction
+	eqclass : tm A -> {r: per A} tm (quotient A r).
+	%% evaluation (not definable in terms of elimination)
+	repr    : tm (quotient A R) -> tm A.
+	%% elimination (definable in terms of evaluation)
+	elim    : tm (quotient A R) -> {f: tm A -> tm B} ({x}{y} ded (R x y) -> (f x) == (f y)) ->
+	          tm B.
+	        %%= [c][f][p] f (repr c).
+
+	%% congruence
+   cong  : ded (R X Y) -> eqclass X R == eqclass Y R.
+	%% soundness
+	conv_repr : ded (R (repr (eqclass X R)) X).
+	%% computation (provable from soundness if elimination is defined in terms of evaluation)
+	comp  : ded elim F P (eqclass X R) == F X.
+	      %%= P (repr (eqclass X R)) X conv_repr.
+	%% completeness
+	conv_eqclass : ded eqclass (repr C) == C.
+	%% extensionality (equivalent to completeness)
+	extensionality : ded (R (repr C) (repr D)) -> ded C == D.
+}.
+
+%sig OptionTypes = {
+    %include Equality.
+    %include Logic.
+    option : tp -> tp.
+    Option : tp -> type = [a] tm (option a).
+    some : tm A -> Option A.
+    none : Option A.
+    free_some : some X == some Y -> X == Y.
+    free_some_none : (some X == none) -> {P} ded P.
+    induct_proof : ({a: tm A} ded (P (some a))) -> ded (P none) -> {a : Option A} ded (P a).
+    induct_def : (tm A -> tm B) -> tm B -> Option A -> tm B.
+}.
+
+%sig Naturals = {
+    %include Church.
+    nat : tp.
+    zero : tm nat.
+    succ : tm nat -> tm nat.
+    ind_def : tm A -> (tm nat -> tm A) -> (tm nat -> tm A).
+    cases   : tm nat -> tm A -> (tm nat -> tm A) -> tm A = [n][a][f] ind_def a f n.
+}.
+
+%sig NatTypes = {
+    %include Naturals.
+    before : tm nat -> tp.
+    ↑    : tm (before N) -> tm (before (succ N)).
+    last : tm (before (succ N)).
+    zeroE : tm (before zero) -> tm A.
+    cases : tm (before (succ N)) -> (tm (before N) -> tm A) -> tm A -> tm A.
+}.
+
+%sig ConditionalTerms = {
+    %include Equality.
+    %include Logic.
+    %include log.NEG.
+    %include log.DISJ.
+    %include log.CONJ.
+    case  : (ded F -> tm A) -> (ded G -> tm A) -> ded (F or G) -> ded (not (F and G)) -> tm A.
+    case1 : {p: ded F} case X Y P Q == (X p).
+    case2 : {q: ded G} case X Y P Q == (Y q).
+}.
+
+%sig UniversalQuantifier = {
+    %include Logic.
+    forall  : (tm A -> prop) -> prop.
+    forallI : ({a: tm A} ded (F a)) -> ded (forall F).
+    forallE : ded (forall F) -> {a: tm A} ded (F a).
+}.
+
+%sig ExistentialQuantifier = {
+    %include Logic.
+    exists  : (tm A -> prop) -> prop.
+    existsI : {a: tm A} ded (F a) -> ded (exists F).
+    existsE : ded (exists F) -> ({a: tm A} ded (F a) -> ded C) -> ded C.
+}.
+
+%* equality of internal propositions is logical equivalence
+   this makes the internal truth values an ordering under provability (rather than only a preordering)
+   the provable truth value is a greatest element of this ordering 
+*%
+%sig PropositionalExtensionality = {
+    %include InternalEquality.
+
+    eqI        : (ded F -> ded G) -> (ded G -> ded F) -> ded F == G.
+    top_unique : ded F -> ded G -> ded F == G 
+                = [p][q] eqI ([_] q) ([_] p).
+}.

@@ -1,0 +1,61 @@
+%*
+  sets, equivalence, congruence relations, and setoids
+  @author: Florian Rabe
+*%
+
+%namespace "http://latin.omdoc.org/math".
+
+%sig Universe = {
+   u : type.
+}.
+
+%sig Relation = {
+   %meta Universe.
+   r : u -> u -> type. %infix none 25 r.
+}.
+%sig Reflexive = {
+   %meta Universe.
+   %include Relation.
+   refl : X r X.
+}.
+%sig Symmetric = {
+   %meta Universe.
+   %include Relation.
+   sym : X r Y -> Y r X.
+}.
+%sig Transitive = {
+   %meta Universe.
+   %include Relation.
+   trans  : X r Y -> Y r Z -> X r Z.
+   trans3 : W r X -> X r Y -> Y r Z -> W r Z = [p1][p2][p3] trans (trans p1 p2) p3.
+   trans4 : V r W -> W r X -> X r Y -> Y r Z -> V r Z = [p1][p2][p3][p4] trans (trans3 p1 p2 p3) p4.
+   trans5 : V r W -> W r X -> X r Y -> Y r Z -> Z r T -> V r T = [p1][p2][p3][p4][p5] trans (trans4 p1 p2 p3 p4) p5.
+}.
+
+%sig Equivalence = {
+   %meta Universe.
+   %include Relation %open r %as ≡.
+   %include Reflexive.
+   %include Symmetric.
+   %include Transitive.
+}.
+
+%sig Congruence = {
+   %meta Universe.
+   %include Relation.
+   cong : {F: u -> u} X r Y -> (F X) r (F Y).
+}.
+
+%sig Equality = {
+   %meta Universe.
+   %include Equivalence.
+   %include Congruence.
+   %abbrev cong2 : {F: u -> u -> u} X r X' -> Y r Y' -> (F X Y) r (F X' Y') = 
+     [F][p][q] trans (cong ([x] F x Y) p) (cong ([y] F X' y) q).
+}.
+
+%sig EqUniverse = {
+   %include Universe.
+   %struct eq : Equality = {%include Universe.} %open r %as == refl sym trans trans3 trans4 cong cong2.
+   %% == = [x][y] x eq..Relation..r y. %infix none 25 ==.
+}.

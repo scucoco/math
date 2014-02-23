@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
+  <view 
+  name="TruthPF" base="http://latin.omdoc.org/translations/prop_iprop" from="http://latin.omdoc.org/logics/proof_theory?Truth" to="http://latin.omdoc.org/translations/prop_iprop?DN-IPL">
+    <import from="http://latin.omdoc.org/logics/proof_theory?Base">
+      <definition>
+        <om:OMS base="http://latin.omdoc.org/translations/prop_iprop" module="BasePF"/>
+      </definition>
+    </import>
+    <constant name="trueI">
+      <definition>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/logics/proof_theory" module="NEGExt" name="notnotI"/>
+            <om:OMS position="2" base="http://latin.omdoc.org/logics/syntax" module="Truth" name="true"/>
+            <om:OMS position="3" base="http://latin.omdoc.org/logics/proof_theory" module="Truth" name="trueI"/>
+          </om:OMA>
+        </om:OMOBJ>
+      </definition>
+    </constant>
+</view>
+</omdoc>

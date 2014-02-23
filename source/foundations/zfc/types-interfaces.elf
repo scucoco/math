@@ -1,0 +1,356 @@
+%* No logic should be used here. Instead instantiate in_lf equivalence relations; define < via Pi; show it is an order with a view *%
+
+%namespace "http://latin.omdoc.org/foundations/ftt".
+%namespace pf = "../logics/proof_theory".
+
+
+%* A logic based on a Church-style type theory: intrinsically typed terms, types, propositions, and proofs *% 
+%sig Church = {
+   tp   : type.
+   ttm  : tp -> type.               %prefix 0 ttm.
+   %include pf.Base %open o %as prop.
+
+   %* equality of terms *%
+   ==   : ttm A -> ttm A -> prop.   %infix none 25 ==.
+   %* equality of types *%
+   =tp= : tp -> tp -> prop.         %infix none 25 =tp=.
+}.
+
+%* A Logic based on a Curry-style type theory: terms and types with extrinsic typing judgment, propositions, and proofs *% 
+%sig Curry = {
+   tm : type. %% %struct tms : Equivalence %open a %as tm ≡ %as ==.
+   tp : type. %% %struct tps : Equivalence %open a %as tp ≡ %as =tp=.  
+   %include pf.Base %open o %as prop.
+
+   %* typing relation between terms and types *%
+   # : tm -> tp -> prop.        %infix none 25 #.
+   %* equality of terms *%
+   =tm= : tm -> tm -> prop.     %infix none 25 =tm=.
+   %* equality of types *%
+   =tp= : tp -> tp -> prop.     %infix none 25 =tp=.
+   %* subtype relation between types *%
+   < : tp -> tp -> prop.        %infix none 25 <.
+   <I : ({x} ded x # A -> ded x # B) -> ded A < B.
+   <E : ded A < B -> {x} ded x # A -> ded x # B. 
+
+   %* We define Church-style typing as a derived notion:
+      ttm A represents the collection of terms t such that |- t : A *% 
+   ttm   : tp -> type. 
+   !     : {t:tm} ded t # A -> ttm A. %infix none 25 !.
+   which : ttm A -> tm.               %prefix 50 which.
+   why   : {t: ttm A} ded which t # A.
+   eq_which : ded which (X ! P) =tm= X.
+
+   %* equality of typed terms *%
+   == : ttm A -> ttm A -> prop = [x][y] which x =tm= which y.       %infix none 25 ==.
+   congPl  : {F : ttm A -> prop} ded X == Y -> ded F X -> ded F Y.
+}.
+
+%view ChurchInCurry : Church -> Curry = {
+   tp   := tp.
+   ttm  := ttm.
+   ==   := [A] [x][y] x == y.
+   =tp= := [x][y] x =tp= y.
+}.
+
+%sig UniversalQuantifier = {
+   %include Church.
+   tforall  : (ttm A -> prop) -> prop.
+   tforallI : ({a: ttm A} ded F a) -> ded tforall F.
+   tforallE : ded tforall F -> {a: ttm A} ded F a.
+}.
+
+%sig ExistentialQuantifier = {
+   %include Church.
+   texists  : (ttm A -> prop) -> prop.
+   texistsI : {a: ttm A} ded F a -> ded texists F.
+   texistsE : ded texists F -> ({a: ttm A} ded F a -> ded C) -> ded C.
+}.
+
+%sig PredSubTypes = {
+   %include Church.
+   predsub : (ttm A -> prop) -> tp.
+   Predsub : (ttm A -> prop) -> type = [F] ttm (predsub F).
+   predsubI : {X} ded F X -> Predsub F.
+   predsubEl : {X: Predsub ([a: ttm A] F a)} ttm A.
+   predsubEr : {X: Predsub F} ded F (predsubEl X).
+   conv_predsubIE : ded predsubI (predsubEl X) P == X.
+   conv_predsubEI : ded predsubEl (predsubI X P) == X. 
+   eq_predsub : ded predsubEl X == predsubEl Y -> ded X == Y.
+   %% add subtype property?
+}.
+
+%sig ImageTypes = {
+   %include Curry.
+   Image : (ttm A -> tm) -> tp.
+   ImageI : {a: ttm A} ded (F a) # Image F.
+   ImageI': {a: ttm A}{f : ttm A -> tm} ded (f a) # Image f.
+   ImageE : {b: ttm (Image F)} ({a: ttm A} ded F a =tm= which b -> ded C) -> ded C.
+   Image_subset : ({a: ttm A} ded (F a) # B) -> ded (Image F) < B.
+               %{ = [p] subsetI [b:i][q: ded b # Image F]
+                    (ImageE (elem b q) [a: ttm A][r: ded (F a eq which (elem b q))]
+                      (eq_in (sym (trans r eq_which)) (p a))).}%
+}.
+
+%sig ConditionalTerms = {
+   %include Church.
+   %include pf.IPL.
+   case  : (ded F -> ttm A) -> (ded G -> ttm A) -> ded F or G -> ded not (F and G) -> ttm A.
+   case1 : {p: ded F} ded case X Y P Q == (X p).
+   case2 : {q: ded G} ded case X Y P Q == (Y q).
+   case' : (ded F -> ttm A) -> (ded not F -> ttm A) -> ded F or not F -> ttm A
+         = [then][else][p] case then else p (notI [q] notE (andEr q) (andEl q)).
+}.
+
+%sig BigUnion = {
+   %include Curry.
+   %* Bigunion [x] F x = \bigcup_{x in A} F x *%
+   Bigunion : (ttm A -> tp) -> tp.
+   BigunionI : {a: ttm A} ded X # F a -> ded X # (Bigunion F).
+   BigunionE : ded X # Bigunion F -> ({a: ttm A} ded X # F a -> ded C) -> ded C.
+   upperbound : ded F X < Bigunion F = <I ([x][p] BigunionI X p).
+   supremum  : ({a: ttm A} ded F a < G) -> ded Bigunion F < G
+             = [f] <I [x][p] (BigunionE p [a][q] <E (f a) x q).
+}.
+
+%sig Unit = {
+   %include Church.
+   unit : tp.
+   * : ttm unit.
+   coind : ded X == *.
+}.
+
+%sig Void = {
+   %include Church.
+   void : tp.
+   ind  : ttm void -> {F} ded F.
+}.
+
+%sig NonEmpty = {
+   %include Church.
+   nonempty : tp -> prop.
+   nonemptyI : ttm A -> ded nonempty A.
+   nonemptyE : ded nonempty A -> ({x: ttm A} ded F) -> ded F.
+}.
+
+%% %sig NonEmptyCurry = NonEmpty ^ ChurchInCurry
+%sig NonEmptyCurry = {
+   %include Curry.
+   nonempty : tp -> prop.
+   nonemptyI : ded X # A -> ded nonempty A.
+   nonemptyE : ded nonempty A -> ({x} ded x # A -> ded F) -> ded F.
+}.
+
+%sig BigInter = {
+   %include Curry.
+   %include NonEmptyCurry.
+   %* Biginter F = \bigcap [x] F x *%
+   Biginter : (ttm A -> tp) -> tp.
+   BiginterE : ded X # (Biginter F) -> {a: ttm A} ded X # F a.
+   BiginterI : ded nonempty A -> ({a: ttm A} ded X # F a) -> ded X # (Biginter F).  
+   lowerbound : ded Biginter F < F X = <I ([x][p] BiginterE p X).
+   infimum    : ded nonempty A -> ({a: ttm A} ded G < F a) -> ded G < Biginter F
+     = [p][f] <I [x][q] (BiginterI p ([a] <E (f a) x q)).
+}.
+
+%sig DisjUnion = {
+   %include Church.
+   disjUnion: tp -> tp -> tp.
+   DisjUnion: tp -> tp -> type = [a][b] ttm (disjUnion a b). 
+   Injl : ttm A -> DisjUnion A B.
+   Injr : ttm B -> DisjUnion A B.
+   Case : DisjUnion A B -> (ttm A -> ttm C) -> (ttm B -> ttm C) -> ttm C.
+   conv_Injl : ded Case (Injl X) F G == F X. 
+   conv_Injr : ded Case (Injr X) F G == G X.
+   DisjUnionE : {x: DisjUnion A B} ({a: ttm A} ded x == Injl a -> ded C)
+                                   -> ({b: ttm B} ded x == Injr b -> ded C) -> ded C.
+   %{ conv_Case : ded Case X Injl Injr == X
+     = DisjUnionE X ([a][q] trans3 (EqCongF ([x] Case x Injl Injr) q) conv_Injl (sym q))
+                    ([a][q] trans3 (EqCongF ([x] Case x Injl Injr) q) conv_Injr (sym q)). }%
+}.
+%sig Bool = {
+   %include Church.
+   bool : tp.
+   1 : ttm bool.
+   0 : ttm bool.
+   ifte : ttm bool -> ttm A -> ttm A -> ttm A.
+   conv_ifte_t : ded ifte 1 X Y == X.
+   conv_ifte_e : ded ifte 0 X Y == Y.
+}.
+
+%sig Reflection = {
+   %include Church.
+   %include Bool.
+   %include pf.NEG.
+   reflect : prop -> ttm bool.
+   lift : ttm bool -> prop = [b] b == 1.
+   conv_reflect_1 : ded F -> ded reflect F == 1.
+   conv_reflect_0 : ded not F -> ded reflect F == 0.
+   conv_lift_1 : ded reflect F == 1 -> ded F.
+   conv_lift_0 : ded reflect F == 0 -> ded not F.
+}.
+   
+%sig PowerTypes = {
+   %include Church.
+   power : tp -> tp.
+   Power : tp -> type = [a] ttm power a.
+   those : (ttm A -> prop) -> Power A.
+   contains : Power A -> ttm A -> prop.
+   conv_contains1 : ded contains (those P) X -> ded P X.
+   conv_contains2 : ded P X -> ded contains (those P) X.
+   conv_those : ded those ([x] contains S x) == S.
+}.
+
+%{
+%sig Quotient = {
+   %include Curry.
+   dom : tp.
+   equiv : ttm dom -> ttm dom -> prop.
+   %struct equiv : Equivalence = {a := tm dom. ≡ := [x][y] ded equiv x y.}.
+   quot  : tp.
+   class : ttm dom -> ttm quot.
+   ind   : {f: ttm dom -> ttm A} ({x}{y} ded equiv x y -> ded f x == f y) -> tm quot -> tm A.  
+}.
+}%
+
+%sig Products = {
+   %include Church.
+   prod: tp -> tp -> tp.
+   Prod: tp -> tp -> type = [x][y] ttm (prod x y).
+   Pair: ttm A -> ttm B -> Prod A B.
+   Pi1 : Prod A B -> ttm A.
+   Pi2 : Prod A B -> ttm B.
+   conv_Pi1  : ded Pi1 (Pair X Y) == X.
+   conv_Pi2  : ded Pi2 (Pair X Y) == Y.
+   conv_Pair : ded Pair (Pi1 U) (Pi2 U) == U.
+   %{ eq_Prod   : ded Pi1 U == Pi1 V -> ded Pi2 U == Pi2 V -> ded U == V
+      = [p][q] trans3 (sym conv_Pair) (EqCongF2 Pair p q) conv_Pair.
+   inj_Pair1: ded Pair X Y == Pair X' Y' -> ded X == X' = [p] trans3 (sym conv_Pi1) (EqCongF Pi1 p) conv_Pi1.
+   inj_Pair2: ded Pair X Y == Pair X' Y' -> ded Y == Y' = [p] trans3 (sym conv_Pi2) (EqCongF Pi2 p) conv_Pi2. }%
+}.
+
+%sig OptionTypes = {
+   %include Church.
+   option : tp -> tp.
+   Option : tp -> type = [a] ttm (option a).
+   some : ttm A -> Option A.
+   none : Option A.
+   
+   %{free_some : ded some X == some Y -> ded X == Y.
+   free_some_none : ded not (some X == none).
+   induct_proof : ({a: Elem A} ded P (some a)) -> ded P none -> ded tforall [aO: Option A] P aO.
+   induct_def : (Elem A -> Elem B) -> Elem B -> Option A -> Elem B. }%
+}.
+
+%.
+
+%sig PartialFunctions = {
+   %include Church.
+   %include pf.Equiv.
+   %* pfunc A B: type of partial functions from A to B *%
+   pfunc  : tp -> tp -> tp.
+   PFunc  : tp -> tp -> type = [x][y] ttm (pfunc x y).
+   lambda : {d: ttm A -> prop} ({x: ttm A} ded d x -> ttm B) -> PFunc A B.
+   def    : PFunc A B -> ttm A -> prop.   
+   apply  : {f: PFunc A B} {x: ttm A} ded (def f x) -> ttm B.
+   conv_def : ded def (lambda D F) X equiv D X.  
+   beta   : ded apply (lambda D F) X P == F X P.
+   eta    : ded lambda D [x][p] (apply F x p) == F.
+   
+   id     : PFunc A A = lambda ([x] true) ([x][_] x).
+   comp   : {f: PFunc A B} PFunc B C -> PFunc A C
+          = [f][g] lambda ([a] def f a And [q] def g (apply f a q)) [a][p] apply g (apply f a (AndEl p)) (AndEr p).
+}.
+
+%sig PartialFunctionsDom = {
+   %include Church.
+   %* pfunc A D B: type of partial functions from A to B with definedness predicate D *%
+   pfunc  : {a:tp} (ttm A -> prop) -> tp -> tp.
+   PFunc  : {a} (ttm A -> prop) -> tp -> type = [x][d][y] ttm (pfunc x d y).
+   lambda : ({x: ttm A} ded D x -> ttm B) -> PFunc A D B.
+   apply  : PFunc A D B -> {x: ttm A} ded D x -> ttm B.
+   beta   : ded apply (lambda F) X P == F X P.
+   eta    : ded lambda [x][p] (apply F x p) == F.
+   
+   id     : PFunc A ([x] true) A = lambda [x][_] x.
+   comp   : {f: PFunc A D B} PFunc B D' C -> PFunc A ([a] D a And [p] D' (apply f a p)) C
+          = [f][g] lambda [a][p] apply g (apply f a (AndEl p)) (AndEr p).
+}.
+
+%sig Functions = {
+   %include Church.
+   func   : tp -> tp -> tp.
+   Func   : tp -> tp -> type = [x][y] ttm (func x y).
+   lambda : (ttm A -> ttm B) -> Func A B.
+   apply  : Func A B -> ttm A -> ttm B.
+   @ = apply. %infix left 30 @.
+   beta : ded apply (lambda F) X == (F X).
+   extensionality : ({a:ttm A} ded (F @ a) == (G @ a)) -> ded F == G.
+   eta : ded lambda ([x] F @ x) == F.
+   xi : ({a: ttm A} ded F a == G a) -> ded lambda F == lambda G.
+
+   beta2 : ded (lambda [x] lambda [y] F x y) @ X @ Y == F X Y
+        = trans (congF ([u] u @ Y) beta) beta.  
+   beta3 : ded (lambda [x] lambda [y] lambda [z] F x y z) @ X @ Y @ Z == F X Y Z
+        = trans (congF ([u] u @ Z) (trans (congF ([z] z @ Y) beta) beta)) beta.  
+}.
+
+%sig DependentProducts = {
+   %include Curry.
+
+   %* depSum A B = { (a,b) | a ‍∈ A, b ‍∈ B(a) } *%
+   sig  : (ttm A -> tp) -> tp.
+   Sig  : (ttm A -> tp) -> type = [A][B] ttm (depSum A B).
+   
+   pair : {a: ttm A} ttm (B a) -> sig [x: ttm A] B x.
+   pi1  : sig [x: ttm A] B x -> ttm A.
+   pi2  : {u: sig [x: ttm A] B x} ttm (B (pi1 u)).
+   
+   conv_pi1    : ded pi1 (pair X Y) == X
+               = trans3 eq_which (congF eq_which pi1) conv_pi1.
+   %{ we cannot use Church typing here because the types of the two sides
+      are only provably (by conv_pi1) but not definitionally equal }% 
+   conv_pi2    : ded which (pi2 (pair X Y)) =tm= (which Y).
+   conv_pair   : ded pair (pi1 U) (pi2 U) == U.
+   %{ This theorem cannot easily be proved using the conversions alone
+      because the types of the second projections are not definitionally equalsig [x: ttm A] B x. }%
+   coind : ded pi1 U == pi1 V -> ded which (pi2 U) =tm= which (pi2 V) -> ded U == V.
+}.
+
+%sig DependentFunctions = {
+   %include Church.
+   %% Pi [x: ttm A] B x = { f : A -> (depSum A B) | \forall a \in A. f(a) = (a,b) where b \in B(a) }
+   %%                   = { f : Func A (depSum A B) | pi1 prop f = id_A }
+   pi : (ttm A -> tp) -> tp.
+   Pi : (ttm A -> tp) -> type = [A][B] ttm (pi [x: ttm A] B x).
+   lambda : ({a: ttm A} ttm (B a)) -> pi [x: ttm A] B x..
+   apply  : ttm pi [x: ttm A] B x -> {a : ttm A} ttm (B a).
+   beta : ded apply (lambda [x] F x) X == F X.
+   eta  : ded lambda ([x] apply F x) == F.
+   xi   : ({x} ded F x == G x) -> ded lambda F == lambda G.
+   extensionality : ({x: ttm A} ded apply F x == apply G x) -> ded F == G.
+}.
+
+%{
+%sig FTT = {
+  %include Curry.
+  %conservative Church %by ChurchInCurry.
+  %struct %implicit _ : Church = ChurchInCurry.
+  %include ChurchInCurry * UniversalQuantifier.
+  %include UniversalQuantifierCurry.
+  %include UniversalQuantifier.
+  %include ExistentialQuantifier.
+  %include PredSubTypes.
+  %include ImageTypes.
+  %include ConditionalTerms.
+  %include PartialFunctions.
+  %include OptionTypes.
+  %include BigUnion.
+  %include BigInter.
+  %include DisjUnion.
+  %include Products.
+  %include Functions.
+  %include DependentProducts.
+  %include DependentFunctions.
+}.
+}%

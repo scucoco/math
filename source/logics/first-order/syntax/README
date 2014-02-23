@@ -1,0 +1,22 @@
+General structure of current directory at
+https://svn.kwarc.info/repos/twelf/logics/first-order/syntax
+
+Abbreviations
+- fol    : first-order logic
+- foleq  : first-order logic with equality
+- sfol   : sorterd first-order logic
+- sfoleq : sorted first-order logic with equality
+
+This directory contains encodings of
+
+- syntax of fol
+base.elf     - base signature for fol syntax  
+modules.elf  - separate signatures for each quantifier and equality
+fol.elf      - signatures forming fol and foleq
+derived.elf  - signatures for syntax of derived terms, (e.g. non-equality)
+
+- syntax of sfol
+sorted_base.elf    - base signature for sfol syntax 
+sorted_modules.elf - separate signatures for each sorted quantifier and equality
+sorted_fol.elf     - signatures forming sfol and sfoleq
+sorted_derived.elf - signatures for syntax of derived terms, (e.g. sorted non-equality)

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
+  <theory name="TND" base="http://latin.omdoc.org/logics/proof_theory" meta="http://cds.omdoc.org/urtheories?LF">
+    <import from="http://latin.omdoc.org/logics/proof_theory?Base"> </import>
+    <import from="http://latin.omdoc.org/logics/proof_theory?NEG"> </import>
+    <import from="http://latin.omdoc.org/logics/proof_theory?DISJ"> </import>
+    <constant name="tnd" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+              <om:OMS position="2_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/syntax" module="DISJ" name="or"/>
+                <om:OMV position="2_2_2" name="A"/>
+                <om:OMA position="2_2_3">
+                  <om:OMS position="2_2_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_3_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                  <om:OMV position="2_2_3_2" name="A"/>
+                </om:OMA>
+              </om:OMA>
+            </om:OMA>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/proof_theory?TND?tnd" precedence="0" fixity="prefix" arguments="1"/>
+      </notation>
+    </constant>
+  </theory>
+</omdoc>

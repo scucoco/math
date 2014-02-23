@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
+  <theory name="DLBase" base="http://latin.omdoc.org/logics/syntax" meta="http://cds.omdoc.org/urtheories?LF">
+    <constant name="atom" role="type">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://cds.omdoc.org/urtheories" module="Typed" name="type"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="conc" role="type">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://cds.omdoc.org/urtheories" module="Typed" name="type"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="atomic" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/logics/syntax" module="DLBase" name="atom"/>
+            <om:OMS position="2" base="http://latin.omdoc.org/logics/syntax" module="DLBase" name="conc"/>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="role" role="type">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://cds.omdoc.org/urtheories" module="Typed" name="type"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="subsume" role="type">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/logics/syntax" module="DLBase" name="conc"/>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+              <om:OMS position="2_1" base="http://latin.omdoc.org/logics/syntax" module="DLBase" name="conc"/>
+              <om:OMS position="2_2" base="http://cds.omdoc.org/urtheories" module="Typed" name="type"/>
+            </om:OMA>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="equiv" role="type">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/logics/syntax" module="DLBase" name="conc"/>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+              <om:OMS position="2_1" base="http://latin.omdoc.org/logics/syntax" module="DLBase" name="conc"/>
+              <om:OMS position="2_2" base="http://cds.omdoc.org/urtheories" module="Typed" name="type"/>
+            </om:OMA>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+    </constant>
+  </theory>
+</omdoc>

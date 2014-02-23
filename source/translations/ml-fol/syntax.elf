@@ -1,0 +1,46 @@
+%* Syntax translation from modal to first-order logic *%
+
+%namespace "http://latin.omdoc.org/translations/ml_fol".
+%namespace syn = "../logics/syntax".
+
+
+%sig ML-FOL = {
+   %include syn.FOL.
+   rel : i -> i -> o.  %infix none 100 rel.
+}.
+
+%view Base : syn.Logic -> ML-FOL = {
+   o := i -> o.
+   ded := [f] ded forall f.
+   %% pattern translations for o and ded.
+			%{
+			%pattern po = [q : i -> o] {
+				p : i -> o = q.
+			}.
+			%pattern pded = {
+				ax : type = [f] ded forall f.
+			}.
+			}%
+}.
+
+%view MPL : syn.MPL -> ML-FOL = {
+   %include Base.
+   ⊥ := [x] false.
+   ⇒ := [f][g][x] (f x) imp (g x).
+}.
+
+%view Necessity : syn.Necessity -> ML-FOL = {
+   %include Base.
+   □ := [f][x] forall [y] (x rel y) imp (f y).
+}.
+
+%view Possibility : syn.Possibility -> ML-FOL = {
+   %include Base.
+   ◇ := [f][x] exists [y] (x rel y) and (f y).
+}.
+
+%view ML : syn.ML -> ML-FOL = {
+   %include MPL.
+   %include Necessity.
+   %include Possibility.
+}.

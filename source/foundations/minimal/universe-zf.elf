@@ -1,0 +1,14 @@
+%namespace "http://latin.omdoc.org/foundations/minimal".
+%namespace zfc = "zfc".
+
+%{
+%view Univ-ZF : Universes -> zfc.Boolean = {
+  %include Bool-ZF.
+  sup      := tm (A => bool') => bool'.
+  sup1     := ded (forall [a: tm A] F @ a eq 1) imp sup @ F eq 1.
+  sup0     := ded (exists [a: tm A] F @ a eq 0) imp sup @ F eq 0.
+  equal    := tm (A => A => bool').
+  equal01  := ded forall [x: tm A] forall [y: tm A] (equal @ x @ y eq 1) equiv (x eq y).
+}.
+
+}%

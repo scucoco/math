@@ -1,0 +1,50 @@
+%namespace "http://latin.omdoc.org/logics/model_theory/kripke".
+%namespace math = "../../math".
+%namespace syn = "../syntax".
+%namespace pf = "../proof_theory".
+
+
+%view BasePL : syn.Logic -> Kripke = {
+   o := bool.
+   ded := [A: bool] ded (A eq 1).
+}.
+
+%view Truth : syn.Truth -> Kripke = {
+   %include BasePL.
+   true := 1.
+}.
+
+%view Falsity : syn.Falsity -> Kripke = {
+   %include BasePL.
+   false := 0.
+}.
+
+%view NEG : syn.NEG -> Kripke = {
+   %include BasePL.
+   not := ¬.
+}.
+
+%view IMP : syn.IMP -> Kripke = {
+   %include BasePL.
+   imp := [a] [b] a ⇒ b.
+}.
+
+%view CONJ : syn.CONJ -> Kripke = {
+   %include BasePL.
+   and := [a] [b] a ∧ b.
+}.
+
+%view DISJ : syn.DISJ -> Kripke = {
+   %include BasePL.
+   or := [a] [b] a ∨ b.
+}.
+
+%view PL : syn.PL -> Kripke = {
+   %include BasePL.
+   %include Truth.
+   %include Falsity.
+   %include NEG.
+   %include IMP.
+   %include CONJ.
+   %include DISJ.
+}.

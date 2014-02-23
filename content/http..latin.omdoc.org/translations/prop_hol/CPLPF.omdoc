@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
+  <view name="CPLPF" base="http://latin.omdoc.org/translations/prop_hol">
+    <from>
+      <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+        <om:OMS base="http://latin.omdoc.org/logics/proof_theory" module="CPL"/>
+      </om:OMOBJ>
+    </from>
+    <to>
+      <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+        <om:OMA>
+          <om:OMS position="0" base="http://cds.omdoc.org/mmt" module="mmt" name="theory-union"/>
+          <om:OMS position="1" base="http://latin.omdoc.org/foundations/hol" module="SFOL-Pf"/>
+          <om:OMS position="2" base="http://latin.omdoc.org/foundations/hol" module="Classical"/>
+        </om:OMA>
+      </om:OMOBJ>
+    </to>
+    <import from="http://latin.omdoc.org/logics/proof_theory?Base">
+      <definition>
+        <om:OMS base="http://latin.omdoc.org/translations/prop_hol" module="BasePF"/>
+      </definition>
+    </import>
+    <import from="http://latin.omdoc.org/logics/proof_theory?IPL">
+      <definition>
+        <om:OMS base="http://latin.omdoc.org/translations/prop_hol" module="IPLPF"/>
+      </definition>
+    </import>
+    <import from="http://latin.omdoc.org/logics/proof_theory?TND">
+      <definition>
+        <om:OMS base="http://latin.omdoc.org/translations/prop_hol" module="TND"/>
+      </definition>
+    </import>
+  </view>
+</omdoc>

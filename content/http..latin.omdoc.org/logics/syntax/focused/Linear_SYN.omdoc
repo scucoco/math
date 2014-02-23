@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
+  <theory name="Linear_SYN" base="http://latin.omdoc.org/logics/syntax/focused" meta="http://cds.omdoc.org/urtheories?LF">
+    <metadata>
+      <meta property="http://purl.org/dc/terms?_?description">
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMSTR>linear logic using positive and negative propositions</om:OMSTR>
+        </om:OMOBJ>
+      </meta>
+    </metadata>
+    <constant name="p" role="type">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://cds.omdoc.org/urtheories" module="Typed" name="type"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="n" role="type">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://cds.omdoc.org/urtheories" module="Typed" name="type"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="↓" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/logics/syntax/focused" module="Linear_SYN" name="n"/>
+            <om:OMS position="2" base="http://latin.omdoc.org/logics/syntax/focused" module="Linear_SYN" name="p"/>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="⊗" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/logics/syntax/focused" module="Linear_SYN" name="p"/>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+              <om:OMS position="2_1" base="http://latin.omdoc.org/logics/syntax/focused" module="Linear_SYN" name="p"/>
+              <om:OMS position="2_2" base="http://latin.omdoc.org/logics/syntax/focused" module="Linear_SYN" name="p"/>
+            </om:OMA>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/syntax/focused?Linear_SYN?⊗" precedence="20" fixity="infix-left" arguments="0"/>
+      </notation>
+    </constant>
+    <constant name="1" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/logics/syntax/focused" module="Linear_SYN" name="p"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="⊕" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/logics/syntax/focused" module="Linear_SYN" name="p"/>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+              <om:OMS position="2_1" base="http://latin.omdoc.org/logics/syntax/focused" module="Linear_SYN" name="p"/>
+              <om:OMS position="2_2" base="http://latin.omdoc.org/logics/syntax/focused" module="Linear_SYN" name="p"/>
+            </om:OMA>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/syntax/focused?Linear_SYN?⊕" precedence="20" fixity="infix-left" arguments="0"/>
+      </notation>
+    </constant>
+    <constant name="0" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/logics/syntax/focused" module="Linear_SYN" name="p"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="!" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/logics/syntax/focused" module="Linear_SYN" name="n"/>
+            <om:OMS position="2" base="http://latin.omdoc.org/logics/syntax/focused" module="Linear_SYN" name="p"/>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="↑" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/logics/syntax/focused" module="Linear_SYN" name="p"/>
+            <om:OMS position="2" base="http://latin.omdoc.org/logics/syntax/focused" module="Linear_SYN" name="n"/>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="&amp;" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/logics/syntax/focused" module="Linear_SYN" name="n"/>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+              <om:OMS position="2_1" base="http://latin.omdoc.org/logics/syntax/focused" module="Linear_SYN" name="n"/>
+              <om:OMS position="2_2" base="http://latin.omdoc.org/logics/syntax/focused" module="Linear_SYN" name="n"/>
+            </om:OMA>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/syntax/focused?Linear_SYN?&amp;" precedence="20" fixity="infix-left" arguments="0"/>
+      </notation>
+    </constant>
+    <constant name="⊤" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/logics/syntax/focused" module="Linear_SYN" name="n"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="⊸" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/logics/syntax/focused" module="Linear_SYN" name="p"/>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+              <om:OMS position="2_1" base="http://latin.omdoc.org/logics/syntax/focused" module="Linear_SYN" name="n"/>
+              <om:OMS position="2_2" base="http://latin.omdoc.org/logics/syntax/focused" module="Linear_SYN" name="n"/>
+            </om:OMA>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/syntax/focused?Linear_SYN?⊸" precedence="20" fixity="infix-left" arguments="0"/>
+      </notation>
+    </constant>
+    <constant name="ded" role="type">
+      <metadata>
+        <meta property="http://purl.org/dc/terms?_?description">
+          <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+            <om:OMSTR>
+              truth judgment, i.e., derivability in empty context\n todo: proof rules cannot be elegantly encoded in LF, but can sequents be encoded as judgments without giving any inference rules?
+            </om:OMSTR>
+          </om:OMOBJ>
+        </meta>
+      </metadata>
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/logics/syntax/focused" module="Linear_SYN" name="n"/>
+            <om:OMS position="2" base="http://cds.omdoc.org/urtheories" module="Typed" name="type"/>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+    </constant>
+  </theory>
+</omdoc>

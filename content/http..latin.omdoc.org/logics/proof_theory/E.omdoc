@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
+  <theory name="E" base="http://latin.omdoc.org/logics/proof_theory" meta="http://cds.omdoc.org/urtheories?LF">
+    <import from="http://latin.omdoc.org/logics/syntax?E"> </import>
+    <import from="http://latin.omdoc.org/logics/proof_theory?DLBase"> </import>
+    <constant name="ruleExists" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="X">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/proof_theory" module="DLBase" name="u"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="R">
+                  <type>
+                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/logics/syntax" module="DLBase" name="role"/>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMBIND position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+                <om:OMBVAR>
+                  <om:OMV position="2_2_0" name="P">
+                    <type>
+                      <om:OMS position="2_2_0_1" base="http://latin.omdoc.org/logics/syntax" module="DLBase" name="conc"/>
+                    </type>
+                    <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                      <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                    </attribution>
+                  </om:OMV>
+                </om:OMBVAR>
+                <om:OMA position="2_2_2">
+                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                  <om:OMBIND position="2_2_2_1">
+                    <om:OMS position="2_2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+                    <om:OMBVAR>
+                      <om:OMV position="2_2_2_1_0" name="Y">
+                        <type>
+                          <om:OMS position="2_2_2_1_0_1" base="http://latin.omdoc.org/logics/proof_theory" module="DLBase" name="u"/>
+                        </type>
+                        <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                          <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                        </attribution>
+                      </om:OMV>
+                    </om:OMBVAR>
+                    <om:OMA position="2_2_2_1_2">
+                      <om:OMS position="2_2_2_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                      <om:OMA position="2_2_2_1_2_1">
+                        <om:OMS position="2_2_2_1_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                        <om:OMS position="2_2_2_1_2_1_1" base="http://latin.omdoc.org/logics/proof_theory" module="DLBase" name="inrole"/>
+                        <om:OMV position="2_2_2_1_2_1_2" name="X"/>
+                        <om:OMV position="2_2_2_1_2_1_3" name="R"/>
+                        <om:OMV position="2_2_2_1_2_1_4" name="Y"/>
+                      </om:OMA>
+                      <om:OMA position="2_2_2_1_2_2">
+                        <om:OMS position="2_2_2_1_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                        <om:OMA position="2_2_2_1_2_2_1">
+                          <om:OMS position="2_2_2_1_2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                          <om:OMS position="2_2_2_1_2_2_1_1" base="http://latin.omdoc.org/logics/proof_theory" module="DLBase" name="ded"/>
+                          <om:OMV position="2_2_2_1_2_2_1_2" name="Y"/>
+                          <om:OMV position="2_2_2_1_2_2_1_3" name="P"/>
+                        </om:OMA>
+                        <om:OMS position="2_2_2_1_2_2_2" base="http://latin.omdoc.org/logics/proof_theory" module="DLBase" name="*"/>
+                      </om:OMA>
+                    </om:OMA>
+                  </om:OMBIND>
+                  <om:OMA position="2_2_2_2">
+                    <om:OMS position="2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                    <om:OMA position="2_2_2_2_1">
+                      <om:OMS position="2_2_2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_2_2_2_1_1" base="http://latin.omdoc.org/logics/proof_theory" module="DLBase" name="ded"/>
+                      <om:OMV position="2_2_2_2_1_2" name="X"/>
+                      <om:OMA position="2_2_2_2_1_3">
+                        <om:OMS position="2_2_2_2_1_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                        <om:OMS position="2_2_2_2_1_3_1" base="http://latin.omdoc.org/logics/syntax" module="E" name="exists"/>
+                        <om:OMV position="2_2_2_2_1_3_2" name="R"/>
+                        <om:OMV position="2_2_2_2_1_3_3" name="P"/>
+                      </om:OMA>
+                    </om:OMA>
+                    <om:OMS position="2_2_2_2_2" base="http://latin.omdoc.org/logics/proof_theory" module="DLBase" name="*"/>
+                  </om:OMA>
+                </om:OMA>
+              </om:OMBIND>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/proof_theory?E?ruleExists" precedence="0" fixity="prefix" arguments="3"/>
+      </notation>
+    </constant>
+  </theory>
+</omdoc>

@@ -1,0 +1,35 @@
+// This is an MMT script that builds this project. It can be run by checking out MMT at https://svn.kwarc.info/repos/MMT/deploy and running MMT using the shell scripts given there.
+
+log console
+log file build.log
+//log+ presenter
+//log+ backend
+log+ controller
+log+ extman
+//log+ reader
+log+ archive  
+//log+ checker
+//log+ object-checker
+//log+ query
+//log+ catalog
+//log+ server
+//log+ uom
+//log+ abox
+//log+ structure-parser
+//log+ parser
+//log+ scanner
+//log+ lf
+
+// replace argument with the correct path to Twelf
+extension info.kwarc.mmt.lf.Twelf C:\other\twelf-mod\bin\twelf-server.bat
+
+archive add ../urtheories
+archive add .
+
+build latin twelf-omdoc*
+build latin index*
+
+// temporary to detect problems in Twelf export; not validation necessary because content is produced by Twelf
+//archive latin check
+
+exit

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
+  <view 
+  name="OWLBaseFOLEQD" base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" from="http://latin.omdoc.org/logics/description/owl/owl.omdoc?OWLBase" to="http://latin.omdoc.org/logics/description/owl/owl.omdoc?FOLEQD">
+    <constant name="class">
+      <definition>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/math" module="Universe" name="u"/>
+            <om:OMS position="2" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+          </om:OMA>
+        </om:OMOBJ>
+      </definition>
+    </constant>
+    <constant name="objectProperty">
+      <definition>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/math" module="Universe" name="u"/>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+              <om:OMS position="2_1" base="http://latin.omdoc.org/math" module="Universe" name="u"/>
+              <om:OMS position="2_2" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+            </om:OMA>
+          </om:OMA>
+        </om:OMOBJ>
+      </definition>
+    </constant>
+    <constant name="dataTypeProperty">
+      <definition>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/math" module="Universe" name="u"/>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+              <om:OMS position="2_1" base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"/>
+              <om:OMS position="2_2" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+            </om:OMA>
+          </om:OMA>
+        </om:OMOBJ>
+      </definition>
+    </constant>
+    <constant name="individual">
+      <definition>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"/>
+        </om:OMOBJ>
+      </definition>
+    </constant>
+</view>
+</omdoc>

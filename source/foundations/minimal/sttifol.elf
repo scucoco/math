@@ -1,0 +1,40 @@
+%* STTIFOLEQ is a meta-logic used to represent model theory. It is composed 
+of simple type theory (STT) equipped with external intuitionistic 
+first-order logic, i.e., propositions are not STT-terms.
+
+We call this meta-logic "HOL" in the paper "Representing Model-Theory in a Type-Theoretical Logical Framework"
+   @author Fulya Horozal and Florian Rabe *%
+
+%namespace "http://latin.omdoc.org/foundations/minimal".
+%namespace tt = "../type_theories".
+%namespace pf = "../logics/proof_theory".
+
+
+%* This view interprets the intensional equality from type theory in terms of the extensional one in sorted logic. *% 
+%view IntExt : tt.Level -> pf.SEqual = {
+   cl  := sort.
+   exp := [A] tm A.
+   ==  := [A][X][Y] ded X eq Y.
+   refl := [A][X] refl.
+   sym  := [A][X][Y][p] sym p.
+   trans:= [A][X][Y][Z][p][q] trans p q.
+   cong := [A][X][Y][B][F][p] congF F p.
+}.
+
+%sig STTIFOLEQ = {
+  %include pf.SIFOLEQExt %open.
+  %%include pf.PLExt      %open.  %% redundant include
+  %struct fun : tt.SimpFun = {%struct level := IntExt.} %open → λ @ ; ∘ beta.
+
+  %* commonly used abbreviations *%
+  set  = sort.
+  elem = [x] tm x.
+}.
+
+%* HOL with functional extensionality *%
+%sig STTIFOLEQExt = {
+  %include STTIFOLEQ.
+  
+  fun_ext : {G : (elem A -> elem B) -> elem C} 
+    ({x} ded (F1 x) eq (F2 x)) -> ded (G F1) eq (G F2).   
+}.

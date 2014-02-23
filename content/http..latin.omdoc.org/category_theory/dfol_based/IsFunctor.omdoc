@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
+  <view 
+  name="IsFunctor" base="http://latin.omdoc.org/category_theory/dfol_based" from="http://latin.omdoc.org/category_theory/dfol_based?Functor" to="http://latin.omdoc.org/category_theory/dfol_based?IdFunctor">
+    <import name="dom" from="http://latin.omdoc.org/category_theory/dfol_based?Category">
+      <definition>
+        <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="IdFunctor" name="F/dom"/>
+      </definition>
+    </import>
+    <import name="cod" from="http://latin.omdoc.org/category_theory/dfol_based?Category">
+      <definition>
+        <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="IdFunctor" name="F/cod"/>
+      </definition>
+    </import>
+    <constant name="FO">
+      <definition>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="x">
+                <type>
+                  <om:OMA position="0_1">
+                    <om:OMS position="0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="0_1_1" base="http://latin.omdoc.org/logics/syntax" module="DFOL" name="^"/>
+                    <om:OMS position="0_1_2" base="http://latin.omdoc.org/category_theory/dfol_based" module="IdFunctor" name="cat/obj"/>
+                  </om:OMA>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMV position="2" name="x"/>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </definition>
+    </constant>
+    <constant name="FM">
+      <definition>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMA position="0_1">
+                    <om:OMS position="0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="0_1_1" base="http://latin.omdoc.org/logics/syntax" module="DFOL" name="^"/>
+                    <om:OMS position="0_1_2" base="http://latin.omdoc.org/category_theory/dfol_based" module="IdFunctor" name="cat/obj"/>
+                  </om:OMA>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="B">
+                  <type>
+                    <om:OMA position="2_0_1">
+                      <om:OMS position="2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_0_1_1" base="http://latin.omdoc.org/logics/syntax" module="DFOL" name="^"/>
+                      <om:OMS position="2_0_1_2" base="http://latin.omdoc.org/category_theory/dfol_based" module="IdFunctor" name="cat/obj"/>
+                    </om:OMA>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMBIND position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+                <om:OMBVAR>
+                  <om:OMV position="2_2_0" name="x">
+                    <type>
+                      <om:OMA position="2_2_0_1">
+                        <om:OMS position="2_2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                        <om:OMS position="2_2_0_1_1" base="http://latin.omdoc.org/logics/syntax" module="DFOL" name="^"/>
+                        <om:OMA position="2_2_0_1_2">
+                          <om:OMS position="2_2_0_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                          <om:OMS position="2_2_0_1_2_1" base="http://latin.omdoc.org/category_theory/dfol_based" module="IdFunctor" name="cat/mor"/>
+                          <om:OMV position="2_2_0_1_2_2" name="A"/>
+                          <om:OMV position="2_2_0_1_2_3" name="B"/>
+                        </om:OMA>
+                      </om:OMA>
+                    </type>
+                    <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                      <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                    </attribution>
+                  </om:OMV>
+                </om:OMBVAR>
+                <om:OMV position="2_2_2" name="x"/>
+              </om:OMBIND>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </definition>
+    </constant>
+    <constant name="id_ax">
+      <definition>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="IdFunctor" name="F/id_ax"/>
+        </om:OMOBJ>
+      </definition>
+    </constant>
+    <constant name="comp_ax">
+      <definition>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="IdFunctor" name="F/comp_ax"/>
+        </om:OMOBJ>
+      </definition>
+    </constant>
+</view>
+</omdoc>

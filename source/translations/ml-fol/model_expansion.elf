@@ -1,0 +1,67 @@
+%* Verification of the model expansion property for the translation of modal to first-order logic *%
+
+%namespace "http://latin.omdoc.org/translations/ml_fol".
+%namespace mod = "../logics/model_theory".
+%namespace mod_kripke = "../logics/model_theory/kripke".
+ 
+
+%* First a view between models is specified *%
+%view FOLMOD-Kripke : mod.FOLMOD -> mod_kripke.Kripke = {
+	univ := world.
+	non_empty_universe := exists_world.
+}.
+
+%view FOL-Kripke : ML-FOLMOD -> mod_kripke.Kripke = {
+	%include FOLMOD-Kripke.
+   rel := acc.       
+}.
+
+%* Next a logical relation is specified *%
+%rel ME_Base : mod_kripke.Base -> mod_kripke.Base-Kripke Kripke FOL-Kripke = {
+	o   := [f : elem (world → bool')][g : elem (world → bool')] ded f eq g.
+	ded := [f : elem (world → bool')][g : elem (world → bool')][p : ded f eq g]
+	       [r : ded (∀[w] f @ w) eq 1][s : ded (∀[w] g @ w) eq 1]
+	       ded true.
+}.
+
+%rel ME_MPL : mod_kripke.MPL -> mod_kripke.MPL Kripke FOL-Kripke = {
+	%include ME_Base.
+	⊥   := refl.
+	⇒ := [f1 : elem (world → bool')][g1 : elem (world → bool')][p1 : ded f1 eq g1]
+        [f2 : elem (world → bool')][g2 : elem (world → bool')][p2 : ded f2 eq g2]
+        fun_ext λ [w] congF2 (congF p1 ([h] h @ w)) (congF p2 ([h] h @ w)) [x][y] x ⇒ y.
+}.
+
+%rel ME_Necessity : mod_kripke.Necessity -> mod_kripke.Necessity Kripke FOL-Kripke = {
+	%include ME_Base.
+	□ := [f : elem (world → bool')][g : elem (world → bool')][p : ded f eq g]
+	     fun_ext λ [x] fun_ext ∀ [y] congF2 (sym (trans (congF beta ([h] h @ y)) beta))
+           (congF p ([h] h @ y)) [x][y] x ⇒ y.
+}.
+
+%rel ME_Possibility : mod_kripke.Possibility -> mod_kripke.Possibility Kripke FOL-Kripke = {
+	%include ME_Base.
+	◇ := [f : elem (world → bool')][g : elem (world → bool')][p : ded f eq g]
+	     fun_ext λ [x] fun_ext ∃ [y] congF2 (sym (trans (congF beta ([h] h @ y)) beta))
+           (congF p ([h] h @ y)) [x][y] x ∧ y.     
+}.
+
+%rel ME_ML : mod_kripke.ML -> mod_kripke.ML Kripke FOL-Kripke = {
+	%include ME_MPL.
+	%include ME_Necessity.
+	%include ME_Possibility.
+}.
+
+%* Model expansion up to elementary equivalence is verified by providing the above logical relation and the following signature *%
+%sig ModelExpansion = {
+	%include mod_kripke.Kripke.
+	
+	psi : {f : elem (world → bool')}{g : elem (world → bool')}{p : ded f eq g}
+	      ded (∀[w] f @ w) eq 1 -> ded (∀[w] g @ w) eq 1
+	    = [f][g][p][r] forall1I (forallI [w] trans (sym (congF p ([h] h @ w)))
+	          (forallE (forall1E r) w)).
+	
+	xi  : {f : elem (world → bool')}{g : elem (world → bool')}{p : ded f eq g}
+	      ded (∀[w] f @ w) eq 1 -> ded (∀[w] g @ w) eq 1
+	    = psi.            
+}.

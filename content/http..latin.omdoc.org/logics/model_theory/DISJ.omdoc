@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
+  <view 
+  name="DISJ" base="http://latin.omdoc.org/logics/model_theory" from="http://latin.omdoc.org/logics/syntax?DISJ" to="http://latin.omdoc.org/foundations/minimal?Bool">
+    <import from="http://latin.omdoc.org/logics/syntax?Logic">
+      <definition>
+        <om:OMS base="http://latin.omdoc.org/logics/model_theory" module="Base"/>
+      </definition>
+    </import>
+    <constant name="or">
+      <definition>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/foundations/minimal" module="Bool" name="bool"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="B">
+                  <type>
+                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/foundations/minimal" module="Bool" name="bool"/>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_2_1" base="http://latin.omdoc.org/foundations/minimal" module="Bool" name="∨"/>
+                <om:OMV position="2_2_2" name="A"/>
+                <om:OMV position="2_2_3" name="B"/>
+              </om:OMA>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </definition>
+    </constant>
+</view>
+</omdoc>

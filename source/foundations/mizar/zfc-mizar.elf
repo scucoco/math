@@ -1,0 +1,309 @@
+%namespace "http://latin.omdoc.org/foundations/mizar".
+%namespace math = "../math".
+%namespace zfc = "zfc".
+%namespace syn = "../logics/syntax".
+%namespace pf = "../logics/proof_theory".
+
+
+%view BaseMizarView : syn.Logic -> Mizar = {
+ o := prop.
+ ded :=[x]  proof x.
+}.
+
+%view TruthMizarView : syn.Truth -> Mizar = {
+  %include BaseMizarView.
+  true := true.
+}.
+
+%view FalsityMizarView : syn.Falsity -> Mizar = {
+  %include BaseMizarView.
+  false := false.
+}.
+
+
+%view NEGMizarView : syn.NEG -> Mizar = {
+  %include BaseMizarView.
+  not :=[x] not x.
+}.
+
+
+%view IMPMizarView : syn.IMP -> Mizar = {
+  %include BaseMizarView.
+  imp := [x][y] x implies y.
+}.
+
+
+%view CONJMizarView : syn.CONJ -> Mizar = {
+  %include BaseMizarView.
+  and := [x][y] x and y.
+}.
+
+%view DISJMizarView : syn.DISJ -> Mizar = {
+  %include BaseMizarView.
+  or := [x][y] x or y.
+}.
+
+%view UniverseMizarView : math.Universe -> Mizar = {
+  u := be set.
+}.
+
+%view BaseFOLMizarView : syn.UniverseLogic -> Mizar = {
+  %include BaseMizarView.
+  %include UniverseMizarView.
+}.
+
+%view PLMizarView : syn.PL -> Mizar = {
+  %include TruthMizarView.
+  %include FalsityMizarView.
+  %include NEGMizarView.
+  %include IMPMizarView.
+  %include CONJMizarView.
+  %include DISJMizarView.
+  
+}.
+
+%view ForallMizarView : syn.Forall -> Mizar = {
+ %include BaseFOLMizarView.
+ forall := [f : be set -> prop] for [x] (f x). 
+}.
+
+
+%view ExistsMizarView : syn.Exists -> Mizar = {
+ %include BaseFOLMizarView.
+ exists := [f : be set -> prop] ex [x] (f x). 
+}.
+
+%view FOLMizarView : syn.FOL -> Mizar = {
+  %include PLMizarView.
+  %include ForallMizarView.
+  %include ExistsMizarView.
+}.
+
+%view EqualMizarView : syn.Equal -> Mizar = {
+  %include BaseFOLMizarView.
+  eq := [x][y] x eq y.
+}.
+
+%view InequalMizarView : syn.Inequal -> Mizar = {
+  %include EqualMizarView.
+  %include NEGMizarView.
+}.
+
+%view FOLEQMizarView : syn.FOLEQ -> Mizar = {
+  %include FOLMizarView.
+  %include EqualMizarView.
+}.
+
+%view ExistsUniqueMizarView : syn.ExistsUnique -> Mizar = {
+  %include FOLEQMizarView.
+}.
+
+%view EquivMizarView : syn.Equiv -> Mizar = {
+  %include BaseMizarView.
+  %include CONJMizarView.
+  %include IMPMizarView.
+}.
+
+%view BasePFMizarView : pf.Base -> Mizar = {
+  %include BaseMizarView.
+}.
+
+
+%view TruthPFMizarView : pf.Truth -> Mizar = {
+%include BasePFMizarView.
+%include TruthMizarView.
+trueI := trueI.
+}.
+
+%view FalsityPFMizarView : pf.Falsity -> Mizar = {
+%include BasePFMizarView.
+%include FalsityMizarView.
+falseE := [p] contradictionE p.
+}.
+
+%view NEGPFMizarView : pf.NEG -> Mizar = {
+%include BasePFMizarView.
+%include NEGMizarView.
+notI := [A][p] per_cases ([q] p q (not A)) ([r] r) (tnd).
+notE := [A][p][q] contradictionE (notE p q).
+}.
+
+%view IMPPFMizarView : pf.IMP -> Mizar = {
+%include BasePFMizarView.
+%include IMPMizarView.
+impI := [A][B][p] impliesI p.
+impE := [A][B][q][r] impliesE q r.
+}.
+
+
+%view CONJPFMizarView : pf.CONJ -> Mizar = {
+%include BasePFMizarView.
+%include CONJMizarView.
+andI := [A][B][p][q] andI p q.
+andEl := [A][B][p] andEl p.
+andEr := [A][B][p] andEr p.
+}.
+
+%view DISJPFMizarView : pf.DISJ -> Mizar = {
+%include BasePFMizarView.
+%include DISJMizarView.
+orIl := [A][B][p] orIl p.
+orIr := [A][B][p] orIr p.
+orE  := [A][B][C][p][q1][q2] per_cases q1 q2 p.
+}.
+
+
+%view IPLPFMizarView : pf.IPL -> Mizar = {
+%include BasePFMizarView.
+%include PLMizarView.
+%include TruthPFMizarView.
+%include FalsityPFMizarView.
+%include NEGPFMizarView.
+%include IMPPFMizarView.
+%include CONJPFMizarView.
+%include DISJPFMizarView.
+
+}.
+
+%view TNDMizarView : pf.TND -> Mizar = {
+  %include BasePFMizarView.
+  %include NEGPFMizarView.
+  %include DISJPFMizarView.
+  tnd := [A] tnd.
+}.
+
+%view CPLPFMizarView : pf.CPL -> Mizar = {
+%include BasePFMizarView.
+%include IPLPFMizarView.
+%include TNDMizarView.
+}.
+
+%view BaseFOLPFMizarView : pf.BaseFOL -> Mizar = {
+%include BasePFMizarView.
+%include BaseFOLMizarView.
+}.
+
+%view ForallPFMizarView : pf.Forall -> Mizar = {
+%include BaseFOLPFMizarView.
+%include ForallMizarView.
+forallI := [F][p] let [y] (p y).
+forallE := [F][p] consider p.
+}.
+
+%view ExistsPFMizarView : pf.Exists -> Mizar = {
+%include BaseFOLPFMizarView.
+%include ExistsMizarView.
+existsI := [F][x][p] take x p.
+existsE := [F][G][p][q] given p q.
+}.
+
+%view IFOLPFMizarView : pf.IFOL -> Mizar = {
+%include BaseFOLPFMizarView.
+%%include FOLMizarView.
+%include IPLPFMizarView.
+%include ForallPFMizarView.
+%include ExistsPFMizarView.
+}.
+
+%view EqualPFMizarView : pf.Equal -> Mizar = {
+%include BaseFOLPFMizarView.
+%include EqualMizarView.
+refl := [A] refl.
+sym := [A][B][p] sym p.
+trans := [A][B][C][p][q] trans p q.
+congF := [X][Y][p][F] congF p F. 
+congP := [X][Y][p][F][q] congP (sym p) F q.
+}.
+
+%view IFOLEQPFMizarView : pf.IFOLEQ -> Mizar = {
+%include IFOLPFMizarView.
+%include EqualPFMizarView.
+}.
+
+%view FalsityPFExtMizarView : pf.FalsityExt -> Mizar = {
+%include FalsityPFMizarView.
+}.
+
+%view NEGPFExtMizarView : pf.NEGExt -> Mizar = {
+%include NEGPFMizarView.
+}.
+
+%view IMPPFExtMizarView : pf.IMPExt -> Mizar = {
+%include IMPPFMizarView.
+}.
+
+%view CONJPFExtMizarView : pf.CONJExt -> Mizar = {
+%include CONJPFMizarView.
+}.
+
+%view DISJPFExtMizarView : pf.DISJExt -> Mizar = {
+%include DISJPFMizarView.
+}.
+
+%view EquivPFMizarView : pf.Equiv -> Mizar = {
+%include EquivMizarView.
+%include CONJPFMizarView.
+%include IMPPFMizarView.
+}.
+
+%view IPLPFExtMizarView : pf.IPLExt -> Mizar = {
+%include IPLPFMizarView.
+%include FalsityPFExtMizarView.
+%include NEGPFExtMizarView.
+%include IMPPFExtMizarView.
+%include CONJPFExtMizarView.
+%include DISJPFExtMizarView.
+%include EquivPFMizarView.
+}.
+
+%view PLPFExtMizarView : pf.PLExt -> Mizar = {
+%include CPLPFMizarView.
+%include FalsityPFExtMizarView.
+%include NEGPFExtMizarView.
+%include IMPPFExtMizarView.
+%include CONJPFExtMizarView.
+%include DISJPFExtMizarView.
+%include EquivPFMizarView.
+%include IPLPFExtMizarView.
+}.
+
+%view ForallPFExtMizarView : pf.ForallExt -> Mizar = {
+%include ForallPFMizarView.
+}.
+
+%view ExistsUniquePFMizarView : pf.ExistsUnique -> Mizar = {
+%include ExistsUniqueMizarView.
+%include IFOLEQPFMizarView.
+}.
+
+%view EqualPFExtMizarView : pf.EqualExt -> Mizar = {
+%include EqualPFMizarView.
+}.
+
+%view IFOLPFExtMizarView : pf.IFOLExt -> Mizar = {
+%include IFOLEQPFMizarView.
+%include PLPFExtMizarView.
+%include ForallPFExtMizarView.
+%include ExistsPFExtMizarView.
+%include ExistsUniquePFMizarView.
+}.
+
+
+%view InequalPFMizarView : pf.Inequal -> Mizar = {
+%include InequalMizarView.
+%include NEGPFMizarView.
+%include EqualPFMizarView.
+}.
+
+%view IFOLEQPFExtMizarView : pf.IFOLEQExt -> Mizar = {
+%include IFOLPFExtMizarView.
+%include EqualPFExtMizarView.
+%include InequalPFMizarView.
+}.
+
+
+%view ZFC_FolMizarView : zfc.ZFC_FOL -> Mizar = {
+%include IFOLEQPFExtMizarView.
+%%And := [A][p] A.
+%%Imp := [A][p] A. 
+}.

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
+  <theory name="Products" base="http://latin.omdoc.org/logics/tptp" meta="http://cds.omdoc.org/urtheories?LF">
+    <import from="http://latin.omdoc.org/logics/tptp?THF0"> </import>
+    <constant name="*" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tType"/>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+              <om:OMS position="2_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tType"/>
+              <om:OMS position="2_2" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tType"/>
+            </om:OMA>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/tptp?Products?*" precedence="10" fixity="infix-right" arguments="0"/>
+      </notation>
+    </constant>
+  </theory>
+</omdoc>

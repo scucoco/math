@@ -1,0 +1,77 @@
+%* Proof translation from modal to first-order logic *%
+
+%namespace "http://latin.omdoc.org/translations/ml_fol".
+%namespace syn = "../logics/syntax".
+%namespace pf = "../logics/proof_theory".
+%namespace math = "../math".
+
+
+%view ML-FOL-BinRel : ML-FOL -> math.BinRel = {
+  rel := [x][y] x rel y.
+}.  
+
+%view MPLPf : pf.MPL -> math.BinRel = {
+  %include MPL ML-FOL-BinRel.
+  syllog := [P][Q][R] forallI [x] impI [pq] impI [qr] impI [p] impE qr (impE pq p).
+  peirce := [P][Q] forallI [x] impI [pqp] orE tnd ([p : ded P x] p)
+                                      ([np : ded not (P x)] impE pqp (impI [p: ded P x] notE np p (Q x))).
+  weaken := [P][Q] forallI [x] impI [p] impI [q] p.
+  contra := [P] forallI [x] impI [f] falseE f (P x).
+  mp     := [P][Q][p][q] forallI [x] impE (forallE p x) (forallE q x).   
+}.
+
+%view MLPf : pf.ML -> math.BinRel = {
+  %include ML-FOL ML-FOL-BinRel.
+  %include MPLPf.
+  ax_◇ := [P] forallI [x] (impI [p] (impE (impE p
+     (impI [q: ded exists [y] (x rel y) and (P y)] impI [r: ded forall ([y] (x rel y) imp (P y) imp false)]
+         existsE q [y][s] impE (impE (forallE r y) (andEl s)) (andEr s)
+     ))
+     (impI [q: ded (forall [y] (x rel y) imp (P y) imp false) imp false]
+         existsE (nforallE (notI [r][_] falseE' (impE q r))) [y][r: ded not ((x rel y) imp (P y) imp false)]
+           existsI y (andI (nimpEl r) (nimpEl (nimpEr r)))
+     )
+  )).
+  nec  := [P] [p] forallI [_] forallI [y] impI [_] (forallE p y).
+  ax_k := [P][Q] forallI [x] impI [pq] impI [p] forallI [y] impI [a: ded x rel y] 
+             impE (impE (forallE pq y) a)
+                  (impE (forallE p  y) a).
+}.
+
+%view D : pf.D -> math.Serial = {
+  %include MLPf math.Serial.br.
+  ax_d := [P : i -> o] forallI [x : i] impI [p : ded forall [y : i] 
+    (x rel y) imp (P y)] existsE (forallE serial x) [y : i][q : ded x rel y]
+      existsI y (andI q (impE (forallE p y) q)).       
+}.
+
+%view T : pf.T -> math.Refl = {
+  %include MLPf math.Refl.br.
+  ax_t := [P : i -> o] forallI [x : i] impI [p : ded forall [y : i] 
+    (x rel y) imp (P y)] impE (forallE p x) (forallE refl x).  
+}.
+
+%view S4 : pf.S4 -> math.Preorder = {
+  %include MLPf math.Preorder.r.br.
+  %include T math.Preorder.r.
+  ax_4 := [P : i -> o] forallI [x : i] impI [p : ded forall [y : i] 
+    (x rel y) imp (P y)] forallI [y : i] impI [q : ded x rel y]
+      forallI [z : i] impI [r : ded y rel z] impE (forallE p z) 
+        (impE (forallE (forallE (forallE trans x) y) z) (andI q r)).  
+}.
+
+%view S4b : pf.S4b -> math.EquivRel = {
+  %include S4 math.Preorder-Equiv.
+  ax_4b := [P : i -> o] forallI [x : i] impI [p : ded P x] forallI [y : i]
+    impI [q : ded x rel y] existsI x (andI (impE (forallE (forallE sym x) y)
+      q) p).
+}.
+
+%view S5 : pf.S5 -> math.EquivRel = {
+  %include T math.EquivRel.r.
+  ax_5 := [P : i -> o] forallI [x : i] impI [p : ded exists [y : i] (x rel y)
+    and (P y)] forallI [y : i] impI [q : ded x rel y] existsE p [z : i]
+    [r : ded (x rel z) and (P z)] existsI z (andI (impE (forallE (forallE 
+    (forallE trans y) x) z) (andI (impE (forallE (forallE sym x) y) q)
+    (andEl r))) (andEr r)). 
+}.

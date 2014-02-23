@@ -1,0 +1,122 @@
+%*
+  Algebraic hierarchy: theories with two binary operations
+  @author: Florian Rabe (earlier work by Kristina Sojakova)
+                  Updated by Mihnea Iancu
+*%
+
+%namespace "http://latin.omdoc.org/math".
+%namespace pf = "logics/proof_theory".
+
+%sig RightDistrib = {
+  %meta EqUniverse.
+  %struct mag1 : Magma %open ∘ %as +.
+  %struct mag2 : Magma %open ∘ %as *.
+  dist : (X + Y) * Z == (X * Z) + (Y * Z).
+}.
+
+%sig Distrib = {
+  %meta EqUniverse.
+  %struct mag1 : Magma.
+  %struct mag2 : Magma.
+  %struct right : RightDistrib = {
+     %struct mag1 := mag1. 
+     %struct mag2 := mag2.
+  }.
+  %struct left : RightDistrib = {
+     %struct mag1 := mag1. 
+     %struct mag2 := OppositeMagma mag2.
+  }.
+}.
+
+
+%sig LieRing = {
+	%meta EqUniverse.
+	%include AbelianGroup.
+	%struct mult : Magma %open ∘ %as *. %infix none 110 *.
+	%struct bilinearity : Distrib = {
+		%struct mag1 := AbelianGroup.
+		%struct mag2 := mult.
+	}.
+	
+	jacobi : (X * (Y * Z)) + (Y * (Z * X)) + (Z * (X * Y)) == 0.
+   anticomm : X * X == 0.
+	
+}.
+
+%sig JordanRing = {
+	%meta EqUniverse.
+	%include AbelianGroup.
+	%struct mult : Commutative %open ∘ %as *. %infix none 110 *.
+	%struct bilinearity : Distrib = {
+		%struct mag1 := AbelianGroup.
+		%struct mag2 := mult.
+	}.                                 
+	
+	jordan : (X* Y) * (X * X) == X * ( Y * (X * X)).
+	
+}.
+
+
+%sig Ring = {
+  %meta EqUniverse.
+  %include AbelianGroup.
+  %struct mult : Semigroup %open ∘ %as *. %infix none 110 *.
+  %struct dis : Distrib = {
+     %struct mag1 := AbelianGroup.
+     %struct mag2 := mult.
+  }.
+}.
+
+%sig RingCommut = {
+  %meta EqUniverse.
+  %include Ring.
+  %struct mc : Commutative = {%include mult..Magma.}.
+}.
+
+%sig RingUnit = {
+  %meta EqUniverse.
+  %include Ring.
+  %struct mon : Monoid = {%include mult..Magma.} %open e %as 1.
+}.
+
+%sig RingUnitCommut = {
+  %meta EqUniverse.
+  %include RingCommut.
+  %include RingUnit.
+}.
+
+%sig DifferentialRing = {
+	%meta EqUniverse.
+	%include RingUnit.
+	' : u -> u. %postfix 200 '.
+	
+	product : (X*Y)' == X*Y' + X'*Y.		
+}.
+
+
+%% should be RingUnitLogic = pf.Equal.equniv (RingUnit)
+%sig RingUnitLogic = {
+   %meta pf.EqLogic.
+   %struct %implicit  ring : RingUnit = {%include pf.Equal.equniv.} %open + 0 - * 1.
+}.
+
+%sig IntegralDomain = {
+  %meta pf.InEqLogic.
+  %include RingUnitLogic.
+  noZeroDiv : ⊦ X != 0  -> ⊦ Y != 0  -> ⊦ X * Y != 0.
+}.  
+
+%sig RingDivision = {
+  %meta pf.InEqLogic.
+  %include RingUnitLogic.
+  inv : u -> u.
+  invLeft : ⊦ X != 0  -> ⊦ X * (inv X) == 1. 
+  invRight : ⊦ X != 0  -> ⊦ (inv X) * X == 1.
+}.
+
+%sig Field = {
+  %meta pf.InEqLogic.
+  %include RingDivision.
+  %struct com : RingCommut = {%include ring..Ring.}.
+  nontrivial : ⊦ 0 != 1.
+}.

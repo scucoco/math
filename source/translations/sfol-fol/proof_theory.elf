@@ -1,0 +1,53 @@
+%namespace "http://latin.omdoc.org/translations/sfol_fol".
+%namespace pf = "../logics/proof_theory".
+
+
+%view BaseSFOLPF : pf.BaseSFOL -> pf.FOL = {
+   %include BaseSFOL.
+}.
+
+%view SForallPF : pf.SForall -> pf.FOL = {
+  %include BaseSFOLPF.
+  %include SForall.
+  forallI  := [S : i -> o][F : i -> o][p : {x : i} ded F x]
+  forallI [x : i] impI [_] p x. 
+  %% forallE  := .. %%fails
+}.
+
+%view SExistsPF : pf.SExists -> pf.FOL = {
+  %include BaseSFOLPF.
+  %include SExists.
+  %% existsI  := .. %%fails
+  existsE  := [S : i -> o][F : i -> o][H : o]
+    [p : ded exists [x:i] S x and F x][q : {x : i} ded F x -> ded H]
+    existsE p [x : i][r : ded S x and F x] q x (andEr r).     
+}.
+
+%view SIFOLPF : pf.SIFOL -> pf.FOL = {
+   %include BaseSFOLPF.
+   %include SFOL.
+   %include SForallPF.
+   %include SExistsPF.
+}.
+
+%view SFOLPF : pf.SFOL -> pf.FOL = {
+   %include BaseSFOLPF.
+   %include SIFOLPF.
+   %% non_empty_universe := .. %%fails.
+}.
+
+%view SEqualPF : pf.SEqual -> pf.FOLEQ = {
+  %include BaseSFOLPF.
+  %include SEqual.
+  refl  := [_][_] refl.
+  sym   := [_][X : i][Y : i][p : ded X eq Y] sym p.
+  trans := [_][X : i][Y : i][Z : i][p : ded X eq Y] 
+   [q : ded Y eq Z] trans p q.
+  congF := [_][X : i][Y : i][_][p : ded X eq Y][F : i -> i] congF p F.
+  congP := [_][X : i][Y : i][p : ded X eq Y][F : i -> o] congP p F.
+}.
+
+%view SFOLEQPF : pf.SFOLEQ -> pf.FOLEQ = {
+   %include SFOLPF.
+   %include SEqualPF.
+}.

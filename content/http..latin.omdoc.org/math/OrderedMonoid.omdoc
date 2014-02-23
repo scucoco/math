@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
+  <theory name="OrderedMonoid" base="http://latin.omdoc.org/math" meta="http://latin.omdoc.org/math?EqUniverse">
+    <import from="http://latin.omdoc.org/math?Order"> </import>
+    <import from="http://latin.omdoc.org/math?Monoid"> </import>
+    <import from="http://latin.omdoc.org/math?Monotonous"> </import>
+    <import name="unit" from="http://latin.omdoc.org/math?Bottom">
+      <constant name="bot">
+        <definition>
+          <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+            <om:OMS base="http://latin.omdoc.org/math" module="PointedMagma" name="point"/>
+          </om:OMOBJ>
+        </definition>
+      </constant>
+    </import>
+    <constant name="addR" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="M">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/math" module="Universe" name="u"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="N">
+                  <type>
+                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/math" module="Universe" name="u"/>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_2_1" base="http://latin.omdoc.org/math" module="Relation" name="r"/>
+                <om:OMV position="2_2_2" name="M"/>
+                <om:OMA position="2_2_3">
+                  <om:OMS position="2_2_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_3_1" base="http://latin.omdoc.org/math" module="Magma" name="∘"/>
+                  <om:OMV position="2_2_3_2" name="M"/>
+                  <om:OMV position="2_2_3_3" name="N"/>
+                </om:OMA>
+              </om:OMA>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/math?OrderedMonoid?addR" precedence="0" fixity="prefix" arguments="2"/>
+      </notation>
+    </constant>
+  </theory>
+</omdoc>

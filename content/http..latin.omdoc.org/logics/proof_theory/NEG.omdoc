@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
+  <theory name="NEG" base="http://latin.omdoc.org/logics/proof_theory" meta="http://cds.omdoc.org/urtheories?LF">
+    <import from="http://latin.omdoc.org/logics/proof_theory?Base"> </import>
+    <import from="http://latin.omdoc.org/logics/syntax?NEG"> </import>
+    <constant name="notI" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+              <om:OMA position="2_1">
+                <om:OMS position="2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                <om:OMA position="2_1_1">
+                  <om:OMS position="2_1_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_1_1_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                  <om:OMV position="2_1_1_2" name="A"/>
+                </om:OMA>
+                <om:OMS position="2_1_2" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="↯"/>
+              </om:OMA>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                <om:OMA position="2_2_2">
+                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                  <om:OMV position="2_2_2_2" name="A"/>
+                </om:OMA>
+              </om:OMA>
+            </om:OMA>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/proof_theory?NEG?notI" precedence="0" fixity="prefix" arguments="1"/>
+      </notation>
+    </constant>
+    <constant name="notE" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+              <om:OMA position="2_1">
+                <om:OMS position="2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_1_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                <om:OMA position="2_1_2">
+                  <om:OMS position="2_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_1_2_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                  <om:OMV position="2_1_2_2" name="A"/>
+                </om:OMA>
+              </om:OMA>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                <om:OMA position="2_2_1">
+                  <om:OMS position="2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_1_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                  <om:OMV position="2_2_1_2" name="A"/>
+                </om:OMA>
+                <om:OMS position="2_2_2" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="↯"/>
+              </om:OMA>
+            </om:OMA>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/proof_theory?NEG?notE" precedence="0" fixity="prefix" arguments="1"/>
+      </notation>
+    </constant>
+  </theory>
+</omdoc>

@@ -1,0 +1,94 @@
+%namespace "http://latin.omdoc.org/foundations/hol".
+%namespace syn = "../logics/syntax".
+%namespace pf = "../logics/proof_theory".
+
+%sig SFOL-Syn = {
+  %include syn.HOL %open ==.
+
+  ⊤  : tm o = (λ [x: tm o] x) == (λ [x: tm o] x).
+  ⊥  : tm o = (λ [x: tm o] x) == (λ [x: tm o] ⊤).
+  ¬' : tm o → o = λ ([x] x == ⊥).
+  ¬  : tm o -> tm o = [x] ¬' @ x.                              %prefix 20 ¬.
+  ∀' : tm (A → o) → o = λ [f] (f == (λ [x: tm A] ⊤)).
+  ∀  : (tm A -> tm o) -> tm o = [f] ∀' @ (λ [x: tm A] f x).
+  ∧' : tm (o → o → o) = λ [x] (λ [y] (∀ [f: tm o → o → o] (f @ x @ y == f @ ⊤ @ ⊤))).
+  ∧  : tm o -> tm o -> tm o = [x][y] ∧' @ x @ y.               %infix left 10 ∧. 
+  ⇒' : tm o → o → o = λ [x] (λ [y] x ∧ y == x).
+  ⇒  : tm o -> tm o -> tm o = [x][y] ⇒' @ x @ y.               %infix none 10 ⇒.
+  ∨' : tm o → o → o = λ [x] (λ [y] ∀ [c: tm o] ((x ⇒ c) ∧ (y ⇒ c)) ⇒ c).
+  ∨  : tm o -> tm o -> tm o = [x][y] ∨' @ x @ y.               %infix left 10 ∨.
+  ∃' : tm (A → o) → o = λ [f: tm (A → o)] (∀ [c: tm o] (∀ [x : tm A] (f @ x) ⇒ c) ⇒ c).
+  ∃  : (tm A -> tm o) -> tm o = [f : tm A -> tm o] ∃' @ (λ [x: tm A] (f x)).
+  
+  != : tm A -> tm A -> tm o = [x][y] ¬ (x == y).                 %infix none 3 !=.     
+}.
+
+%* the proof theory is split into two parts because this part can be stated without appealing to propositional extensionality *% 
+%sig SFOL-Pf1 = {
+  %include pf.HOL %open ==.
+  %include SFOL-Syn.
+  ⊤I  : ⊦ ⊤ = eqrefl.
+  ⊥E : ⊦ ⊥ -> ⊦ (F: tm o)
+     = [p: ⊦ ⊥] eq⊦ (eqsym (eqtrans3 (eqsym beta) (eqapp p eqrefl) beta)) ⊤I.
+}.
+
+%sig SFOL-Pf = {
+  %include SFOL-Pf1 %open ==.
+  %include pf.PropositionalExtensionality.
+  
+  ¬I   : (⊦ F -> ⊦ ⊥) -> ⊦ ¬ F
+         = [p: ⊦ F -> ⊦ ⊥] betao (eqI p ⊥E).
+  ¬E   : ⊦ ¬ F -> ⊦ F -> ⊦ ⊥
+         = [p : ⊦ ¬ F] [q: ⊦ F] (eq⊦ (eq⊦ beta p) q).
+  ¬E'  : ⊦ ¬ F -> ⊦ F -> ⊦ G = [p][q] ⊥E (¬E p q).
+  %* proof by contraposition *%
+  contra : (⊦ A -> ⊦ B) -> ⊦ ¬ B -> ⊦ ¬ A
+                  = [p: ⊦ A -> ⊦ B] [pnb: ⊦ ¬ B] ¬I ([pa: ⊦ A] ¬E pnb (p pa)).
+
+  ∀I : ({x: tm A} ⊦ F x) -> ⊦ ∀ ([x: tm A] F x)
+       = [p: {x: tm A} ⊦ F x] betao (eqλ ([x: tm A] eqI ([pf: ⊦ F x] ⊤I) ([pt: ⊦ ⊤] p x))).         
+  ∀E : ⊦ ∀ ([x: tm A] F x) -> {x: tm A} ⊦ F x
+       = [p: ⊦ ∀ ([x: tm A] F x)] [x: tm A] 
+           eq⊦ (eqsym (eqλrev (eq⊦ beta p) x)) ⊤I.
+
+  ∧I  : ⊦ A -> ⊦ B -> ⊦ A ∧ B
+        = [p: ⊦ A] [q: ⊦ B]
+           doublebetao
+                 (∀I [F : tm o → o → o] (eqapp (eqapp (eqrefl) 
+                                                      (eqI ([g : ⊦ A] ⊤I)
+                                                           ([h : ⊦ ⊤] p)))
+                                               (eqI   ([t : ⊦ B] ⊤I) 
+                                                      ([k : ⊦ ⊤] q)))).
+  ∧El : ⊦ (A ∧ B) -> ⊦ A
+        = [p: ⊦ A ∧ B]
+           eq⊦ (eqsym (
+                   eqtrans3 (eqsym beta2) (∀E (doublebetai p)
+                                                     (λ [x: tm o] (λ [y: tm o] x)))
+                           beta2))
+               ⊤I.
+  ∧Er : ⊦ (A ∧ B) -> ⊦ B
+        = [p: ⊦ A ∧ B]
+           eq⊦ (eqsym (
+                   eqtrans3 (eqsym beta2) (∀E (doublebetai p)
+                                                     (λ [x: tm o] (λ [y: tm o] y)))
+                           beta2))
+               ⊤I.
+
+  ⇒I  : (⊦ A -> ⊦ B) -> ⊦ A ⇒ B
+      = [f : ⊦ A -> ⊦ B] doublebetao (eqI ([p: ⊦ A ∧ B] ∧El p) ([p: ⊦ A] ∧I p (f p))).
+  ⇒E  : ⊦ A ⇒ B -> ⊦ A -> ⊦ B
+      = [p: ⊦ A ⇒ B] [q: ⊦ A] ∧Er (eq⊦ (eqsym (doublebetai p)) q).
+
+  ∨Il : ⊦ A -> ⊦ A ∨ B
+        = [p : ⊦ A] doublebetao (∀I [c] ⇒I ([q: ⊦ (A ⇒ c) ∧ (B ⇒ c)] ⇒E (∧El q) p)).                                                          
+  ∨Ir : ⊦ B -> ⊦ A ∨ B
+        = [p : ⊦ B] doublebetao (∀I [c] ⇒I ([q: ⊦ (A ⇒ c) ∧ (B ⇒ c)] ⇒E (∧Er q) p)).                                                          
+  ∨E  : ⊦ A ∨ B -> (⊦ A -> ⊦ C) -> (⊦ B -> ⊦ C) -> ⊦ C
+      = [p: ⊦ A ∨ B] [qa: ⊦ A -> ⊦ C] [qb: ⊦ B -> ⊦ C] 
+          ⇒E (∀E (doublebetai p) C) (∧I (⇒I qa) (⇒I qb)).
+   
+  ∃I : {t: tm A} ⊦ (F t) -> ⊦ ∃ ([x : tm A] F x)
+          = [t][p] betao (∀I [c] ⇒I [q: ⊦ ∀ [x] (λ F) @ x ⇒ c] ⇒E (∀E q t) (betao p)).
+  %abbrev ∃E : (⊦ ∃ [x: tm A] F x) -> ({x : tm A} (⊦ F x -> ⊦ G)) -> ⊦ G
+     = [p][f] ⇒E (∀E (betai p) G) (∀I [x] ⇒I [q: ⊦ (λ F) @ x] f x (betai q)).
+}.

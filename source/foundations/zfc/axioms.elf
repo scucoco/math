@@ -1,0 +1,299 @@
+%namespace "http://latin.omdoc.org/foundations/zfc".
+
+
+%sig ZFC = {
+   %include ZFC_FOL %open.
+
+   %% predicate symbols
+   in       : i -> i -> o.  %infix none 25 in.
+      
+   subset   : i -> i -> o = [a:i][b:i] (forall [x] (x in a) imp (x in b)). %infix none 25 subset.
+   subsetI  : ({x} ded x in A -> ded x in B) -> ded A subset B = [f] forallI [x] impI [p] f x p.
+   subsetE  : ded A subset B -> ded X in A -> ded X in B = [p][q] impE (forallE p X) q.
+   subsetneq: i -> i -> o = [a][b] (a subset b and a neq b). %infix none 25 subsetneq.
+   disjoint : i -> i -> o = [a][b] not (exists [x] x in a and x in b).
+   
+   eq_in    : ded A eq B -> ded B in C -> ded A in C = [p][q] congEr p ([u]u in C) q.
+   in_eq    : ded A in B -> ded B eq C -> ded A in C = [p][q] congEl q ([u]A in u) p.
+   eq_subset: ded A eq B -> ded B subset C -> ded A subset C = [p][q] congEr p ([u]u subset C) q.
+   subset_eq: ded A subset B -> ded B eq C -> ded A subset C = [p][q] congEl q ([u]A subset u) p.
+
+   eq_subsetL : ded A eq B -> ded A subset B = [p] subsetI [x][q] in_eq q p.
+   eq_subsetR : ded A eq B -> ded B subset A = [p] subsetI [x][q] in_eq q (sym p).
+   
+   nonempty  : i -> o = [x] exists [y] y in x.
+   nonemptyI : ded A in X -> ded nonempty X = [p] existsI A p.
+   
+   %* rforall A [x] F = \forall x \in A.F *%
+   rforall : i -> (i -> o) -> o = [a][f] forall [x] (x in a imp (f x)).
+   %* rexists A [x] F = \exists x \in A.F *%
+   rexists : i -> (i -> o) -> o = [a][f] exists [x] (x in a and (f x)).
+   
+   %% Axioms.
+   ax_extensionality  : ded forall [x] forall [y] (forall ([z] z in x equiv z in y) imp x eq y).
+   
+   ax_aset     : ded exists [x] true.
+   
+   ax_pairing  : ded forall [x] forall [y] exists [a] (forall [z] (z eq x or z eq y) imp z in a).
+   
+   ax_bigunion : ded forall [X] exists [a] forall [z] ((rexists X [x] z in x) imp z in a).
+   
+   ax_powerset : ded forall [x] exists [a] forall [z] ((z subset x) imp z in a).
+   
+   is_filter        : i -> (i -> o) -> i -> o  = [X] [phi] [a] forall [z] ((z in X and (phi z)) equiv z in a ).
+   ax_specification : {phi : i -> o}  ded forall [X] exists [a] (is_filter X phi a).
+   
+   is_function_on : (i -> i -> o) -> i -> o = [phi][a] rforall a [x] existsU [y] (phi x y).
+   is_replacement : (i -> i -> o) -> i -> i -> o
+                  = [phi][a][b] forall [y] (rexists a [x] phi x y) equiv y in b.
+   ax_replacement : {phi : i -> i -> o} ded
+          forall [a] (is_function_on phi a) imp exists [b] (is_replacement phi a b).
+   
+   ax_regularity  : ded forall [x] (nonempty x) imp (rexists x [y] disjoint x y).
+   
+   %* pw_disjoint A iff elements of A are pairwise disjoint *%
+   pw_disjoint    : i -> o = [a] rforall a ([x] rforall a ([y] x eq y or disjoint x y)).
+   %* transversal A B iff A is a transversal of B *%
+   transversal    : i -> i -> o = [a][b] rforall b [x] existsU [y] (y in a and y in x).
+    
+   %% could be proved from a skolemization rule or a choice function
+   %* axiom of choice: for a set of pairwise disjoint non-empty sets, there is a transversal *%
+   ax_choice      : ded forall [a] (
+                           (pw_disjoint a and (rforall a ([x] nonempty x)))
+                           imp
+                           (exists [c] (transversal c a))
+                        ).
+   
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%s
+   %% Basic Definitions
+   
+   %% subset is ordering
+   subset_refl : ded A subset A = forallI [x] impI [p] p.
+   subset_antisym : ded A subset B -> ded B subset A -> ded A eq B
+                  = [p][q] (impE (forall2E ax_extensionality A B)
+                                 (forallI [z] equivI ([r] subsetE p r) ([r] subsetE q r))
+                           ).
+   subset_trans : ded A subset B -> ded B subset C -> ded A subset C
+                = [p][q] subsetI [x][r: ded x in A] subsetE q (subsetE p r).
+   subsetneq_trans : ded A subsetneq B -> ded B subsetneq C -> ded A subsetneq C
+                   = [p][q] andI (subset_trans (andEl p) (andEl q))
+                                 (notI ([r: ded A eq C] [a] notE'
+                                    (subset_antisym (andEl p) (congEr r ([x] B subset x) (andEl q))) (andEr p)
+                                 )).
+   
+   eqI : ({x} ded x in A -> ded x in B) -> ({x} ded x in B -> ded x in A) -> ded A eq B
+       = [f][g] subset_antisym (subsetI f) (subsetI g).
+   neqI : ded X in A -> ded not X in B -> ded A neq B
+        = [p][q] notI [r: ded A eq B] [c] notE' (in_eq p r) q.
+   
+   %* If a class Phi : i -> o defines a set, then that set exists uniquely. *%
+   spec_unique : ded (exists [x] forall ([z] (Phi z) equiv z in x))
+             ->  ded existsU [x] forall ([z] (Phi z) equiv z in x)
+               = [p] (existsUI p
+                       [x][y]
+                       [q: ded forall ([z] (Phi z) equiv z in x)]
+                       [r: ded forall ([z] (Phi z) equiv z in y)]
+                         impE (forall2E ax_extensionality x y)
+                              (forallI [z] (equiv_trans (equiv_sym (forallE q z)) (forallE r z)))
+               ).
+   
+   %% filter X phi = {x in X | phi x}, p_filter and filter_prop only needed because impl_prop can't take implicit arguments.
+   p_filter : ded existsU (is_filter X Phi) = spec_unique (forallE (ax_specification Phi) X).
+   filter   : i -> (i -> o) -> i
+            = [X] [phi] (implDef
+                (is_filter X phi)
+                (p_filter)
+              ).
+   filter_prop : ded is_filter X Phi (filter X Phi) = impl_prop (is_filter X Phi) p_filter.
+   | = filter. %infix none 30 |.
+   filter_is_subset : ded (X | Phi) subset X = forallI [z] impI [p] andEl (equivEr (forallE filter_prop z) p).
+   filterI : ded A in X -> ded (Phi A) -> ded A in filter X Phi = [p][q] equivEl (forallE filter_prop A) (andI p q).
+   filterEl : ded A in filter X Phi -> ded A in X = [p] subsetE filter_is_subset p.
+   filterEr : ded A in filter X Phi -> ded (Phi A) = [p] andEr (equivEr (forallE filter_prop A) p).
+   
+   %* If there is a set X arger than the class Phi : i -> o, then that class is a set x. *%
+   shrink : ded (exists [X] forall ([z] (Phi z) imp   z in X))
+         -> ded (exists [x] forall ([z] (Phi z) equiv z in x))
+          = [p] existsE p (
+               [X]  [q: ded forall ([z] (Phi z) imp   z in X)] (
+                   existsI (filter X Phi)
+                     (forallI [z] (equiv_sym (equiv_trans (equiv_sym (forallE filter_prop z))
+                       (equivI
+                         ([r: ded z in X and (Phi z)] andEr r)
+                         ([r: ded Phi z] andI (impE (forallE q z) r) r)
+                       )
+                     )))
+               )
+            ).
+   
+   %% empty = {}
+   is_empty   : i -> o = [x] forall ([z] false equiv z in x).
+   p_empty    : ded existsU is_empty = spec_unique (shrink (existsE ax_aset ([x][_] existsI x (forallI [z] (impI [p] (falseE p (z in x))))))).
+   empty      : i = implDef is_empty p_empty.
+   
+   empty_prop : ded forall [x] not x in empty
+              = forallI [x] notI [p][A] falseE (equivEr (forallE (impl_prop is_empty p_empty) x) p) A.
+   emptyE     : ded A in empty -> ded F = [p] notE (forallE empty_prop A) p F.
+   emptyI     : ({x} ded x in A -> ded false) -> ded A eq empty
+              = [f] eqI ([x][p] (falseE (f x p) (x in empty))) ([x][p] emptyE p).
+   notnonemptyE : ded not (nonempty empty) = notI ([p][A] existsE p ([x][q] emptyE q)).
+   notnonemptyI : ded not (nonempty A) -> ded A eq empty = [p] emptyI ([x][q] (notE p (existsI x q) false)).
+   empty_subset : ded empty subset A = subsetI ([x][p] emptyE p).
+   
+   %% uopair a b = {a, b}
+   is_uopair   : i -> i -> i -> o = [x][y][a] (forall [z] (z eq x or z eq y) equiv z in a).
+   p_uopair    : ded existsU (is_uopair A B)
+                    = spec_unique (shrink (forall2E ax_pairing A B)).
+   uopair      : i -> i -> i = [a][b] implDef (is_uopair a b) p_uopair.
+   
+   uopair_prop : ded (is_uopair A B (uopair A B)) = impl_prop (is_uopair A B) p_uopair.
+   uopairIl    : ded A in (uopair A B) = equivEl (forallE uopair_prop A) (orIl refl).
+   uopairIr    : ded B in (uopair A B) = equivEl (forallE uopair_prop B) (orIr refl).
+   uopairE     : ded X in (uopair A B) -> ded (X eq A or X eq B) = [p] equivEr (forallE uopair_prop X) p.
+   uopair_comm : ded uopair A B eq uopair B A
+               = eqI ([x][p] orE (uopairE p) ([q: ded x eq A] (eq_in q uopairIr)) ([q: ded x eq B] (eq_in q uopairIl)))
+                     ([x][p] orE (uopairE p) ([q: ded x eq B] (eq_in q uopairIr)) ([q: ded x eq A] (eq_in q uopairIl))). 
+   
+   %% bigunion A = \bigcup_{a \in A} a
+   is_bigunion   : i -> i -> o = [X] [a] forall [z] ((exists [x] x in X and z in x) equiv z in a).
+   p_bigunion    : ded existsU (is_bigunion A)
+                 = spec_unique (shrink (forallE ax_bigunion A)).
+   bigunion      : i -> i = [a] implDef (is_bigunion a) p_bigunion.
+   bigunion_prop : ded (is_bigunion A (bigunion A)) = impl_prop (is_bigunion A) p_bigunion. 
+   bigunionI     : ded A in B -> ded B in X -> ded A in (bigunion X)
+                 = [p][q] equivEl (forallE bigunion_prop A) (existsI B (andI q p)).
+   bigunionE     : ded A in bigunion X -> ded exists [x] x in X and A in x
+                 = [p] equivEr (forallE bigunion_prop A) p.
+   bigunion_subset : ded A in X -> ded A subset (bigunion X) = [p] (subsetI ([x][q] bigunionI q p)).
+   %abbrev bigunion_supremum : ({a} ded a in X -> ded a subset B) -> ded (bigunion X) subset B
+                   = [f] subsetI [z][p] existsE (bigunionE p) [a][q: ded a in X and z in a]
+                         subsetE (f a (andEl q)) (andEr q).
+                   
+   %% powerset A = {a | a subset A}
+   is_powerset   : i -> i -> o = [x][a] (forall [z] (z subset x) equiv z in a). 
+   p_powerset    : ded existsU (is_powerset A) = spec_unique (shrink (forallE ax_powerset A)).
+   powerset      : i -> i = [a] implDef (is_powerset a) p_powerset.
+   powerset_prop : ded (is_powerset A (powerset A)) = impl_prop (is_powerset A) p_powerset.
+   powersetI     : ded A subset B -> ded A in (powerset B) = [p] equivEl (forallE powerset_prop A) p.
+   powersetE     : ded A in powerset B -> ded A subset B
+                 = [p] equivEr (forallE powerset_prop A) p.
+   
+   p_replace : ded (is_function_on Phi A) -> ded existsU (is_replacement Phi A)
+             = [p] (spec_unique (impE (forallE (ax_replacement Phi) A) p)).
+   replace : {phi}{a} ded (is_function_on phi a) -> i
+           = [phi][a][p] implDef (is_replacement phi a) (p_replace p).
+   replace_prop : ded is_replacement Phi A (replace Phi A P)
+                = impl_prop (is_replacement Phi A) (p_replace P).
+   
+   %% image f a = {f(x) : x \in a}
+   %abbrev fun2rel : (i -> i) -> (i -> i -> o) = [f][x][y] (f x) eq y.
+   p_fun2rel       : ded is_function_on (fun2rel F) A
+                   = forallI [x] impI [_] existsUI
+                      (existsI (F x) refl)
+                       [y1][y2][p1 : ded fun2rel F x y1][p2 : ded fun2rel F x y2] trans (sym p1) p2.
+   image : (i -> i) -> i -> i = [f][a] replace (fun2rel f) a p_fun2rel.
+   imageI : ded X in A -> ded F X in image F A = [p] equivEl (forallE replace_prop (F X)) (existsI X (andI p refl)).
+   imageE : ded X in image F A -> ded exists [x] x in A and (F x) eq X
+          = [p] equivEr (forallE replace_prop X) p.
+   
+   %% a union b = a \cup b
+   union   : i -> i -> i = [x][y] bigunion (uopair x y). %infix left 30 union.
+   unionIl : ded A in X -> ded A in (X union Y) = [p] bigunionI p uopairIl.
+   unionIr : ded A in Y -> ded A in (X union Y) = [p] bigunionI p uopairIr.
+   unionE  : ded A in (X union Y) -> ded A in X or A in Y
+           = [p] existsE (bigunionE p) ([x][q: ded x in uopair X Y and A in x] orE (uopairE (andEl q))
+                                                  ([r: ded x eq X] orIl (congEl r ([u] A in u) (andEr q)))
+                                                  ([r: ded x eq Y] orIr (congEl r ([u] A in u) (andEr q)))
+                                       ).
+   union_subsetl : ded X subset X union Y = bigunion_subset uopairIl.
+   union_subsetr : ded Y subset X union Y = bigunion_subset uopairIr.
+   union_sup : ded X subset Z -> ded Y subset Z -> ded (X union Y) subset Z
+             = [p][q] subsetI [z][r] orE (unionE r) ([r] subsetE p r) ([r] subsetE q r).
+   union_comm : ded X union Y eq Y union X = congF uopair_comm bigunion.
+   union_ass  : ded (X union Y) union Z eq X union (Y union Z)
+      = eqI ([x][p] orE (unionE p) ([q] orE (unionE q) unionIl ([r] unionIr (unionIl r))) ([r] unionIr (unionIr r)))
+       ([x][p] orE (unionE p) ([r] unionIl (unionIl r)) ([q] orE (unionE q) ([r] unionIl (unionIr r)) unionIr)).
+   union_idem : ded X union X eq X = eqI ([x][p] or_idem (unionE p)) ([x][p] unionIl p).
+   union_neutral : ded empty union X eq X
+                 = subset_antisym (subsetI [x][p: ded x in empty union X] orE (unionE p) ([q] emptyE q) ([q] q)) union_subsetr.
+   
+   %% special cases of regularity
+   in_acyclic1 : ded X in Y -> ded Y in X -> ded false
+               = [p][q] existsE (impE (forallE ax_regularity (uopair X Y)) (existsI X uopairIl))
+                         ([z][r: ded z in (uopair X Y) and disjoint (uopair X Y) z]
+                           orE (uopairE (andEl r))
+                            ([s: ded z eq X] notE (notnotI (existsI Y (andI uopairIr (in_eq q (sym s))))) (andEr r) false)
+                            ([s: ded z eq Y] notE (notnotI (existsI X (andI uopairIl (in_eq p (sym s))))) (andEr r) false)
+                         ).
+   in_acyclic0 : ded X in X -> ded false = [p] falseE (in_acyclic1 p p) false.
+   
+   %% singleton a = {a}
+   singleton : i -> i = [a] uopair a a.
+   singletonI : ded A in singleton A = uopairIl.
+   singletonE : ded A in singleton B -> ded A eq B = [p] orE (uopairE p) ([q: ded A eq B]q) ([q: ded A eq B]q).
+   
+   isSingleton : i -> o = [x] existsU [y] y in x.
+   isSingletonI : ded X eq singleton Y -> ded isSingleton X = [p] congEr p ([x] isSingleton x) (existsUI (existsI Y (singletonI) ) 
+                                        ([m][n][q : ded m in singleton Y][r : ded n in singleton Y] 
+                                                                            trans (singletonE (q)) (sym (singletonE (r))))).
+                                      
+   isSingletonE : ded isSingleton X -> ded exists [y] X eq singleton y = [p] existsE p ([y][q : ded y in X and forall [z] z in X imp z eq y] 
+existsI (y)
+(eqI
+([t][r : ded t in X] congEr ((impE (forallE (andEr q) (t))) r) ([l] l in singleton y) (singletonI) )
+([t][s : ded t in singleton y] congEr (singletonE s) ([l] l in X) (andEl q) )
+))
+.
+                               
+   singletonInj : ded singleton X eq singleton Y -> ded X eq Y = [p] singletonE (in_eq singletonI p). %% useful
+   uopair_idem : ded uopair A A eq singleton A
+               = eqI ([x][p] eq_in (or_idem (uopairE p)) singletonI) ([x][p] eq_in (singletonE p) uopairIl).
+   
+   %% adjoint a b = a \cup {b}
+   adjoint : i -> i -> i = [a][b] a union (singleton b).       %infix left 30 adjoint.
+   adjointIl : ded X in A -> ded X in A adjoint B = unionIl.
+   adjointIr : ded B in A adjoint B = unionIr singletonI.
+   adjointE  : ded X in A adjoint B -> ded X in A or X eq B
+             = [p] orE (unionE p) ([q: ded X in A] orIl q) ([q: ded X in singleton B] orIr (singletonE q)).
+   adjoint_subset : ded A subset (A adjoint X) = union_subsetl.
+    
+   finite0 : i                =            empty.
+   finite1 : i -> i           = [x]        finite0      adjoint x.
+   finite2 : i -> i -> i      = [x][y]    (finite1 x)   adjoint y.
+   finite3 : i -> i -> i -> i = [x][y][z] (finite2 x y) adjoint z.
+   
+   finite0_prop : ded X in finite0       equiv false
+                = equivI ([p] emptyE p) ([p] falseE' p).
+   finite1_prop : ded X in finite1 A     equiv X eq A
+                = equivI ([p] singletonE (in_eq p union_neutral))
+               ([p] eq_in p (in_eq singletonI (sym union_neutral))).
+   finite2_prop : ded X in finite2 A B   equiv X eq A or X eq B
+                = equivI ([p] orE (adjointE p) ([q] orIl (equivEl finite1_prop q)) orIr)
+                         ([p] orE p ([q] adjointIl (equivEr finite1_prop q)) ([q] eq_in q adjointIr)).
+   finite3_prop : ded X in finite3 A B C equiv X eq A or X eq B or X eq C
+                = equivI ([p] orE (adjointE p) ([q] orIl (equivEl finite2_prop q)) orIr)
+                         ([p] orE p ([q] adjointIl (equivEr finite2_prop q)) ([q] eq_in q adjointIr)).
+   
+   
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   %% natural numbers and infinity axiom
+   
+   0 = empty.
+   succ : i -> i = [x] x adjoint x.
+   1 = succ 0.
+   1prop : ded 1 eq (singleton empty) = union_neutral.
+   0neq1E : ded 0 eq 1 -> ded F = [p] emptyE (in_eq adjointIr (sym p)). 
+   2 = succ 1.
+   2prop : ded 2 eq uopair 0 1
+         = eqI ([x][p: ded x in 2] orE (adjointE p)
+                                       ([q: ded x in 1] eq_in (singletonE (in_eq q 1prop)) uopairIl)
+                                       ([q: ded x eq 1] eq_in q uopairIr))
+               ([x][p: ded x in uopair 0 1] orE (uopairE p)
+                                                ([q: ded x eq 0] eq_in q (adjointIl adjointIr))
+                                                ([q: ded x eq 1] eq_in q adjointIr)).
+   
+   %* has_nats A: a sufficient condition for A to contain the (intended) natural numbers *%
+   has_nats : i -> o = [x] 0 in x and forall [y] y in x imp succ y in x.
+   %* axiom of infinity *%
+   ax_infinity : ded exists [x] (has_nats x).
+}.

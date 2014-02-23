@@ -1,0 +1,41 @@
+%* Curry-Howard correspondence: interpreting propositional logic in simple type theory *%
+
+%namespace "http://latin.omdoc.org/translations/prop_stt".
+%namespace syn = "../logics/syntax".
+%namespace pf = "../logics/proof_theory".
+%namespace tt = "../type_theories".
+
+
+%view Base : syn.Logic -> tt.TypesTerms = {
+   o   := tp.
+   ded := [a] tm a.
+}.
+
+%view BasePF : pf.Base -> tt.TypesTerms = {
+   %include Base.
+}.
+
+%view IMP : syn.IMP -> tt.SimpTypes = {
+   %include Base.
+   imp := [x][y] x → y.
+}.
+
+%view IMPPF : pf.IMP -> tt.SimpTypes = {
+   %include BasePF.
+   %include IMP.
+   impI := [A][B] λ.
+   impE := [A][B][x][y] x @ y.
+}.
+
+%view CONJ : syn.CONJ -> tt.Product = {
+   %include Base.
+   and := [x][y] x * y.
+}.
+
+%view CONJPF : pf.CONJ -> tt.Product = {
+   %include BasePF.
+	%include CONJ.
+   andI := [A][B] pair.
+   andEl := [A][B] pi1.
+   andEr := [A][B] pi2.
+}.

@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
+  <theory name="OWL1Datatype" base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" meta="http://cds.omdoc.org/urtheories?LF">
+    <constant name="data" role="type">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://cds.omdoc.org/urtheories" module="Typed" name="type"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="dataType" role="type">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://cds.omdoc.org/urtheories" module="Typed" name="type"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="tm" role="type">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="OWL1Datatype" name="dataType"/>
+            <om:OMS position="2" base="http://cds.omdoc.org/urtheories" module="Typed" name="type"/>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="is" role="type">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="OWL1Datatype" name="data"/>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+              <om:OMS position="2_1" base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="OWL1Datatype" name="dataType"/>
+              <om:OMS position="2_2" base="http://cds.omdoc.org/urtheories" module="Typed" name="type"/>
+            </om:OMA>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="string" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="OWL1Datatype" name="dataType"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="normalizedString" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="OWL1Datatype" name="dataType"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="token" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="OWL1Datatype" name="dataType"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="language" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="OWL1Datatype" name="dataType"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="NMToken" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="OWL1Datatype" name="dataType"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="name" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="OWL1Datatype" name="dataType"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="NCName" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="OWL1Datatype" name="dataType"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="boolean" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="OWL1Datatype" name="dataType"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="decimal" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="OWL1Datatype" name="dataType"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="float" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="OWL1Datatype" name="dataType"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="double" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="OWL1Datatype" name="dataType"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="integer" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="OWL1Datatype" name="dataType"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="nonNegativeInteger" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="OWL1Datatype" name="dataType"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="nonPositiveInteger" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="OWL1Datatype" name="dataType"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="positiveInteger" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="OWL1Datatype" name="dataType"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="negativeInteger" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="OWL1Datatype" name="dataType"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="long" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="OWL1Datatype" name="dataType"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="int" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="OWL1Datatype" name="dataType"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="short" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="OWL1Datatype" name="dataType"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="byte" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="OWL1Datatype" name="dataType"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="unsignedLong" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="OWL1Datatype" name="dataType"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="unsignedInt" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="OWL1Datatype" name="dataType"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="unsignedShort" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="OWL1Datatype" name="dataType"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="unsignedByte" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="OWL1Datatype" name="dataType"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="dateTime" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="OWL1Datatype" name="dataType"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="time" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="OWL1Datatype" name="dataType"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="date" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="OWL1Datatype" name="dataType"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="gYearMonth" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="OWL1Datatype" name="dataType"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="gYear" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="OWL1Datatype" name="dataType"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="gMonthDay" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="OWL1Datatype" name="dataType"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="gDay" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="OWL1Datatype" name="dataType"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="gMonth" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="OWL1Datatype" name="dataType"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="hexBinary" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="OWL1Datatype" name="dataType"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="base64Binary" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="OWL1Datatype" name="dataType"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="anyURI" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="OWL1Datatype" name="dataType"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+  </theory>
+</omdoc>

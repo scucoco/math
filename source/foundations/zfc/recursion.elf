@@ -1,0 +1,201 @@
+%namespace "http://latin.omdoc.org/foundations/zfc".
+
+
+%* Recursive functions on the natural numbers
+   following Azcel, Rathjen, Notes on Constructive Set Theory, p. 3.9
+   given cod, base \in cod, step : cod -> cod, define fun : nat -> cod such that 
+    - fun(0) = base
+    - fun(succ n) = step (fun(n))
+   Call f a step-n function if it is a function (succ n) -> cod such that
+    - f(0) = base
+    - f(i) = step (f (pred i)) for 0 < i <= n
+   fun is defined as the union of all step-n functions.
+   Proving that fun is indeed a function is a lot of work.
+*%
+%sig Recursion = {
+   %include Nat.
+   %% input
+   
+   %* codomain *%
+   cod : i.
+   %* base case *%
+   bs : i.
+   %* typing for base case *%
+   whybs : ded bs in cod.
+   %* step function *%
+   st : i.
+   %* typing for step case *% 
+   whyst : ded st in func cod cod.
+
+   %% output: fun is the desired function
+   isstep : i -> i -> o = [n][f] f in func (succ n) cod and (apply f 0 eq bs) and
+       forall [m] m in (succ n) imp m neq 0 imp (apply f m) eq (apply st (apply f (pred m))).
+   steps : i = filter (rel nat cod) ([f] exists [n] isstep n f).
+   fun : i = bigunion steps.
+
+   %% proof that fun is a function
+   
+   %* basic lemmas *%
+   disj    : ded disjoint (succ N) (singleton (succ N))
+           = notI [t][b] existsE t [z][u: ded z in succ N and z in singleton (succ N)]
+               falseE' (in_acyclic0 (eq_in (sym (singletonE (andEr u))) (andEl u))).
+
+   %* a step-0 function *%
+   step0 : i = lambda (succ 0) ([_] bs).
+   whystep0 : ded isstep 0 step0 =
+     and3I (funcI [x][_] whybs) (conv_apply adjointIr) (forallI [m] impI [p: ded m in succ 0] impI [q: ded m neq 0]
+       (orE (adjointE p) ([r: ded m in 0] emptyE r) ([r: ded m eq 0] notE' r q))).
+   
+   %% constructing a step-(succ n) function from a step-n function
+   mapn+1  : i -> i -> i = [n][a] lambda (singleton (succ n)) ([_] apply st a).
+   mapn+1func : ded A in cod -> ded (mapn+1 N A) in func (singleton (succ N)) cod
+              = [r] funcI [x][_] funcE whyst r.
+   stepn+1 : i -> i -> i -> i = [n][stepn][a] stepn union (mapn+1 n a).
+   stepn+1func : {stepn} ded isstep N stepn -> ded A in cod -> ded (stepn+1 N stepn A) in func (succ (succ N)) cod
+               = [stepn][whystepn][r] func_union disj (and3El whystepn) (mapn+1func r).
+   stepsagree : {stepn} ded isstep N stepn -> ded A in cod
+                -> ded forall [m] m in succ N imp (apply (stepn+1 N stepn A) m) eq (apply stepn m)
+              = [stepn][whystepn][r] forallI [m] impI [p] func_unionl disj (and3El whystepn) (mapn+1func r) p.
+   stepn+1apply : {stepn} ded isstep N stepn -> ded A in cod
+                    -> ded apply (stepn+1 N stepn A) (succ N) eq apply st A
+                = [stepn][whystepn][r] trans (func_unionr disj (and3El whystepn) (mapn+1func r) singletonI)
+                                             (conv_apply singletonI).
+   whystepn+1 : ded N in nat -> ded A in cod -> {stepn} ded isstep N stepn -> ded pair N A in stepn
+                   -> ded isstep (succ N) (stepn+1 N stepn A)
+              = [p][r][stepn][whystepn][s] and3I
+                 (stepn+1func stepn whystepn r)
+                 (trans
+                     (func_unionl disj (and3El whystepn) (mapn+1func r)
+                                   (in_eq (tforallE 0_in (elem N p)) (congF eq_which succ)))
+                     (and3Em whystepn)
+                 )
+                 (forallI [m] impI [t: ded m in succ (succ N)] impI [u: ded m neq 0] orE (adjointE t)
+                     ([v: ded m in (succ N)]
+                     trans3
+                       (impE (forallE (stepsagree stepn whystepn r) m) v : ded apply (stepn+1 N stepn A) m eq apply stepn m) 
+                       (impE (impE (forallE (and3Er whystepn) m) v) u : ded apply stepn m eq apply st (apply stepn (pred m)))
+                       (congF (sym (impE (forallE (stepsagree stepn whystepn r) (pred m))
+                                         (subsetE (nats_transitive'' (succnnat p) v : ded m subset succ N)
+                                                  (pred_in (subsetE (nat_transitive'' (succnnat p)) v) u : ded pred m in m)
+                                         )
+                                   )
+                               : ded apply stepn (pred m) eq apply (stepn+1 N stepn A) (pred m))
+                              ([x] apply st x)
+                       )
+                     )
+                     ([v: ded m eq succ N] trans
+                       (congP (sym v) ([x] apply (stepn+1 N stepn A) x eq apply st A) (stepn+1apply stepn whystepn r) : ded apply (stepn+1 N stepn A) m eq apply st A)
+                       (congF (trans3
+                                 (sym (funcE3 (and3El whystepn) s) : ded A eq apply stepn N)
+                                 (sym (impE (forallE (stepsagree stepn whystepn r) N) succ_in) : ded apply stepn N eq apply (stepn+1 N stepn A) N)
+                                 (congF (sym (trans (congF v pred) (conv_pred (nats_transitive' p)) : ded pred m eq N)) ([x] apply (stepn+1 N stepn A) x))
+                              : ded A eq apply (stepn+1 N stepn A) (pred m))
+                              ([x] apply st x)
+                       )
+                     )
+                 ).
+   
+   %% totality of fun
+   funtotal : ded tforall [n: Nat] exists2 [stepn][a] pair (which n) a in stepn and isstep (which n) stepn =
+     peano_induction
+       (exists2I step0 bs (andI (imageI succ_in) whystep0))
+       ([n][p: ded n in nat][q: ded exists [stepn] exists [a] pair n a in stepn and isstep n stepn]
+           existsE q [stepn][q'] existsE q' [a][q'']
+           lemma (isstep n stepn) (andEr q'') [whystepn]
+           lemma (a in cod) (prodEr' (subsetE (powersetE (funcEl' (and3El whystepn))) (andEl q''))) [r]
+           exists2I (stepn+1 n stepn a) (apply st a) (
+           andI (eq_in (sym (congF (stepn+1apply stepn whystepn r) ([x] pair (succ n) x)))
+                       (funcE2 (stepn+1func stepn whystepn r) succ_in))
+                (whystepn+1 p r stepn whystepn (andEl q''))
+           )
+        ).
+   funtotal' : ded forall [n] n in nat imp exists [a] pair n a in fun
+             = forallI [n] impI [p] exists2E (tforallE funtotal (elem n p)) [stepn][a][q]
+                   lemma (pair n a in stepn and isstep n stepn) 
+                         (congP eq_which ([x] pair x a in stepn and isstep x stepn) q) [q']
+                   existsI a (
+                      bigunionI (andEl q')
+                                (filterI (powersetI (
+                                             subset_trans (powersetE (funcEl' (and3El (andEr q'))))
+                                                          (prod_subset (nat_transitive'' (succnnat p)) subset_refl)
+                                         ) : ded stepn in rel nat cod)
+                                         (existsI n (andEr q'))
+                                )
+                   ).
+   %% functionality of fun
+   step@0 : {stepn} ded stepn in steps and pair 0 A in stepn -> ded A eq bs
+          = [stepn][p] existsE (filterEr (andEl p)) [n][whystepn] trans
+              (sym (funcE3 (and3El whystepn) (andEr p)))
+              (and3Em whystepn).
+   step@succ : {stepn} ded stepn in steps and pair (succ N) A in stepn
+                -> ded exists [a] pair N a in fun and A eq apply st a
+             = [stepn] [p]
+                existsE (filterEr (andEl p)) [n][q: ded isstep n stepn]
+                lemma (succ N in succ n) (prodEl' (subsetE (powersetE (funcEl' (and3El q))) (andEr p))) [lem1]
+                lemma (succ n in nat)
+                      (succnnat (prodEl' (subsetE (powersetE (filterEl (andEl p))) (funcE2 (and3El q) succ_in))))
+                      [lem2]
+                lemma (N in succ n) (subsetE (nats_transitive'' lem2 lem1) succ_in) [lem3]
+                existsI (apply stepn N) (andI
+                    (bigunionI (funcE2 (and3El q) lem3) (andEl p))
+                    (trans3 (sym (funcE3 (and3El q) (andEr p))
+                               : ded A eq apply stepn (succ N))
+                             (impE (impE (forallE (and3Er q) (succ N)) lem1)
+                                   (notI [r] notE peano_wellfounded (existsI N r))
+                               : ded apply stepn (succ N) eq apply st (apply stepn (pred (succ N)))) 
+                             (congF (conv_pred (nats_transitive' (subsetE (nat_transitive'' lem2) lem3)))
+                                    ([x] apply st (apply stepn x))
+                               : ded apply st (apply stepn (pred (succ N))) eq apply st (apply stepn N))
+                    )
+                ).
+   funpartial : ded tforall [n: Nat] forall2 [y][y']
+                      pair (which n) y in fun and pair (which n) y' in fun imp y eq y'
+  = peano_induction (forallI [y] forallI [y'] impI [p]
+        existsE (bigunionE (andEl p)) [stepn] [q:  ded stepn  in steps and (pair 0 y)  in stepn]
+        existsE (bigunionE (andEr p)) [stepn'][q': ded stepn' in steps and (pair 0 y') in stepn']
+          trans (step@0 stepn q) (sym (step@0 stepn' q'))
+     )([n][_][ih] forallI [y] forallI [y'] impI [p: ded pair (succ n) y in fun and pair (succ n) y' in fun]
+        existsE (bigunionE (andEl p)) [stepn] [q:  ded stepn  in steps and (pair (succ n) y)  in stepn]
+        existsE (bigunionE (andEr p)) [stepn'][q': ded stepn' in steps and (pair (succ n) y') in stepn']
+        existsE (step@succ stepn q)   [a] [r:  ded pair n a  in fun and y  eq apply st a]
+        existsE (step@succ stepn' q') [a'][r': ded pair n a' in fun and y' eq apply st a']
+        lemma (a eq a') (impE (forall2E ih a a') (andI (andEl r) (andEl r'))) [lem]
+        trans3 (andEr r) (congF lem ([x] apply st x)) (sym (andEr r'))
+     ).
+
+   funrel : ded fun in (rel nat cod)
+     = powersetI (bigunion_supremum [x][p: ded x in steps] powersetE (filterEl p)).
+   funpartial' : ded fun in pfunc nat cod
+     = filterI 
+         funrel
+         (forallI [n] forallI [a] forallI [a'] impI [p: ded pair n a in fun and pair n a' in fun]
+            impE (congP eq_which ([x] pair x a in fun and pair x a' in fun imp a eq a') 
+                    (forall2E (tforallE funpartial (elem n (prodEl' (subsetE (powersetE funrel) (andEl p))))) a a')
+                 ) p
+         ).
+   %* fun is indeed a function *%
+   whyfun : ded fun in func nat cod = filterI funpartial' funtotal'.
+   
+   %% proof that fun has the desired properties
+   in_steps : ded N in nat -> ded isstep N Stepn -> ded Stepn in steps
+      = [p][q] filterI (subsetE (rel_subset (nat_transitive'' (succnnat p)) subset_refl) (funcEl' (and3El q))) 
+                    (existsI N q).
+   funagrees : ded N in nat -> ded isstep N Stepn -> ded M in succ N -> ded apply fun M eq apply Stepn M
+     = [p][q][r] funcE3 whyfun (bigunionI (funcE2 (and3El q) r) (in_steps p q)).
+   fun@0 : ded apply fun 0 eq bs = funcE3 whyfun (bigunionI (imageI succ_in) (in_steps peano_0 whystep0)).
+   fun@succ : ded N in nat -> ded apply fun (succ N) eq (apply st (apply fun N))
+     = [p] exists2E (tforallE funtotal (elem (succ N) (succnnat p))) [stepn+1][a][q]
+            lemma (pair (succ N) a in stepn+1 and isstep (succ N) stepn+1)
+                  (congP eq_which ([x] pair x a in stepn+1 and isstep x stepn+1) q)
+                  [lem]
+            trans4
+              (funagrees (succnnat p) (andEr lem) succ_in
+                : ded apply fun (succ N) eq apply stepn+1 (succ N))
+              (impE (impE (forallE (and3Er (andEr lem)) (succ N)) succ_in)
+                  (notI [r] notE peano_wellfounded (existsI N r))
+                : ded apply stepn+1 (succ N) eq apply st (apply stepn+1 (pred (succ N))))
+              (congF (conv_pred (nats_transitive' p)) ([x] apply st (apply stepn+1 x))
+                : ded apply st (apply stepn+1 (pred (succ N))) eq apply st (apply stepn+1 N))
+              (congF (sym (funagrees (succnnat p) (andEr lem) (adjointIl adjointIr))) ([x] apply st x) 
+                : ded apply st (apply stepn+1 N) eq apply st (apply fun N)).
+}.

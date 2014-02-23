@@ -1,0 +1,19 @@
+%* Syntax of modal logic *%
+%namespace "http://latin.omdoc.org/logics/syntax".
+
+
+%sig Necessity = {
+  %include Logic %open.
+   □ : o -> o.           %prefix 30 □.
+}.
+
+%sig Possibility = {
+  %include Logic %open.
+   ◇ : o -> o.           %prefix 30 ◇.
+}.
+
+%sig ML = {
+  %include MPL.
+  %include Necessity.
+  %include Possibility. 
+}.

@@ -1,0 +1,56 @@
+%*
+   Extensions of TFF with arithmetic
+   @author Florian Rabe, based on http://www.cs.miami.edu/~tptp/TPTP/TR/TPTPTR.sh$tml#Arithmetic
+*%
+
+%namespace "http://latin.omdoc.org/logics/tptp".
+
+%* base types for arithmetic: integers, rational, reals *%
+%sig Arithmetic = {
+   %include Types.
+   
+   %% arithmetic domains 
+   $arithdom   : type.
+   $_int       : $arithdom.
+   $_rat       : $arithdom.
+   $_real      : $arithdom.
+   
+   %% one base type for each arithmetic domain
+   $arithtype  : $arithdom -> $tType.
+   $int        : $tType = $arithtype $_int.
+   $rat        : $tType = $arithtype $_rat.
+   $real       : $tType = $arithtype $_real.
+
+   %% dummy constants for literals
+   $intliteral  : $tm $int.
+   $ratliteral  : $tm $rat.
+   $realliteral : $tm $real.
+}.
+
+%* arithmetic operations in first-order style *%
+%sig TFF-Arithmetic = {
+   %include TFF.
+   %include Arithmetic.
+   %% comparisons
+   $less      : $tm ($arithtype D) -> $tm ($arithtype D) -> $form.
+   $lesseq    : $tm ($arithtype D) -> $tm ($arithtype D) -> $form.
+   $greater   : $tm ($arithtype D) -> $tm ($arithtype D) -> $form.
+   $greatereq : $tm ($arithtype D) -> $tm ($arithtype D) -> $form.
+   
+   %% operations
+   $uminus     : $tm ($arithtype D) -> $tm ($arithtype D).
+   $sum        : $tm ($arithtype D) -> $tm ($arithtype D) -> $tm ($arithtype D).
+   $difference : $tm ($arithtype D) -> $tm ($arithtype D) -> $tm ($arithtype D).
+   $product    : $tm ($arithtype D) -> $tm ($arithtype D) -> $tm ($arithtype D).
+   $quotient   : $tm ($arithtype D) -> $tm ($arithtype D) -> $tm ($arithtype D).
+   
+   %% testing for arithmetic types
+   $is_int  : $tm ($arithtype D) -> $form.
+   $is_rat  : $tm ($arithtype D) -> $form.
+   $is_real : $tm ($arithtype D) -> $form.
+   
+   %% coercion to arithmetic types
+   $to_int  : $tm ($arithtype D) -> $tm $int.
+   $to_rat  : $tm ($arithtype D) -> $tm $rat.
+   $to_real : $tm ($arithtype D) -> $tm $real.
+}.

@@ -1,0 +1,18 @@
+<tnt:virtualdocument xmlns:tnt="http://tntbase.mathweb.org/ns">
+
+
+  <tnt:skeleton xml:id="exercises">
+    <omdoc xmlns="http://omdoc.org/ns" xmlns:dc="http://purl.org/dc/elements/1.1/">
+     <tnt:xqinclude>
+       <tnt:query>
+	import module namespace mmt = 'http://omdoc.org/ns'
+ 		at 'tntbase:/admin/mmt.xq';
+		mmt:getRawClosure('http://cds.omdoc.org/logics/first-order/syntax/fol.omdoc?FOL')
+       </tnt:query>
+       <tnt:return>
+          <tnt:result/>  
+       </tnt:return> 
+     </tnt:xqinclude>
+    </omdoc>
+  </tnt:skeleton>
+</tnt:virtualdocument>

@@ -1,0 +1,1294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
+  <theory name="THF0" base="http://latin.omdoc.org/logics/tptp" meta="http://cds.omdoc.org/urtheories?LF">
+    <import from="http://latin.omdoc.org/logics/tptp?Types"> </import>
+    <constant name="$o" role="constructor">
+      <metadata>
+        <meta property="http://purl.org/dc/terms?_?description">
+          <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+            <om:OMSTR>internal formulas, i.e., formulas are an object level type</om:OMSTR>
+          </om:OMOBJ>
+        </meta>
+      </metadata>
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tType"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="&gt;" role="constructor">
+      <metadata>
+        <meta property="http://purl.org/dc/terms?_?description">
+          <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+            <om:OMSTR>function types</om:OMSTR>
+          </om:OMOBJ>
+        </meta>
+      </metadata>
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tType"/>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+              <om:OMS position="2_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tType"/>
+              <om:OMS position="2_2" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tType"/>
+            </om:OMA>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/tptp?THF0?&gt;" precedence="10" fixity="infix-right" arguments="0"/>
+      </notation>
+    </constant>
+    <constant name="^" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tType"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="B">
+                  <type>
+                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tType"/>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                <om:OMA position="2_2_1">
+                  <om:OMS position="2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                  <om:OMA position="2_2_1_1">
+                    <om:OMS position="2_2_1_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_1_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                    <om:OMV position="2_2_1_1_2" name="A"/>
+                  </om:OMA>
+                  <om:OMA position="2_2_1_2">
+                    <om:OMS position="2_2_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_1_2_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                    <om:OMV position="2_2_1_2_2" name="B"/>
+                  </om:OMA>
+                </om:OMA>
+                <om:OMA position="2_2_2">
+                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                  <om:OMA position="2_2_2_2">
+                    <om:OMS position="2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_2_2_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="&gt;"/>
+                    <om:OMV position="2_2_2_2_2" name="A"/>
+                    <om:OMV position="2_2_2_2_3" name="B"/>
+                  </om:OMA>
+                </om:OMA>
+              </om:OMA>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/tptp?THF0?^" precedence="10" fixity="prefix" arguments="2"/>
+      </notation>
+    </constant>
+    <constant name="@" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tType"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="B">
+                  <type>
+                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tType"/>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                <om:OMA position="2_2_1">
+                  <om:OMS position="2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                  <om:OMA position="2_2_1_2">
+                    <om:OMS position="2_2_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_1_2_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="&gt;"/>
+                    <om:OMV position="2_2_1_2_2" name="A"/>
+                    <om:OMV position="2_2_1_2_3" name="B"/>
+                  </om:OMA>
+                </om:OMA>
+                <om:OMA position="2_2_2">
+                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                  <om:OMA position="2_2_2_1">
+                    <om:OMS position="2_2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_2_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                    <om:OMV position="2_2_2_1_2" name="A"/>
+                  </om:OMA>
+                  <om:OMA position="2_2_2_2">
+                    <om:OMS position="2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_2_2_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                    <om:OMV position="2_2_2_2_2" name="B"/>
+                  </om:OMA>
+                </om:OMA>
+              </om:OMA>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/tptp?THF0?@" precedence="10" fixity="infix-left" arguments="2"/>
+      </notation>
+    </constant>
+    <constant name="$true" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+            <om:OMS position="2" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="&amp;" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMA position="1">
+              <om:OMS position="1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+              <om:OMS position="1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+              <om:OMS position="1_2" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+            </om:OMA>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+              <om:OMA position="2_1">
+                <om:OMS position="2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                <om:OMS position="2_1_2" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+              </om:OMA>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                <om:OMS position="2_2_2" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+              </om:OMA>
+            </om:OMA>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/tptp?THF0?&amp;" precedence="5" fixity="infix-left" arguments="0"/>
+      </notation>
+    </constant>
+    <constant name="|" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMA position="1">
+              <om:OMS position="1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+              <om:OMS position="1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+              <om:OMS position="1_2" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+            </om:OMA>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+              <om:OMA position="2_1">
+                <om:OMS position="2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                <om:OMS position="2_1_2" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+              </om:OMA>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                <om:OMS position="2_2_2" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+              </om:OMA>
+            </om:OMA>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/tptp?THF0?|" precedence="5" fixity="infix-left" arguments="0"/>
+      </notation>
+    </constant>
+    <constant name="~" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMA position="1">
+              <om:OMS position="1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+              <om:OMS position="1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+              <om:OMS position="1_2" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+            </om:OMA>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+              <om:OMS position="2_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+              <om:OMS position="2_2" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+            </om:OMA>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="$false" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+            <om:OMS position="2" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+      <definition>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="~"/>
+            <om:OMS position="2" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$true"/>
+          </om:OMA>
+        </om:OMOBJ>
+      </definition>
+    </constant>
+    <constant name="=&gt;" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMA position="1">
+              <om:OMS position="1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+              <om:OMS position="1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+              <om:OMS position="1_2" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+            </om:OMA>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+              <om:OMA position="2_1">
+                <om:OMS position="2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                <om:OMS position="2_1_2" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+              </om:OMA>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                <om:OMS position="2_2_2" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+              </om:OMA>
+            </om:OMA>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+      <definition>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="a">
+                <type>
+                  <om:OMA position="0_1">
+                    <om:OMS position="0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="0_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                    <om:OMS position="0_1_2" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+                  </om:OMA>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="b">
+                  <type>
+                    <om:OMA position="2_0_1">
+                      <om:OMS position="2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_0_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                      <om:OMS position="2_0_1_2" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+                    </om:OMA>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="|"/>
+                <om:OMV position="2_2_2" name="a"/>
+                <om:OMA position="2_2_3">
+                  <om:OMS position="2_2_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_3_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="~"/>
+                  <om:OMV position="2_2_3_2" name="b"/>
+                </om:OMA>
+              </om:OMA>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </definition>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/tptp?THF0?=&gt;" precedence="5" fixity="infix" arguments="0"/>
+      </notation>
+    </constant>
+    <constant name="&lt;=" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMA position="1">
+              <om:OMS position="1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+              <om:OMS position="1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+              <om:OMS position="1_2" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+            </om:OMA>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+              <om:OMA position="2_1">
+                <om:OMS position="2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                <om:OMS position="2_1_2" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+              </om:OMA>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                <om:OMS position="2_2_2" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+              </om:OMA>
+            </om:OMA>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+      <definition>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="a">
+                <type>
+                  <om:OMA position="0_1">
+                    <om:OMS position="0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="0_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                    <om:OMS position="0_1_2" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+                  </om:OMA>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="b">
+                  <type>
+                    <om:OMA position="2_0_1">
+                      <om:OMS position="2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_0_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                      <om:OMS position="2_0_1_2" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+                    </om:OMA>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="=&gt;"/>
+                <om:OMV position="2_2_2" name="b"/>
+                <om:OMV position="2_2_3" name="a"/>
+              </om:OMA>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </definition>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/tptp?THF0?&lt;=" precedence="5" fixity="infix" arguments="0"/>
+      </notation>
+    </constant>
+    <constant name="&lt;=&gt;" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMA position="1">
+              <om:OMS position="1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+              <om:OMS position="1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+              <om:OMS position="1_2" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+            </om:OMA>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+              <om:OMA position="2_1">
+                <om:OMS position="2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                <om:OMS position="2_1_2" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+              </om:OMA>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                <om:OMS position="2_2_2" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+              </om:OMA>
+            </om:OMA>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+      <definition>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="a">
+                <type>
+                  <om:OMA position="0_1">
+                    <om:OMS position="0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="0_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                    <om:OMS position="0_1_2" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+                  </om:OMA>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="b">
+                  <type>
+                    <om:OMA position="2_0_1">
+                      <om:OMS position="2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_0_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                      <om:OMS position="2_0_1_2" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+                    </om:OMA>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="&amp;"/>
+                <om:OMA position="2_2_2">
+                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="=&gt;"/>
+                  <om:OMV position="2_2_2_2" name="a"/>
+                  <om:OMV position="2_2_2_3" name="b"/>
+                </om:OMA>
+                <om:OMA position="2_2_3">
+                  <om:OMS position="2_2_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_3_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="=&gt;"/>
+                  <om:OMV position="2_2_3_2" name="b"/>
+                  <om:OMV position="2_2_3_3" name="a"/>
+                </om:OMA>
+              </om:OMA>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </definition>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/tptp?THF0?&lt;=&gt;" precedence="5" fixity="infix" arguments="0"/>
+      </notation>
+    </constant>
+    <constant name="&lt;~&gt;" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMA position="1">
+              <om:OMS position="1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+              <om:OMS position="1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+              <om:OMS position="1_2" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+            </om:OMA>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+              <om:OMA position="2_1">
+                <om:OMS position="2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                <om:OMS position="2_1_2" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+              </om:OMA>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                <om:OMS position="2_2_2" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+              </om:OMA>
+            </om:OMA>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+      <definition>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="a">
+                <type>
+                  <om:OMA position="0_1">
+                    <om:OMS position="0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="0_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                    <om:OMS position="0_1_2" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+                  </om:OMA>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="b">
+                  <type>
+                    <om:OMA position="2_0_1">
+                      <om:OMS position="2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_0_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                      <om:OMS position="2_0_1_2" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+                    </om:OMA>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="~"/>
+                <om:OMA position="2_2_2">
+                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="&lt;=&gt;"/>
+                  <om:OMV position="2_2_2_2" name="a"/>
+                  <om:OMV position="2_2_2_3" name="b"/>
+                </om:OMA>
+              </om:OMA>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </definition>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/tptp?THF0?&lt;~&gt;" precedence="5" fixity="infix" arguments="0"/>
+      </notation>
+    </constant>
+    <constant name="~&amp;" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMA position="1">
+              <om:OMS position="1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+              <om:OMS position="1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+              <om:OMS position="1_2" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+            </om:OMA>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+              <om:OMA position="2_1">
+                <om:OMS position="2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                <om:OMS position="2_1_2" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+              </om:OMA>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                <om:OMS position="2_2_2" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+              </om:OMA>
+            </om:OMA>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+      <definition>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="a">
+                <type>
+                  <om:OMA position="0_1">
+                    <om:OMS position="0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="0_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                    <om:OMS position="0_1_2" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+                  </om:OMA>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="b">
+                  <type>
+                    <om:OMA position="2_0_1">
+                      <om:OMS position="2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_0_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                      <om:OMS position="2_0_1_2" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+                    </om:OMA>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="~"/>
+                <om:OMA position="2_2_2">
+                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="&amp;"/>
+                  <om:OMV position="2_2_2_2" name="a"/>
+                  <om:OMV position="2_2_2_3" name="b"/>
+                </om:OMA>
+              </om:OMA>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </definition>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/tptp?THF0?~&amp;" precedence="5" fixity="infix" arguments="0"/>
+      </notation>
+    </constant>
+    <constant name="~|" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMA position="1">
+              <om:OMS position="1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+              <om:OMS position="1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+              <om:OMS position="1_2" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+            </om:OMA>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+              <om:OMA position="2_1">
+                <om:OMS position="2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                <om:OMS position="2_1_2" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+              </om:OMA>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                <om:OMS position="2_2_2" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+              </om:OMA>
+            </om:OMA>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+      <definition>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="a">
+                <type>
+                  <om:OMA position="0_1">
+                    <om:OMS position="0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="0_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                    <om:OMS position="0_1_2" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+                  </om:OMA>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="b">
+                  <type>
+                    <om:OMA position="2_0_1">
+                      <om:OMS position="2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_0_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                      <om:OMS position="2_0_1_2" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+                    </om:OMA>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="~"/>
+                <om:OMA position="2_2_2">
+                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="|"/>
+                  <om:OMV position="2_2_2_2" name="a"/>
+                  <om:OMV position="2_2_2_3" name="b"/>
+                </om:OMA>
+              </om:OMA>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </definition>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/tptp?THF0?~|" precedence="5" fixity="infix" arguments="0"/>
+      </notation>
+    </constant>
+    <constant name="==" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tType"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+              <om:OMA position="2_1">
+                <om:OMS position="2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                <om:OMV position="2_1_2" name="A"/>
+              </om:OMA>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                <om:OMA position="2_2_1">
+                  <om:OMS position="2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                  <om:OMV position="2_2_1_2" name="A"/>
+                </om:OMA>
+                <om:OMA position="2_2_2">
+                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                  <om:OMS position="2_2_2_2" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+                </om:OMA>
+              </om:OMA>
+            </om:OMA>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/tptp?THF0?==" precedence="10" fixity="infix" arguments="1"/>
+      </notation>
+    </constant>
+    <constant name="!=" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tType"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+              <om:OMA position="2_1">
+                <om:OMS position="2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                <om:OMV position="2_1_2" name="A"/>
+              </om:OMA>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                <om:OMA position="2_2_1">
+                  <om:OMS position="2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                  <om:OMV position="2_2_1_2" name="A"/>
+                </om:OMA>
+                <om:OMA position="2_2_2">
+                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                  <om:OMS position="2_2_2_2" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+                </om:OMA>
+              </om:OMA>
+            </om:OMA>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </type>
+      <definition>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tType"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="x">
+                  <type>
+                    <om:OMA position="2_0_1">
+                      <om:OMS position="2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_0_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                      <om:OMV position="2_0_1_2" name="A"/>
+                    </om:OMA>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMBIND position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+                <om:OMBVAR>
+                  <om:OMV position="2_2_0" name="y">
+                    <type>
+                      <om:OMA position="2_2_0_1">
+                        <om:OMS position="2_2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                        <om:OMS position="2_2_0_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                        <om:OMV position="2_2_0_1_2" name="A"/>
+                      </om:OMA>
+                    </type>
+                    <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                      <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                    </attribution>
+                  </om:OMV>
+                </om:OMBVAR>
+                <om:OMA position="2_2_2">
+                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="~"/>
+                  <om:OMA position="2_2_2_2">
+                    <om:OMS position="2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_2_2_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="=="/>
+                    <om:OMV position="2_2_2_2_2" name="A"/>
+                    <om:OMV position="2_2_2_2_3" name="x"/>
+                    <om:OMV position="2_2_2_2_4" name="y"/>
+                  </om:OMA>
+                </om:OMA>
+              </om:OMBIND>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </definition>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/tptp?THF0?!=" precedence="10" fixity="infix" arguments="1"/>
+      </notation>
+    </constant>
+    <constant name="!" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tType"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+              <om:OMA position="2_1">
+                <om:OMS position="2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                <om:OMA position="2_1_1">
+                  <om:OMS position="2_1_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_1_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                  <om:OMV position="2_1_1_2" name="A"/>
+                </om:OMA>
+                <om:OMA position="2_1_2">
+                  <om:OMS position="2_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_1_2_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                  <om:OMS position="2_1_2_2" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+                </om:OMA>
+              </om:OMA>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                <om:OMS position="2_2_2" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+              </om:OMA>
+            </om:OMA>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/tptp?THF0?!" precedence="5" fixity="prefix" arguments="1"/>
+      </notation>
+    </constant>
+    <constant name="%3F" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tType"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+              <om:OMA position="2_1">
+                <om:OMS position="2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                <om:OMA position="2_1_1">
+                  <om:OMS position="2_1_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_1_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                  <om:OMV position="2_1_1_2" name="A"/>
+                </om:OMA>
+                <om:OMA position="2_1_2">
+                  <om:OMS position="2_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_1_2_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                  <om:OMS position="2_1_2_2" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+                </om:OMA>
+              </om:OMA>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                <om:OMS position="2_2_2" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+              </om:OMA>
+            </om:OMA>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </type>
+      <definition>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tType"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="f">
+                  <type>
+                    <om:OMA position="2_0_1">
+                      <om:OMS position="2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                      <om:OMA position="2_0_1_1">
+                        <om:OMS position="2_0_1_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                        <om:OMS position="2_0_1_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                        <om:OMV position="2_0_1_1_2" name="A"/>
+                      </om:OMA>
+                      <om:OMA position="2_0_1_2">
+                        <om:OMS position="2_0_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                        <om:OMS position="2_0_1_2_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                        <om:OMS position="2_0_1_2_2" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+                      </om:OMA>
+                    </om:OMA>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="~"/>
+                <om:OMA position="2_2_2">
+                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="!"/>
+                  <om:OMV position="2_2_2_2" name="A"/>
+                  <om:OMBIND position="2_2_2_3">
+                    <om:OMS position="2_2_2_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+                    <om:OMBVAR>
+                      <om:OMV position="2_2_2_3_0" name="x">
+                        <type>
+                          <om:OMA position="2_2_2_3_0_1">
+                            <om:OMS position="2_2_2_3_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                            <om:OMS position="2_2_2_3_0_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                            <om:OMV position="2_2_2_3_0_1_2" name="A"/>
+                          </om:OMA>
+                        </type>
+                        <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                          <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                        </attribution>
+                      </om:OMV>
+                    </om:OMBVAR>
+                    <om:OMA position="2_2_2_3_2">
+                      <om:OMS position="2_2_2_3_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_2_2_3_2_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="~"/>
+                      <om:OMA position="2_2_2_3_2_2">
+                        <om:OMS position="2_2_2_3_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                        <om:OMV position="2_2_2_3_2_2_1" name="f"/>
+                        <om:OMV position="2_2_2_3_2_2_2" name="x"/>
+                      </om:OMA>
+                    </om:OMA>
+                  </om:OMBIND>
+                </om:OMA>
+              </om:OMA>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </definition>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/tptp?THF0?%3F" precedence="5" fixity="prefix" arguments="1"/>
+      </notation>
+    </constant>
+    <constant name="!!" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tType"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+              <om:OMA position="2_1">
+                <om:OMS position="2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                <om:OMA position="2_1_2">
+                  <om:OMS position="2_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_1_2_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="&gt;"/>
+                  <om:OMV position="2_1_2_2" name="A"/>
+                  <om:OMS position="2_1_2_3" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+                </om:OMA>
+              </om:OMA>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                <om:OMS position="2_2_2" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+              </om:OMA>
+            </om:OMA>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </type>
+      <definition>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tType"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="f">
+                  <type>
+                    <om:OMA position="2_0_1">
+                      <om:OMS position="2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_0_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                      <om:OMA position="2_0_1_2">
+                        <om:OMS position="2_0_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                        <om:OMS position="2_0_1_2_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="&gt;"/>
+                        <om:OMV position="2_0_1_2_2" name="A"/>
+                        <om:OMS position="2_0_1_2_3" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+                      </om:OMA>
+                    </om:OMA>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="!"/>
+                <om:OMV position="2_2_2" name="A"/>
+                <om:OMBIND position="2_2_3">
+                  <om:OMS position="2_2_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+                  <om:OMBVAR>
+                    <om:OMV position="2_2_3_0" name="x">
+                      <type>
+                        <om:OMA position="2_2_3_0_1">
+                          <om:OMS position="2_2_3_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                          <om:OMS position="2_2_3_0_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                          <om:OMV position="2_2_3_0_1_2" name="A"/>
+                        </om:OMA>
+                      </type>
+                      <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                        <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                      </attribution>
+                    </om:OMV>
+                  </om:OMBVAR>
+                  <om:OMA position="2_2_3_2">
+                    <om:OMS position="2_2_3_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_3_2_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="@"/>
+                    <om:OMV position="2_2_3_2_2" name="A"/>
+                    <om:OMS position="2_2_3_2_3" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+                    <om:OMV position="2_2_3_2_4" name="f"/>
+                    <om:OMV position="2_2_3_2_5" name="x"/>
+                  </om:OMA>
+                </om:OMBIND>
+              </om:OMA>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </definition>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/tptp?THF0?!!" precedence="5" fixity="prefix" arguments="1"/>
+      </notation>
+    </constant>
+    <constant name="%3F%3F" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tType"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+              <om:OMA position="2_1">
+                <om:OMS position="2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                <om:OMA position="2_1_2">
+                  <om:OMS position="2_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_1_2_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="&gt;"/>
+                  <om:OMV position="2_1_2_2" name="A"/>
+                  <om:OMS position="2_1_2_3" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+                </om:OMA>
+              </om:OMA>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                <om:OMS position="2_2_2" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+              </om:OMA>
+            </om:OMA>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </type>
+      <definition>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tType"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="f">
+                  <type>
+                    <om:OMA position="2_0_1">
+                      <om:OMS position="2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_0_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                      <om:OMA position="2_0_1_2">
+                        <om:OMS position="2_0_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                        <om:OMS position="2_0_1_2_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="&gt;"/>
+                        <om:OMV position="2_0_1_2_2" name="A"/>
+                        <om:OMS position="2_0_1_2_3" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+                      </om:OMA>
+                    </om:OMA>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="%3F"/>
+                <om:OMV position="2_2_2" name="A"/>
+                <om:OMBIND position="2_2_3">
+                  <om:OMS position="2_2_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+                  <om:OMBVAR>
+                    <om:OMV position="2_2_3_0" name="x">
+                      <type>
+                        <om:OMA position="2_2_3_0_1">
+                          <om:OMS position="2_2_3_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                          <om:OMS position="2_2_3_0_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+                          <om:OMV position="2_2_3_0_1_2" name="A"/>
+                        </om:OMA>
+                      </type>
+                      <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                        <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                      </attribution>
+                    </om:OMV>
+                  </om:OMBVAR>
+                  <om:OMA position="2_2_3_2">
+                    <om:OMS position="2_2_3_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_3_2_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="@"/>
+                    <om:OMV position="2_2_3_2_2" name="A"/>
+                    <om:OMS position="2_2_3_2_3" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+                    <om:OMV position="2_2_3_2_4" name="f"/>
+                    <om:OMV position="2_2_3_2_5" name="x"/>
+                  </om:OMA>
+                </om:OMBIND>
+              </om:OMA>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </definition>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/tptp?THF0?%3F%3F" precedence="5" fixity="prefix" arguments="1"/>
+      </notation>
+    </constant>
+    <constant name="$istrue" role="type">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMA position="1">
+              <om:OMS position="1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+              <om:OMS position="1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
+              <om:OMS position="1_2" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
+            </om:OMA>
+            <om:OMS position="2" base="http://cds.omdoc.org/urtheories" module="Typed" name="type"/>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/tptp?THF0?$istrue" precedence="1" fixity="prefix" arguments="0"/>
+      </notation>
+    </constant>
+  </theory>
+</omdoc>

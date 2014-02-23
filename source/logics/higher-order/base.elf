@@ -1,0 +1,85 @@
+%% @II: merge with syntax, proof-theory; delete them
+%namespace "http://latin.omdoc.org/foundations/hol".
+%sig HOL = {
+    %include InternalEquality.
+    %struct funtypes : Functions = {%include InternalEquality.}.
+
+    betai  : ded ((λ F) @ X) -> ded (F X)
+           = [p] tmCongP F beta p.
+    betao  : ded (F X) -> ded ((λ F) @ X) 
+           = [p] tmCongP F (tmSym beta)  p.
+    doublebetao : ded F A B -> ded (λ [x] (λ [y] (F x y))) @ A @ B
+                = [p: ded F A B] congP (eqsym (eqapp beta eqrefl)) (betao p).
+    doublebetai : ded (λ [x] (λ [y] (F x y))) @ A @ B -> ded F A B
+                = [p: ded (λ [x] (λ [y] (F x y))) @ A @ B] eqded beta (eqded (eqapp beta eqrefl) p).
+    eqtrans3 : ded A == B -> ded B == C -> ded C == D -> ded A == D 
+             = [p][q][r] eqtrans (eqtrans p q) r.
+    %abbrev leibnizI : ({F: tm A -> tm bool} ded (F X) -> ded (F Y)) -> ded X == Y 
+                     = [p] p ([u] X == u) eqrefl.
+    leibnizE : ded X == Y -> {F: tm A -> tm bool} ded (F X) -> ded (F Y) 
+             = [p][F][q] eqcongP F p q.
+    beta2  : ded (λ [x] (λ [y] (F x y))) @ A @ B == F A B
+           = eqtrans (eqcongF ([f] f @ B) beta) beta.
+    eqλrev : ded λ ([x: tm A] T x) == λ ([x: tm A] S x) -> ({x: tm A} ded (T x) == (S x))
+           = [p: ded λ ([x: tm A] T x) == λ ([x: tm A] S x)] [x: tm A] eqtrans3 (eqsym beta) (eqapp p eqrefl) beta.
+}.
+
+%sig PrawitzHOL = {
+    %include HOL.
+
+    ∀  : (tm A -> tm bool) -> tm bool.
+    ∀I : ({x: tm A} ded F x) -> ded ∀ ([x: tm A] F x).         
+    ∀E : ded ∀ ([x: tm A] F x) -> {x: tm A} ded F x.
+
+    ⇒  : tm bool -> tm bool -> tm bool.            %infix none 10 ⇒.
+    ⇒I  : (ded A -> ded B) -> ded A ⇒ B.
+    ⇒E  : ded A ⇒ B -> ded A -> ded B.
+}.
+
+
+
+%sig LeibnizHOL = {
+    %include InternalLogic.
+
+    == : tm A -> tm A -> tm bool.                      %infix none 25 ==.
+
+    leibnizI : ({F: tm A -> tm bool} ded (F X) -> ded (F Y)) -> ded X == Y.
+    leibnizE : ded X == Y -> {F: tm A -> tm bool} ded (F X) -> ded (F Y).
+
+    →   : tp -> tp -> tp.                             %infix right 50 →.
+    λ  : (tm A -> tm B) -> tm (A → B).
+    @    : tm (A → B) -> tm A -> tm B.             %infix left 100 @.
+    beta : ded ((λ F) @ X) == (F X).
+    eta  : ded (λ [x](F @ x)) == F.
+    %abbrev ; : (tm A -> tm B) -> (tm B -> tm C) -> tm A -> tm C
+              = [f][g][x] g (f x).                    %infix left 5 ;.
+    %abbrev ∘ : (tm B -> tm C) -> (tm A -> tm B) -> tm A -> tm C
+              = [f][g][x] f (g x).                    %infix left 5 ∘.
+    xi  : {x: tm A} ded (T x) == (S x) -> ded (λ ([x: tm A] T x)) == (λ ([x: tm A] S x)).
+
+    eqded : ded A == B -> ded A -> ded B 
+          = [p][q] leibnizE p ([u] u) q.
+
+    eqrefl : ded T == T 
+           = leibnizI [F][p] p.
+    eqsym  : ded S == T -> ded T == S 
+           = [p] leibnizE p ([u] u == S) eqrefl.
+    eqtrans : ded X == Y -> ded Y == Z -> ded X == Z
+            = [p][q] leibnizI [f][r] leibnizE q f (leibnizE p f r).
+    eqapp  : ded F == G -> ded S == T -> ded (F @ S) == (G @ T) 
+           = [p][q] leibnizE p ([u] F @ S == u @ T) (leibnizE q ([v] F @ S == F @ v) eqrefl).
+    eqE    : ded F == G -> ded F -> ded G 
+           = [p][q] leibnizE p ([x] x) q.
+    eqcongF : {F: tm A -> tm bool} ded X == Y -> ded (F X) == (F Y)
+            = [F][p] leibnizI [f][q: ded f (F X)] leibnizE p ([x] f (F x)) q.
+
+    betao  : ded F X  -> ded (λ F) @ X 
+           = [p] (eqE (eqsym beta) p).
+    betai  : ded (λ F) @ X -> ded F X 
+           = [p] eqE beta p.
+    doublebetao : ded F A B -> ded (λ [x] (λ [y] (F x y))) @ A @ B
+                = [p: ded F A B] eqE (eqsym (eqapp beta eqrefl)) (betao p).
+    doublebetai : ded (λ [x] (λ [y] (F x y))) @ A @ B -> ded F A B
+                = [p: ded (λ [x] (λ [y] (F x y))) @ A @ B]
+                  eqE beta (eqE (eqapp beta eqrefl) p).
+}.

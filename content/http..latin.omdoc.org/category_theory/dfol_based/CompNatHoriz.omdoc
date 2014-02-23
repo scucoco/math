@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
+  <theory name="CompNatHoriz" base="http://latin.omdoc.org/category_theory/dfol_based" meta="http://latin.omdoc.org/logics/proof_theory?DFOL">
+    <import name="C" from="http://latin.omdoc.org/category_theory/dfol_based?Category"> </import>
+    <import name="D" from="http://latin.omdoc.org/category_theory/dfol_based?Category"> </import>
+    <import name="E" from="http://latin.omdoc.org/category_theory/dfol_based?Category"> </import>
+    <import name="F" from="http://latin.omdoc.org/category_theory/dfol_based?Functor">
+      <import name="dom" from="http://latin.omdoc.org/category_theory/dfol_based?Category">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="CompNatHoriz" name="C"/>
+        </definition>
+      </import>
+      <import name="cod" from="http://latin.omdoc.org/category_theory/dfol_based?Category">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="CompNatHoriz" name="D"/>
+        </definition>
+      </import>
+    </import>
+    <import name="G" from="http://latin.omdoc.org/category_theory/dfol_based?Functor">
+      <import name="dom" from="http://latin.omdoc.org/category_theory/dfol_based?Category">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="CompNatHoriz" name="C"/>
+        </definition>
+      </import>
+      <import name="cod" from="http://latin.omdoc.org/category_theory/dfol_based?Category">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="CompNatHoriz" name="D"/>
+        </definition>
+      </import>
+    </import>
+    <import name="H" from="http://latin.omdoc.org/category_theory/dfol_based?Functor">
+      <import name="dom" from="http://latin.omdoc.org/category_theory/dfol_based?Category">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="CompNatHoriz" name="D"/>
+        </definition>
+      </import>
+      <import name="cod" from="http://latin.omdoc.org/category_theory/dfol_based?Category">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="CompNatHoriz" name="E"/>
+        </definition>
+      </import>
+    </import>
+    <import name="I" from="http://latin.omdoc.org/category_theory/dfol_based?Functor">
+      <import name="dom" from="http://latin.omdoc.org/category_theory/dfol_based?Category">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="CompNatHoriz" name="D"/>
+        </definition>
+      </import>
+      <import name="cod" from="http://latin.omdoc.org/category_theory/dfol_based?Category">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="CompNatHoriz" name="E"/>
+        </definition>
+      </import>
+    </import>
+    <import name="n" from="http://latin.omdoc.org/category_theory/dfol_based?NatTrans">
+      <import name="nt_dom" from="http://latin.omdoc.org/category_theory/dfol_based?Functor">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="CompNatHoriz" name="F"/>
+        </definition>
+      </import>
+      <import name="nt_cod" from="http://latin.omdoc.org/category_theory/dfol_based?Functor">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="CompNatHoriz" name="G"/>
+        </definition>
+      </import>
+    </import>
+    <import name="m" from="http://latin.omdoc.org/category_theory/dfol_based?NatTrans">
+      <import name="nt_dom" from="http://latin.omdoc.org/category_theory/dfol_based?Functor">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="CompNatHoriz" name="H"/>
+        </definition>
+      </import>
+      <import name="nt_cod" from="http://latin.omdoc.org/category_theory/dfol_based?Functor">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="CompNatHoriz" name="I"/>
+        </definition>
+      </import>
+    </import>
+  </theory>
+</omdoc>

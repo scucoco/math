@@ -1,0 +1,163 @@
+%namespace "http://latin.omdoc.org/foundations/hol".
+%namespace pf = "../logics/proof_theory".
+
+%* η-conversion *%
+%sig Eta = {
+  %include pf.HOL %open ==.
+  eta    : ⊦ λ ([x: tm A] F @ x) == F.
+}.
+
+%* functional extensionality: functions are equal if they are equal argument-wise *%
+%sig FunctionalExtensionality = {
+   %include pf.HOL %open ==.
+   funcext : ({x: tm A} ⊦ F @ x == G @ x) -> ⊦ F == G.
+}.
+
+%* boolean extensionality: there are only two truth values *%
+%sig BooleanExtensionality = {
+   %include pf.HOL %open ==.
+   %include SFOL-Pf.
+   bext' : {F} ⊦ (F ⊤ ∧ F ⊥) ⇒ ∀ F.
+   bext  : {F:tm o -> tm o} ⊦ F ⊤ -> ⊦ F ⊥ -> {x} ⊦ F x
+         = [F][p][q][x] ∀E (⇒E (bext' F) (∧I p q)) x.
+   %abbrev bext2 : {F: tm o -> tm o -> tm o} ⊦ F ⊤ ⊤ -> ⊦ F ⊤ ⊥ -> ⊦ F ⊥ ⊤ -> ⊦ F ⊥ ⊥ -> {x}{y} ⊦ F x y
+         = [F][tt][tf][ft][ff] [x][y] bext ([u] F u y) (bext ([v] F ⊤ v) tt tf y)
+                                                       (bext ([v] F ⊥ v) ft ff y) x.
+   tnd' : {x} ⊦ (x == ⊤) ∨ (x == ⊥) = bext ([x] (x == ⊤) ∨ (x == ⊥)) (∨Il eqrefl) (∨Ir eqrefl).
+   tnd  : ⊦ X ∨ ¬ X = ∨E (tnd' X) ([p] ∨Il (eq⊦ (eqsym p) ⊤I)) ([p] ∨Ir (¬I [q] eq⊦ p q)).
+   %* we could now prove propositional extensioality like this
+      but it's pointless because it is already included in order to state boolean extensionality *%
+   propext' : {x}{y} ⊦ ((x ⇒ y) ∧ (y ⇒ x)) ⇒ (x == y)
+    = bext2 ([x][y] ((x ⇒ y) ∧ (y ⇒ x)) ⇒ (x == y))
+            (⇒I [p] eqrefl)
+            (⇒I [p] ⊥E (⇒E (∧El p) ⊤I))
+            (⇒I [p] ⊥E (⇒E (∧Er p) ⊤I))
+            (⇒I [p] eqrefl).
+}.
+
+%* description operator (sometimes called definite description) *%
+%sig Description = {
+   %include pf.HOL %open ==.
+   %include SFOL-Pf.
+   the'   : tm (A → o) → A.
+   the    : (tm A -> tm o) -> tm A = [f] the' @ (λ f).
+   %* a weakened form due to Andrews of the usual axiomatization *%
+   ax_the : ⊦ (the [x: tm A] x == T) == T.
+   %* the usual form of the axiomatization of description: if there is a unique x such that P(x), then it is the result of the description *%
+   rul_the : {P} {x} ⊦ (P x) -> ({u} ⊦ (P u) -> ⊦ u == x) -> ⊦ (P (the [u] P u))
+          = [P][x] [ex][un] eqcongP P
+             (eqtrans
+               (eqsym ax_the)
+               (eqapp eqrefl (eqλ [u] eqI ([p: ⊦ u == x] eqcongP P (eqsym p) ex) ([p: ⊦ (P u)] un u p)))
+             )
+             ex.
+}.
+
+%* choice operator (sometimes called indefinite description) *%
+%sig Choice = {
+   %include pf.HOL %open ==.
+   %include SFOL-Pf.
+   some'    : tm (A → o) → A.
+   some     : (tm A -> tm o) -> tm A = [f] some' @ (λ f).
+   ax_some  : {P} ⊦ (∃ [x: tm A] P x) ⇒ P (some P).
+   rul_some : {P} {x} ⊦ P x -> ⊦ P (some P) = [P][x][p] ⇒E (ax_some P) (∃I x p).
+   
+   %* Diaconescu's theorem, following the Wikipedia article *%
+   Forbot = [F][x] F ∨ (x == ⊥).
+   Fortop = [F][x] F ∨ (x == ⊤).
+   tnd : ⊦ F ∨ (¬ F) =
+     ∨E (rul_some (Forbot F) ⊥ (∨Ir eqrefl))
+        ([p: ⊦ F] ∨Il p)
+        ([p: ⊦ (some (Forbot F)) == ⊥] ∨E (rul_some (Fortop F) ⊤ (∨Ir eqrefl))
+                                   ([q: ⊦ F] ∨Il q)
+                                   ([q: ⊦ (some (Fortop F)) == ⊤] ∨Ir (¬I [r: ⊦ F]
+                                     eq⊦ (eqtrans3
+                                       (eqsym q)
+                                       (eqapp eqrefl (eqλ [x] top_unique (∨Il r) (∨Il r)))
+                                       p
+                                     ) ⊤I  
+                                   ))
+        ).
+}.
+
+%sig Types-Nonempty = {
+   %include pf.HOL.
+   %include SFOL-Pf.
+   nonempty : ⊦ ∃ [x: tm A] ⊤.
+}.
+
+%sig Classical = {
+  %include pf.HOL %open ==.
+  %include SFOL-Pf.
+  %* tertium non datur *%
+  tnd  : ⊦ A ∨ ¬ A.
+  %* case split on the truth of a formula *%
+  tnd' : (⊦ F -> ⊦ G) -> (⊦ ¬ F -> ⊦ G) -> ⊦ G
+       = [f][g] ∨E tnd f g.
+  %* proof by contradiction *%
+  ¬I'  : (⊦ ¬ F -> ⊦ ⊥) -> ⊦ F
+         = [p: ⊦ ¬ F -> ⊦ ⊥] tnd' ([x] x) ([pna: ⊦ ¬ F] ⊥E (p pna)).
+  %* double negation elimination *%
+  ¬¬eq : ⊦ ¬ ¬ F == F
+       = eqI ([p: ⊦ ¬ ¬ F] ¬I' (¬E p)) ([p: ⊦ F] ¬I ([q: ⊦ ¬ F] ¬E q p)).
+  
+  boolean : ⊦ (X == ⊤) ∨ (X == ⊥) 
+       = ∨E tnd ([p: ⊦ X] ∨Il (eqI ([_] ⊤I) ([_] p)))
+                ([p: ⊦ ¬ X] ∨Ir (betai p)).
+}.
+
+%sig IFTE = {
+   %include Description %open ==.
+   %include Classical.
+   ifte_prop : tm o -> tm A -> tm A -> (tm A -> tm o) = [b][x][y] [u] (b ∧ (u == x)) ∨ (¬ b ∧ (u == y)).
+   ifte : tm o -> tm A -> tm A -> tm A = [b][x][y] the [u] ifte_prop b x y u.
+   ifte_exists : ⊦ ∃ [u] ifte_prop B X Y u
+     = ∨E tnd ([p: ⊦   B] ∃I X (∨Il (∧I p eqrefl)))
+              ([p: ⊦ ¬ B] ∃I Y (∨Ir (∧I p eqrefl))).
+   ifte_unique : {u} ⊦ ifte_prop B X Y u -> {v} ⊦ ifte_prop B X Y v -> ⊦ u == v
+     = [u][p][v][q] ∨E p ([r: ⊦   B ∧ (u == X)]
+                            ∨E q ([s: ⊦   B ∧ (v == X)] eqtrans (∧Er r) (eqsym (∧Er s)))
+                                 ([s: ⊦ ¬ B ∧ (v == Y)] ¬E' (∧El s) (∧El r))
+                        )([r: ⊦ ¬ B ∧ (u == Y)]
+                            ∨E q ([s: ⊦   B ∧ (v == X)] ¬E' (∧El r) (∧El s))
+                                 ([s: ⊦ ¬ B ∧ (v == Y)] eqtrans (∧Er r) (eqsym (∧Er s)))
+                        ).
+   ifte_then : ⊦   B -> ⊦ ifte B X Y == X
+     = [p] ∃E ifte_exists [x][q: ⊦ ifte_prop B X Y x]
+         ∨E (rul_the ([u] ifte_prop B X Y u) x q ([u][r] ifte_unique u r x q))
+            ([r: ⊦   B ∧ (ifte B X Y == X)] ∧Er r)
+            ([r: ⊦ ¬ B ∧ (ifte B X Y == Y)] ¬E' (∧El r) p).
+   ifte_else : ⊦ ¬ B -> ⊦ ifte B X Y == Y
+     = [p] ∃E ifte_exists [y][q: ⊦ ifte_prop B X Y y]
+         ∨E (rul_the ([u] ifte_prop B X Y u) y q ([u][r] ifte_unique u r y q))
+            ([r: ⊦   B ∧ (ifte B X Y == X)] ¬E' p (∧El r))
+            ([r: ⊦ ¬ B ∧ (ifte B X Y == Y)] ∧Er r).
+}.
+
+%view TC : Types-Nonempty -> Description = {
+   nonempty := [A] ∃I (the [x] ⊤) ⊤I. 
+}.
+
+%view DC : Description -> Choice = {
+   the' := [A] some'.
+   ax_the := [A][T] rul_some ([u] u == T) T eqrefl.
+}.
+
+%view FE : FunctionalExtensionality -> Eta = {
+   funcext := [A][B][F:tm A → B][G:tm A → B] [f] eqtrans3 (eqsym eta) (eqλ [x] f x) eta.
+}.
+%view EF : Eta -> FunctionalExtensionality = {
+   eta := [A][B][F:tm A → B] funcext ([x] beta).
+}.
+
+%view BC : BooleanExtensionality -> Classical = {
+   bext' := [F] ⇒I [p] ∀I [x] ∨E boolean ([q: ⊦ x == ⊤] eqcongP F (eqsym q) (∧El p))
+                                        ([q: ⊦ x == ⊥] eqcongP F (eqsym q) (∧Er p)).
+}.
+%view CB : Classical -> BooleanExtensionality = {
+   tnd := [X] tnd.
+}.
+
+%view DiaconescuTheorem : Classical -> Choice = {
+   tnd := [F] tnd.
+}.

@@ -1,0 +1,398 @@
+%namespace "http://latin.omdoc.org/foundations/zfc".
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%* the natural numbers in ZFC *%
+
+%sig Nat = {
+%include TypedZF.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% definition of the natural numbers
+
+%* is_minimum a phi: a is minimum set with property phi *%
+is_minimum : i -> (i -> o) -> o = [x][phi] phi x and forall [z] phi z imp x subset z.
+%* a minimum set is unique *%
+minimum_unique : ded exists ([x] is_minimum x Phi) -> ded existsU ([x] is_minimum x Phi)
+               = [p] existsUI p [x1][x2][q1: ded is_minimum x1 Phi][q2: ded is_minimum x2 Phi]
+                    subset_antisym
+                      (impE (forallE (andEr q1) x2) (andEl q2))
+                      (impE (forallE (andEr q2) x1) (andEl q1)).
+
+%* intersect_all x: the intersection of all subsets of x containing the natural numbers *%
+intersect_all : i -> i = [x] biginter ((powerset x) | has_nats).
+%* the property of having 0 and all successors is closed under intersection *%
+intersect_has_nats : ded nonempty X -> ({A} ded A in X -> ded has_nats A) -> ded has_nats (biginter X)
+                   = [p][f] andI
+                         (biginterI p [b][q: ded b in X] (andEl (f b q)))
+                         (forallI [y] impI [q: ded y in (biginter X)]
+                           biginterI p [b][r: ded b in X] (impE (forallE (andEr (f b r)) y) (biginterE q r))
+                         ).
+%* there is a smallest set containing 0 and all successors *%
+minimum_has_nats : ded exists [x] (is_minimum x has_nats)
+                 = existsE ax_infinity [x][p: ded has_nats x] (
+                     lemma (nonempty ((powerset x) | has_nats)) (existsI x (filterI (powersetI subset_refl) p))
+                     [lem] existsI (intersect_all x) (andI
+                       (intersect_has_nats lem [a][q: ded a in (powerset x) | has_nats] filterEr q)
+                       (forallI [z] impI [q: ded has_nats z]
+                         subset_trans
+                           (biginter_subset
+                             (filterI (powersetI inter_subsetl)
+                                      (intersect_has_nats (existsI x uopairIl) (
+                                         [a][r: ded a in uopair x z]
+                                            orE (uopairE r) ([s: ded a eq x] (congEr s has_nats p))
+                                                            ([s: ded a eq z] (congEr s has_nats q))
+                                         )
+                                      )
+                             )
+                           : ded (intersect_all x) subset (x inter z))
+                           (inter_subsetr : ded (x inter z) subset z)
+                       )
+                     )
+                   ).
+nat : i = implDef ([x] is_minimum x has_nats) (minimum_unique minimum_has_nats).
+nat_prop : ded is_minimum nat has_nats = impl_prop ([x] is_minimum x has_nats) (minimum_unique minimum_has_nats).
+Nat : type = Elem nat.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Peano's axioms
+
+peano_0 : ded 0 in nat = andEl (andEl nat_prop).
+peano_succ : ded forall [n] n in nat imp succ n in nat = andEr (andEl nat_prop).
+
+peano_wellfounded : ded not exists [x] succ x eq 0
+                  = notI [p][B] existsE p ([x][q] (emptyE (congEl q ([u]x in u) adjointIr))).
+%* uses regularity *%
+peano_linear : ded succ X eq succ Y -> ded X eq Y
+             = [p] orE (adjointE (in_eq adjointIr p))
+                       ([q: ded X in Y]
+                          orE (adjointE (in_eq adjointIr (sym p)))
+                              ([r: ded Y in X] falseE (in_acyclic1 q r) (X eq Y))
+                              ([r: ded Y eq X] sym r)
+                       )
+                       ([q: ded X eq Y] q).
+
+%abbrev peano_induction : ded Phi 0 -> ({n} ded n in nat -> ded Phi n -> ded Phi (succ n)) -> ded tforall [n: Nat] Phi (which n)
+                = [p][f]
+                     lemma (has_nats (nat | Phi))
+                           (andI (filterI peano_0 p)
+                                (forallI [y] impI [q: ded y in (nat | Phi)]
+                                  filterI (impE (forallE peano_succ y) (filterEl q)) (f y (filterEl q) (filterEr q))
+                                )
+                           )
+                     ([lem1]
+                        lemma (nat subset (nat | Phi)) (impE (forallE (andEr nat_prop) (nat | Phi)) lem1)
+                          ([lem2] 
+                            lemma (nat eq (nat | Phi)) (subset_antisym lem2 filter_is_subset)
+                              ([lem3] tforallI [n] filterEr (in_eq (why n) lem3)
+                              )
+                          )
+                     ).
+%abbrev peano_induction' : {Phi: i -> o} ded Phi 0 -> ({n} ded n in nat -> ded Phi n -> ded Phi (succ n)) -> ded tforall [n: Nat] Phi (which n)
+                 = [Phi][p][q] peano_induction p q.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% abbreviations and reformulations for the axioms
+
+succnnat : ded N in nat -> ded succ N in nat = [p] impE (forallE peano_succ N) p.
+peano_wellfoundedE : ded 0 eq succ N -> ded F = [p] notE' (existsI N (sym p)) peano_wellfounded. 
+peano_subset : ded A subset nat -> ded 0 in A -> ded rforall A ([x] succ x in A) -> ded A eq nat
+                       = [p][q][r]
+                           lemma (tforall [n : Nat] (which n) in A)
+                             (peano_induction q ([x][_][s: ded x in A] impE (forallE r x) s))
+                             [lem] subset_antisym p (subsetI [x][s: ded x in nat]
+                               eq_in (sym eq_which) (tforallE lem (elem x s))
+                             ).
+
+%abbrev nat_biinduction : ({n} ded n in nat -> ded Phi 0 n) -> ({m} ded m in nat -> ded Phi m 0)
+ -> ({m} ded m in nat -> {n} ded n in nat -> ded Phi m n -> ded Phi (succ m) (succ n))
+ -> ded tforall [m: Nat] tforall [n: Nat] Phi (which m) (which n)
+   = [f][g][h] peano_induction (tforallI [n] f (which n) (why n))
+                               ([m][q][p: ded tforall [n] Phi m (which n)]
+                                  (peano_induction (g (succ m) (succnnat q))
+                                                  ([n][q': ded n in nat][r: ded Phi (succ m) n] 
+                                                      h m q n q' (congEl eq_which ([a] Phi m a) (tforallE p (elem n q')))
+                                                  )
+                                  )
+                               ).
+%abbrev nat_biinduction' : ({n} ded n in nat -> ded Phi 0 n) -> ({m} ded m in nat -> ded Phi m 0)
+  -> ({m} ded m in nat -> {n} ded n in nat -> ded Phi m n -> ded Phi (succ m) (succ n))
+  -> {m} ded m in nat -> {n} ded n in nat -> ded Phi m n
+  = [f][g][h][m][p][n][q] congP2 eq_which eq_which Phi 
+      (tforallE (tforallE (nat_biinduction f g h) (elem m p)) (elem n q)). 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% transitivity properties
+
+transitive : i -> o = [x] forall [y] y in x imp y subset x.
+
+succ_in  : ded N in succ N = adjointIr.
+0_in : ded tforall [n: Nat] 0 in succ (which n)
+     = peano_induction succ_in ([n][_][p: ded 0 in succ n] adjointIl p).
+
+nat_subset : ded N subsetneq succ N
+           = andI (subsetI ([n][p] adjointIl p)) (neq_sym (neqI succ_in (notI [p][c] (falseE' (in_acyclic0 p))))).
+
+succ_transitive : ded transitive X -> ded transitive (succ X)
+                = [p] forallI ([y] impI ([q: ded y in (succ X)]
+                        orE (adjointE q)
+                          ([r: ded y in X] subset_trans (impE (forallE p y) r) (andEl nat_subset))
+                          ([r: ded y eq X] congEr r ([a] a subset succ X) (andEl nat_subset))
+                      )).
+succ_transitive' : ded transitive (succ X) -> ded transitive X
+    = [p] forallI [y] impI [q: ded y in X] subsetI [z][r: ded z in y]
+        lemma (z in succ X) (subsetE (impE (forallE p y) (subsetE adjoint_subset q)) r) [lem]
+        orE (adjointE lem) ([s: ded z in X] s) ([s: ded z eq X] falseE' (in_acyclic1 (congP s ([u] u in y) r) q)). 
+
+nats_transitive : ded tforall [n: Nat] transitive (which n)
+               = peano_induction' transitive (forallI [y] impI [p] (emptyE p))
+                                             ([n][_][p] succ_transitive p).
+nats_transitive' : ded X in nat -> ded transitive X
+                 = [p] congP eq_which transitive (tforallE nats_transitive (elem X p)).
+nats_transitive'' : ded Y in nat -> ded X in Y -> ded X subset Y = [p][q] impE (forallE (nats_transitive' p) X) q.   
+
+nat_transitive  : ded tforall [n: Nat] (which n) subset nat
+   = peano_induction' ([n] n subset nat) empty_subset
+       ([n][p][q] union_sup q (subsetI [x][r: ded x in singleton n] (eq_in (singletonE r) p))).
+nat_transitive' : ded transitive nat = forallI [n] impI [p] congP eq_which ([x] x subset nat) (tforallE nat_transitive (elem n p)). 
+nat_transitive'': ded X in nat -> ded X subset nat = [p] impE (forallE nat_transitive' X) p.
+
+natlimit : ded bigunion nat eq nat
+     = eqI ([x][p: ded x in bigunion nat] existsE (bigunionE p) [y][q: ded y in nat and x in y]
+                subsetE (nat_transitive'' (andEl q)) (andEr q))
+           ([x][p: ded x in nat] bigunionI succ_in (impE (forallE peano_succ x) p)).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% provable instances of tnd
+
+0orsucc : ded X in nat -> ded X eq 0 or exists [y] X eq succ y
+        = [p] congP eq_which ([x] x eq 0 or exists [y] x eq succ y)
+              (tforallE (peano_induction' ([x] x eq 0 or exists [y] x eq succ y)
+                            (orIl refl)
+                            ([n][p][_] orIr (existsI n refl)))
+                        (elem X p)
+              ).
+0ornot0 : ded N in nat -> ded N eq 0 or N neq 0
+  = [p] orE (0orsucc p)
+            ([q] orIl q)
+            ([q] orIr (existsE q [m][r: ded N eq succ m] notI [s][_] peano_wellfoundedE (trans (sym s) r))).  
+
+nateqorneq : ded M in nat -> ded N in nat -> ded M eq N or M neq N = [p][q] nat_biinduction'
+   ([m][r] orE (0ornot0 r) ([s] orIl (sym s)) ([s] orIr (neq_sym s)))
+   ([n][r] (0ornot0 r))
+   ([m][_][n][_][r] orE r
+      ([s: ded m eq n] orIl (congF s succ))
+      ([s: ded m neq n] orIr (notI [t: ded succ m eq succ n] notE s (peano_linear t)))
+   ) M p N q.
+                               
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% predecessor function
+
+pred : i -> i = [x] bigunion x.
+pred0 : ded pred empty eq empty = subset_antisym (bigunion_supremum [a][p] emptyE p) empty_subset.
+conv_pred : ded transitive X -> ded pred (succ X) eq X
+          = [p] subset_antisym (subsetI [x][q] existsE (bigunionE q) [a][r: ded a in succ X and x in a]
+                                   orE (adjointE (andEl r))
+                                     ([s: ded a in X] subsetE (impE (forallE p a) s) (andEr r))
+                                     ([s: ded a eq X] in_eq (andEr r) s)
+                                )
+                                (subsetI [x][q] bigunionI q adjointIr). 
+conv_succ : ded transitive Y -> ded X eq succ Y -> ded succ (pred X) eq X
+          = [p][q] congP (sym q) ([x] succ (pred x) eq x) (congF (conv_pred p) succ).
+
+pred_in : ded X in nat -> ded X neq 0 -> ded pred X in X
+        = [p][q] orE (0orsucc p)
+            ([r: ded X eq 0] notE' r q)
+            ([r] existsE r [y][s: ded X eq succ y]
+               congP (sym s) ([x] pred x in x)
+                     (eq_in (conv_pred (succ_transitive' (congP s transitive (nats_transitive' p)))) succ_in)
+            ).
+prednat : ded tforall [n: Nat] pred (which n) in nat
+        = peano_induction' ([n] pred n in nat)
+            (eq_in pred0 peano_0)
+            ([n][p][_] eq_in (conv_pred (nats_transitive' p)) p).
+
+eq_classical : ded (M: Nat) Eq (N: Nat) or not M Eq N = nateqorneq (why M) (why N).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% typed natural numbers
+
+Succ : Nat -> Nat = [n] elem (succ (which n)) (impE (forallE peano_succ (which n)) (why n)).
+Zero : Nat = elem 0 peano_0.
+One  : Nat = Succ Zero.
+
+peano_WellfoundedE : ded Zero Eq Succ N -> ded F = [p] peano_wellfoundedE (trans3 (sym eq_which) p eq_which).
+peano_Linear : ded Succ M Eq Succ N -> ded M Eq N = [p] peano_linear (trans3 (sym eq_which) p eq_which).
+
+%abbrev induction_typed : ded Phi Zero -> ({n} ded Phi n -> ded Phi (Succ n)) -> {N} ded Phi N
+  = [p][f][N] EqcongEl Phi eq_which (ImpE (tforallE (peano_induction' ([x] x in nat Imp [q] Phi (elem x q))
+     (ImpI [_] EqcongEl Phi eq_why' p) 
+     ([n][q][r] ImpI [s] EqcongEl Phi (trans3 eq_which (congF eq_which succ) (sym eq_which)) (f (elem n q) (ImpE r q)))
+    ) N) (why N)).
+%abbrev induction_typed' : {Phi: Nat -> o} ded Phi Zero -> ({n} ded Phi n -> ded Phi (Succ n)) -> {N} ded Phi N
+   = [Phi][p][f] induction_typed p f.
+
+%abbrev induction2_typed : ({n} ded Phi Zero n) -> ({m} ded Phi m Zero)
+    -> ({m}{n} ded Phi m n -> ded Phi (Succ m) (Succ n)) -> ({m}{n} ded Phi m n)
+    = [f][g][h] [m][n] tforallE (
+        induction_typed (tforallI [j] f j)
+            ([i][p: ded tforall [j] Phi i j]
+                (tforallI [j] induction_typed (g (Succ i)) ([j][q: ded Phi (Succ i) j] h i j (tforallE p j)) j)
+             : ded tforall [j] Phi (Succ i) j)
+        m) n.
+
+Pred : Nat -> Nat = [n] elem (pred (which n)) (tforallE prednat n).
+conv_Pred : ded Pred (Succ N) Eq N = trans3 eq_which (congF eq_which pred) (conv_pred (nats_transitive' (why N))).
+conv_Succ : ded not (N Eq Zero) -> ded Succ (Pred N) Eq N = [p] orE (0orsucc (why N))
+  ([q: ded which N eq 0] notE' (trans q (sym eq_which)) p)
+  ([q: ded exists [y] which N eq succ y] existsE q [y][r] trans3 eq_which (congF eq_which succ) (conv_succ (succ_transitive' (congP r transitive (nats_transitive' (why N)))) r)).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% inductive functions over the naturals
+
+%* Recursion: if f = ind_fun base step, then f(0) = base, f(n+1) = step(f(n)) *%
+%abbrev is_ind_fun : Elem A -> (Elem A -> Elem A) -> (Nat -> Elem A) -> o
+           = [base] [step] [f] f Zero Eq base and tforall [n: Nat] f (Succ n) Eq step (f n).
+%% The following two declarations are justified by the signature Recursion (which is not included to speed up type-checking) 
+ind_fun      : Elem A -> (Elem A -> Elem A) -> (Nat -> Elem A).
+ind_fun_prop : ded is_ind_fun B S (ind_fun B S).
+ind_fun_0    : ded (ind_fun B S) Zero Eq B = andEl ind_fun_prop.
+ind_fun_succ : ded (ind_fun B S) (Succ N) Eq S ((ind_fun B S) N) = tforallE (andEr ind_fun_prop) N.
+
+%abbrev ind_fun'_aux : Elem A -> (Nat -> Elem A -> Elem A) -> (Nat -> Prod nat A)
+  = [a][f] ind_fun (Pair Zero a) ([x] Pair (Succ (Pi1 x)) (f (Pi1 x) (Pi2 x))).  
+%abbrev ind_fun'_aux_1 : {A}{F} ded Pi1 (ind_fun'_aux A F N) Eq N = [A][F] induction_typed' ([n] Pi1 (ind_fun'_aux A F n) Eq n)
+  (trans (EqCongF Pi1 ind_fun_0) conv_Pi1)
+  ([n][p] trans3 (EqCongF Pi1 ind_fun_succ) conv_Pi1 (EqCongF Succ p))
+  N.
+%abbrev ind_fun'      : Elem A -> (Nat -> Elem A -> Elem A) -> (Nat -> Elem A) = [a][f] [n] Pi2 ((ind_fun'_aux a f) n).
+%abbrev ind_fun'_0    : ded (ind_fun' A F) Zero Eq A = trans (EqCongF Pi2 ind_fun_0) conv_Pi2.
+%abbrev ind_fun'_succ : ded (ind_fun' A F) (Succ N) Eq F N ((ind_fun' A F) N) = trans3 (EqCongF Pi2 ind_fun_succ) conv_Pi2 (EqCongF2 F (ind_fun'_aux_1 A F) refl).
+
+%abbrev ind_fun''  : Elem A -> (Nat -> Elem A) -> (Nat -> Elem A) = [a][f] ind_fun' a ([n][_] f n).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% addition
+
+plus : Nat -> Nat -> Nat = [n] ind_fun n Succ.
+
+%% TODO: these should be obtained from a structure
+addl : {L:Nat} ded M Eq N -> ded plus L M Eq plus L N = [L][p] EqCongF ([x] plus L x) p.
+addr : {L:Nat} ded M Eq N -> ded plus M L Eq plus N L = [L][p] EqCongF ([x] plus x L) p.
+add  : ded M Eq N -> ded M' Eq N' -> ded plus M M' Eq plus N N' = [p][q] EqCongF2 plus p q.
+
+plus_0r    : ded plus N Zero Eq N = andEl ind_fun_prop.
+plus_succr : ded plus M (Succ N) Eq Succ (plus M N) = tforallE (andEr (ind_fun_prop)) N.
+plus_1r    : ded plus N One Eq Succ N = trans plus_succr (EqCongF Succ plus_0r).
+plus_assoc : ded plus (plus L M) N Eq plus L (plus M N)
+  = induction_typed' ([n] plus (plus L M) n Eq plus L (plus M n))
+  (trans plus_0r (EqCongF ([x] plus L x) (sym plus_0r)))
+  ([n][p] trans4 plus_succr (EqCongF Succ p) (sym plus_succr) (EqCongF ([x] plus L x) (sym plus_succr)))
+  N.
+plus_0l    : ded plus Zero N Eq N
+  = induction_typed plus_0r ([n][p: ded plus Zero n Eq n] trans plus_succr (EqCongF Succ p)) N.
+plus_1l    : ded plus One N Eq Succ N
+  = induction_typed' ([x] plus One x Eq Succ x) plus_0r ([n][p] trans plus_succr (EqCongF Succ p)) N.
+plus_succl : ded plus (Succ M) N Eq Succ (plus M N)
+  = trans3 (EqCongF ([x] plus x N) (sym plus_1l)) plus_assoc plus_1l.
+plus_succlr: ded plus (Succ M) N Eq plus M (Succ N) = trans plus_succl (sym plus_succr).
+plus_comm  : ded plus M N Eq plus N M = induction_typed' ([x] plus M x Eq plus x M)
+  (trans plus_0r (sym plus_0l))
+  ([n][p] trans3 plus_succr (EqCongF Succ p) (sym plus_succl))
+  N.
+diff_unique : ded plus M N Eq plus M N' imp N Eq N' = induction_typed' ([m] plus m N Eq plus m N' imp N Eq N')
+  (impI [p] trans3 (sym plus_0l) p plus_0l)
+  ([m][p] impI [q] impE p (peano_Linear (trans3 (sym plus_succl) q plus_succl)))
+  M. 
+plus_0sum : ded plus M N Eq Zero imp M Eq Zero = induction_typed' ([m] plus m N Eq Zero imp m Eq Zero)
+  (impI [_] refl)
+  ([m][p] impI [q: ded plus (Succ m) N Eq Zero] peano_WellfoundedE (sym (trans (sym plus_succl) q))) 
+  M. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ordering
+
+<= : Nat -> Nat -> o = [m][n] texists [d] plus d m Eq n. %infix none 29 <=.
+
+%% TODO: these should come from a structure
+<=_eq : ded L <= M -> ded M Eq N -> ded L <= N = [p][q] EqcongEl ([x] L <= x) q p.
+eq_<= : ded L Eq M -> ded M <= N -> ded L <= N = [p][q] EqcongEr ([x] x <= N) p q.
+
+<=_0    : ded Zero <= N = texistsI N plus_0r.
+<=_succ : ded M <= N -> ded Succ M <= Succ N
+        = [p] texistsE p [d][q: ded plus d M Eq N] texistsI d (trans plus_succr (EqCongF Succ q)).
+<=_refl   : ded M <= M = texistsI Zero plus_0l.
+<=_trans  : ded L <= M -> ded M <= N -> ded L <= N
+   = [p][q] texistsE p [d][r: ded plus d L Eq M] texistsE q [e][s: ded plus e M Eq N]
+      texistsI (plus e d) (trans3 plus_assoc (EqCongF ([x] plus e x) r) s).
+<=_antisym: ded M <= N -> ded N <= M -> ded M Eq N
+   = [p][q] texistsE p [d][r: ded plus d M Eq N] texistsE q [e][s: ded plus e N Eq M]
+       trans3 (sym s)
+              (EqCongF ([x] plus x N)
+                 (impE plus_0sum
+                      (impE diff_unique (trans3 plus_comm (trans3 plus_assoc (EqCongF ([x] plus e x) r) s) (sym plus_0r))))
+              ) plus_0l.
+<=_total : ded M <= N or N <= M = induction2_typed
+  ([n] orIl <=_0)
+  ([m] orIr <=_0)
+  ([m][n][r: ded m <= n or n <= m] orE r
+     ([s: ded m <= n] orIl (<=_succ s))
+     ([s: ded n <= m] orIr (<=_succ s))
+  ) M N.
+
+
+%% todo: these should be done generically for total orders
+< : Nat -> Nat -> o = [m][n] m <= n and not m Eq n.            %infix none 29 <.
+<_irrrefl : ded not M < M = notI [p] notE (andEr p) refl.
+<_trans : ded L < M -> ded M < N -> ded L < N = [p][q] andI (<=_trans (andEl p) (andEl q)) 
+                                                            (notI [r: ded L Eq N] notE (andEr p) (<=_antisym (andEl p) (<=_eq (andEl q) (sym r)))).    
+
+%% ... for any total order with classical equality
+<=_< : ded M <= N -> ded M < N or M Eq N = [p] orE eq_classical ([q: ded M Eq N] orIr q) ([q: ded not M Eq N] orIl (andI p q)).
+<=_or_> : ded M <= N or N < M = orE <=_total ([p: ded M <= N] orIl p) ([p: ded N <= M] or_tensor eq_classical ([q: ded M Eq N] eq_<= q <=_refl) ([q: ded not M Eq N] andI p (neq_sym q))).
+<_or_eq_or_> : ded M < N or M Eq N or N < M
+       = orE eq_classical ([p: ded M Eq N] or3Im p)
+                          ([p: ded not M Eq N] orE <=_total ([q: ded M <= N] or3Il (andI q p)) ([q: ded N <= M] or3Ir (andI q (neq_sym p)))).
+<=_classical : ded M <= N or not M <= N = or_tensor <=_or_> ([p] p) ([p: ded N < M] notI [q: ded M <= N] notE (andEr p) (<=_antisym (andEl p) q)).
+
+max : Nat -> Nat -> Nat = [m][n] case' ([p: ded m <= n] n) ([_] m) <=_classical.
+min : Nat -> Nat -> Nat = [m][n] case' ([p: ded m <= n] m) ([_] n) <=_classical.
+  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% relation between ordering and addition
+
+<=_plus : ded M <= N -> ded M' <= N' -> ded plus M M' <= plus N N'
+   = [p][q] texistsE p [d][r: ded plus d M Eq N] texistsE q [e][s: ded plus e M' Eq N']
+     texistsI (plus d e) (trans4
+       plus_assoc
+       (addl d (trans3 (sym plus_assoc) (addr M' plus_comm) plus_assoc))
+       (sym plus_assoc)
+       (add r s)
+     ).
+<=_plus' : ded M <= plus M N = eq_<= (sym plus_0r) (<=_plus <=_refl <=_0).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% relation between ordering and set theoretical notions ∈ and ⊆‍ 
+
+<=_to_in_lemma : ded tforall [n] plus D M Eq n imp (M Eq n or (which M) in (which n)) = induction_typed' ([d] tforall [n] plus d M Eq n imp (M Eq n or which M in which n))
+  (tforallI [n] impI [p] orIl (trans (sym plus_0l) p))
+  ([d][p] tforallI [n] impI [q: ded plus (Succ d) M Eq n]
+      lemma (not (n Eq Zero)) (notI [r][_] peano_WellfoundedE (<=_antisym <=_0 (<=_eq <=_plus' (trans q r))))  
+       [lem] orIr (orE (impE (tforallE p (Pred n)) (trans (sym conv_Pred) (EqCongF Pred (trans (sym plus_succl) q))))
+                       ([q: ded M Eq Pred n] in_eq adjointIr (trans3 (sym eq_which) (EqCongF Succ q) (conv_Succ lem)))
+                       ([q: ded which M in which (Pred n)] subsetE (subset_eq adjoint_subset (trans (sym eq_which) (conv_Succ lem))) q)
+                  )
+  ) D.
+<=_to_in     : ded M <= N -> ded M Eq N or which M in which N = [p] texistsE p [d][q] impE (tforallE <=_to_in_lemma N) q.   
+in_to_subset : ded which (M: Nat) in which (N: Nat) -> ded which M subset which N = [p] nats_transitive'' (why N) p.
+subset_to_<= : ded which M subset which N -> ded M <= N = [p] orE <=_total
+  ([q: ded M <= N] q)
+  ([q: ded N <= M] orE (<=_to_in q) ([r: ded N Eq M] <=_eq <=_refl (sym r)) ([r: ded which N in which M] falseE' (in_acyclic0 (subsetE p r)))). 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% multiplication and exponentiation
+
++ : Nat -> Nat -> Nat = [m][n] plus m n.                %infix left 30 +.
+* : Nat -> Nat -> Nat = [m] ind_fun Zero ([r] r + m).   %infix left 31 *.
+^ : Nat -> Nat -> Nat = [m] ind_fun One  ([r] r * m).   %infix none 32 ^.
+}.

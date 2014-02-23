@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
+  <theory name="Sigma_SYN" base="http://latin.omdoc.org/logics/syntax/focused" meta="http://cds.omdoc.org/urtheories?LF">
+    <metadata>
+      <meta property="http://purl.org/dc/terms?_?description">
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMSTR>encoding of an example signature Sigma of linear logic declaring a positive and a negative atom</om:OMSTR>
+        </om:OMOBJ>
+      </meta>
+    </metadata>
+    <import from="http://latin.omdoc.org/logics/syntax/focused?Linear_SYN"> </import>
+    <constant name="a-" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/logics/syntax/focused" module="Linear_SYN" name="n"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="a+" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/logics/syntax/focused" module="Linear_SYN" name="p"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+  </theory>
+</omdoc>

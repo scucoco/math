@@ -1,0 +1,31 @@
+%namespace "http://latin.omdoc.org/foundations/zfc".
+
+
+%sig Option = {
+   %include ZFC.
+   %include Powersets.
+   %include Nat.
+   %* option a = a \cup {*} *%
+   option : i -> i = [a] succ a.
+   Option : i -> type = [a] Elem (option a).
+   some : Elem A -> Option A = [x] elem (which x) (adjointIl (why x)).
+   none : Option A = elem A adjointIr.
+   
+   free_some : ded some X Eq some Y -> ded X Eq Y = [p] trans3 (sym eq_which) p eq_which.
+   free_some_none : ded not (some X Eq none)
+     = notI [p] falseE (in_acyclic0 (eq_in (sym (trans3 (sym eq_which) p eq_which)) (why X))).
+   %abbrev induct_proof : ({a: Elem A} ded P (some a)) -> ded P none -> ded tforall [aO: Option A] P aO 
+     = [f][p] tforallI [aO] orE (adjointE (why aO))
+          ([q: ded which aO in A] EqcongEl P (trans eq_which eq_which) (f (elem (which aO) q)))
+          ([q: ded which aO eq A] EqcongEl P (trans eq_which (sym q)) p).
+   induct_def : (Elem A -> Elem B) -> Elem B -> Option A -> Elem B.
+   induct_def_some : ded induct_def S N (some X) Eq (S X).
+   induct_def_none : ded induct_def S N none Eq N.
+   
+   optionM : (Elem A -> Elem B) -> (Option A -> Option B) = [f] induct_def ([a] some (f a)) none.
+   reduce  : Option (option A) -> Option A = induct_def ([aO] aO) none.
+%{
+   matches : Elem B -> (Elem A -> Elem B) -> o = [b][f] existsU [a] f a Eq b. %infix right 10 matches.
+   induct_def : {aO: Option A} (ded aO Eq none -> Elem B) -> ({a} ded aO Eq some a -> Elem B) -> Elem B
+              = [aO][c1][c2] cases c1 ([p: ded aO matches [a] some a] ???) __ __.}%  
+}.

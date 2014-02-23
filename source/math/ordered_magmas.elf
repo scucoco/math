@@ -1,0 +1,22 @@
+%*
+  theories for a binary operation and a binary relation on a universe
+  @author: Florian Rabe
+*%
+
+%namespace "http://latin.omdoc.org/math".
+
+%sig Monotonous = {
+   %meta EqUniverse.
+   %include Magma.
+   %include Relation.
+   monotonous : X r X' -> Y r Y' -> X ∘ Y r X' ∘ Y'.
+}.
+
+%sig OrderedMonoid = {
+   %meta EqUniverse.
+   %include Order.
+   %include Monoid.
+   %include Monotonous.
+   %struct unit : Bottom = {bot := e.}.
+   addR : M ≤ M ∘ N.%% = eq_rel (sym neutral) (monotonous refl unit.bound).
+}.

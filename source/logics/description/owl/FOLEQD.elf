@@ -1,0 +1,71 @@
+%%FOLEQ + DataTypes
+%read "../../first-order/syntax/syntax.elf".
+
+%namespace "http://latin.omdoc.org/logics/description/owl/owl.omdoc".
+%namespace syn = "http://latin.omdoc.org/logics/syntax".
+
+%sig FOLEQD = {
+	
+ %include syn.FOLEQ %open.
+ 
+ dataType : type.
+ is : i -> dataType -> o.
+ tm : dataType -> type. 
+ 
+ string             : dataType.
+ normalizedString   : dataType.
+ boolean            : dataType.
+ decimal            : dataType.
+ float              : dataType.
+ double             : dataType.
+ integer            : dataType.
+ nonNegativeInteger : dataType.
+ nonPositiveInteger : dataType.
+ positiveInteger    : dataType.
+ negativeInteger    : dataType.
+ long 				  : dataType.
+ int                : dataType.
+ short              : dataType.
+ byte               : dataType.
+ unsignedLong       : dataType.
+ unsignedInt        : dataType.
+ unsignedShort      : dataType.
+ unsignedByte       : dataType.
+ hexBinary          : dataType.
+ base64Binary       : dataType.
+ dateTime           : dataType.
+ time               : dataType.
+ date               : dataType.
+ gYearMonth         : dataType.
+ gYear              : dataType.
+ gMonthDay          : dataType.
+ gDay               : dataType.
+ gMonth             : dataType.
+ anyURI             : dataType.
+ token              : dataType.
+ language           : dataType.
+ NMToken            : dataType.
+ name               : dataType.
+ NCName             : dataType.
+ literal : dataType.
+
+ rational 	   : dataType.  %% only in OWL2
+ real          : dataType.  %% only in OWL2
+ plainLiteral  : dataType.  %% only in OWL2
+ dateTimeStamp : dataType.  %% only in OWL2
+ xmlLiteral    : dataType.  %% only in OWL2
+
+ zero : i.
+ one  : i.
+ zeroisNonnegativeInteger : ded (is zero NonnegativeInteger).
+ oneisNnonnegativeInteger : ded (is one NonnegativeInteger).
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+}.
+ 

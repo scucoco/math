@@ -1,0 +1,34 @@
+%namespace "http://latin.omdoc.org/foundations/zfc".
+%namespace pf = "../logics/proof_theory".
+
+
+%sig ZFC_FOL = {
+   %meta pf.IFOLEQExt.
+
+  %* sequential conjunction and implication: second argument may assume truth of first one
+     normal conjunction, implication, and their rules are special cases *%
+  And : {A:o} (ded A -> o) -> o.               %infix left 10 And.
+  Imp : {A:o} (ded A -> o) -> o.               %infix left 15 Imp.
+
+  %* ND rules for sequential connectives are essentially the same as for normal ones *%
+  AndI  : {p: ded A} ded (B p) -> ded A And B.
+  AndEl :     ded A And B  -> ded A.
+  AndEr : {p: ded A And B} ded (B (AndEl p)).
+  ImpI : ({p: ded A} ded (B p)) -> ded A Imp B.
+  ImpE : ded A Imp B -> {p: ded A} ded (B p).
+
+%%%%%%%%%%%%%%%%%%%%%
+%% implicit definitions (description operator) and rules
+
+  implDef   : {f : i -> o} (ded existsU f) -> i.
+  impl_prop : {F}{P} ded F (implDef F P).
+  impl_eq   : ded (implDef F P) eq (implDef F P')
+            = existsE P [x][p] trans
+                     (impE (forallE (andEr p) (implDef F P))  (impl_prop F P))
+                (sym (impE (forallE (andEr p) (implDef F P')) (impl_prop F P'))).
+
+%%%%%%%%%%%%%%%%%%%%%
+%% other
+
+  congEl: ded A eq B -> {F: i -> o} ded F A -> ded F B = [p][F][q] congP p F q.
+}.

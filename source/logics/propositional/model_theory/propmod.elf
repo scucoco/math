@@ -1,0 +1,51 @@
+%* Model theory for propositional logic, uses operations on booleans to interpret the connectives *%
+
+%namespace "http://latin.omdoc.org/logics/model_theory".
+%namespace syn = "syntax".
+%namespace minimal = "../foundations/minimal".
+
+
+%view Base : syn.Logic -> minimal.Bool = {
+  o   := bool.
+  ded := [F : bool] ded F eq 1.
+}.
+
+%view Truth : syn.Truth -> minimal.Bool = {
+ %include Base.
+ true := 1.
+}.
+
+%view Falsity : syn.Falsity -> minimal.Bool = {
+ %include Base.
+ false := 0.
+}.
+
+%view NEG : syn.NEG -> minimal.Bool = {
+  %include Base.
+  not := ¬.
+}.
+
+%view DISJ : syn.DISJ -> minimal.Bool = {
+  %include Base.
+  or := [A][B] A ∨ B.
+}.
+
+%view CONJ : syn.CONJ -> minimal.Bool = {
+  %include Base.
+  and := [A][B] A ∧ B. 
+}.
+
+%view IMP : syn.IMP -> minimal.Bool = {
+  %include Base.
+  imp := [A][B] A ⇒ B.
+}.
+
+%view PL : syn.PL -> minimal.Bool = {
+  %include Base.
+  %include Truth.
+  %include Falsity.
+  %include NEG.
+  %include IMP.
+  %include CONJ.
+  %include DISJ.
+}.

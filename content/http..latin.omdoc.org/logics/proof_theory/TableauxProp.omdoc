@@ -1,0 +1,630 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
+  <theory name="TableauxProp" base="http://latin.omdoc.org/logics/proof_theory" meta="http://cds.omdoc.org/urtheories?LF">
+    <import from="http://latin.omdoc.org/logics/syntax?PL"> </import>
+    <constant name="%23" role="type">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://cds.omdoc.org/urtheories" module="Typed" name="type"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="pos" role="type">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+            <om:OMS position="2" base="http://cds.omdoc.org/urtheories" module="Typed" name="type"/>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/proof_theory?TableauxProp?pos" precedence="0" fixity="prefix" arguments="0"/>
+      </notation>
+    </constant>
+    <constant name="neg" role="type">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+            <om:OMS position="2" base="http://cds.omdoc.org/urtheories" module="Typed" name="type"/>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/proof_theory?TableauxProp?neg" precedence="0" fixity="prefix" arguments="0"/>
+      </notation>
+    </constant>
+    <constant name="close" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+              <om:OMA position="2_1">
+                <om:OMS position="2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_1_1" base="http://latin.omdoc.org/logics/proof_theory" module="TableauxProp" name="pos"/>
+                <om:OMV position="2_1_2" name="A"/>
+              </om:OMA>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                <om:OMA position="2_2_1">
+                  <om:OMS position="2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_1_1" base="http://latin.omdoc.org/logics/proof_theory" module="TableauxProp" name="neg"/>
+                  <om:OMV position="2_2_1_2" name="A"/>
+                </om:OMA>
+                <om:OMS position="2_2_2" base="http://latin.omdoc.org/logics/proof_theory" module="TableauxProp" name="%23"/>
+              </om:OMA>
+            </om:OMA>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/proof_theory?TableauxProp?close" precedence="0" fixity="prefix" arguments="1"/>
+      </notation>
+    </constant>
+    <constant name="true1" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMA position="1">
+              <om:OMS position="1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+              <om:OMS position="1_1" base="http://latin.omdoc.org/logics/proof_theory" module="TableauxProp" name="pos"/>
+              <om:OMS position="1_2" base="http://latin.omdoc.org/logics/syntax" module="Truth" name="true"/>
+            </om:OMA>
+            <om:OMS position="2" base="http://latin.omdoc.org/logics/proof_theory" module="TableauxProp" name="%23"/>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="false0" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMA position="1">
+              <om:OMS position="1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+              <om:OMS position="1_1" base="http://latin.omdoc.org/logics/proof_theory" module="TableauxProp" name="neg"/>
+              <om:OMS position="1_2" base="http://latin.omdoc.org/logics/syntax" module="Falsity" name="false"/>
+            </om:OMA>
+            <om:OMS position="2" base="http://latin.omdoc.org/logics/proof_theory" module="TableauxProp" name="%23"/>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="not1" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+              <om:OMA position="2_1">
+                <om:OMS position="2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                <om:OMA position="2_1_1">
+                  <om:OMS position="2_1_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_1_1_1" base="http://latin.omdoc.org/logics/proof_theory" module="TableauxProp" name="neg"/>
+                  <om:OMV position="2_1_1_2" name="A"/>
+                </om:OMA>
+                <om:OMS position="2_1_2" base="http://latin.omdoc.org/logics/proof_theory" module="TableauxProp" name="%23"/>
+              </om:OMA>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                <om:OMA position="2_2_1">
+                  <om:OMS position="2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_1_1" base="http://latin.omdoc.org/logics/proof_theory" module="TableauxProp" name="pos"/>
+                  <om:OMA position="2_2_1_2">
+                    <om:OMS position="2_2_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_1_2_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                    <om:OMV position="2_2_1_2_2" name="A"/>
+                  </om:OMA>
+                </om:OMA>
+                <om:OMS position="2_2_2" base="http://latin.omdoc.org/logics/proof_theory" module="TableauxProp" name="%23"/>
+              </om:OMA>
+            </om:OMA>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/proof_theory?TableauxProp?not1" precedence="0" fixity="prefix" arguments="1"/>
+      </notation>
+    </constant>
+    <constant name="not0" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+              <om:OMA position="2_1">
+                <om:OMS position="2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                <om:OMA position="2_1_1">
+                  <om:OMS position="2_1_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_1_1_1" base="http://latin.omdoc.org/logics/proof_theory" module="TableauxProp" name="pos"/>
+                  <om:OMV position="2_1_1_2" name="A"/>
+                </om:OMA>
+                <om:OMS position="2_1_2" base="http://latin.omdoc.org/logics/proof_theory" module="TableauxProp" name="%23"/>
+              </om:OMA>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                <om:OMA position="2_2_1">
+                  <om:OMS position="2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_1_1" base="http://latin.omdoc.org/logics/proof_theory" module="TableauxProp" name="neg"/>
+                  <om:OMA position="2_2_1_2">
+                    <om:OMS position="2_2_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_1_2_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                    <om:OMV position="2_2_1_2_2" name="A"/>
+                  </om:OMA>
+                </om:OMA>
+                <om:OMS position="2_2_2" base="http://latin.omdoc.org/logics/proof_theory" module="TableauxProp" name="%23"/>
+              </om:OMA>
+            </om:OMA>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/proof_theory?TableauxProp?not0" precedence="0" fixity="prefix" arguments="1"/>
+      </notation>
+    </constant>
+    <constant name="and1" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="B">
+                  <type>
+                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                <om:OMA position="2_2_1">
+                  <om:OMS position="2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                  <om:OMA position="2_2_1_1">
+                    <om:OMS position="2_2_1_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_1_1_1" base="http://latin.omdoc.org/logics/proof_theory" module="TableauxProp" name="pos"/>
+                    <om:OMV position="2_2_1_1_2" name="A"/>
+                  </om:OMA>
+                  <om:OMA position="2_2_1_2">
+                    <om:OMS position="2_2_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                    <om:OMA position="2_2_1_2_1">
+                      <om:OMS position="2_2_1_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_2_1_2_1_1" base="http://latin.omdoc.org/logics/proof_theory" module="TableauxProp" name="pos"/>
+                      <om:OMV position="2_2_1_2_1_2" name="B"/>
+                    </om:OMA>
+                    <om:OMS position="2_2_1_2_2" base="http://latin.omdoc.org/logics/proof_theory" module="TableauxProp" name="%23"/>
+                  </om:OMA>
+                </om:OMA>
+                <om:OMA position="2_2_2">
+                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                  <om:OMA position="2_2_2_1">
+                    <om:OMS position="2_2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_2_1_1" base="http://latin.omdoc.org/logics/proof_theory" module="TableauxProp" name="pos"/>
+                    <om:OMA position="2_2_2_1_2">
+                      <om:OMS position="2_2_2_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_2_2_1_2_1" base="http://latin.omdoc.org/logics/syntax" module="CONJ" name="and"/>
+                      <om:OMV position="2_2_2_1_2_2" name="A"/>
+                      <om:OMV position="2_2_2_1_2_3" name="B"/>
+                    </om:OMA>
+                  </om:OMA>
+                  <om:OMS position="2_2_2_2" base="http://latin.omdoc.org/logics/proof_theory" module="TableauxProp" name="%23"/>
+                </om:OMA>
+              </om:OMA>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/proof_theory?TableauxProp?and1" precedence="0" fixity="prefix" arguments="2"/>
+      </notation>
+    </constant>
+    <constant name="and0" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="B">
+                  <type>
+                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                <om:OMA position="2_2_1">
+                  <om:OMS position="2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                  <om:OMA position="2_2_1_1">
+                    <om:OMS position="2_2_1_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_1_1_1" base="http://latin.omdoc.org/logics/proof_theory" module="TableauxProp" name="neg"/>
+                    <om:OMV position="2_2_1_1_2" name="A"/>
+                  </om:OMA>
+                  <om:OMS position="2_2_1_2" base="http://latin.omdoc.org/logics/proof_theory" module="TableauxProp" name="%23"/>
+                </om:OMA>
+                <om:OMA position="2_2_2">
+                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                  <om:OMA position="2_2_2_1">
+                    <om:OMS position="2_2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                    <om:OMA position="2_2_2_1_1">
+                      <om:OMS position="2_2_2_1_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_2_2_1_1_1" base="http://latin.omdoc.org/logics/proof_theory" module="TableauxProp" name="neg"/>
+                      <om:OMV position="2_2_2_1_1_2" name="B"/>
+                    </om:OMA>
+                    <om:OMS position="2_2_2_1_2" base="http://latin.omdoc.org/logics/proof_theory" module="TableauxProp" name="%23"/>
+                  </om:OMA>
+                  <om:OMA position="2_2_2_2">
+                    <om:OMS position="2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                    <om:OMA position="2_2_2_2_1">
+                      <om:OMS position="2_2_2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_2_2_2_1_1" base="http://latin.omdoc.org/logics/proof_theory" module="TableauxProp" name="neg"/>
+                      <om:OMA position="2_2_2_2_1_2">
+                        <om:OMS position="2_2_2_2_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                        <om:OMS position="2_2_2_2_1_2_1" base="http://latin.omdoc.org/logics/syntax" module="CONJ" name="and"/>
+                        <om:OMV position="2_2_2_2_1_2_2" name="A"/>
+                        <om:OMV position="2_2_2_2_1_2_3" name="B"/>
+                      </om:OMA>
+                    </om:OMA>
+                    <om:OMS position="2_2_2_2_2" base="http://latin.omdoc.org/logics/proof_theory" module="TableauxProp" name="%23"/>
+                  </om:OMA>
+                </om:OMA>
+              </om:OMA>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/proof_theory?TableauxProp?and0" precedence="0" fixity="prefix" arguments="2"/>
+      </notation>
+    </constant>
+    <constant name="or1" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="B">
+                  <type>
+                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                <om:OMA position="2_2_1">
+                  <om:OMS position="2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                  <om:OMA position="2_2_1_1">
+                    <om:OMS position="2_2_1_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_1_1_1" base="http://latin.omdoc.org/logics/proof_theory" module="TableauxProp" name="pos"/>
+                    <om:OMV position="2_2_1_1_2" name="A"/>
+                  </om:OMA>
+                  <om:OMS position="2_2_1_2" base="http://latin.omdoc.org/logics/proof_theory" module="TableauxProp" name="%23"/>
+                </om:OMA>
+                <om:OMA position="2_2_2">
+                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                  <om:OMA position="2_2_2_1">
+                    <om:OMS position="2_2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                    <om:OMA position="2_2_2_1_1">
+                      <om:OMS position="2_2_2_1_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_2_2_1_1_1" base="http://latin.omdoc.org/logics/proof_theory" module="TableauxProp" name="pos"/>
+                      <om:OMV position="2_2_2_1_1_2" name="B"/>
+                    </om:OMA>
+                    <om:OMS position="2_2_2_1_2" base="http://latin.omdoc.org/logics/proof_theory" module="TableauxProp" name="%23"/>
+                  </om:OMA>
+                  <om:OMA position="2_2_2_2">
+                    <om:OMS position="2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                    <om:OMA position="2_2_2_2_1">
+                      <om:OMS position="2_2_2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_2_2_2_1_1" base="http://latin.omdoc.org/logics/proof_theory" module="TableauxProp" name="pos"/>
+                      <om:OMA position="2_2_2_2_1_2">
+                        <om:OMS position="2_2_2_2_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                        <om:OMS position="2_2_2_2_1_2_1" base="http://latin.omdoc.org/logics/syntax" module="DISJ" name="or"/>
+                        <om:OMV position="2_2_2_2_1_2_2" name="A"/>
+                        <om:OMV position="2_2_2_2_1_2_3" name="B"/>
+                      </om:OMA>
+                    </om:OMA>
+                    <om:OMS position="2_2_2_2_2" base="http://latin.omdoc.org/logics/proof_theory" module="TableauxProp" name="%23"/>
+                  </om:OMA>
+                </om:OMA>
+              </om:OMA>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/proof_theory?TableauxProp?or1" precedence="0" fixity="prefix" arguments="2"/>
+      </notation>
+    </constant>
+    <constant name="or0" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="B">
+                  <type>
+                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                <om:OMA position="2_2_1">
+                  <om:OMS position="2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                  <om:OMA position="2_2_1_1">
+                    <om:OMS position="2_2_1_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_1_1_1" base="http://latin.omdoc.org/logics/proof_theory" module="TableauxProp" name="neg"/>
+                    <om:OMV position="2_2_1_1_2" name="A"/>
+                  </om:OMA>
+                  <om:OMA position="2_2_1_2">
+                    <om:OMS position="2_2_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                    <om:OMA position="2_2_1_2_1">
+                      <om:OMS position="2_2_1_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_2_1_2_1_1" base="http://latin.omdoc.org/logics/proof_theory" module="TableauxProp" name="neg"/>
+                      <om:OMV position="2_2_1_2_1_2" name="B"/>
+                    </om:OMA>
+                    <om:OMS position="2_2_1_2_2" base="http://latin.omdoc.org/logics/proof_theory" module="TableauxProp" name="%23"/>
+                  </om:OMA>
+                </om:OMA>
+                <om:OMA position="2_2_2">
+                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                  <om:OMA position="2_2_2_1">
+                    <om:OMS position="2_2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_2_1_1" base="http://latin.omdoc.org/logics/proof_theory" module="TableauxProp" name="neg"/>
+                    <om:OMA position="2_2_2_1_2">
+                      <om:OMS position="2_2_2_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_2_2_1_2_1" base="http://latin.omdoc.org/logics/syntax" module="DISJ" name="or"/>
+                      <om:OMV position="2_2_2_1_2_2" name="A"/>
+                      <om:OMV position="2_2_2_1_2_3" name="B"/>
+                    </om:OMA>
+                  </om:OMA>
+                  <om:OMS position="2_2_2_2" base="http://latin.omdoc.org/logics/proof_theory" module="TableauxProp" name="%23"/>
+                </om:OMA>
+              </om:OMA>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/proof_theory?TableauxProp?or0" precedence="0" fixity="prefix" arguments="2"/>
+      </notation>
+    </constant>
+    <constant name="imp1" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="B">
+                  <type>
+                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                <om:OMA position="2_2_1">
+                  <om:OMS position="2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                  <om:OMA position="2_2_1_1">
+                    <om:OMS position="2_2_1_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_1_1_1" base="http://latin.omdoc.org/logics/proof_theory" module="TableauxProp" name="neg"/>
+                    <om:OMV position="2_2_1_1_2" name="A"/>
+                  </om:OMA>
+                  <om:OMS position="2_2_1_2" base="http://latin.omdoc.org/logics/proof_theory" module="TableauxProp" name="%23"/>
+                </om:OMA>
+                <om:OMA position="2_2_2">
+                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                  <om:OMA position="2_2_2_1">
+                    <om:OMS position="2_2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                    <om:OMA position="2_2_2_1_1">
+                      <om:OMS position="2_2_2_1_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_2_2_1_1_1" base="http://latin.omdoc.org/logics/proof_theory" module="TableauxProp" name="pos"/>
+                      <om:OMV position="2_2_2_1_1_2" name="B"/>
+                    </om:OMA>
+                    <om:OMS position="2_2_2_1_2" base="http://latin.omdoc.org/logics/proof_theory" module="TableauxProp" name="%23"/>
+                  </om:OMA>
+                  <om:OMA position="2_2_2_2">
+                    <om:OMS position="2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                    <om:OMA position="2_2_2_2_1">
+                      <om:OMS position="2_2_2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_2_2_2_1_1" base="http://latin.omdoc.org/logics/proof_theory" module="TableauxProp" name="pos"/>
+                      <om:OMA position="2_2_2_2_1_2">
+                        <om:OMS position="2_2_2_2_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                        <om:OMS position="2_2_2_2_1_2_1" base="http://latin.omdoc.org/logics/syntax" module="IMP" name="imp"/>
+                        <om:OMV position="2_2_2_2_1_2_2" name="A"/>
+                        <om:OMV position="2_2_2_2_1_2_3" name="B"/>
+                      </om:OMA>
+                    </om:OMA>
+                    <om:OMS position="2_2_2_2_2" base="http://latin.omdoc.org/logics/proof_theory" module="TableauxProp" name="%23"/>
+                  </om:OMA>
+                </om:OMA>
+              </om:OMA>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/proof_theory?TableauxProp?imp1" precedence="0" fixity="prefix" arguments="2"/>
+      </notation>
+    </constant>
+    <constant name="imp0" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="B">
+                  <type>
+                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                <om:OMA position="2_2_1">
+                  <om:OMS position="2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                  <om:OMA position="2_2_1_1">
+                    <om:OMS position="2_2_1_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_1_1_1" base="http://latin.omdoc.org/logics/proof_theory" module="TableauxProp" name="pos"/>
+                    <om:OMV position="2_2_1_1_2" name="A"/>
+                  </om:OMA>
+                  <om:OMA position="2_2_1_2">
+                    <om:OMS position="2_2_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                    <om:OMA position="2_2_1_2_1">
+                      <om:OMS position="2_2_1_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_2_1_2_1_1" base="http://latin.omdoc.org/logics/proof_theory" module="TableauxProp" name="neg"/>
+                      <om:OMV position="2_2_1_2_1_2" name="B"/>
+                    </om:OMA>
+                    <om:OMS position="2_2_1_2_2" base="http://latin.omdoc.org/logics/proof_theory" module="TableauxProp" name="%23"/>
+                  </om:OMA>
+                </om:OMA>
+                <om:OMA position="2_2_2">
+                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                  <om:OMA position="2_2_2_1">
+                    <om:OMS position="2_2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_2_1_1" base="http://latin.omdoc.org/logics/proof_theory" module="TableauxProp" name="neg"/>
+                    <om:OMA position="2_2_2_1_2">
+                      <om:OMS position="2_2_2_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_2_2_1_2_1" base="http://latin.omdoc.org/logics/syntax" module="IMP" name="imp"/>
+                      <om:OMV position="2_2_2_1_2_2" name="A"/>
+                      <om:OMV position="2_2_2_1_2_3" name="B"/>
+                    </om:OMA>
+                  </om:OMA>
+                  <om:OMS position="2_2_2_2" base="http://latin.omdoc.org/logics/proof_theory" module="TableauxProp" name="%23"/>
+                </om:OMA>
+              </om:OMA>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/proof_theory?TableauxProp?imp0" precedence="0" fixity="prefix" arguments="2"/>
+      </notation>
+    </constant>
+  </theory>
+</omdoc>

@@ -1,0 +1,62 @@
+%namespace "http://latin.omdoc.org/foundations/minimal".
+
+%* Extends the HOL encoding of booleans by equality and quantification *%
+%sig Universes = {
+  %include Bool.
+
+  sup   : tm (A → bool') → bool'.
+  
+  sup0I : ded forall ([a] (F @ a) eq 0) -> ded sup @ F eq 0.
+  sup1I : ded exists ([a] (F @ a) eq 1) -> ded sup @ F eq 1.
+  sup0E : ded sup @ F eq 0 -> ded forall ([a] (F @ a) eq 0)
+        = [p] forallI [x] not-boole0 (forallE (nexistsE 
+          (contrapos (impI sup1I) (boole-not0 p))) x).
+  sup1E : ded sup @ F eq 1 -> ded exists ([a] (F @ a) eq 1)
+        = [p] existsE (nforallE (contrapos (impI sup0I) (boole-not1 p)))
+          [x][q : ded not ((F @ x) eq 0)] existsI x (not-boole1 q).           
+  
+  equal   : tm (A → A → bool').
+  equal01 : ded forall [x] forall [y] (equal @ x @ y eq 1) equiv (x eq y).
+
+  ∀ : (tm A -> bool) -> bool = [f] ¬ (sup @ (λ (¬ ∘ f))).
+  ∃ : (tm A -> bool) -> bool = [f] sup @ (λ f).
+  
+  forall1I : ded forall ([x] (F x) eq 1) -> ded (∀ F) eq 1
+           = [p] not1I (sup0I (forallI [x] trans beta (not0I (forallE p x)))).
+  forall0I : ded exists ([x] (F x) eq 0) -> ded (∀ F) eq 0
+           = [p] not0I (sup1I (existsE p [x][q : ded (F x) eq 0] 
+             existsI x (trans beta (not1I q)))).  
+  forall1E : ded (∀ F) eq 1 -> ded forall ([x] (F x) eq 1)
+           = [p] forallI [x] not-boole1 (forallE (nexistsE 
+             (contrapos (impI forall0I) (boole-not1 p))) x).
+  forall0E : ded (∀ F) eq 0 -> ded exists ([x] (F x) eq 0)
+           = [p] existsE (nforallE (contrapos (impI forall1I) (boole-not0 p)))
+             [x][q : ded not ((F x) eq 1)] existsI x (not-boole0 q).
+               
+  exists1I : ded exists ([x] (F x) eq 1) -> ded (∃ F) eq 1
+           = [p] existsE p [x][q : ded (F x) eq 1] sup1I (existsI x (trans beta q)). 
+  exists0I : ded forall ([x] (F x) eq 0) -> ded (∃ F) eq 0
+           = [p] sup0I (forallI [x] (trans beta (forallE p x))).  
+  exists1E : ded (∃ F) eq 1 -> ded exists ([x] (F x) eq 1)
+           = [p] existsE (nforallE (contrapos (impI exists0I) (boole-not1 p)))
+             [x][q : ded not ((F x) eq 0)] existsI x (not-boole1 q).
+  exists0E : ded (∃ F) eq 0 -> ded forall ([x] (F x) eq 0)
+           = [p] forallI [x] not-boole0 (forallE (nexistsE 
+             (contrapos (impI exists1I) (boole-not0 p))) x).            
+
+  =b=     : tm A -> tm A -> bool = [x][y] equal @ x @ y. %infix none 100 =b=.
+  equal1I : ded X eq Y -> ded X =b= Y eq 1
+          = [p] equivEr (forallE (forallE equal01 X) Y) p.
+  equal1E : ded X =b= Y eq 1 -> ded X eq Y
+          = [p] equivEl (forallE (forallE equal01 X) Y) p.
+}.
+
+%sig List = {
+   %include Universes.
+   a : set.
+   list : set.
+   nil  : elem list.
+   cons : elem a -> elem list -> elem list.
+   app  : elem list -> elem list -> elem list.
+   %% additional stuff: append, induction, etc.
+}.

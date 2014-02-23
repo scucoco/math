@@ -1,0 +1,46 @@
+%namespace "http://latin.omdoc.org/logics/model_theory".
+%namespace syn = "syntax".
+%namespace minimal = "../foundations/minimal".
+
+
+%sig SFOLMOD = {
+  %%include syn.STTIFOLEQ  %open.
+  %%include PLMOD  %open.       %% there is no signature PLMOD any more. The include can probably just be deleted
+  %include minimal.Universes  %open.
+  sort : set.
+  term : elem sort -> set.
+  non_empty_universe : ded exists [x : elem (term S)] true.
+}.
+
+%view BaseSFOL : syn.BaseSFOL -> SFOLMOD = {
+  %include Base.
+  sort := elem sort.
+  tm := [x] elem (term x).
+}.
+
+%view SForall : syn.SForall -> SFOLMOD = {
+  %include BaseSFOL.
+  forall := [S] ∀.
+}.
+
+%view SExists : syn.SExists -> SFOLMOD = {
+  %include BaseSFOL.
+  exists := [S] ∃.
+}.
+
+%view SEqual : syn.SEqual -> SFOLMOD = {
+  %include BaseSFOL.
+  eq := [S][A][B] equal @ A @ B.
+}.
+
+%view SFOL : syn.SFOL -> SFOLMOD = {
+  %include BaseSFOL.
+  %include PL.
+  %include SForall.
+  %include SExists.
+}.
+
+%view SFOLEQ : syn.SFOLEQ -> SFOLMOD = {
+  %include SFOL.
+  %include SEqual.  
+}.

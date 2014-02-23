@@ -1,0 +1,68 @@
+article
+  environment
+    theorem	
+    definition
+    vocabulary
+    notation
+    constructor
+    scheme
+    registration
+				identifiers
+			internal	external
+  scheme		$S#		$:sch#
+    if local		$S#		label
+  theorem		$T#		$:#
+    if local		(E)#		label
+  statement		(E)#		label
+  definitional theorem  $D#		$:def#
+    -- only induced
+    if local		(E)#		label
+  definiens
+    -- only induced, gives definiens in XML
+  definition				name
+    functor		$K#
+    predicate		$R#
+    mode		$M#
+    attribute		$V#
+    structure
+      -- generates:
+      type		$L#		name
+      selector		$U#		selector-name
+      aggregator	$G#		name(#...#)
+  registration (cluster)
+    existential		$RC#
+    conditional		$CC#
+    functor		$FC#
+  notation
+    -- not relevant for us
+  reservation
+    -- expanded in XML
+  private-definition
+    -- expanded in XML
+
+labels: only visible locally, shadowing
+names: importable, overloading
+$: article name
+#: consecutive number within article and declaration-kind
+(E): used to be E, no kind given currently
+
+local constants (= variables in proofs, definitions, etc.) introduced by
+  let
+  consider
+  take (optional)
+  reconsider (optional)
+numbered consecutively within scope
+
+variables (in formulas) introduced by
+  for
+numbered consecutively within scope
+
+references to identifiers
+From	scheme
+Ref	theorem, statement, definitional theorem
+Pred	predicate, attribute, predicate variable (P)
+Func	functor, aggregator, selector, functor variable (F)
+Typ	mode, structure (aggregator might occur, should be structure though)
+Adjective attribute
+Const	local constant
+Var	variable

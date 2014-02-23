@@ -1,0 +1,13 @@
+%namespace "http://latin.omdoc.org/foundations/zfc".
+
+
+%sig If = {
+   %include ConditionalTerms %open.
+   %include TNDBool %open tnd.
+   ifte : {f:o} (ded f -> Elem A) -> (ded not f -> Elem A) -> Elem A
+        = [f][T][E] case ([p: ded f] T p) ([p: ded not f] E p) tnd (notI [p][_] notE' (andEl p) (andEr p)).
+   ifte_then : {p: ded F}     ded ifte F T E Eq (T p)
+             = [p] case1 p.
+   ifte_else : {p: ded not F} ded ifte F T E Eq (E p)
+             = [p] case2 p. 
+}.

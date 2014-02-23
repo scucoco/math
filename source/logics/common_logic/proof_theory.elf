@@ -1,0 +1,40 @@
+%namespace "http://latin.omdoc.org/logics/proof_theory".
+%namespace syn = "syntax".
+
+
+%sig BaseCL = {
+  %include Base.
+  %include syn.BaseCL.
+}.
+
+%view BaseFOLtoCLi : BaseFOL -> BaseCL = {
+  %include syn.UnivToInd.
+}.
+%view BaseFOLtoCLs : BaseFOL -> BaseCL = {
+  %include syn.UnivToSeq.
+}.
+
+%sig CL = {
+  %include BaseCL   %open.
+  %include syn.CL   %open.
+  %struct iforallpf : Forall = {%include BaseFOLtoCLi.
+                                  %include iforall. }   %open forallI
+                                                              forallE.
+ 
+  %struct sforallpf : Forall = { %include BaseFOLtoCLs.
+                                   %include CL.sforall. } %open forallI  %as forallsI 
+                                                                forallE  %as forallsE. 
+
+  %struct iexistspf : Exists = { %include BaseFOLtoCLi.
+                                   %include CL.iexists. } %open existsI 
+                                                                existsE.
+  %struct sexistspf : Exists = { %include BaseFOLtoCLs.
+                                   %include CL.sexists. } %open existsI  %as existssI 
+                                                                existsE  %as existssE.
+
+  %struct equalpf : Equal = { %include BaseFOLtoCLi.
+                                %include CL.equal. } %open refl sym trans congF congP.
+
+
+  non_empty_universe : ded exists [x] true.
+}.

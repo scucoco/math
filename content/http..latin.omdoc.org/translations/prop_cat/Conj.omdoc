@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
+  <view 
+  name="Conj" base="http://latin.omdoc.org/translations/prop_cat" from="http://latin.omdoc.org/logics/syntax?CONJ" to="http://latin.omdoc.org/category_theory/dfol_based?ProdTop">
+    <metadata>
+      <meta property="http://purl.org/dc/terms?_?description">
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMSTR>
+            View from a proof system with conjunction to a category with products. \n A conjunction of two formulas is mapped to the product of the respective \n objects.
+          </om:OMSTR>
+        </om:OMOBJ>
+      </meta>
+    </metadata>
+    <import from="http://latin.omdoc.org/logics/syntax?Logic">
+      <definition>
+        <om:OMA>
+          <om:OMS position="0" base="http://cds.omdoc.org/mmt" module="mmt" name="composition"/>
+          <om:OMS position="1" base="http://latin.omdoc.org/translations/prop_cat" module="Base"/>
+          <om:OMS position="2" base="http://latin.omdoc.org/category_theory/dfol_based" module="ProdTop" name="cat_top"/>
+        </om:OMA>
+      </definition>
+    </import>
+    <constant name="and">
+      <definition>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMA position="0_1">
+                    <om:OMS position="0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="0_1_1" base="http://latin.omdoc.org/logics/syntax" module="DFOL" name="^"/>
+                    <om:OMS position="0_1_2" base="http://latin.omdoc.org/category_theory/dfol_based" module="ProdTop" name="prod/cat/obj"/>
+                  </om:OMA>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="B">
+                  <type>
+                    <om:OMA position="2_0_1">
+                      <om:OMS position="2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_0_1_1" base="http://latin.omdoc.org/logics/syntax" module="DFOL" name="^"/>
+                      <om:OMS position="2_0_1_2" base="http://latin.omdoc.org/category_theory/dfol_based" module="ProdTop" name="prod/cat/obj"/>
+                    </om:OMA>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_2_1" base="http://latin.omdoc.org/category_theory/dfol_based" module="ProdTop" name="prod/*"/>
+                <om:OMV position="2_2_2" name="A"/>
+                <om:OMV position="2_2_3" name="B"/>
+              </om:OMA>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </definition>
+    </constant>
+</view>
+</omdoc>

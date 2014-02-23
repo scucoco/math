@@ -1,0 +1,167 @@
+%namespace "http://latin.omdoc.org/foundations/zfc".
+
+
+%sig Lists = {
+   %include ZFC.
+   %include Powersets.
+   %include Nat.
+   %include Option.
+   %* lists over s of length n: functions from n to s *%
+   listn : Elem nat -> i -> i = [n][s] func (which n) s.
+   %* lists of any length: list s = DependentProduct.depSum [n:Nat] listn n s. *%
+   list : i -> i = [s] depSum nat [n : Elem nat] listn n s.
+   List : i -> type = [a] Elem (list a).
+   
+   %* nil = (0,empty function) *%
+   nil : Elem (list A) = depPair Zero
+                                 (elem empty 
+                                       (funcI' (powersetI empty_subset) 
+                                               ([x][p: ded x in (which Zero)] emptyE (in_eq p eq_which)))).
+
+   %* cons hd (n,f) = (n+1, f adjoint (n,hd)) *%
+   cons : Elem A -> Elem (list A) -> Elem (list A)
+        = [hd][tl]
+          depPair (Succ (depPi1 tl)) (Lambda [n: Elem (which (Succ (depPi1 tl)))] case
+            ([p: ded (which n) in (which (depPi1 tl))] (depPi2 tl) @ (elem (which n) p))
+            ([_: ded (which n) eq (which (depPi1 tl))] hd)
+            (adjointE (in_eq (why n) eq_which))
+            (notI [p] falseE (in_acyclic0 (in_eq (andEl p) (sym (andEr p)))))
+          ).
+   index : List A -> Elem nat -> Option A.
+
+   listinduct : Elem B -> (Elem A -> List A -> Elem B) -> List A -> Elem B.
+   
+   listinduct_nil  : ded listinduct N C nil Eq N.
+   listinduct_cons : ded listinduct N C (cons H T) Eq (C H T).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Stuff needed in openmath.elf
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   cons_injl : ded (cons A B) Eq (cons A' B') -> ded A Eq A'.
+   cons_injr : ded (cons A B) Eq (cons A' B') -> ded B Eq B'.
+
+   %* true iff the element on the left is a member of the list
+      note that the two types (A and B) can be different
+      not used explicitly in openmath.elf, but the propositions below rely on it *%
+   member : Elem A -> List B -> o.
+
+   %* true iff all of the elements of a list can be found in a set
+      proofs in openmath.elf depend on the definition *%
+   list_in_set : List A -> i -> o 
+   = [l][X] tforall [o : Elem A] (member o l) imp (which o in X).
+
+   %* true iff the property P holds for all elements in the list
+      proofs in openmath.elf depend on the definition *%
+   list_for_all : {P : Elem A -> o} List A -> o
+   = [P][l] tforall [o : Elem A] (member o l) imp (P o).
+
+   cast_list_elements : {L : List A} ded list_in_set L X -> List X.
+   cast_list_elementsE : ded which (cast_list_elements A P) eq which A.
+   
+   cast_list : ded A subset B -> List A -> List B.
+   cast_listE : ded which (cast_list P A) eq which A.
+
+   list_in_set_cast : ded list_in_set A X -> ded list_in_set (cast_list P A) X.
+   list_in_set_cast_elements :  ded list_in_set A X -> ded list_in_set (cast_list_elements A P) X.
+
+   list_in_set_trans : {L : List A} ded X subset Y -> ded list_in_set L X -> ded list_in_set L Y.
+
+   list_in_set_cons : {H : Elem A}{T : List A} ded which H in X -> ded list_in_set T X -> ded list_in_set (cons H T) X.
+
+   list_in_domain : {l : List A} ded list_in_set l A
+   = [l] tforallI [o] (impI [_] (why o)).
+
+   %* returns the length of a list *%
+   length : List A -> Nat.
+
+   %* the empty list if fully contained in any set *%
+   0len_in_set : ded length A Eq Zero -> ded list_in_set A X.
+
+   %* if the length of a list is at least 1 ... *%
+   succ_len : {L : List A} ded length L Eq (Succ N) -> ded texists [H : Elem A] texists [T : List A] ((L Eq (cons H T)) and (length T Eq N)).
+
+%%   cast_list_memberL : ded member A B -> ded member (cast P A) (cast_list P B).
+%%   cast_list_memberR : ded member (cast P A) (cast_list P B) -> ded member A B.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%{
+   nil_or_not_nil : ded L Eq nil or not L Eq nil
+      = orE (0ornot0 (DepPi1 L))
+            ([p: ded DepPi1 L Eq Zero] orIl ())
+            ([p: ded not DepPi1 L Eq Zero] orIr (notI [q] notE p trans (EqCongF DepPi1 q) conv_DepPi1)).
+
+   head : List A -> Option A = [l] case' ([p: ded l Eq nil] none)
+                                         ([p: ded not (l Eq nil)] some ((DepPi2 l) @ (Pred (DepPi1 l))))
+                                         nil_or_not_nil.
+   tail : List A -> Option (list A) = [l] case' ([p: ded l Eq nil] none)
+                                                ([p: ded not (l Eq nil)] some (depPair (Pred (depPi1 l)) ())
+                                                nil_or_not_nil.
+
+   free_nilcons : ded not (nil Eq cons H T)
+                = notI [p][_] peano_wellfoundedE (inj_DepPair1 p).
+
+   conv_head : ded head (cons H T) Eq some H.
+   conv_tail : ded tail (cons H T) Eq some T.
+   
+   free_cons1 : ded ded cons H T Eq cons H' T' -> ded H Eq H'.
+   free_cons2 : ded ded cons H T Eq cons H' T' -> ded T Eq T'.
+
+   map : Elem list A -> Func A B -> Elem list B
+       = [l][f] depPair (length l) (compose (depPi2 l) f).
+   induct_proof : {P: Elem (list A) -> o} ded P nil -> {X}{L} ded (P L) imp ded (P (cons X L)) -> ded tforall [l : Elem (list A)] (P l)
+                = [P][pnil][pcons : {X}{L} ded (P L) -> ded (P (cons X L))] tforallI [l : Elem (list A)]
+                   lemma ()
+                         (peano_induction pnil
+                                        (which (depPi1 l)) (why (which (depPi1 l))) pcons )
+                         [lem] forall2E lem ().
+
+   free_nil : ded cons H T neq nil
+            = neqI  ____ : ded X in (cons H T)
+                    ____ : ded not X in nil
+   free_cons : ded H neq H' or T neq T' -> ded cons H T neq cons H' T'.
+
+   induct_def : Elem B
+              -> ({l: Elem (list A)}{hd}{tl} ded l eq cons hd tl -> Elem B) 
+              -> Elem (func (list A) B)
+              = elem () ().
+}%
+
+}.
+
+%sig Trees = {
+   %include Lists.
+   %* treelike A contains all finite trees with nodes labelled with elements of A
+      it does not only contain those tree
+      Nodes are represented as lists of natural numbers giving the path leading to them
+        - nil for the root
+        - path, i for the i-th child (couting starts at 0) of the node path
+      Trees are partial functions from such-represented nodes to labels.
+   *%
+   treelike : i -> i
+            = [a] func (list nat) (option a).
+
+%{   
+
+	func_adjoin : Func A B -> Elem B -> Func (adjoin A X) B
+               = [f][b] (which f) adjoin (pair X b).
+}%
+   
+   %* leaf X: a tree with a single node labelled X *%
+   leaf     : Elem A -> Elem (treelike A)
+            = [x] Lambda [l] listinduct (some x) ([_][_] none) l.
+   %* compose X [T1, ..., Tn]: a tree whose root is labelled X and which has subtrees T1, ..., Tn *%
+   compose  : Elem A -> List (treelike A) -> Elem (treelike A)
+            = [rootlabel][children] Lambda [l: List nat]
+                 listinduct (some rootlabel)
+                            ([hd: Nat][tl: List nat]
+                                (induct_def ([f: Func (list nat) (option A)] f @ tl) none (index children hd)))
+                            l.
+
+
+   compose_injl : ded (compose A B) Eq (compose A' B') -> ded A Eq A'.
+   compose_injr : ded (compose A B) Eq (compose A' B') -> ded B Eq B'.
+
+   leaf_inj : ded (leaf N) Eq (leaf N') -> ded N Eq N'.
+}.
+

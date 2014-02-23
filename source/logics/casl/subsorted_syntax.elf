@@ -1,0 +1,53 @@
+%namespace "http://latin.omdoc.org/logics/syntax".
+
+%sig CASLSubSorted = {
+ %include CASLSorted.
+ <      : sort -> sort -> type.              %infix none 25 <.
+
+%{ %%pattern for declaring a subsort relations between two sorts, ie.
+ %% ax : S < T, for sorts S and T.
+	%pattern psubs = [S : sort] [T : sort] {
+		ax = S < T.
+	}.
+}%
+ 
+% <refl  : S < S.
+% <trans : R < S -> S < T -> R < T.
+
+ %* Downwards casting from B to A, abstract syntax is 'cast' *% 
+ as  : tm -> sort -> tm. %infix none 25 as.
+ #as : A < B -> T # B -> (T as A) # A. 
+
+ %* 'membership' in the abstract syntax *%
+ in  : tm -> sort -> o. %infix none 25 in.
+ #in : A < B -> T # B -> wff T in A. 
+
+ %* 'sorted-term' in the abstract syntax *%
+ sorted-term  : tm -> sort -> tm. 
+ #sorted-term : A < B -> T # A -> (sorted-term T B) # B. 
+
+ <<     : sortlist -> sortlist -> type.         %infix none 25 <<.
+	%{ %% pattern for declaring subsorting relation for two lists of sorts.
+ %% ie. ax : SS << TT for lists SS and TT of sorts.
+ %pattern psubls = [SS : sortlist] [TT : sortlist] {
+		ax : SS << TT.
+	}.
+	}%
+
+ <<nil  : sortnil << sortnil.
+ <<cons : S < S' -> SS << SS' -> (S * SS) << (S' * SS'). 
+
+ #<  : S < S' -> X # S -> X # S'.
+ #<< : XX ## SS -> SS << SS' -> XX ## SS'.  %% is this redundant?
+
+ %* overloading relation *%
+ sameF : (SS => S) -> (SS' => S') -> type.
+ %* sameF is equivalence relation *%
+ ~F    : (SS => S) -> (SS' => S') -> type.        %infix none 25 ~F.
+ ~FI   : {f : SS => S} {f' : SS' => S'} sameF f f' -> CC << SS -> CC << SS' -> S < C -> S' < C -> f ~F f'.
+
+ sameP : pred SS -> pred SS' -> type. 
+ %* sameP is equivalence relation *%
+ ~P    : pred SS -> pred SS' -> type.        %infix none 25 ~P.
+ ~PI   : {p : pred SS} {p' : pred SS'} sameP p p' -> CC << SS -> CC << SS' -> p ~P p'.
+}.

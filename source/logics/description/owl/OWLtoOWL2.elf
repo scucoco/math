@@ -1,0 +1,103 @@
+%% OWL to OWL2
+
+%read "owl.elf".
+%read "owl2.elf".
+
+%namespace "http://latin.omdoc.org/logics/description/owl/owl2.omdoc".
+
+%%view OWLBase 
+
+%view OWLLitetoOWL2 : OWLLite -> OWL2 = {
+   
+ thing   := thing.   
+ nothing := nothing. 
+ 
+ subClassOf           := subClassOf. 
+ subPropertyOf        := subObjectPropertyOf. 
+ Domain := objectPropertyDomain. 
+ Range  := objectPropertyRange. 
+ 
+ %%(In)Equality 
+ equivalentClass    := equivalentClasses.
+ equivalentProperty :=  equivalentObjectProperty.
+ differentFrom      := differentIndividuals.
+ sameAs	           :=  sameIndividual.
+ %%distinctMembers        
+ 
+ %%Property Characteristics 
+ dataTypeProperty := dataProperty.
+ inverseOf := objectInverseOf.
+ 
+ transitiveProperty  := transitiveObjectProperty.
+ symmetricProperty   :=  symmetricObjectProperty.
+ functionalProperty  :=  functionalObjectProperty.
+ inverseFunctionalProperty := inverseFunctionalObjectProperty.
+ 
+ %%Property Restrictions 
+ %%restriction 
+ %%onProperty  
+ someValuesFrom := objectSomeValuesFrom.
+ allValuesFrom  := objectAllValuesFrom.
+ 
+ %%Restricted Cardinality  0 or 1  
+%% maxCardinality   := 
+%% minCardinality   := 
+%% cardinality      := 
+
+ %%Class Intersection
+ intersectionOf := objectIntersectionOf.
+
+ %{
+ %%Header Information  
+ %% ontology 
+ %% imports  
+ 
+ annotationProperty : type.
+ ontologyProperty   : type.
+ 
+ %%Annotation properties
+ lable := lable.
+ comment := comment.
+ seeAlso := seeAlso.
+ isDefinedBy := isDefinedBy.
+ annotationProperty := annotationProperty.
+ ontologyProperty   := ontologyProperty.
+  
+ %%versioning
+ versionInfo  := versionInfo.
+ priorVersion := priorVersion.
+ backwardCompatibleWith := backwardCompatibleWith.
+ incompatibleWith       := incompatibleWith.
+ deprecatedClass    := deprecatedClass.
+ deprecatedProperty := deprecatedProperty.
+}%
+ 	
+}.
+
+
+%view OWLDLtoOWL2 : OWLDL -> OWL2 = {
+	
+ %include OWLLitetoOWL2.	
+ 
+ %%Class Axioms
+ %%OneOf := objectOneOf.
+ disjointWith := disjointClasses.
+ unionOf 	  := objectUnionOf.
+ complementOf := objectComplementOf.
+
+ %%Arbitrary Cardinality = full cardinality
+ %%maxCardinalityFull := objectMaxCardinality.  
+ %%minCardinalityFull := objectMinCardinality. 
+ %%cardinalityFull    := objectExactCardinality.
+  
+ %%Filler Information 
+ hasValue := objectHasValue. 
+}.
+
+%view OWLFulltoOWL2 : OWLFull -> OWL2 = {
+	%include OWLDLtoOWL2.
+	 %%meta class - classes can be instances	
+}.
+
+%%list, rest, nil 
+

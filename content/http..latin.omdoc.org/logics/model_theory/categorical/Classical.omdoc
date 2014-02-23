@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
+  <theory name="Classical" base="http://latin.omdoc.org/logics/model_theory/categorical" meta="http://cds.omdoc.org/urtheories?LF">
+    <import from="http://latin.omdoc.org/logics/model_theory/categorical?Negation"> </import>
+    <constant name="tnd" role="constructor">
+      <metadata>
+        <meta property="http://purl.org/dc/terms?_?description">
+          <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+            <om:OMSTR>morphism for tertium non datur</om:OMSTR>
+          </om:OMOBJ>
+        </meta>
+      </metadata>
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+              <om:OMS position="2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="=&gt;"/>
+              <om:OMS position="2_2" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Cartesian" name="top"/>
+              <om:OMA position="2_3">
+                <om:OMS position="2_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_3_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="CoCartesianAlt" name="+"/>
+                <om:OMV position="2_3_2" name="A"/>
+                <om:OMA position="2_3_3">
+                  <om:OMS position="2_3_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_3_3_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                  <om:OMV position="2_3_3_2" name="A"/>
+                </om:OMA>
+              </om:OMA>
+            </om:OMA>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/model_theory/categorical?Classical?tnd" precedence="0" fixity="prefix" arguments="1"/>
+      </notation>
+    </constant>
+    <constant name="negneg_e" role="constructor">
+      <metadata>
+        <meta property="http://purl.org/dc/terms?_?description">
+          <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+            <om:OMSTR>derived morphism for not-not elimination</om:OMSTR>
+          </om:OMOBJ>
+        </meta>
+      </metadata>
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+              <om:OMS position="2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="=&gt;"/>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                <om:OMA position="2_2_2">
+                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                  <om:OMV position="2_2_2_2" name="A"/>
+                </om:OMA>
+              </om:OMA>
+              <om:OMV position="2_3" name="A"/>
+            </om:OMA>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </type>
+      <definition>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+              <om:OMS position="2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name=";"/>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                <om:OMA position="2_2_2">
+                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                  <om:OMV position="2_2_2_2" name="A"/>
+                </om:OMA>
+              </om:OMA>
+              <om:OMA position="2_3">
+                <om:OMS position="2_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_3_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="CoCartesianAlt" name="+"/>
+                <om:OMA position="2_3_2">
+                  <om:OMS position="2_3_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_3_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Cartesian" name="*"/>
+                  <om:OMV position="2_3_2_2" name="A"/>
+                  <om:OMA position="2_3_2_3">
+                    <om:OMS position="2_3_2_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_3_2_3_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                    <om:OMA position="2_3_2_3_2">
+                      <om:OMS position="2_3_2_3_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_3_2_3_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                      <om:OMV position="2_3_2_3_2_2" name="A"/>
+                    </om:OMA>
+                  </om:OMA>
+                </om:OMA>
+                <om:OMA position="2_3_3">
+                  <om:OMS position="2_3_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_3_3_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Cartesian" name="*"/>
+                  <om:OMA position="2_3_3_2">
+                    <om:OMS position="2_3_3_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_3_3_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                    <om:OMV position="2_3_3_2_2" name="A"/>
+                  </om:OMA>
+                  <om:OMA position="2_3_3_3">
+                    <om:OMS position="2_3_3_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_3_3_3_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                    <om:OMA position="2_3_3_3_2">
+                      <om:OMS position="2_3_3_3_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_3_3_3_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                      <om:OMV position="2_3_3_3_2_2" name="A"/>
+                    </om:OMA>
+                  </om:OMA>
+                </om:OMA>
+              </om:OMA>
+              <om:OMV position="2_4" name="A"/>
+              <om:OMA position="2_5">
+                <om:OMS position="2_5_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_5_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name=";"/>
+                <om:OMA position="2_5_2">
+                  <om:OMS position="2_5_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_5_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                  <om:OMA position="2_5_2_2">
+                    <om:OMS position="2_5_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_5_2_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                    <om:OMV position="2_5_2_2_2" name="A"/>
+                  </om:OMA>
+                </om:OMA>
+                <om:OMA position="2_5_3">
+                  <om:OMS position="2_5_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_5_3_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Cartesian" name="*"/>
+                  <om:OMA position="2_5_3_2">
+                    <om:OMS position="2_5_3_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_5_3_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="CoCartesianAlt" name="+"/>
+                    <om:OMV position="2_5_3_2_2" name="A"/>
+                    <om:OMA position="2_5_3_2_3">
+                      <om:OMS position="2_5_3_2_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_5_3_2_3_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                      <om:OMV position="2_5_3_2_3_2" name="A"/>
+                    </om:OMA>
+                  </om:OMA>
+                  <om:OMA position="2_5_3_3">
+                    <om:OMS position="2_5_3_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_5_3_3_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                    <om:OMA position="2_5_3_3_2">
+                      <om:OMS position="2_5_3_3_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_5_3_3_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                      <om:OMV position="2_5_3_3_2_2" name="A"/>
+                    </om:OMA>
+                  </om:OMA>
+                </om:OMA>
+                <om:OMA position="2_5_4">
+                  <om:OMS position="2_5_4_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_5_4_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="CoCartesianAlt" name="+"/>
+                  <om:OMA position="2_5_4_2">
+                    <om:OMS position="2_5_4_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_5_4_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Cartesian" name="*"/>
+                    <om:OMV position="2_5_4_2_2" name="A"/>
+                    <om:OMA position="2_5_4_2_3">
+                      <om:OMS position="2_5_4_2_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_5_4_2_3_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                      <om:OMA position="2_5_4_2_3_2">
+                        <om:OMS position="2_5_4_2_3_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                        <om:OMS position="2_5_4_2_3_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                        <om:OMV position="2_5_4_2_3_2_2" name="A"/>
+                      </om:OMA>
+                    </om:OMA>
+                  </om:OMA>
+                  <om:OMA position="2_5_4_3">
+                    <om:OMS position="2_5_4_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_5_4_3_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Cartesian" name="*"/>
+                    <om:OMA position="2_5_4_3_2">
+                      <om:OMS position="2_5_4_3_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_5_4_3_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                      <om:OMV position="2_5_4_3_2_2" name="A"/>
+                    </om:OMA>
+                    <om:OMA position="2_5_4_3_3">
+                      <om:OMS position="2_5_4_3_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_5_4_3_3_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                      <om:OMA position="2_5_4_3_3_2">
+                        <om:OMS position="2_5_4_3_3_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                        <om:OMS position="2_5_4_3_3_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                        <om:OMV position="2_5_4_3_3_2_2" name="A"/>
+                      </om:OMA>
+                    </om:OMA>
+                  </om:OMA>
+                </om:OMA>
+                <om:OMA position="2_5_5">
+                  <om:OMS position="2_5_5_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_5_5_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Cartesian" name="pair"/>
+                  <om:OMA position="2_5_5_2">
+                    <om:OMS position="2_5_5_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_5_5_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                    <om:OMA position="2_5_5_2_2">
+                      <om:OMS position="2_5_5_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_5_5_2_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                      <om:OMV position="2_5_5_2_2_2" name="A"/>
+                    </om:OMA>
+                  </om:OMA>
+                  <om:OMA position="2_5_5_3">
+                    <om:OMS position="2_5_5_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_5_5_3_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="CoCartesianAlt" name="+"/>
+                    <om:OMV position="2_5_5_3_2" name="A"/>
+                    <om:OMA position="2_5_5_3_3">
+                      <om:OMS position="2_5_5_3_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_5_5_3_3_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                      <om:OMV position="2_5_5_3_3_2" name="A"/>
+                    </om:OMA>
+                  </om:OMA>
+                  <om:OMA position="2_5_5_4">
+                    <om:OMS position="2_5_5_4_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_5_5_4_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                    <om:OMA position="2_5_5_4_2">
+                      <om:OMS position="2_5_5_4_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_5_5_4_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                      <om:OMV position="2_5_5_4_2_2" name="A"/>
+                    </om:OMA>
+                  </om:OMA>
+                  <om:OMA position="2_5_5_5">
+                    <om:OMS position="2_5_5_5_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_5_5_5_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name=";"/>
+                    <om:OMA position="2_5_5_5_2">
+                      <om:OMS position="2_5_5_5_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_5_5_5_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                      <om:OMA position="2_5_5_5_2_2">
+                        <om:OMS position="2_5_5_5_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                        <om:OMS position="2_5_5_5_2_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                        <om:OMV position="2_5_5_5_2_2_2" name="A"/>
+                      </om:OMA>
+                    </om:OMA>
+                    <om:OMS position="2_5_5_5_3" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Cartesian" name="top"/>
+                    <om:OMA position="2_5_5_5_4">
+                      <om:OMS position="2_5_5_5_4_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_5_5_5_4_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="CoCartesianAlt" name="+"/>
+                      <om:OMV position="2_5_5_5_4_2" name="A"/>
+                      <om:OMA position="2_5_5_5_4_3">
+                        <om:OMS position="2_5_5_5_4_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                        <om:OMS position="2_5_5_5_4_3_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                        <om:OMV position="2_5_5_5_4_3_2" name="A"/>
+                      </om:OMA>
+                    </om:OMA>
+                    <om:OMA position="2_5_5_5_5">
+                      <om:OMS position="2_5_5_5_5_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_5_5_5_5_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Cartesian" name="bang"/>
+                      <om:OMA position="2_5_5_5_5_2">
+                        <om:OMS position="2_5_5_5_5_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                        <om:OMS position="2_5_5_5_5_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                        <om:OMA position="2_5_5_5_5_2_2">
+                          <om:OMS position="2_5_5_5_5_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                          <om:OMS position="2_5_5_5_5_2_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                          <om:OMV position="2_5_5_5_5_2_2_2" name="A"/>
+                        </om:OMA>
+                      </om:OMA>
+                    </om:OMA>
+                    <om:OMA position="2_5_5_5_6">
+                      <om:OMS position="2_5_5_5_6_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_5_5_5_6_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Classical" name="tnd"/>
+                      <om:OMV position="2_5_5_5_6_2" name="A"/>
+                    </om:OMA>
+                  </om:OMA>
+                  <om:OMA position="2_5_5_6">
+                    <om:OMS position="2_5_5_6_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_5_5_6_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="id"/>
+                    <om:OMA position="2_5_5_6_2">
+                      <om:OMS position="2_5_5_6_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_5_5_6_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                      <om:OMA position="2_5_5_6_2_2">
+                        <om:OMS position="2_5_5_6_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                        <om:OMS position="2_5_5_6_2_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                        <om:OMV position="2_5_5_6_2_2_2" name="A"/>
+                      </om:OMA>
+                    </om:OMA>
+                  </om:OMA>
+                </om:OMA>
+                <om:OMA position="2_5_6">
+                  <om:OMS position="2_5_6_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_5_6_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="CoCartesianAlt" name="dist2"/>
+                  <om:OMV position="2_5_6_2" name="A"/>
+                  <om:OMA position="2_5_6_3">
+                    <om:OMS position="2_5_6_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_5_6_3_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                    <om:OMV position="2_5_6_3_2" name="A"/>
+                  </om:OMA>
+                  <om:OMA position="2_5_6_4">
+                    <om:OMS position="2_5_6_4_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_5_6_4_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                    <om:OMA position="2_5_6_4_2">
+                      <om:OMS position="2_5_6_4_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_5_6_4_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                      <om:OMV position="2_5_6_4_2_2" name="A"/>
+                    </om:OMA>
+                  </om:OMA>
+                </om:OMA>
+              </om:OMA>
+              <om:OMA position="2_6">
+                <om:OMS position="2_6_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_6_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="CoCartesianAlt" name="+'"/>
+                <om:OMA position="2_6_2">
+                  <om:OMS position="2_6_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_6_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Cartesian" name="*"/>
+                  <om:OMV position="2_6_2_2" name="A"/>
+                  <om:OMA position="2_6_2_3">
+                    <om:OMS position="2_6_2_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_6_2_3_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                    <om:OMA position="2_6_2_3_2">
+                      <om:OMS position="2_6_2_3_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_6_2_3_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                      <om:OMV position="2_6_2_3_2_2" name="A"/>
+                    </om:OMA>
+                  </om:OMA>
+                </om:OMA>
+                <om:OMV position="2_6_3" name="A"/>
+                <om:OMA position="2_6_4">
+                  <om:OMS position="2_6_4_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_6_4_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Cartesian" name="*"/>
+                  <om:OMA position="2_6_4_2">
+                    <om:OMS position="2_6_4_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_6_4_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                    <om:OMV position="2_6_4_2_2" name="A"/>
+                  </om:OMA>
+                  <om:OMA position="2_6_4_3">
+                    <om:OMS position="2_6_4_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_6_4_3_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                    <om:OMA position="2_6_4_3_2">
+                      <om:OMS position="2_6_4_3_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_6_4_3_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                      <om:OMV position="2_6_4_3_2_2" name="A"/>
+                    </om:OMA>
+                  </om:OMA>
+                </om:OMA>
+                <om:OMA position="2_6_5">
+                  <om:OMS position="2_6_5_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_6_5_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Cartesian" name="pi1"/>
+                  <om:OMV position="2_6_5_2" name="A"/>
+                  <om:OMA position="2_6_5_3">
+                    <om:OMS position="2_6_5_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_6_5_3_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                    <om:OMA position="2_6_5_3_2">
+                      <om:OMS position="2_6_5_3_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_6_5_3_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                      <om:OMV position="2_6_5_3_2_2" name="A"/>
+                    </om:OMA>
+                  </om:OMA>
+                </om:OMA>
+                <om:OMA position="2_6_6">
+                  <om:OMS position="2_6_6_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_6_6_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name=";"/>
+                  <om:OMA position="2_6_6_2">
+                    <om:OMS position="2_6_6_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_6_6_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Cartesian" name="*"/>
+                    <om:OMA position="2_6_6_2_2">
+                      <om:OMS position="2_6_6_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_6_6_2_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                      <om:OMV position="2_6_6_2_2_2" name="A"/>
+                    </om:OMA>
+                    <om:OMA position="2_6_6_2_3">
+                      <om:OMS position="2_6_6_2_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_6_6_2_3_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                      <om:OMA position="2_6_6_2_3_2">
+                        <om:OMS position="2_6_6_2_3_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                        <om:OMS position="2_6_6_2_3_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                        <om:OMV position="2_6_6_2_3_2_2" name="A"/>
+                      </om:OMA>
+                    </om:OMA>
+                  </om:OMA>
+                  <om:OMS position="2_6_6_3" base="http://latin.omdoc.org/logics/model_theory/categorical" module="CoCartesianAlt" name="bot"/>
+                  <om:OMV position="2_6_6_4" name="A"/>
+                  <om:OMA position="2_6_6_5">
+                    <om:OMS position="2_6_6_5_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_6_6_5_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="contr"/>
+                    <om:OMA position="2_6_6_5_2">
+                      <om:OMS position="2_6_6_5_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_6_6_5_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                      <om:OMV position="2_6_6_5_2_2" name="A"/>
+                    </om:OMA>
+                  </om:OMA>
+                  <om:OMA position="2_6_6_6">
+                    <om:OMS position="2_6_6_6_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_6_6_6_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="CoCartesianAlt" name="bangbang"/>
+                    <om:OMV position="2_6_6_6_2" name="A"/>
+                  </om:OMA>
+                </om:OMA>
+              </om:OMA>
+            </om:OMA>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </definition>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/model_theory/categorical?Classical?negneg_e" precedence="0" fixity="prefix" arguments="1"/>
+      </notation>
+    </constant>
+    <constant name="rew_negneg_1" role="constructor">
+      <metadata>
+        <meta property="http://purl.org/dc/terms?_?description">
+          <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+            <om:OMSTR>rewrites for negation</om:OMSTR>
+          </om:OMOBJ>
+        </meta>
+      </metadata>
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+              <om:OMS position="2_1" base="http://latin.omdoc.org/logics/syntax" module="DFOL" name="|-"/>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="CatLog" name="~&gt;"/>
+                <om:OMV position="2_2_2" name="A"/>
+                <om:OMV position="2_2_3" name="A"/>
+                <om:OMA position="2_2_4">
+                  <om:OMS position="2_2_4_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_4_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name=";"/>
+                  <om:OMV position="2_2_4_2" name="A"/>
+                  <om:OMA position="2_2_4_3">
+                    <om:OMS position="2_2_4_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_4_3_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                    <om:OMA position="2_2_4_3_2">
+                      <om:OMS position="2_2_4_3_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_2_4_3_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                      <om:OMV position="2_2_4_3_2_2" name="A"/>
+                    </om:OMA>
+                  </om:OMA>
+                  <om:OMV position="2_2_4_4" name="A"/>
+                  <om:OMA position="2_2_4_5">
+                    <om:OMS position="2_2_4_5_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_4_5_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="negneg_i"/>
+                    <om:OMV position="2_2_4_5_2" name="A"/>
+                  </om:OMA>
+                  <om:OMA position="2_2_4_6">
+                    <om:OMS position="2_2_4_6_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_4_6_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Classical" name="negneg_e"/>
+                    <om:OMV position="2_2_4_6_2" name="A"/>
+                  </om:OMA>
+                </om:OMA>
+                <om:OMA position="2_2_5">
+                  <om:OMS position="2_2_5_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_5_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="id"/>
+                  <om:OMV position="2_2_5_2" name="A"/>
+                </om:OMA>
+              </om:OMA>
+            </om:OMA>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/model_theory/categorical?Classical?rew_negneg_1" precedence="0" fixity="prefix" arguments="1"/>
+      </notation>
+    </constant>
+    <constant name="rew_negneg_2" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+              <om:OMS position="2_1" base="http://latin.omdoc.org/logics/syntax" module="DFOL" name="|-"/>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="CatLog" name="~&gt;"/>
+                <om:OMA position="2_2_2">
+                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                  <om:OMA position="2_2_2_2">
+                    <om:OMS position="2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_2_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                    <om:OMV position="2_2_2_2_2" name="A"/>
+                  </om:OMA>
+                </om:OMA>
+                <om:OMA position="2_2_3">
+                  <om:OMS position="2_2_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_3_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                  <om:OMA position="2_2_3_2">
+                    <om:OMS position="2_2_3_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_3_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                    <om:OMV position="2_2_3_2_2" name="A"/>
+                  </om:OMA>
+                </om:OMA>
+                <om:OMA position="2_2_4">
+                  <om:OMS position="2_2_4_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_4_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name=";"/>
+                  <om:OMA position="2_2_4_2">
+                    <om:OMS position="2_2_4_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_4_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                    <om:OMA position="2_2_4_2_2">
+                      <om:OMS position="2_2_4_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_2_4_2_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                      <om:OMV position="2_2_4_2_2_2" name="A"/>
+                    </om:OMA>
+                  </om:OMA>
+                  <om:OMV position="2_2_4_3" name="A"/>
+                  <om:OMA position="2_2_4_4">
+                    <om:OMS position="2_2_4_4_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_4_4_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                    <om:OMA position="2_2_4_4_2">
+                      <om:OMS position="2_2_4_4_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_2_4_4_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                      <om:OMV position="2_2_4_4_2_2" name="A"/>
+                    </om:OMA>
+                  </om:OMA>
+                  <om:OMA position="2_2_4_5">
+                    <om:OMS position="2_2_4_5_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_4_5_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Classical" name="negneg_e"/>
+                    <om:OMV position="2_2_4_5_2" name="A"/>
+                  </om:OMA>
+                  <om:OMA position="2_2_4_6">
+                    <om:OMS position="2_2_4_6_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_4_6_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="negneg_i"/>
+                    <om:OMV position="2_2_4_6_2" name="A"/>
+                  </om:OMA>
+                </om:OMA>
+                <om:OMA position="2_2_5">
+                  <om:OMS position="2_2_5_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_5_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="id"/>
+                  <om:OMA position="2_2_5_2">
+                    <om:OMS position="2_2_5_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_5_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                    <om:OMA position="2_2_5_2_2">
+                      <om:OMS position="2_2_5_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_2_5_2_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"/>
+                      <om:OMV position="2_2_5_2_2_2" name="A"/>
+                    </om:OMA>
+                  </om:OMA>
+                </om:OMA>
+              </om:OMA>
+            </om:OMA>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/model_theory/categorical?Classical?rew_negneg_2" precedence="0" fixity="prefix" arguments="1"/>
+      </notation>
+    </constant>
+  </theory>
+</omdoc>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
+  <theory name="ExpTop" base="http://latin.omdoc.org/category_theory/lf_based" meta="http://cds.omdoc.org/urtheories?LF">
+    <metadata>
+      <meta property="http://purl.org/dc/terms?_?description">
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMSTR>category with exponentials and a top object</om:OMSTR>
+        </om:OMOBJ>
+      </meta>
+    </metadata>
+    <import name="exp" from="http://latin.omdoc.org/category_theory/lf_based?Exponential"> </import>
+    <import name="prod_top" from="http://latin.omdoc.org/category_theory/lf_based?ProdTop">
+      <import name="prod" from="http://latin.omdoc.org/category_theory/lf_based?Product">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/category_theory/lf_based" module="ExpTop" name="exp/prod"/>
+        </definition>
+      </import>
+    </import>
+  </theory>
+</omdoc>

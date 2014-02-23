@@ -1,0 +1,36 @@
+%namespace "http://latin.omdoc.org/logics/proof_theory".
+
+%* In IPL, TND holds for all formulas iff it holds for all atomic formulas *% 
+%sig TND_from_atomic = {
+   %include IPLExt.
+   case_true : ded true or not true = orIl trueI.
+   case_false : ded false or not false = orIr (notI [p] falseE p).
+   case_and : ded F or not F -> ded G or not G -> ded (F and G) or not (F and G)
+       = [p][q] orE p ([r: ded F] orE q ([s: ded G] orIl (andI r s))
+                                        ([s: ded not G] orIr (notI [t: ded F and G] notE s (andEr t)))
+                      )
+                      ([r: ded not F] orIr (notI [t: ded F and G] notE r (andEl t))).
+   case_or : ded F or not F -> ded G or not G -> ded (F or G) or not (F or G)
+       = [p][q] orE p ([r: ded F] or3Il r)
+                      ([r: ded not F] orE q ([s: ded G] or3Im s)
+                                            ([s: ded not G] or3Ir (notI [t: ded F or G] [_] orE t ([u: ded F] notE' u r)
+                                                                                                  ([u: ded G] notE' u s)
+                                            ))
+                      ).
+   case_imp : ded F or not F -> ded G or not G -> ded (F imp G) or not (F imp G)
+       = [p][q] orE p ([r: ded F] orE q ([s: ded G] orIl (impI [_] s)) 
+                                        ([s: ded not G] orIr (notI [t: ded F imp G][_] notE' (impE t r) s))
+                      )
+                      ([r: ded not F] orIl (impI [s: ded F] notE' s r)).
+   case_not : ded F or not F -> ded not F or not (not F) = [p] orE p ([q: ded F] orIr (notnotI q)) ([q: ded not F] orIl q).
+   
+}.
+
+%* the theorem does not extend to first-order logic; we can only prove the following slightly weaker cases *%
+%sig FOL-Counter = {
+   %include IFOLExt.
+   case_forall : ({x} ded P x or not P x) -> ded forall [x] (P x or not forall [y] P y)
+       = [p] forallI [x] or_tensor (p x) ([q: ded P x] q) ([q: ded not P x] notI [r: ded forall [y] P y] notE q (forallE r x)).
+   case_exists : ({x} ded P x or not P x) -> ded forall [x] (not P x or exists [y] P y)
+       = [p] forallI [x] orE (p x) ([q: ded P x] orIr (existsI x q)) ([q: ded not P x] orIl q). 
+}.

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
+  <view 
+  name="Truth" base="http://latin.omdoc.org/logics/soundness" from="http://latin.omdoc.org/logics/proof_theory?Truth" to="http://latin.omdoc.org/foundations/minimal?Bool">
+    <import from="http://latin.omdoc.org/logics/proof_theory?Base">
+      <definition>
+        <om:OMS base="http://latin.omdoc.org/logics/soundness" module="Base"/>
+      </definition>
+    </import>
+    <import from="http://latin.omdoc.org/logics/syntax?Truth">
+      <definition>
+        <om:OMS base="http://latin.omdoc.org/logics/model_theory" module="Truth"/>
+      </definition>
+    </import>
+    <constant name="trueI">
+      <definition>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/logics/proof_theory" module="SEqual" name="refl"/>
+            <om:OMS position="2" base="http://latin.omdoc.org/foundations/minimal" module="Bool" name="bool'"/>
+            <om:OMS position="3" base="http://latin.omdoc.org/foundations/minimal" module="Bool" name="1"/>
+          </om:OMA>
+        </om:OMOBJ>
+      </definition>
+    </constant>
+</view>
+</omdoc>

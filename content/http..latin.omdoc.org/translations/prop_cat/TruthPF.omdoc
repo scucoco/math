@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
+  <view 
+  name="TruthPF" base="http://latin.omdoc.org/translations/prop_cat" from="http://latin.omdoc.org/logics/proof_theory?Truth" to="http://latin.omdoc.org/category_theory/dfol_based?CatTop">
+    <import from="http://latin.omdoc.org/logics/proof_theory?Base">
+      <definition>
+        <om:OMS base="http://latin.omdoc.org/translations/prop_cat" module="BasePF"/>
+      </definition>
+    </import>
+    <import from="http://latin.omdoc.org/logics/syntax?Truth">
+      <definition>
+        <om:OMS base="http://latin.omdoc.org/translations/prop_cat" module="Truth"/>
+      </definition>
+    </import>
+    <constant name="trueI">
+      <definition>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/category_theory/dfol_based" module="CatTop" name="cat/id"/>
+            <om:OMS position="2" base="http://latin.omdoc.org/category_theory/dfol_based" module="CatTop" name="top"/>
+          </om:OMA>
+        </om:OMOBJ>
+      </definition>
+    </constant>
+</view>
+</omdoc>

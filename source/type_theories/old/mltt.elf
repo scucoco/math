@@ -1,0 +1,20 @@
+%* Martin-Löf Type Theory
+   @author Fulya Horozal, Florian Rabe *%
+   
+%namespace "http://latin.omdoc.org/type_theories".
+
+%sig MLTT = { 
+  %include KindsTypesTerms %open.
+  %include UNIT   %open.
+  %include VOID   %open.
+  %include IDENT  %open.
+  %include DUNION %open.
+  %include SIGMA  %open.
+  %include DepTypes %open.
+  %include DepKinds %open.
+}.
+
+%view STT-MLTT : STT -> MLTT = {
+  %include TypesToTypes.
+  %include Product-Sigma.
+}.

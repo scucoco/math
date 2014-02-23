@@ -1,0 +1,102 @@
+%namespace "http://latin.omdoc.org/logics/soundness".
+%namespace pf = "proof_theory".
+%namespace mod = "model_theory".
+%namespace minimal = "../foundations/minimal".
+
+%view Base : pf.Base -> minimal.Bool = {
+  %include mod.Base.
+}.
+
+%view Truth : pf.Truth -> minimal.Bool = {
+  %include Base.
+  %include mod.Truth.
+  trueI := refl.
+}.
+
+%view Falsity : pf.Falsity -> minimal.Bool = {
+  %include Base.
+  %include mod.Falsity.
+  falseE := [p : ded 0 eq 1][A]
+              (falseE' (contra refl p)).
+}.
+
+%view IMP : pf.IMP -> minimal.Bool  = {
+  %include Base.
+  %include mod.IMP.
+  impI := [A][B][p: ded A eq 1 -> ded B eq 1] (
+             imp1I 
+               (orE (boole)
+                  ([q : ded A eq 1] orIr (p q))
+                  ([q : ded A eq 0] orIl q)
+               )
+          ).
+  impE := [A][B][p : ded (A ⇒ B) eq 1][q : ded A eq 1] (
+                orE (boole)
+                   ([r : ded B eq 1] r)
+                   ([r : ded B eq 0] falseE' (contra (imp0I (andI q r)) p))
+          ).
+}.
+
+%view NEG : pf.NEG -> minimal.Bool  = {
+  %include Base.
+  %include mod.NEG.
+  notI := [A][p : ded A eq 1 -> {B} ded B eq 1] (
+             orE (boole)
+                ([q : ded A eq 1] p q (¬ A))
+                ([q : ded A eq 0] not1I q)
+          ).
+  notE := [A] ([q : ded (¬ A) eq 1] [p : ded A eq 1] [B] falseE' (contra (not0I p) q)).
+}.
+
+%view CONJ : pf.CONJ -> minimal.Bool = {
+  %include Base.
+  %include mod.CONJ.
+  andI := [A][B][p : ded A eq 1] [q : ded B eq 1] (
+            and1I (andI p q)).
+  andEl := [A][B][p : ded (A ∧ B) eq 1] andEl (and1E p).
+  andEr := [A][B][p : ded (A ∧ B) eq 1] andEr (and1E p).
+}.
+
+%view DISJ : pf.DISJ -> minimal.Bool = {
+  %include Base.
+  %include mod.DISJ.
+  orIl := [A][B][p : ded A eq 1] (or1I (orIl p)).
+  orIr := [B][A][p : ded B eq 1] or1I (orIr p).
+  orE  := [A][B][C][p : ded (A ∨ B) eq 1] [q : ded A eq 1 -> ded C eq 1][r : ded B eq 1 -> ded C eq 1] (
+            orE (boole) 
+              ([s : ded A eq 1] q s)
+              ([s : ded A eq 0] orE (boole)
+                                ([t : ded B eq 1] r t)
+                                ([t : ded B eq 0] falseE' (contra 
+                                                          (or0I (andI s t)) 
+                                                          p
+                                                       )
+                                )
+              )
+          ).   
+}.
+
+%view TND : pf.TND -> minimal.Bool = {  
+  %include Base.
+  %include NEG.
+  %include DISJ.
+ 
+  tnd := [A] (orE (boole)
+                    ([p : ded A eq 1] or1I (orIl p))
+                    ([p : ded A eq 0] or1I (orIr (not1I p)))
+         ).
+}.
+
+%view IPL : pf.IPL -> minimal.Bool = {
+  %include Truth.
+  %include Falsity.
+  %include NEG.
+  %include IMP.
+  %include CONJ.
+  %include DISJ.
+}.
+
+%view CPL : pf.CPL -> minimal.Bool = {
+  %include IPL.
+  %include TND.
+}.

@@ -1,0 +1,147 @@
+%namespace "http://latin.omdoc.org/foundations/type_theory/church".
+
+%namespace logic = "../../logics/proof_theory".
+%namespace zf = "../zfc".
+
+
+
+%view _UniversalQuantifier : UniversalQuantifier -> zf.TypedZF = {
+   %include _Logic.
+   forall  := [A : i] [F : Elem A -> o] tforall [x : Elem A] (F x).
+   forallI := [A : i][F : Elem A -> o]
+              [p : {a : Elem A} ded (F a)] tforallI p.
+   forallE := [A : i][F : Elem A -> o]
+              [p : ded (tforall F)][a : Elem A] tforallE p a.
+}.
+
+
+
+%view _ExistentialQuantifier : ExistentialQuantifier -> zf.TypedZF = {
+   %include _Logic.
+   exists  := [A : i][F : Elem A -> o] texists [x : Elem A] (F x).
+   existsI := [A : i][F : Elem A -> o]
+              [a : Elem A][p : ded (F a)] texistsI a p.
+   existsE := [A : i][F : Elem A -> o][C : o]
+              [p : ded (texists F)][q : {a : Elem A} ded (F a) -> ded C] 
+              texistsE p q.
+}.
+
+
+
+%view _ConditionalTerms : ConditionalTerms -> zf.TypedZF = {
+    %include _AxiomaticEquality.
+    not := [p] not p.
+    notI := [A : o][p] notI p.
+    notE := [A : o][p][q] notE p q.
+    or := [p][q] p or q.
+    orIl := [A][B][p : ded A] orIl p.
+    orIr := [B][A][p : ded B] orIr p.
+    orE := [A][B][C][p][q][r] orE p q r.
+    and := [p][q] p and q.
+    andI := [A][B][p][q] andI p q.
+    andEl := [A][B][p] andEl p.
+    andEr := [A][B][p] andEr p.
+    case := [F][A][G][p][q][r][s] case p q r s.
+    case1 := [F : o][A : i][G : o][X : ded F -> Elem A][Y : ded G -> Elem A]
+             [P : ded F or G][Q : ded not (F and G)][p : ded F] case1 p.
+    case2 := [G : o][A : i][F : o][X : ded F -> Elem A][Y : ded G -> Elem A]
+             [P : ded F or G][Q : ded not (F and G)][p : ded G] case2 p.
+}.
+
+
+
+%view _Unit : Unit -> zf.TypedZF = {
+    %include _Equality.
+    unit := unit.
+    *    := *.
+    coind := [x] coind x.
+}.
+
+
+
+%view _Void : Void -> zf.TypedZF = {
+    %include _Logic.
+    void := empty.
+    ind := [X : Elem empty] notE  (forallE empty_prop (which X))
+                                  (why X).
+}.
+
+
+
+%view _NonEmpty : NonEmpty -> zf.TypedZF = {
+    %include _IndexedUniverse.
+    nonempty := [A : i] ded nonempty A.
+    nonemptyI := [A : i][X : Elem A] nonemptyI (why X).
+}.
+
+
+%view _DisjUnion : DisjUnion -> zf.TypedZF = {
+    %include _Equality.
+    %include _Logic.
+    disjUnion := [A][B] A disjUnion B.
+    Injl := [A : i][B : i][X : Elem A] Injl X.
+    Injr := [B : i][A : i][X : Elem B] Injr X.
+    Case := [A : i][B : i][C : i][D : DisjUnion A B]
+            [F : Elem A -> Elem C][G : Elem B -> Elem C] 
+            Case D F G.
+    conv_Injl := [A : i][B : i][C : i][X : Elem B]
+                 [F : Elem B -> Elem A][G : Elem C -> Elem A] conv_Injl.
+    conv_Injr := [A : i][B : i][C : i][X : Elem C]
+                 [F : Elem B -> Elem A][G : Elem C -> Elem A] conv_Injr.
+    DisjUnionE := [A : i][B : i][C : o][X : DisjUnion A B]
+                  [p : {a : Elem A} ded X Eq (Injl a) -> ded C]
+                  [q : {b : Elem B} ded X Eq (Injr b) -> ded C]
+                  DisjUnionE X p q.
+    conv_Case := [A : i][B : i][X : DisjUnion A B]
+                 DisjUnionE X ([a][q] trans3 (EqCongF ([x] Case x Injl Injr) q) conv_Injl (sym q))
+                              ([a][q] trans3 (EqCongF ([x] Case x Injl Injr) q) conv_Injr (sym q)).
+}.
+
+
+%view _Functions : Functions -> zf.Boolean = {
+    %include _InternalEquality.
+    → := [A : i][B : i] Func A B.
+    λ := [A : i][B :i][F : Elem A -> Elem B] Lambda F.
+    @ := [A : i][B :i][F : Func A B][X : Elem A] Apply F A.
+    beta := beta.
+    extensionality := [A : i][F : {a : Elem A} ded (Apply F a) == (Apply G a)] extensionality F.
+    eqapp := [A : i][B : i][F : Func A B][G : Func A B][S : Func A B][T : Func A B]
+         [p : ded F == G][q : ded S == T] eqapp p q.
+}.
+
+%view _Products : Products -> zf.TypedZF = {
+    %include _Equality.
+    prod := [A : i][B : i] A prod B.
+    Pair := [A : i][B : i][X : Elem A][Y : Elem B] Pair X Y. 
+    Pi1 := [A : i][B :i][X : Prod A B] Pi1 X.
+    Pi2 := [A : i][B :i][X : Prod A B] Pi2 X.
+    conv_Pi1 := [A : i][B : i][X : Elem A][Y : Elem B] conv_Pi1.
+    conv_Pi2 := [A : i][B : i][X : Elem B][Y : Elem A] conv_Pi2.
+    conv_Pair := [A : i][B : i][U : Prod A B] conv_Pair.
+    eq_Prod := [A : i][B : i][U : Prod A B][V : Prod A B]
+               [p : ded Pi1 U Eq Pi1 V][q : ded Pi2 U Eq Pi2 V] 
+               eq_Prod p q.
+    inj_Pair1 := [A : i][B : i][S : Elem A][T : Elem B][X : Elem A][Y : Elem B]
+                 [p : ded (Pair S T) Eq (Pair X Y)] 
+                 inj_Pair1 p.
+    inj_Pair2 := [A : i][B : i][S : Elem A][T : Elem B][X : Elem A][Y : Elem B]
+                 [p : ded (Pair S T) Eq (Pair X Y)] 
+                 inj_Pair2 p.
+}.
+
+
+
+%view _Option : OptionTypes -> zf.Option = {
+    %include _AxiomaticEquality.
+    option := [A : i] option A.
+    some := [A : i][X : Elem A] some X.
+    none := [A : i] none.    
+    free_some := [A : i][X : Elem A][Y : Elem A][p : ded (some X) Eq (some Y)] free_some p.
+    free_some_none := [A : i][X : Elem A][p : ded (some X) Eq none] 
+                      notE free_some_none p.
+    induct_proof := [A : i][P : Option A -> o]
+                    [p : {a : Elem A} ded (P (some a))][q : ded (P none)] 
+                    tforallE (induct_proof p q).
+    induct_def := [A : i][B : i][F : Elem A -> Elem B][b : Elem B][a : Option A] 
+                  induct_def F b a.
+}.

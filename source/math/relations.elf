@@ -1,0 +1,58 @@
+%*
+  theories for a binary relation on a universe
+  This includes theories that use equality but not those that require logic (e.g., disjuntion, negation)
+  @author: Florian Rabe
+*%
+
+%namespace "http://latin.omdoc.org/math".
+
+%sig Preorder = {
+   %meta Universe.
+   %include Relation %open r %as ≤.
+   %include Reflexive.
+   %include Transitive.
+}.
+
+%sig Antisymmetric = {
+   %meta EqUniverse.
+   %include Relation.
+   antisym : X r Y -> Y r X -> X == Y.
+}.
+
+%sig Order = {
+   %meta EqUniverse.
+   %include Preorder.
+   %include Antisymmetric.
+}.
+
+%sig Top = {
+   %meta Universe.
+   %include Relation.
+   top : u.
+   bound : X r top.
+}.
+
+%sig Bottom = {
+   %meta Universe.
+   %include Relation.
+   bot : u.
+   bound : bot r X.
+}.
+
+%sig Supremum = {
+   %meta Universe.
+   %include Order.
+   ⊔ : u -> u -> u.          %infix left 100 ⊔.
+   upperL : X ≤ X ⊔ Y.
+   upperR : Y ≤ X ⊔ Y.
+   least : X ≤ Z -> Y ≤ Z -> X ⊔ Y ≤ Z.
+}.
+
+%sig Infimum = {
+   %meta Universe.
+   %include Order.
+   ⊓ : u -> u -> u.          %infix left 100 ⊓.
+   lowerL : X ⊓ Y ≤ X .
+   lowerR : X ⊓ Y ≤ Y.
+   greatest : Z ≤ X -> Z ≤ Y -> Z ≤ X ⊓ Y.
+}.

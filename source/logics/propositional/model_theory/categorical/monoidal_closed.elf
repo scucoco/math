@@ -1,0 +1,30 @@
+%* Categorical Logic signature for monoidal closed categories
+   model theory of linear implication in the presence of multiplicative truth and conjunction
+   @author Florian Rabe, Valeria dePaiva, Till Mossakowski *%
+
+%namespace "http://latin.omdoc.org/logics/model_theory/categorical".
+
+
+%sig MonoidalClosed = {
+   %include CatLog.
+   %include Monoidal.
+
+   %* linear implication *%
+   ⊸ : Ob -> Ob -> Ob.                              %infix left 18 ⊸.
+   
+   %% morphisms
+   lin_eval : {B: Ob} {C: Ob} (B ⊸ C) ⊗ B => C.
+   lin_curry : A ⊗ B => C  ->  A => (B ⊸ C).
+   
+   %% rewrites
+   rew_adj_1 : |- forall [f: A ⊗ B => C] (lin_curry f) ⊗⊗ id B ; (lin_eval B C) ~> f.
+   rew_adj_2 : |- forall [f: A => B ⊸ C] lin_curry (f ⊗⊗ id B ; lin_eval B C) ~> f.
+   
+   %% morphisms exists iff ⊸ is provable
+   name : A => B -> I => (A ⊸ B) = [f] lin_curry (leftI A ; f).
+   unname : I => (A ⊸ B) -> A => B = [f] leftI-inv A ; f ⊗⊗ (id A) ; lin_eval A B.
+   
+   %* Law for designated truth values in linear logics *%
+   law_des_lin : |- Des == I.
+}.
+

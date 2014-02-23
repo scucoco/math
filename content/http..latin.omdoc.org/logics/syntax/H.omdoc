@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
+  <theory name="H" base="http://latin.omdoc.org/logics/syntax" meta="http://cds.omdoc.org/urtheories?LF">
+    <import from="http://latin.omdoc.org/logics/syntax?DLBase"> </import>
+    <constant name="sub" role="type">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/logics/syntax" module="DLBase" name="role"/>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+              <om:OMS position="2_1" base="http://latin.omdoc.org/logics/syntax" module="DLBase" name="role"/>
+              <om:OMS position="2_2" base="http://cds.omdoc.org/urtheories" module="Typed" name="type"/>
+            </om:OMA>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+    </constant>
+  </theory>
+</omdoc>

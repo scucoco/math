@@ -1,0 +1,88 @@
+%* @author Fulya Horozal and Florian Rabe *%
+
+%namespace "http://latin.omdoc.org/logics/proof_theory".
+%namespace syn = "syntax".
+%namespace math = "../math".
+
+%sig BaseFOL = {
+  %include Base.
+  %include syn.UniverseLogic.
+}.
+
+%sig Forall = {
+  %include BaseFOL.
+  %include syn.Forall. 
+  forallI : ({x:i} ded (F x)) -> ded (forall [x] F x).
+  forallE : ded (forall [x] F x) -> {c:i} ded (F c).
+}.
+
+%sig Exists = {
+  %include BaseFOL.
+  %include syn.Exists. 
+  existsI : {x:i} ded (F x) -> ded (exists [x] F x).
+  existsE : ded (exists [x] F x) -> ({y:i} ded (F y) -> ded G) -> ded G.
+}.
+
+%sig Equal = {
+  %include BaseFOL.
+  %include syn.Equal.
+  %struct equniv: math.EqUniverse = {%include math.Universe. %struct eq..math.Relation := syn.RelationInLogic relation.} %open refl sym trans trans3 trans4 cong cong2.
+  congF : ded X eq Y -> {F : i -> i} ded (F X) eq (F Y).
+  congP : ded X eq Y -> {F : i -> o} ded (F X) -> ded (F Y).
+}.
+
+%sig TNDEq = {
+   %include Equal.
+   %include NEG.
+   %include DISJ.
+   eq_tnd : ded X eq Y or not X eq Y.
+}.
+
+%view __ : TNDEq -> TND Equal = {eq_tnd := [X][Y] tnd.}. 
+
+%sig EqLogic = {
+   %include syn.UniverseLogic.
+   %include Equal.
+}.
+
+%sig InEqLogic = {
+   %include EqLogic.
+   %include NEG.
+   %struct ineq : syn.RelationLogic = {rel := [x][y] not x eq y.} %open rel %as != rel^ %as !=^.
+   !=_sym : ded X != Y -> ded Y != X.
+}.
+
+%sig IFOL = {
+  %include IPL.
+  %include Forall.
+  %include Exists.
+  %sig Classical = {
+     %include TND.
+  }.
+}.
+
+%sig IFOLEQ = {
+  %include IFOL.
+  %include Equal.
+
+  %sig ClassicalEq = {
+      %include TNDEq.
+  }.
+}.
+
+%sig FOL = {
+ %include IFOL.
+ %include Classical.
+ non_empty_universe : ded exists [x] true.
+}.
+
+%sig FOLEQ = {
+  %include FOL.
+  %include syn.FOLEQ.
+  %include IFOLEQ.
+  =>  = [x][y] x imp y.         %infix right 5 =>.
+  <=> = [x][y]((x => y) and (y => x)).
+                                 %infix none 4 <=>.
+  !=  = [x][y] not (x == y).    %infix none 30 !=.
+  |-  = [x] ded x.              %prefix 0 |-.
+}.

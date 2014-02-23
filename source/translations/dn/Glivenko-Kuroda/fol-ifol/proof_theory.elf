@@ -1,0 +1,44 @@
+%namespace "http://latin.omdoc.org/translations/fol_ifol".
+%namespace prop_iprop = "prop_iprop".
+%namespace pf = "../logics/proof_theory".
+
+
+%view BaseFOLPF : pf.BaseFOL -> DN-IFOL = {
+   %include prop_iprop.BasePF.
+   %include UniverseLogic.
+}.
+
+
+%view ExistsPF : pf.Exists -> DN-IFOL = {
+      %include BaseFOLPF.
+      %include Exists.
+      existsE := [F: i -> o][C][p: ded nn (exists [x] F x)]
+                 [q: {x:i} ded nn (F x) -> ded nn C]
+                 notI [r: ded(not C)]
+                 notE p (notI [s: ded exists [x] F x][D]
+                         existsE s ([y: i][u: ded (F y)]
+                                    notE ((q y) (notnotI u)) r D)).
+      existsI := [F: i -> o][y: i][p: ded nn (F y)]
+                 notI [q: ded not (exists [x] F x)]
+                 notE p ((forallE (nexistsE q)) y).
+}.
+
+%view ForallPF : pf.Forall -> DN-IFOL = {
+    %include BaseFOLPF.
+    %include Forall.
+    forallI := [F: i -> o][p: {x:i} ded nn (F x)]
+               notI [q: ded not (forall [x] nn (F x))]
+               notE q (forallI p).
+    forallE := [F: i -> o][p: ded nn (forall [x] nn (F x))][a:i]
+               notI [q: ded(not (F a))]
+               notE p (notI [r: ded forall [x] nn (F x)]
+                       notE ((forallE r) a) q).
+
+}.  
+
+%view IFOLPF : pf.IFOL -> DN-IFOL = {
+   %include prop_iprop.IPLPF.
+   %include ForallPF.
+   %include ExistsPF.
+}.
+

@@ -1,0 +1,2155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
+  <theory name="PLExt" base="http://latin.omdoc.org/logics/proof_theory" meta="http://cds.omdoc.org/urtheories?LF">
+    <import from="http://latin.omdoc.org/logics/proof_theory?CPL"> </import>
+    <import from="http://latin.omdoc.org/logics/proof_theory?IPLExt"> </import>
+    <constant name="nnotE" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+              <om:OMA position="2_1">
+                <om:OMS position="2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_1_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                <om:OMA position="2_1_2">
+                  <om:OMS position="2_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_1_2_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                  <om:OMA position="2_1_2_2">
+                    <om:OMS position="2_1_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_1_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                    <om:OMV position="2_1_2_2_2" name="A"/>
+                  </om:OMA>
+                </om:OMA>
+              </om:OMA>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                <om:OMV position="2_2_2" name="A"/>
+              </om:OMA>
+            </om:OMA>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </type>
+      <definition>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="p">
+                  <type>
+                    <om:OMA position="2_0_1">
+                      <om:OMS position="2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_0_1_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                      <om:OMA position="2_0_1_2">
+                        <om:OMS position="2_0_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                        <om:OMS position="2_0_1_2_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                        <om:OMA position="2_0_1_2_2">
+                          <om:OMS position="2_0_1_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                          <om:OMS position="2_0_1_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                          <om:OMV position="2_0_1_2_2_2" name="A"/>
+                        </om:OMA>
+                      </om:OMA>
+                    </om:OMA>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/proof_theory" module="DISJ" name="orE"/>
+                <om:OMV position="2_2_2" name="A"/>
+                <om:OMA position="2_2_3">
+                  <om:OMS position="2_2_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_3_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                  <om:OMV position="2_2_3_2" name="A"/>
+                </om:OMA>
+                <om:OMV position="2_2_4" name="A"/>
+                <om:OMA position="2_2_5">
+                  <om:OMS position="2_2_5_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_5_1" base="http://latin.omdoc.org/logics/proof_theory" module="TND" name="tnd"/>
+                  <om:OMV position="2_2_5_2" name="A"/>
+                </om:OMA>
+                <om:OMBIND position="2_2_6">
+                  <om:OMS position="2_2_6_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+                  <om:OMBVAR>
+                    <om:OMV position="2_2_6_0" name="q">
+                      <type>
+                        <om:OMA position="2_2_6_0_1">
+                          <om:OMS position="2_2_6_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                          <om:OMS position="2_2_6_0_1_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                          <om:OMV position="2_2_6_0_1_2" name="A"/>
+                        </om:OMA>
+                      </type>
+                      <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                        <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                      </attribution>
+                    </om:OMV>
+                  </om:OMBVAR>
+                  <om:OMV position="2_2_6_2" name="q"/>
+                </om:OMBIND>
+                <om:OMBIND position="2_2_7">
+                  <om:OMS position="2_2_7_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+                  <om:OMBVAR>
+                    <om:OMV position="2_2_7_0" name="q">
+                      <type>
+                        <om:OMA position="2_2_7_0_1">
+                          <om:OMS position="2_2_7_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                          <om:OMS position="2_2_7_0_1_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                          <om:OMA position="2_2_7_0_1_2">
+                            <om:OMS position="2_2_7_0_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                            <om:OMS position="2_2_7_0_1_2_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                            <om:OMV position="2_2_7_0_1_2_2" name="A"/>
+                          </om:OMA>
+                        </om:OMA>
+                      </type>
+                      <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                        <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                      </attribution>
+                    </om:OMV>
+                  </om:OMBVAR>
+                  <om:OMA position="2_2_7_2">
+                    <om:OMS position="2_2_7_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_7_2_1" base="http://latin.omdoc.org/logics/proof_theory" module="NEGExt" name="notE'"/>
+                    <om:OMA position="2_2_7_2_2">
+                      <om:OMS position="2_2_7_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_2_7_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                      <om:OMV position="2_2_7_2_2_2" name="A"/>
+                    </om:OMA>
+                    <om:OMV position="2_2_7_2_3" name="A"/>
+                    <om:OMV position="2_2_7_2_4" name="q"/>
+                    <om:OMV position="2_2_7_2_5" name="p"/>
+                  </om:OMA>
+                </om:OMBIND>
+              </om:OMA>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </definition>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/proof_theory?PLExt?nnotE" precedence="0" fixity="prefix" arguments="1"/>
+      </notation>
+    </constant>
+    <constant name="indir" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+              <om:OMA position="2_1">
+                <om:OMS position="2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                <om:OMA position="2_1_1">
+                  <om:OMS position="2_1_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_1_1_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                  <om:OMA position="2_1_1_2">
+                    <om:OMS position="2_1_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_1_1_2_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                    <om:OMV position="2_1_1_2_2" name="A"/>
+                  </om:OMA>
+                </om:OMA>
+                <om:OMBIND position="2_1_2">
+                  <om:OMS position="2_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+                  <om:OMBVAR>
+                    <om:OMV position="2_1_2_0" name="B">
+                      <type>
+                        <om:OMS position="2_1_2_0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                      </type>
+                      <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                        <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                      </attribution>
+                    </om:OMV>
+                  </om:OMBVAR>
+                  <om:OMA position="2_1_2_2">
+                    <om:OMS position="2_1_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_1_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                    <om:OMV position="2_1_2_2_2" name="B"/>
+                  </om:OMA>
+                </om:OMBIND>
+              </om:OMA>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                <om:OMV position="2_2_2" name="A"/>
+              </om:OMA>
+            </om:OMA>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </type>
+      <definition>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="f">
+                  <type>
+                    <om:OMA position="2_0_1">
+                      <om:OMS position="2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                      <om:OMA position="2_0_1_1">
+                        <om:OMS position="2_0_1_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                        <om:OMS position="2_0_1_1_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                        <om:OMA position="2_0_1_1_2">
+                          <om:OMS position="2_0_1_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                          <om:OMS position="2_0_1_1_2_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                          <om:OMV position="2_0_1_1_2_2" name="A"/>
+                        </om:OMA>
+                      </om:OMA>
+                      <om:OMBIND position="2_0_1_2">
+                        <om:OMS position="2_0_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+                        <om:OMBVAR>
+                          <om:OMV position="2_0_1_2_0" name="B">
+                            <type>
+                              <om:OMS position="2_0_1_2_0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                            </type>
+                            <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                            </attribution>
+                          </om:OMV>
+                        </om:OMBVAR>
+                        <om:OMA position="2_0_1_2_2">
+                          <om:OMS position="2_0_1_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                          <om:OMS position="2_0_1_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                          <om:OMV position="2_0_1_2_2_2" name="B"/>
+                        </om:OMA>
+                      </om:OMBIND>
+                    </om:OMA>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/proof_theory" module="PLExt" name="nnotE"/>
+                <om:OMV position="2_2_2" name="A"/>
+                <om:OMA position="2_2_3">
+                  <om:OMS position="2_2_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_3_1" base="http://latin.omdoc.org/logics/proof_theory" module="NEG" name="notI"/>
+                  <om:OMA position="2_2_3_2">
+                    <om:OMS position="2_2_3_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_3_2_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                    <om:OMV position="2_2_3_2_2" name="A"/>
+                  </om:OMA>
+                  <om:OMBIND position="2_2_3_3">
+                    <om:OMS position="2_2_3_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+                    <om:OMBVAR>
+                      <om:OMV position="2_2_3_3_0" name="p">
+                        <type>
+                          <om:OMA position="2_2_3_3_0_1">
+                            <om:OMS position="2_2_3_3_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                            <om:OMS position="2_2_3_3_0_1_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                            <om:OMA position="2_2_3_3_0_1_2">
+                              <om:OMS position="2_2_3_3_0_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                              <om:OMS position="2_2_3_3_0_1_2_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                              <om:OMV position="2_2_3_3_0_1_2_2" name="A"/>
+                            </om:OMA>
+                          </om:OMA>
+                        </type>
+                        <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                          <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                        </attribution>
+                      </om:OMV>
+                    </om:OMBVAR>
+                    <om:OMBIND position="2_2_3_3_2">
+                      <om:OMS position="2_2_3_3_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+                      <om:OMBVAR>
+                        <om:OMV position="2_2_3_3_2_0" name="B">
+                          <type>
+                            <om:OMS position="2_2_3_3_2_0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                          </type>
+                          <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                            <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                          </attribution>
+                        </om:OMV>
+                      </om:OMBVAR>
+                      <om:OMA position="2_2_3_3_2_2">
+                        <om:OMS position="2_2_3_3_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                        <om:OMV position="2_2_3_3_2_2_1" name="f"/>
+                        <om:OMV position="2_2_3_3_2_2_2" name="p"/>
+                        <om:OMV position="2_2_3_3_2_2_3" name="B"/>
+                      </om:OMA>
+                    </om:OMBIND>
+                  </om:OMBIND>
+                </om:OMA>
+              </om:OMA>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </definition>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/proof_theory?PLExt?indir" precedence="0" fixity="prefix" arguments="1"/>
+      </notation>
+    </constant>
+    <constant name="orEl" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="B">
+                  <type>
+                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                <om:OMA position="2_2_1">
+                  <om:OMS position="2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_1_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                  <om:OMA position="2_2_1_2">
+                    <om:OMS position="2_2_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_1_2_1" base="http://latin.omdoc.org/logics/syntax" module="DISJ" name="or"/>
+                    <om:OMV position="2_2_1_2_2" name="A"/>
+                    <om:OMV position="2_2_1_2_3" name="B"/>
+                  </om:OMA>
+                </om:OMA>
+                <om:OMA position="2_2_2">
+                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                  <om:OMA position="2_2_2_1">
+                    <om:OMS position="2_2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_2_1_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                    <om:OMA position="2_2_2_1_2">
+                      <om:OMS position="2_2_2_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_2_2_1_2_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                      <om:OMV position="2_2_2_1_2_2" name="A"/>
+                    </om:OMA>
+                  </om:OMA>
+                  <om:OMA position="2_2_2_2">
+                    <om:OMS position="2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                    <om:OMV position="2_2_2_2_2" name="B"/>
+                  </om:OMA>
+                </om:OMA>
+              </om:OMA>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </type>
+      <definition>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="B">
+                  <type>
+                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMBIND position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+                <om:OMBVAR>
+                  <om:OMV position="2_2_0" name="p">
+                    <type>
+                      <om:OMA position="2_2_0_1">
+                        <om:OMS position="2_2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                        <om:OMS position="2_2_0_1_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                        <om:OMA position="2_2_0_1_2">
+                          <om:OMS position="2_2_0_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                          <om:OMS position="2_2_0_1_2_1" base="http://latin.omdoc.org/logics/syntax" module="DISJ" name="or"/>
+                          <om:OMV position="2_2_0_1_2_2" name="A"/>
+                          <om:OMV position="2_2_0_1_2_3" name="B"/>
+                        </om:OMA>
+                      </om:OMA>
+                    </type>
+                    <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                      <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                    </attribution>
+                  </om:OMV>
+                </om:OMBVAR>
+                <om:OMBIND position="2_2_2">
+                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+                  <om:OMBVAR>
+                    <om:OMV position="2_2_2_0" name="q">
+                      <type>
+                        <om:OMA position="2_2_2_0_1">
+                          <om:OMS position="2_2_2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                          <om:OMS position="2_2_2_0_1_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                          <om:OMA position="2_2_2_0_1_2">
+                            <om:OMS position="2_2_2_0_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                            <om:OMS position="2_2_2_0_1_2_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                            <om:OMV position="2_2_2_0_1_2_2" name="A"/>
+                          </om:OMA>
+                        </om:OMA>
+                      </type>
+                      <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                        <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                      </attribution>
+                    </om:OMV>
+                  </om:OMBVAR>
+                  <om:OMA position="2_2_2_2">
+                    <om:OMS position="2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_2_2_1" base="http://latin.omdoc.org/logics/proof_theory" module="DISJ" name="orE"/>
+                    <om:OMV position="2_2_2_2_2" name="A"/>
+                    <om:OMV position="2_2_2_2_3" name="B"/>
+                    <om:OMV position="2_2_2_2_4" name="B"/>
+                    <om:OMV position="2_2_2_2_5" name="p"/>
+                    <om:OMBIND position="2_2_2_2_6">
+                      <om:OMS position="2_2_2_2_6_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+                      <om:OMBVAR>
+                        <om:OMV position="2_2_2_2_6_0" name="r">
+                          <type>
+                            <om:OMA position="2_2_2_2_6_0_1">
+                              <om:OMS position="2_2_2_2_6_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                              <om:OMS position="2_2_2_2_6_0_1_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                              <om:OMV position="2_2_2_2_6_0_1_2" name="A"/>
+                            </om:OMA>
+                          </type>
+                          <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                            <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                          </attribution>
+                        </om:OMV>
+                      </om:OMBVAR>
+                      <om:OMA position="2_2_2_2_6_2">
+                        <om:OMS position="2_2_2_2_6_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                        <om:OMS position="2_2_2_2_6_2_1" base="http://latin.omdoc.org/logics/proof_theory" module="NEG" name="notE"/>
+                        <om:OMV position="2_2_2_2_6_2_2" name="A"/>
+                        <om:OMV position="2_2_2_2_6_2_3" name="q"/>
+                        <om:OMV position="2_2_2_2_6_2_4" name="r"/>
+                        <om:OMV position="2_2_2_2_6_2_5" name="B"/>
+                      </om:OMA>
+                    </om:OMBIND>
+                    <om:OMBIND position="2_2_2_2_7">
+                      <om:OMS position="2_2_2_2_7_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+                      <om:OMBVAR>
+                        <om:OMV position="2_2_2_2_7_0" name="r">
+                          <type>
+                            <om:OMA position="2_2_2_2_7_0_1">
+                              <om:OMS position="2_2_2_2_7_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                              <om:OMS position="2_2_2_2_7_0_1_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                              <om:OMV position="2_2_2_2_7_0_1_2" name="B"/>
+                            </om:OMA>
+                          </type>
+                          <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                            <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                          </attribution>
+                        </om:OMV>
+                      </om:OMBVAR>
+                      <om:OMV position="2_2_2_2_7_2" name="r"/>
+                    </om:OMBIND>
+                  </om:OMA>
+                </om:OMBIND>
+              </om:OMBIND>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </definition>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/proof_theory?PLExt?orEl" precedence="0" fixity="prefix" arguments="2"/>
+      </notation>
+    </constant>
+    <constant name="orEr" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="B">
+                  <type>
+                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                <om:OMA position="2_2_1">
+                  <om:OMS position="2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_1_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                  <om:OMA position="2_2_1_2">
+                    <om:OMS position="2_2_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_1_2_1" base="http://latin.omdoc.org/logics/syntax" module="DISJ" name="or"/>
+                    <om:OMV position="2_2_1_2_2" name="A"/>
+                    <om:OMV position="2_2_1_2_3" name="B"/>
+                  </om:OMA>
+                </om:OMA>
+                <om:OMA position="2_2_2">
+                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                  <om:OMA position="2_2_2_1">
+                    <om:OMS position="2_2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_2_1_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                    <om:OMA position="2_2_2_1_2">
+                      <om:OMS position="2_2_2_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_2_2_1_2_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                      <om:OMV position="2_2_2_1_2_2" name="B"/>
+                    </om:OMA>
+                  </om:OMA>
+                  <om:OMA position="2_2_2_2">
+                    <om:OMS position="2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                    <om:OMV position="2_2_2_2_2" name="A"/>
+                  </om:OMA>
+                </om:OMA>
+              </om:OMA>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </type>
+      <definition>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="B">
+                  <type>
+                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMBIND position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+                <om:OMBVAR>
+                  <om:OMV position="2_2_0" name="p">
+                    <type>
+                      <om:OMA position="2_2_0_1">
+                        <om:OMS position="2_2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                        <om:OMS position="2_2_0_1_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                        <om:OMA position="2_2_0_1_2">
+                          <om:OMS position="2_2_0_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                          <om:OMS position="2_2_0_1_2_1" base="http://latin.omdoc.org/logics/syntax" module="DISJ" name="or"/>
+                          <om:OMV position="2_2_0_1_2_2" name="A"/>
+                          <om:OMV position="2_2_0_1_2_3" name="B"/>
+                        </om:OMA>
+                      </om:OMA>
+                    </type>
+                    <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                      <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                    </attribution>
+                  </om:OMV>
+                </om:OMBVAR>
+                <om:OMBIND position="2_2_2">
+                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+                  <om:OMBVAR>
+                    <om:OMV position="2_2_2_0" name="q">
+                      <type>
+                        <om:OMA position="2_2_2_0_1">
+                          <om:OMS position="2_2_2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                          <om:OMS position="2_2_2_0_1_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                          <om:OMA position="2_2_2_0_1_2">
+                            <om:OMS position="2_2_2_0_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                            <om:OMS position="2_2_2_0_1_2_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                            <om:OMV position="2_2_2_0_1_2_2" name="B"/>
+                          </om:OMA>
+                        </om:OMA>
+                      </type>
+                      <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                        <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                      </attribution>
+                    </om:OMV>
+                  </om:OMBVAR>
+                  <om:OMA position="2_2_2_2">
+                    <om:OMS position="2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_2_2_1" base="http://latin.omdoc.org/logics/proof_theory" module="PLExt" name="orEl"/>
+                    <om:OMV position="2_2_2_2_2" name="B"/>
+                    <om:OMV position="2_2_2_2_3" name="A"/>
+                    <om:OMA position="2_2_2_2_4">
+                      <om:OMS position="2_2_2_2_4_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_2_2_2_4_1" base="http://latin.omdoc.org/logics/proof_theory" module="DISJExt" name="or_comm"/>
+                      <om:OMV position="2_2_2_2_4_2" name="A"/>
+                      <om:OMV position="2_2_2_2_4_3" name="B"/>
+                      <om:OMV position="2_2_2_2_4_4" name="p"/>
+                    </om:OMA>
+                    <om:OMV position="2_2_2_2_5" name="q"/>
+                  </om:OMA>
+                </om:OMBIND>
+              </om:OMBIND>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </definition>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/proof_theory?PLExt?orEr" precedence="0" fixity="prefix" arguments="2"/>
+      </notation>
+    </constant>
+    <constant name="norEl" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="B">
+                  <type>
+                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                <om:OMA position="2_2_1">
+                  <om:OMS position="2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_1_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                  <om:OMA position="2_2_1_2">
+                    <om:OMS position="2_2_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_1_2_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                    <om:OMA position="2_2_1_2_2">
+                      <om:OMS position="2_2_1_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_2_1_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="DISJ" name="or"/>
+                      <om:OMV position="2_2_1_2_2_2" name="A"/>
+                      <om:OMV position="2_2_1_2_2_3" name="B"/>
+                    </om:OMA>
+                  </om:OMA>
+                </om:OMA>
+                <om:OMA position="2_2_2">
+                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                  <om:OMA position="2_2_2_2">
+                    <om:OMS position="2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                    <om:OMV position="2_2_2_2_2" name="A"/>
+                  </om:OMA>
+                </om:OMA>
+              </om:OMA>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </type>
+      <definition>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="B">
+                  <type>
+                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMBIND position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+                <om:OMBVAR>
+                  <om:OMV position="2_2_0" name="p">
+                    <type>
+                      <om:OMA position="2_2_0_1">
+                        <om:OMS position="2_2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                        <om:OMS position="2_2_0_1_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                        <om:OMA position="2_2_0_1_2">
+                          <om:OMS position="2_2_0_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                          <om:OMS position="2_2_0_1_2_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                          <om:OMA position="2_2_0_1_2_2">
+                            <om:OMS position="2_2_0_1_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                            <om:OMS position="2_2_0_1_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="DISJ" name="or"/>
+                            <om:OMV position="2_2_0_1_2_2_2" name="A"/>
+                            <om:OMV position="2_2_0_1_2_2_3" name="B"/>
+                          </om:OMA>
+                        </om:OMA>
+                      </om:OMA>
+                    </type>
+                    <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                      <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                    </attribution>
+                  </om:OMV>
+                </om:OMBVAR>
+                <om:OMA position="2_2_2">
+                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/logics/proof_theory" module="NEG" name="notI"/>
+                  <om:OMV position="2_2_2_2" name="A"/>
+                  <om:OMBIND position="2_2_2_3">
+                    <om:OMS position="2_2_2_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+                    <om:OMBVAR>
+                      <om:OMV position="2_2_2_3_0" name="q">
+                        <type>
+                          <om:OMA position="2_2_2_3_0_1">
+                            <om:OMS position="2_2_2_3_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                            <om:OMS position="2_2_2_3_0_1_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                            <om:OMV position="2_2_2_3_0_1_2" name="A"/>
+                          </om:OMA>
+                        </type>
+                        <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                          <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                        </attribution>
+                      </om:OMV>
+                    </om:OMBVAR>
+                    <om:OMBIND position="2_2_2_3_2">
+                      <om:OMS position="2_2_2_3_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+                      <om:OMBVAR>
+                        <om:OMV position="2_2_2_3_2_0" name="F">
+                          <type>
+                            <om:OMS position="2_2_2_3_2_0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                          </type>
+                          <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                            <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                          </attribution>
+                        </om:OMV>
+                      </om:OMBVAR>
+                      <om:OMA position="2_2_2_3_2_2">
+                        <om:OMS position="2_2_2_3_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                        <om:OMS position="2_2_2_3_2_2_1" base="http://latin.omdoc.org/logics/proof_theory" module="NEG" name="notE"/>
+                        <om:OMA position="2_2_2_3_2_2_2">
+                          <om:OMS position="2_2_2_3_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                          <om:OMS position="2_2_2_3_2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="DISJ" name="or"/>
+                          <om:OMV position="2_2_2_3_2_2_2_2" name="A"/>
+                          <om:OMV position="2_2_2_3_2_2_2_3" name="B"/>
+                        </om:OMA>
+                        <om:OMV position="2_2_2_3_2_2_3" name="p"/>
+                        <om:OMA position="2_2_2_3_2_2_4">
+                          <om:OMS position="2_2_2_3_2_2_4_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                          <om:OMS position="2_2_2_3_2_2_4_1" base="http://latin.omdoc.org/logics/proof_theory" module="DISJ" name="orIl"/>
+                          <om:OMV position="2_2_2_3_2_2_4_2" name="A"/>
+                          <om:OMV position="2_2_2_3_2_2_4_3" name="B"/>
+                          <om:OMV position="2_2_2_3_2_2_4_4" name="q"/>
+                        </om:OMA>
+                        <om:OMV position="2_2_2_3_2_2_5" name="F"/>
+                      </om:OMA>
+                    </om:OMBIND>
+                  </om:OMBIND>
+                </om:OMA>
+              </om:OMBIND>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </definition>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/proof_theory?PLExt?norEl" precedence="0" fixity="prefix" arguments="2"/>
+      </notation>
+    </constant>
+    <constant name="norEr" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="B">
+                  <type>
+                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                <om:OMA position="2_2_1">
+                  <om:OMS position="2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_1_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                  <om:OMA position="2_2_1_2">
+                    <om:OMS position="2_2_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_1_2_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                    <om:OMA position="2_2_1_2_2">
+                      <om:OMS position="2_2_1_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_2_1_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="DISJ" name="or"/>
+                      <om:OMV position="2_2_1_2_2_2" name="A"/>
+                      <om:OMV position="2_2_1_2_2_3" name="B"/>
+                    </om:OMA>
+                  </om:OMA>
+                </om:OMA>
+                <om:OMA position="2_2_2">
+                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                  <om:OMA position="2_2_2_2">
+                    <om:OMS position="2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                    <om:OMV position="2_2_2_2_2" name="B"/>
+                  </om:OMA>
+                </om:OMA>
+              </om:OMA>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </type>
+      <definition>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="B">
+                  <type>
+                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMBIND position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+                <om:OMBVAR>
+                  <om:OMV position="2_2_0" name="p">
+                    <type>
+                      <om:OMA position="2_2_0_1">
+                        <om:OMS position="2_2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                        <om:OMS position="2_2_0_1_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                        <om:OMA position="2_2_0_1_2">
+                          <om:OMS position="2_2_0_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                          <om:OMS position="2_2_0_1_2_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                          <om:OMA position="2_2_0_1_2_2">
+                            <om:OMS position="2_2_0_1_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                            <om:OMS position="2_2_0_1_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="DISJ" name="or"/>
+                            <om:OMV position="2_2_0_1_2_2_2" name="A"/>
+                            <om:OMV position="2_2_0_1_2_2_3" name="B"/>
+                          </om:OMA>
+                        </om:OMA>
+                      </om:OMA>
+                    </type>
+                    <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                      <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                    </attribution>
+                  </om:OMV>
+                </om:OMBVAR>
+                <om:OMA position="2_2_2">
+                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/logics/proof_theory" module="NEG" name="notI"/>
+                  <om:OMV position="2_2_2_2" name="B"/>
+                  <om:OMBIND position="2_2_2_3">
+                    <om:OMS position="2_2_2_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+                    <om:OMBVAR>
+                      <om:OMV position="2_2_2_3_0" name="q">
+                        <type>
+                          <om:OMA position="2_2_2_3_0_1">
+                            <om:OMS position="2_2_2_3_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                            <om:OMS position="2_2_2_3_0_1_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                            <om:OMV position="2_2_2_3_0_1_2" name="B"/>
+                          </om:OMA>
+                        </type>
+                        <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                          <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                        </attribution>
+                      </om:OMV>
+                    </om:OMBVAR>
+                    <om:OMBIND position="2_2_2_3_2">
+                      <om:OMS position="2_2_2_3_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+                      <om:OMBVAR>
+                        <om:OMV position="2_2_2_3_2_0" name="F">
+                          <type>
+                            <om:OMS position="2_2_2_3_2_0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                          </type>
+                          <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                            <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                          </attribution>
+                        </om:OMV>
+                      </om:OMBVAR>
+                      <om:OMA position="2_2_2_3_2_2">
+                        <om:OMS position="2_2_2_3_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                        <om:OMS position="2_2_2_3_2_2_1" base="http://latin.omdoc.org/logics/proof_theory" module="NEG" name="notE"/>
+                        <om:OMA position="2_2_2_3_2_2_2">
+                          <om:OMS position="2_2_2_3_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                          <om:OMS position="2_2_2_3_2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="DISJ" name="or"/>
+                          <om:OMV position="2_2_2_3_2_2_2_2" name="A"/>
+                          <om:OMV position="2_2_2_3_2_2_2_3" name="B"/>
+                        </om:OMA>
+                        <om:OMV position="2_2_2_3_2_2_3" name="p"/>
+                        <om:OMA position="2_2_2_3_2_2_4">
+                          <om:OMS position="2_2_2_3_2_2_4_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                          <om:OMS position="2_2_2_3_2_2_4_1" base="http://latin.omdoc.org/logics/proof_theory" module="DISJ" name="orIr"/>
+                          <om:OMV position="2_2_2_3_2_2_4_2" name="B"/>
+                          <om:OMV position="2_2_2_3_2_2_4_3" name="A"/>
+                          <om:OMV position="2_2_2_3_2_2_4_4" name="q"/>
+                        </om:OMA>
+                        <om:OMV position="2_2_2_3_2_2_5" name="F"/>
+                      </om:OMA>
+                    </om:OMBIND>
+                  </om:OMBIND>
+                </om:OMA>
+              </om:OMBIND>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </definition>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/proof_theory?PLExt?norEr" precedence="0" fixity="prefix" arguments="2"/>
+      </notation>
+    </constant>
+    <constant name="nimpEl" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="B">
+                  <type>
+                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                <om:OMA position="2_2_1">
+                  <om:OMS position="2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_1_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                  <om:OMA position="2_2_1_2">
+                    <om:OMS position="2_2_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_1_2_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                    <om:OMA position="2_2_1_2_2">
+                      <om:OMS position="2_2_1_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_2_1_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="IMP" name="imp"/>
+                      <om:OMV position="2_2_1_2_2_2" name="A"/>
+                      <om:OMV position="2_2_1_2_2_3" name="B"/>
+                    </om:OMA>
+                  </om:OMA>
+                </om:OMA>
+                <om:OMA position="2_2_2">
+                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                  <om:OMV position="2_2_2_2" name="A"/>
+                </om:OMA>
+              </om:OMA>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </type>
+      <definition>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="B">
+                  <type>
+                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMBIND position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+                <om:OMBVAR>
+                  <om:OMV position="2_2_0" name="p">
+                    <type>
+                      <om:OMA position="2_2_0_1">
+                        <om:OMS position="2_2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                        <om:OMS position="2_2_0_1_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                        <om:OMA position="2_2_0_1_2">
+                          <om:OMS position="2_2_0_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                          <om:OMS position="2_2_0_1_2_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                          <om:OMA position="2_2_0_1_2_2">
+                            <om:OMS position="2_2_0_1_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                            <om:OMS position="2_2_0_1_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="IMP" name="imp"/>
+                            <om:OMV position="2_2_0_1_2_2_2" name="A"/>
+                            <om:OMV position="2_2_0_1_2_2_3" name="B"/>
+                          </om:OMA>
+                        </om:OMA>
+                      </om:OMA>
+                    </type>
+                    <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                      <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                    </attribution>
+                  </om:OMV>
+                </om:OMBVAR>
+                <om:OMA position="2_2_2">
+                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/logics/proof_theory" module="PLExt" name="indir"/>
+                  <om:OMV position="2_2_2_2" name="A"/>
+                  <om:OMBIND position="2_2_2_3">
+                    <om:OMS position="2_2_2_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+                    <om:OMBVAR>
+                      <om:OMV position="2_2_2_3_0" name="q">
+                        <type>
+                          <om:OMA position="2_2_2_3_0_1">
+                            <om:OMS position="2_2_2_3_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                            <om:OMS position="2_2_2_3_0_1_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                            <om:OMA position="2_2_2_3_0_1_2">
+                              <om:OMS position="2_2_2_3_0_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                              <om:OMS position="2_2_2_3_0_1_2_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                              <om:OMV position="2_2_2_3_0_1_2_2" name="A"/>
+                            </om:OMA>
+                          </om:OMA>
+                        </type>
+                        <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                          <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                        </attribution>
+                      </om:OMV>
+                    </om:OMBVAR>
+                    <om:OMBIND position="2_2_2_3_2">
+                      <om:OMS position="2_2_2_3_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+                      <om:OMBVAR>
+                        <om:OMV position="2_2_2_3_2_0" name="F">
+                          <type>
+                            <om:OMS position="2_2_2_3_2_0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                          </type>
+                          <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                            <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                          </attribution>
+                        </om:OMV>
+                      </om:OMBVAR>
+                      <om:OMA position="2_2_2_3_2_2">
+                        <om:OMS position="2_2_2_3_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                        <om:OMS position="2_2_2_3_2_2_1" base="http://latin.omdoc.org/logics/proof_theory" module="NEG" name="notE"/>
+                        <om:OMA position="2_2_2_3_2_2_2">
+                          <om:OMS position="2_2_2_3_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                          <om:OMS position="2_2_2_3_2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="IMP" name="imp"/>
+                          <om:OMV position="2_2_2_3_2_2_2_2" name="A"/>
+                          <om:OMV position="2_2_2_3_2_2_2_3" name="B"/>
+                        </om:OMA>
+                        <om:OMV position="2_2_2_3_2_2_3" name="p"/>
+                        <om:OMA position="2_2_2_3_2_2_4">
+                          <om:OMS position="2_2_2_3_2_2_4_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                          <om:OMS position="2_2_2_3_2_2_4_1" base="http://latin.omdoc.org/logics/proof_theory" module="IMP" name="impI"/>
+                          <om:OMV position="2_2_2_3_2_2_4_2" name="A"/>
+                          <om:OMV position="2_2_2_3_2_2_4_3" name="B"/>
+                          <om:OMBIND position="2_2_2_3_2_2_4_4">
+                            <om:OMS position="2_2_2_3_2_2_4_4_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+                            <om:OMBVAR>
+                              <om:OMV position="2_2_2_3_2_2_4_4_0" name="r">
+                                <type>
+                                  <om:OMA position="2_2_2_3_2_2_4_4_0_1">
+                                    <om:OMS position="2_2_2_3_2_2_4_4_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                                    <om:OMS position="2_2_2_3_2_2_4_4_0_1_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                                    <om:OMV position="2_2_2_3_2_2_4_4_0_1_2" name="A"/>
+                                  </om:OMA>
+                                </type>
+                                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                                </attribution>
+                              </om:OMV>
+                            </om:OMBVAR>
+                            <om:OMA position="2_2_2_3_2_2_4_4_2">
+                              <om:OMS position="2_2_2_3_2_2_4_4_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                              <om:OMS position="2_2_2_3_2_2_4_4_2_1" base="http://latin.omdoc.org/logics/proof_theory" module="NEGExt" name="notE'"/>
+                              <om:OMV position="2_2_2_3_2_2_4_4_2_2" name="A"/>
+                              <om:OMV position="2_2_2_3_2_2_4_4_2_3" name="B"/>
+                              <om:OMV position="2_2_2_3_2_2_4_4_2_4" name="r"/>
+                              <om:OMV position="2_2_2_3_2_2_4_4_2_5" name="q"/>
+                            </om:OMA>
+                          </om:OMBIND>
+                        </om:OMA>
+                        <om:OMV position="2_2_2_3_2_2_5" name="F"/>
+                      </om:OMA>
+                    </om:OMBIND>
+                  </om:OMBIND>
+                </om:OMA>
+              </om:OMBIND>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </definition>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/proof_theory?PLExt?nimpEl" precedence="0" fixity="prefix" arguments="2"/>
+      </notation>
+    </constant>
+    <constant name="nimpEr" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="B">
+                  <type>
+                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                <om:OMA position="2_2_1">
+                  <om:OMS position="2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_1_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                  <om:OMA position="2_2_1_2">
+                    <om:OMS position="2_2_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_1_2_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                    <om:OMA position="2_2_1_2_2">
+                      <om:OMS position="2_2_1_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_2_1_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="IMP" name="imp"/>
+                      <om:OMV position="2_2_1_2_2_2" name="A"/>
+                      <om:OMV position="2_2_1_2_2_3" name="B"/>
+                    </om:OMA>
+                  </om:OMA>
+                </om:OMA>
+                <om:OMA position="2_2_2">
+                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                  <om:OMA position="2_2_2_2">
+                    <om:OMS position="2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                    <om:OMV position="2_2_2_2_2" name="B"/>
+                  </om:OMA>
+                </om:OMA>
+              </om:OMA>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </type>
+      <definition>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="B">
+                  <type>
+                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMBIND position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+                <om:OMBVAR>
+                  <om:OMV position="2_2_0" name="p">
+                    <type>
+                      <om:OMA position="2_2_0_1">
+                        <om:OMS position="2_2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                        <om:OMS position="2_2_0_1_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                        <om:OMA position="2_2_0_1_2">
+                          <om:OMS position="2_2_0_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                          <om:OMS position="2_2_0_1_2_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                          <om:OMA position="2_2_0_1_2_2">
+                            <om:OMS position="2_2_0_1_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                            <om:OMS position="2_2_0_1_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="IMP" name="imp"/>
+                            <om:OMV position="2_2_0_1_2_2_2" name="A"/>
+                            <om:OMV position="2_2_0_1_2_2_3" name="B"/>
+                          </om:OMA>
+                        </om:OMA>
+                      </om:OMA>
+                    </type>
+                    <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                      <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                    </attribution>
+                  </om:OMV>
+                </om:OMBVAR>
+                <om:OMA position="2_2_2">
+                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/logics/proof_theory" module="NEG" name="notI"/>
+                  <om:OMV position="2_2_2_2" name="B"/>
+                  <om:OMBIND position="2_2_2_3">
+                    <om:OMS position="2_2_2_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+                    <om:OMBVAR>
+                      <om:OMV position="2_2_2_3_0" name="q">
+                        <type>
+                          <om:OMA position="2_2_2_3_0_1">
+                            <om:OMS position="2_2_2_3_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                            <om:OMS position="2_2_2_3_0_1_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                            <om:OMV position="2_2_2_3_0_1_2" name="B"/>
+                          </om:OMA>
+                        </type>
+                        <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                          <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                        </attribution>
+                      </om:OMV>
+                    </om:OMBVAR>
+                    <om:OMBIND position="2_2_2_3_2">
+                      <om:OMS position="2_2_2_3_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+                      <om:OMBVAR>
+                        <om:OMV position="2_2_2_3_2_0" name="F">
+                          <type>
+                            <om:OMS position="2_2_2_3_2_0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                          </type>
+                          <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                            <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                          </attribution>
+                        </om:OMV>
+                      </om:OMBVAR>
+                      <om:OMA position="2_2_2_3_2_2">
+                        <om:OMS position="2_2_2_3_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                        <om:OMS position="2_2_2_3_2_2_1" base="http://latin.omdoc.org/logics/proof_theory" module="NEG" name="notE"/>
+                        <om:OMA position="2_2_2_3_2_2_2">
+                          <om:OMS position="2_2_2_3_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                          <om:OMS position="2_2_2_3_2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="IMP" name="imp"/>
+                          <om:OMV position="2_2_2_3_2_2_2_2" name="A"/>
+                          <om:OMV position="2_2_2_3_2_2_2_3" name="B"/>
+                        </om:OMA>
+                        <om:OMV position="2_2_2_3_2_2_3" name="p"/>
+                        <om:OMA position="2_2_2_3_2_2_4">
+                          <om:OMS position="2_2_2_3_2_2_4_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                          <om:OMS position="2_2_2_3_2_2_4_1" base="http://latin.omdoc.org/logics/proof_theory" module="IMP" name="impI"/>
+                          <om:OMV position="2_2_2_3_2_2_4_2" name="A"/>
+                          <om:OMV position="2_2_2_3_2_2_4_3" name="B"/>
+                          <om:OMBIND position="2_2_2_3_2_2_4_4">
+                            <om:OMS position="2_2_2_3_2_2_4_4_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+                            <om:OMBVAR>
+                              <om:OMV position="2_2_2_3_2_2_4_4_0" name="r">
+                                <type>
+                                  <om:OMA position="2_2_2_3_2_2_4_4_0_1">
+                                    <om:OMS position="2_2_2_3_2_2_4_4_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                                    <om:OMS position="2_2_2_3_2_2_4_4_0_1_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                                    <om:OMV position="2_2_2_3_2_2_4_4_0_1_2" name="A"/>
+                                  </om:OMA>
+                                </type>
+                                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                                </attribution>
+                              </om:OMV>
+                            </om:OMBVAR>
+                            <om:OMV position="2_2_2_3_2_2_4_4_2" name="q"/>
+                          </om:OMBIND>
+                        </om:OMA>
+                        <om:OMV position="2_2_2_3_2_2_5" name="F"/>
+                      </om:OMA>
+                    </om:OMBIND>
+                  </om:OMBIND>
+                </om:OMA>
+              </om:OMBIND>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </definition>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/proof_theory?PLExt?nimpEr" precedence="0" fixity="prefix" arguments="2"/>
+      </notation>
+    </constant>
+    <constant name="contrapos" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="B">
+                  <type>
+                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                <om:OMA position="2_2_1">
+                  <om:OMS position="2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_1_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                  <om:OMA position="2_2_1_2">
+                    <om:OMS position="2_2_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_1_2_1" base="http://latin.omdoc.org/logics/syntax" module="IMP" name="imp"/>
+                    <om:OMV position="2_2_1_2_2" name="A"/>
+                    <om:OMV position="2_2_1_2_3" name="B"/>
+                  </om:OMA>
+                </om:OMA>
+                <om:OMA position="2_2_2">
+                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                  <om:OMA position="2_2_2_1">
+                    <om:OMS position="2_2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_2_1_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                    <om:OMA position="2_2_2_1_2">
+                      <om:OMS position="2_2_2_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_2_2_1_2_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                      <om:OMV position="2_2_2_1_2_2" name="B"/>
+                    </om:OMA>
+                  </om:OMA>
+                  <om:OMA position="2_2_2_2">
+                    <om:OMS position="2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                    <om:OMA position="2_2_2_2_2">
+                      <om:OMS position="2_2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_2_2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                      <om:OMV position="2_2_2_2_2_2" name="A"/>
+                    </om:OMA>
+                  </om:OMA>
+                </om:OMA>
+              </om:OMA>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </type>
+      <definition>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="B">
+                  <type>
+                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMBIND position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+                <om:OMBVAR>
+                  <om:OMV position="2_2_0" name="p">
+                    <type>
+                      <om:OMA position="2_2_0_1">
+                        <om:OMS position="2_2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                        <om:OMS position="2_2_0_1_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                        <om:OMA position="2_2_0_1_2">
+                          <om:OMS position="2_2_0_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                          <om:OMS position="2_2_0_1_2_1" base="http://latin.omdoc.org/logics/syntax" module="IMP" name="imp"/>
+                          <om:OMV position="2_2_0_1_2_2" name="A"/>
+                          <om:OMV position="2_2_0_1_2_3" name="B"/>
+                        </om:OMA>
+                      </om:OMA>
+                    </type>
+                    <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                      <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                    </attribution>
+                  </om:OMV>
+                </om:OMBVAR>
+                <om:OMBIND position="2_2_2">
+                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+                  <om:OMBVAR>
+                    <om:OMV position="2_2_2_0" name="q">
+                      <type>
+                        <om:OMA position="2_2_2_0_1">
+                          <om:OMS position="2_2_2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                          <om:OMS position="2_2_2_0_1_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                          <om:OMA position="2_2_2_0_1_2">
+                            <om:OMS position="2_2_2_0_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                            <om:OMS position="2_2_2_0_1_2_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                            <om:OMV position="2_2_2_0_1_2_2" name="B"/>
+                          </om:OMA>
+                        </om:OMA>
+                      </type>
+                      <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                        <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                      </attribution>
+                    </om:OMV>
+                  </om:OMBVAR>
+                  <om:OMA position="2_2_2_2">
+                    <om:OMS position="2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_2_2_1" base="http://latin.omdoc.org/logics/proof_theory" module="NEG" name="notI"/>
+                    <om:OMV position="2_2_2_2_2" name="A"/>
+                    <om:OMBIND position="2_2_2_2_3">
+                      <om:OMS position="2_2_2_2_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+                      <om:OMBVAR>
+                        <om:OMV position="2_2_2_2_3_0" name="r">
+                          <type>
+                            <om:OMA position="2_2_2_2_3_0_1">
+                              <om:OMS position="2_2_2_2_3_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                              <om:OMS position="2_2_2_2_3_0_1_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                              <om:OMV position="2_2_2_2_3_0_1_2" name="A"/>
+                            </om:OMA>
+                          </type>
+                          <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                            <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                          </attribution>
+                        </om:OMV>
+                      </om:OMBVAR>
+                      <om:OMBIND position="2_2_2_2_3_2">
+                        <om:OMS position="2_2_2_2_3_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+                        <om:OMBVAR>
+                          <om:OMV position="2_2_2_2_3_2_0" name="F">
+                            <type>
+                              <om:OMS position="2_2_2_2_3_2_0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                            </type>
+                            <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                            </attribution>
+                          </om:OMV>
+                        </om:OMBVAR>
+                        <om:OMA position="2_2_2_2_3_2_2">
+                          <om:OMS position="2_2_2_2_3_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                          <om:OMS position="2_2_2_2_3_2_2_1" base="http://latin.omdoc.org/logics/proof_theory" module="NEG" name="notE"/>
+                          <om:OMV position="2_2_2_2_3_2_2_2" name="B"/>
+                          <om:OMV position="2_2_2_2_3_2_2_3" name="q"/>
+                          <om:OMA position="2_2_2_2_3_2_2_4">
+                            <om:OMS position="2_2_2_2_3_2_2_4_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                            <om:OMS position="2_2_2_2_3_2_2_4_1" base="http://latin.omdoc.org/logics/proof_theory" module="IMP" name="impE"/>
+                            <om:OMV position="2_2_2_2_3_2_2_4_2" name="A"/>
+                            <om:OMV position="2_2_2_2_3_2_2_4_3" name="B"/>
+                            <om:OMV position="2_2_2_2_3_2_2_4_4" name="p"/>
+                            <om:OMV position="2_2_2_2_3_2_2_4_5" name="r"/>
+                          </om:OMA>
+                          <om:OMV position="2_2_2_2_3_2_2_5" name="F"/>
+                        </om:OMA>
+                      </om:OMBIND>
+                    </om:OMBIND>
+                  </om:OMA>
+                </om:OMBIND>
+              </om:OMBIND>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </definition>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/proof_theory?PLExt?contrapos" precedence="0" fixity="prefix" arguments="2"/>
+      </notation>
+    </constant>
+    <constant name="deMorgan_or" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="B">
+                  <type>
+                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                <om:OMA position="2_2_1">
+                  <om:OMS position="2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_1_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                  <om:OMA position="2_2_1_2">
+                    <om:OMS position="2_2_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_1_2_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                    <om:OMA position="2_2_1_2_2">
+                      <om:OMS position="2_2_1_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_2_1_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="DISJ" name="or"/>
+                      <om:OMV position="2_2_1_2_2_2" name="A"/>
+                      <om:OMV position="2_2_1_2_2_3" name="B"/>
+                    </om:OMA>
+                  </om:OMA>
+                </om:OMA>
+                <om:OMA position="2_2_2">
+                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                  <om:OMA position="2_2_2_2">
+                    <om:OMS position="2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="CONJ" name="and"/>
+                    <om:OMA position="2_2_2_2_2">
+                      <om:OMS position="2_2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_2_2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                      <om:OMV position="2_2_2_2_2_2" name="A"/>
+                    </om:OMA>
+                    <om:OMA position="2_2_2_2_3">
+                      <om:OMS position="2_2_2_2_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_2_2_2_3_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                      <om:OMV position="2_2_2_2_3_2" name="B"/>
+                    </om:OMA>
+                  </om:OMA>
+                </om:OMA>
+              </om:OMA>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </type>
+      <definition>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="B">
+                  <type>
+                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMBIND position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+                <om:OMBVAR>
+                  <om:OMV position="2_2_0" name="p">
+                    <type>
+                      <om:OMA position="2_2_0_1">
+                        <om:OMS position="2_2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                        <om:OMS position="2_2_0_1_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                        <om:OMA position="2_2_0_1_2">
+                          <om:OMS position="2_2_0_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                          <om:OMS position="2_2_0_1_2_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                          <om:OMA position="2_2_0_1_2_2">
+                            <om:OMS position="2_2_0_1_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                            <om:OMS position="2_2_0_1_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="DISJ" name="or"/>
+                            <om:OMV position="2_2_0_1_2_2_2" name="A"/>
+                            <om:OMV position="2_2_0_1_2_2_3" name="B"/>
+                          </om:OMA>
+                        </om:OMA>
+                      </om:OMA>
+                    </type>
+                    <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                      <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                    </attribution>
+                  </om:OMV>
+                </om:OMBVAR>
+                <om:OMA position="2_2_2">
+                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/logics/proof_theory" module="CONJ" name="andI"/>
+                  <om:OMA position="2_2_2_2">
+                    <om:OMS position="2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                    <om:OMV position="2_2_2_2_2" name="A"/>
+                  </om:OMA>
+                  <om:OMA position="2_2_2_3">
+                    <om:OMS position="2_2_2_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_2_3_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                    <om:OMV position="2_2_2_3_2" name="B"/>
+                  </om:OMA>
+                  <om:OMA position="2_2_2_4">
+                    <om:OMS position="2_2_2_4_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_2_4_1" base="http://latin.omdoc.org/logics/proof_theory" module="PLExt" name="norEl"/>
+                    <om:OMV position="2_2_2_4_2" name="A"/>
+                    <om:OMV position="2_2_2_4_3" name="B"/>
+                    <om:OMV position="2_2_2_4_4" name="p"/>
+                  </om:OMA>
+                  <om:OMA position="2_2_2_5">
+                    <om:OMS position="2_2_2_5_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_2_5_1" base="http://latin.omdoc.org/logics/proof_theory" module="PLExt" name="norEr"/>
+                    <om:OMV position="2_2_2_5_2" name="A"/>
+                    <om:OMV position="2_2_2_5_3" name="B"/>
+                    <om:OMV position="2_2_2_5_4" name="p"/>
+                  </om:OMA>
+                </om:OMA>
+              </om:OMBIND>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </definition>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/proof_theory?PLExt?deMorgan_or" precedence="0" fixity="prefix" arguments="2"/>
+      </notation>
+    </constant>
+    <constant name="deMorgan_and" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="B">
+                  <type>
+                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                <om:OMA position="2_2_1">
+                  <om:OMS position="2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_1_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                  <om:OMA position="2_2_1_2">
+                    <om:OMS position="2_2_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_1_2_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                    <om:OMA position="2_2_1_2_2">
+                      <om:OMS position="2_2_1_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_2_1_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="CONJ" name="and"/>
+                      <om:OMV position="2_2_1_2_2_2" name="A"/>
+                      <om:OMV position="2_2_1_2_2_3" name="B"/>
+                    </om:OMA>
+                  </om:OMA>
+                </om:OMA>
+                <om:OMA position="2_2_2">
+                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                  <om:OMA position="2_2_2_2">
+                    <om:OMS position="2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="DISJ" name="or"/>
+                    <om:OMA position="2_2_2_2_2">
+                      <om:OMS position="2_2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_2_2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                      <om:OMV position="2_2_2_2_2_2" name="A"/>
+                    </om:OMA>
+                    <om:OMA position="2_2_2_2_3">
+                      <om:OMS position="2_2_2_2_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_2_2_2_3_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                      <om:OMV position="2_2_2_2_3_2" name="B"/>
+                    </om:OMA>
+                  </om:OMA>
+                </om:OMA>
+              </om:OMA>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </type>
+      <definition>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="A">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="B">
+                  <type>
+                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMBIND position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+                <om:OMBVAR>
+                  <om:OMV position="2_2_0" name="p">
+                    <type>
+                      <om:OMA position="2_2_0_1">
+                        <om:OMS position="2_2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                        <om:OMS position="2_2_0_1_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                        <om:OMA position="2_2_0_1_2">
+                          <om:OMS position="2_2_0_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                          <om:OMS position="2_2_0_1_2_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                          <om:OMA position="2_2_0_1_2_2">
+                            <om:OMS position="2_2_0_1_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                            <om:OMS position="2_2_0_1_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="CONJ" name="and"/>
+                            <om:OMV position="2_2_0_1_2_2_2" name="A"/>
+                            <om:OMV position="2_2_0_1_2_2_3" name="B"/>
+                          </om:OMA>
+                        </om:OMA>
+                      </om:OMA>
+                    </type>
+                    <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                      <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                    </attribution>
+                  </om:OMV>
+                </om:OMBVAR>
+                <om:OMA position="2_2_2">
+                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/logics/proof_theory" module="PLExt" name="indir"/>
+                  <om:OMA position="2_2_2_2">
+                    <om:OMS position="2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="DISJ" name="or"/>
+                    <om:OMA position="2_2_2_2_2">
+                      <om:OMS position="2_2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_2_2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                      <om:OMV position="2_2_2_2_2_2" name="A"/>
+                    </om:OMA>
+                    <om:OMA position="2_2_2_2_3">
+                      <om:OMS position="2_2_2_2_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_2_2_2_3_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                      <om:OMV position="2_2_2_2_3_2" name="B"/>
+                    </om:OMA>
+                  </om:OMA>
+                  <om:OMBIND position="2_2_2_3">
+                    <om:OMS position="2_2_2_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+                    <om:OMBVAR>
+                      <om:OMV position="2_2_2_3_0" name="q">
+                        <type>
+                          <om:OMA position="2_2_2_3_0_1">
+                            <om:OMS position="2_2_2_3_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                            <om:OMS position="2_2_2_3_0_1_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                            <om:OMA position="2_2_2_3_0_1_2">
+                              <om:OMS position="2_2_2_3_0_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                              <om:OMS position="2_2_2_3_0_1_2_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                              <om:OMA position="2_2_2_3_0_1_2_2">
+                                <om:OMS position="2_2_2_3_0_1_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                                <om:OMS position="2_2_2_3_0_1_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="DISJ" name="or"/>
+                                <om:OMA position="2_2_2_3_0_1_2_2_2">
+                                  <om:OMS position="2_2_2_3_0_1_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                                  <om:OMS position="2_2_2_3_0_1_2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                                  <om:OMV position="2_2_2_3_0_1_2_2_2_2" name="A"/>
+                                </om:OMA>
+                                <om:OMA position="2_2_2_3_0_1_2_2_3">
+                                  <om:OMS position="2_2_2_3_0_1_2_2_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                                  <om:OMS position="2_2_2_3_0_1_2_2_3_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                                  <om:OMV position="2_2_2_3_0_1_2_2_3_2" name="B"/>
+                                </om:OMA>
+                              </om:OMA>
+                            </om:OMA>
+                          </om:OMA>
+                        </type>
+                        <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                          <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                        </attribution>
+                      </om:OMV>
+                    </om:OMBVAR>
+                    <om:OMBIND position="2_2_2_3_2">
+                      <om:OMS position="2_2_2_3_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+                      <om:OMBVAR>
+                        <om:OMV position="2_2_2_3_2_0" name="F">
+                          <type>
+                            <om:OMS position="2_2_2_3_2_0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                          </type>
+                          <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                            <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                          </attribution>
+                        </om:OMV>
+                      </om:OMBVAR>
+                      <om:OMA position="2_2_2_3_2_2">
+                        <om:OMS position="2_2_2_3_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                        <om:OMS position="2_2_2_3_2_2_1" base="http://latin.omdoc.org/logics/proof_theory" module="NEG" name="notE"/>
+                        <om:OMA position="2_2_2_3_2_2_2">
+                          <om:OMS position="2_2_2_3_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                          <om:OMS position="2_2_2_3_2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="CONJ" name="and"/>
+                          <om:OMV position="2_2_2_3_2_2_2_2" name="A"/>
+                          <om:OMV position="2_2_2_3_2_2_2_3" name="B"/>
+                        </om:OMA>
+                        <om:OMV position="2_2_2_3_2_2_3" name="p"/>
+                        <om:OMA position="2_2_2_3_2_2_4">
+                          <om:OMS position="2_2_2_3_2_2_4_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                          <om:OMS position="2_2_2_3_2_2_4_1" base="http://latin.omdoc.org/logics/proof_theory" module="CONJ" name="andI"/>
+                          <om:OMV position="2_2_2_3_2_2_4_2" name="A"/>
+                          <om:OMV position="2_2_2_3_2_2_4_3" name="B"/>
+                          <om:OMA position="2_2_2_3_2_2_4_4">
+                            <om:OMS position="2_2_2_3_2_2_4_4_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                            <om:OMS position="2_2_2_3_2_2_4_4_1" base="http://latin.omdoc.org/logics/proof_theory" module="PLExt" name="nnotE"/>
+                            <om:OMV position="2_2_2_3_2_2_4_4_2" name="A"/>
+                            <om:OMA position="2_2_2_3_2_2_4_4_3">
+                              <om:OMS position="2_2_2_3_2_2_4_4_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                              <om:OMS position="2_2_2_3_2_2_4_4_3_1" base="http://latin.omdoc.org/logics/proof_theory" module="PLExt" name="norEl"/>
+                              <om:OMA position="2_2_2_3_2_2_4_4_3_2">
+                                <om:OMS position="2_2_2_3_2_2_4_4_3_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                                <om:OMS position="2_2_2_3_2_2_4_4_3_2_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                                <om:OMV position="2_2_2_3_2_2_4_4_3_2_2" name="A"/>
+                              </om:OMA>
+                              <om:OMA position="2_2_2_3_2_2_4_4_3_3">
+                                <om:OMS position="2_2_2_3_2_2_4_4_3_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                                <om:OMS position="2_2_2_3_2_2_4_4_3_3_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                                <om:OMV position="2_2_2_3_2_2_4_4_3_3_2" name="B"/>
+                              </om:OMA>
+                              <om:OMV position="2_2_2_3_2_2_4_4_3_4" name="q"/>
+                            </om:OMA>
+                          </om:OMA>
+                          <om:OMA position="2_2_2_3_2_2_4_5">
+                            <om:OMS position="2_2_2_3_2_2_4_5_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                            <om:OMS position="2_2_2_3_2_2_4_5_1" base="http://latin.omdoc.org/logics/proof_theory" module="PLExt" name="nnotE"/>
+                            <om:OMV position="2_2_2_3_2_2_4_5_2" name="B"/>
+                            <om:OMA position="2_2_2_3_2_2_4_5_3">
+                              <om:OMS position="2_2_2_3_2_2_4_5_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                              <om:OMS position="2_2_2_3_2_2_4_5_3_1" base="http://latin.omdoc.org/logics/proof_theory" module="PLExt" name="norEr"/>
+                              <om:OMA position="2_2_2_3_2_2_4_5_3_2">
+                                <om:OMS position="2_2_2_3_2_2_4_5_3_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                                <om:OMS position="2_2_2_3_2_2_4_5_3_2_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                                <om:OMV position="2_2_2_3_2_2_4_5_3_2_2" name="A"/>
+                              </om:OMA>
+                              <om:OMA position="2_2_2_3_2_2_4_5_3_3">
+                                <om:OMS position="2_2_2_3_2_2_4_5_3_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                                <om:OMS position="2_2_2_3_2_2_4_5_3_3_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+                                <om:OMV position="2_2_2_3_2_2_4_5_3_3_2" name="B"/>
+                              </om:OMA>
+                              <om:OMV position="2_2_2_3_2_2_4_5_3_4" name="q"/>
+                            </om:OMA>
+                          </om:OMA>
+                        </om:OMA>
+                        <om:OMV position="2_2_2_3_2_2_5" name="F"/>
+                      </om:OMA>
+                    </om:OMBIND>
+                  </om:OMBIND>
+                </om:OMA>
+              </om:OMBIND>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </definition>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/proof_theory?PLExt?deMorgan_and" precedence="0" fixity="prefix" arguments="2"/>
+      </notation>
+    </constant>
+    <constant name="equiv_assocl" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="F">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="G">
+                  <type>
+                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMBIND position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+                <om:OMBVAR>
+                  <om:OMV position="2_2_0" name="H">
+                    <type>
+                      <om:OMS position="2_2_0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                    </type>
+                    <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                      <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                    </attribution>
+                  </om:OMV>
+                </om:OMBVAR>
+                <om:OMA position="2_2_2">
+                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                  <om:OMA position="2_2_2_1">
+                    <om:OMS position="2_2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_2_1_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                    <om:OMA position="2_2_2_1_2">
+                      <om:OMS position="2_2_2_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_2_2_1_2_1" base="http://latin.omdoc.org/logics/syntax" module="Equiv" name="equiv"/>
+                      <om:OMA position="2_2_2_1_2_2">
+                        <om:OMS position="2_2_2_1_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                        <om:OMS position="2_2_2_1_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="Equiv" name="equiv"/>
+                        <om:OMV position="2_2_2_1_2_2_2" name="F"/>
+                        <om:OMV position="2_2_2_1_2_2_3" name="G"/>
+                      </om:OMA>
+                      <om:OMV position="2_2_2_1_2_3" name="H"/>
+                    </om:OMA>
+                  </om:OMA>
+                  <om:OMA position="2_2_2_2">
+                    <om:OMS position="2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                    <om:OMA position="2_2_2_2_2">
+                      <om:OMS position="2_2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_2_2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="Equiv" name="equiv"/>
+                      <om:OMV position="2_2_2_2_2_2" name="F"/>
+                      <om:OMA position="2_2_2_2_2_3">
+                        <om:OMS position="2_2_2_2_2_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                        <om:OMS position="2_2_2_2_2_3_1" base="http://latin.omdoc.org/logics/syntax" module="Equiv" name="equiv"/>
+                        <om:OMV position="2_2_2_2_2_3_2" name="G"/>
+                        <om:OMV position="2_2_2_2_2_3_3" name="H"/>
+                      </om:OMA>
+                    </om:OMA>
+                  </om:OMA>
+                </om:OMA>
+              </om:OMBIND>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/proof_theory?PLExt?equiv_assocl" precedence="0" fixity="prefix" arguments="3"/>
+      </notation>
+    </constant>
+    <constant name="equiv_assocr" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="F">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="G">
+                  <type>
+                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMBIND position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+                <om:OMBVAR>
+                  <om:OMV position="2_2_0" name="H">
+                    <type>
+                      <om:OMS position="2_2_0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
+                    </type>
+                    <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                      <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                    </attribution>
+                  </om:OMV>
+                </om:OMBVAR>
+                <om:OMA position="2_2_2">
+                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+                  <om:OMA position="2_2_2_1">
+                    <om:OMS position="2_2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_2_1_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                    <om:OMA position="2_2_2_1_2">
+                      <om:OMS position="2_2_2_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_2_2_1_2_1" base="http://latin.omdoc.org/logics/syntax" module="Equiv" name="equiv"/>
+                      <om:OMV position="2_2_2_1_2_2" name="F"/>
+                      <om:OMA position="2_2_2_1_2_3">
+                        <om:OMS position="2_2_2_1_2_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                        <om:OMS position="2_2_2_1_2_3_1" base="http://latin.omdoc.org/logics/syntax" module="Equiv" name="equiv"/>
+                        <om:OMV position="2_2_2_1_2_3_2" name="G"/>
+                        <om:OMV position="2_2_2_1_2_3_3" name="H"/>
+                      </om:OMA>
+                    </om:OMA>
+                  </om:OMA>
+                  <om:OMA position="2_2_2_2">
+                    <om:OMS position="2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                    <om:OMA position="2_2_2_2_2">
+                      <om:OMS position="2_2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_2_2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="Equiv" name="equiv"/>
+                      <om:OMA position="2_2_2_2_2_2">
+                        <om:OMS position="2_2_2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                        <om:OMS position="2_2_2_2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="Equiv" name="equiv"/>
+                        <om:OMV position="2_2_2_2_2_2_2" name="F"/>
+                        <om:OMV position="2_2_2_2_2_2_3" name="G"/>
+                      </om:OMA>
+                      <om:OMV position="2_2_2_2_2_3" name="H"/>
+                    </om:OMA>
+                  </om:OMA>
+                </om:OMA>
+              </om:OMBIND>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/logics/proof_theory?PLExt?equiv_assocr" precedence="0" fixity="prefix" arguments="3"/>
+      </notation>
+    </constant>
+  </theory>
+</omdoc>

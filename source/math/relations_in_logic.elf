@@ -1,0 +1,123 @@
+%*
+  theories for a binary relation on a universe with logic
+  @author: Florian Rabe
+*%
+
+%namespace "http://latin.omdoc.org/math".
+%namespace syn = "logics/syntax".
+%namespace pf = "logics/proof_theory".
+
+%sig RelationEqLogic = {
+   %meta pf.EqLogic.
+   %include syn.RelationLogic.
+   rel_eq : ⊦ X rel Y -> ⊦ Y == Z -> ⊦ X rel Z = [p][q] congP q ([u] X rel u) p. 
+   eq_rel : ⊦ X == Y -> ⊦ Y rel Z -> ⊦ X rel Z = [p][q] congP (sym p) ([u] u rel Z) q. 
+}.
+
+%sig Irreflexive = {
+   %meta pf.InEqLogic.
+   %include RelationEqLogic %open rel %as <.
+   irrefl : ⊦ not X < X.
+}.
+                                                                                                                                                   
+%sig Strict = {
+   %meta pf.InEqLogic.
+   %include Irreflexive.
+   %struct transitive : Transitive = {
+      %include syn.RelationInLogic.
+   } %open Transitive.trans %as <_trans.
+}.
+
+%% should be %sig OrderLogic = {%meta FOL. %include EqLogic.eq(Order)
+%sig OrderLogic = {
+   %meta pf.IFOLEQ.
+   %include RelationEqLogic %open rel %as ≤.
+   %% Order has meta-theory EqUniverse, it must be translated (pushed out) to FOL along the meta-morphisms EqLogic.eq
+   %% There should be better syntax for this, e.g., OrderLogic = ToLogic(Order) with a pattern-aware view ToLogic : Universe -> UniverseLogic
+   %struct order: Order = {
+      %include pf.Equal.equniv.
+      %include syn.RelationInLogic.
+   } %open Reflexive.refl %as ≤_refl Antisymmetric.antisym %as ≤_antisym Transitive.trans %as ≤_trans.
+   < : u -> u -> o = [m][n] m ≤ n and not m == n.       %infix none 29 <.
+   <_irrrefl : ⊦ not M < M = notI [p] notE (andEr p) refl.
+   <_trans : ⊦ L < M -> ⊦ M < N -> ⊦ L < N = [p][q] andI (≤_trans (andEl p) (andEl q)) 
+                                                            (notI [r: ⊦ L == N] notE (andEr p) (≤_antisym (andEl p) (rel_eq (andEl q) (sym r)))).
+
+   upperbound : u -> o = [t] forall [x] x ≤ t.
+   lowerbound : u -> o = [b] forall [x] b ≤ x.
+   above : u -> u -> u -> o = [a][x][y] x ≤ a and y ≤ a.
+   %abbrev supremum : u -> u -> u -> o = [s][x][y] above s X Y and (forall [a] above a X Y imp s ≤ a).
+   below : u -> u -> u -> o = [b][x][y] b ≤ x and b ≤ y.
+   %abbrev infimum :  u -> u -> u -> o = [i][x][y] below i X Y and (forall [b] below b X Y imp b ≤ i).
+
+   %sig Classical = {
+      %include ClassicalEq.
+      ≤_< : ⊦ M ≤ N -> ⊦ M < N or M == N = [p] orE eq_tnd ([q: ⊦ M == N] orIr q) ([q: ⊦ not M == N] orIl (andI p q)).
+   }.
+}.   
+
+
+%sig Total = {
+   %meta pf.IFOLEQ.
+   %include pf.DISJExt.
+   %include pf.Inequal.
+   %include OrderLogic.
+   ≤_total : ⊦ X ≤ Y or Y ≤ X.
+   
+   %sig Classical = {
+      %include ClassicalEq.
+      ≤_or_> : ⊦ M ≤ N or N < M = orE ≤_total ([p: ⊦ M ≤ N] orIl p) ([p: ⊦ N ≤ M] or_tensor eq_tnd ([q: ⊦ M == N] eq_rel q ≤_refl) ([q: ⊦ not M == N] andI p (neq_sym q))).
+      <_or_eq_or_> : ⊦ M < N or M == N or N < M
+          = orE eq_tnd ([p: ⊦ M == N] or3Im p)
+                             ([p: ⊦ not M == N] orE ≤_total ([q: ⊦ M ≤ N] or3Il (andI q p)) ([q: ⊦ N ≤ M] or3Ir (andI q (neq_sym p)))).
+      ≤_tnd : ⊦ M ≤ N or not M ≤ N = or_tensor ≤_or_> ([p] p) ([p: ⊦ N < M] notI [q: ⊦ M ≤ N] notE (andEr p) (≤_antisym (andEl p) q)).
+   }.
+}.
+
+%sig Dense = {
+   %meta pf.IFOLEQ.
+   %include OrderLogic.
+   dense : {x}{z} ⊦ exists [y] x ≤ y and y ≤ z.
+}.
+
+%sig TopLogic = {
+   %meta pf.IFOLEQ.
+   %include OrderLogic.
+   topax : ⊦ exists upperbound.
+   unique : ⊦ upperbound X -> ⊦ upperbound Y -> ⊦ X == Y. %% prove
+}.   
+
+%sig BottomLogic = {
+   %meta pf.IFOLEQ.
+   %include OrderLogic.
+   botax : ⊦ exists lowerbound.
+   unique : ⊦ lowerbound X -> ⊦ lowerbound Y -> ⊦ X == Y. %% prove
+}.   
+
+%sig SupremumLogic = {
+   %meta pf.IFOLEQ.
+   %include OrderLogic.
+   supax : ⊦ exists [s] supremum s X Y.
+   %% unique : 
+}.
+
+%sig InfimumLogic = {
+   %meta pf.IFOLEQ.
+   %include OrderLogic.
+   infax : ⊦ exists [i] infimum i X Y.
+   %% unique :
+}.
+
+%sig UnboundedAbove = {
+   %meta pf.IFOLEQ.
+   %include OrderLogic.
+   unbounded : ⊦ not exists [b] upperbound b.
+}.
+
+%sig UnboundedBelow = {
+   %meta pf.IFOLEQ.
+   %include OrderLogic.
+   unbounded : ⊦ not exists [b] lowerbound b.
+}.
+
+

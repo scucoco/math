@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
+  <theory name="Level'" base="http://latin.omdoc.org/type_theories" meta="http://cds.omdoc.org/urtheories?LF">
+    <metadata>
+      <meta property="http://purl.org/dc/terms?_?description">
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMSTR>the base signature for a level of a type theory encoded using intrinsic typing</om:OMSTR>
+        </om:OMOBJ>
+      </meta>
+    </metadata>
+    <constant name="cl" role="type">
+      <metadata>
+        <meta property="http://purl.org/dc/terms?_?description">
+          <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+            <om:OMSTR>classifiers</om:OMSTR>
+          </om:OMOBJ>
+        </meta>
+      </metadata>
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://cds.omdoc.org/urtheories" module="Typed" name="type"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="exp" role="type">
+      <metadata>
+        <meta property="http://purl.org/dc/terms?_?description">
+          <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+            <om:OMSTR>expressions of a classifier</om:OMSTR>
+          </om:OMOBJ>
+        </meta>
+      </metadata>
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/type_theories" module="Level'" name="cl"/>
+            <om:OMS position="2" base="http://cds.omdoc.org/urtheories" module="Typed" name="type"/>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/type_theories?Level'?exp" precedence="0" fixity="prefix" arguments="0"/>
+      </notation>
+    </constant>
+  </theory>
+</omdoc>

@@ -1,0 +1,149 @@
+%*
+   Syntax of THF0 in the TPTP family of languages
+   @author Florian Rabe, based on work with Christoph Benzmüller, Geoff Sutcliffe
+   proof rules are omitted in order to permit modular extensions (e.g., intuitionistic/classical, with/without extensionality)
+*%
+
+%namespace "http://latin.omdoc.org/logics/tptp".
+
+%* basic higher-order logic *%
+%sig THF0 = {                                     
+   %include Types.
+                                                   
+   %* internal formulas, i.e., formulas are an object level type *%
+   $o : $tType.
+   %* function types *%
+   > : $tType -> $tType -> $tType.                  %infix right 10 >.
+   
+   %% lambda abstraction
+   ^ : ($tm A -> $tm B) -> $tm (A > B).            %prefix 10 ^.
+   %% application
+   @ : $tm (A > B) -> $tm A -> $tm B.              %infix left 10 @.
+   
+   %% connectives
+   $true : $tm $o.
+   & : $tm $o -> $tm $o -> $tm $o.                 %infix left 5 &.
+   | : $tm $o -> $tm $o -> $tm $o.                 %infix left 5 |.
+   ~ : $tm $o -> $tm $o.
+   
+   $false : $tm $o
+       = ~ $true.
+   =>  : $tm $o -> $tm $o -> $tm $o
+       = [a][b](a | ~ b).                           %infix none 5 =>.
+   <=  : $tm $o -> $tm $o -> $tm $o
+       = [a][b](b => a).                            %infix none 5 <=.
+   <=> : $tm $o -> $tm $o -> $tm $o
+       = [a][b]((a => b) & (b => a)).               %infix none 5 <=>.
+   <~> : $tm $o -> $tm $o -> $tm $o
+       = [a][b] ~ (a <=> b).                        %infix none 5 <~>.
+   ~&  : $tm $o -> $tm $o -> $tm $o
+       = [a][b] ~ (a & b).                          %infix none 5 ~&.
+   ~|  : $tm $o -> $tm $o -> $tm $o
+       = [a][b] ~ (a | b).                          %infix none 5 ~|.
+   
+   %% equality over a type A
+   == : $tm A -> $tm A -> $tm $o.                   %infix none 10 ==.
+   != : $tm A -> $tm A -> $tm $o
+      = [x][y] ~ (x == y).                          %infix none 10 !=.
+   
+   %% quantification over a type A, taking a meta-level function
+   ! : ($tm A -> $tm $o) -> $tm $o.                 %prefix 5 !.
+   ? : ($tm A -> $tm $o) -> $tm $o
+     = [f] ~ (! [x] ~ (f x)).                       %prefix 5 ?.
+   %% quantification over a type A, taking an object level function
+   !! : ($tm A > $o) -> $tm $o
+      = [f] ! [x] (f @ x).                          %prefix 5 !!.
+   ?? : ($tm A > $o) -> $tm $o
+      = [f] ? [x] (f @ x).                          %prefix 5 ??.
+
+   %% truth predicate
+   $istrue : $tm $o -> type.                        %prefix 1 $istrue.
+
+%% legal declarations in theories
+%% base types
+%% t: $tType.
+%{ 
+   %pattern baseTypes = {t : $tType.}.
+}%
+
+%% typed constants
+%% f : $tm A.  for some A:$tType
+%{ 
+   %pattern typedConstants = [A : $tType] {
+   f : $tm A.
+   }.
+}%
+
+%% axioms/conjectures etc.
+%% a : $istrue F. for some F : $o
+%{ 
+   %pattern axioms = [F : $o] {
+     a : $istrue F.
+   }.
+}%   
+}.
+
+%view FirstToHigher : TFF -> THF0 = {
+   $form := $tm $o.
+   == := [A] [x][y] x == y.
+   != := [A] [x][y] x != y.
+   !  := [A] [f] ! f.
+   ?  := [A] [f] ? f.
+   $false := $false.
+   $true := $true.
+   & := [x][y] x & y.
+   | := [x][y] x | y.
+   ~ := [x] ~ x.
+   => := [x][y] x => y.
+   <= := [x][y] x <= y.
+   <=> := [x][y] x <=> y.
+   <~> := [x][y] x <~> y.
+   ~& := [x][y] x ~& y.
+   ~| := [x][y] x ~| y.
+   $istrue := [x] $istrue x.
+   
+%{ 
+   %pattern typedFun := [n : Nat][tps : $tType ^ n][A : $tType] {
+     g : $tm (⟨i : 1.. n⟩ (ind tps i) > A).
+     %%Alternatively,
+     %%g : $tm (([x : tp] (x > A)) @ tps).  
+   }.         
+}%   
+%% f := [tms : {n : Nats}{tps : $tType ^ n} ([x] $tm x) @ tps][A : $tType] g at tms at A.
+%{
+			%pattern typedPred := [n : Nat] [tps : $tType ^ n] {
+				h : $tm (⟨i : 1.. n⟩ (ind tps i) > $o).
+			}.
+
+			%pattern axiom := [F : $tm $o] {
+				ax : F.
+			}.
+}%
+}.
+
+%sig PTHF = {
+  %include THF0.
+  %struct pff: PFF = {
+     %include FirstToHigher.
+  }.
+
+%% legal declarations in theories
+%% type operators
+%% t: $tType -> ... -> $tType -> $tType.
+%{
+   %pattern typeOp = [n : Nat] {
+     t : $tType ^ n -> $tType.
+   }.
+}%
+
+%% polymorphic function symbols
+%% f : {a_1:$tType} ... {a_m:$tType} $tm A.
+%%    for some G |- A:$tType where G is the context a_1:$tType,...,a_m:$tType
+%{
+   %pattern polyFunc = [m : Nat][A : $tType^m -> $tType] {
+     f : {params : $tType ^ m} $tm (A params).
+   }.
+}%
+
+}.
+

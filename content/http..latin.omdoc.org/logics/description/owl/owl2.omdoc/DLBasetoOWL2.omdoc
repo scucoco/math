@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
+  <view 
+  name="DLBasetoOWL2" base="http://latin.omdoc.org/logics/description/owl/owl2.omdoc" from="http://latin.omdoc.org/logics/syntax?DLBase" to="http://latin.omdoc.org/logics/description/owl/owl2.omdoc?OWL2">
+    <constant name="atom">
+      <definition>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="OWLBase" name="class"/>
+        </om:OMOBJ>
+      </definition>
+    </constant>
+    <constant name="conc">
+      <definition>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="OWLBase" name="class"/>
+        </om:OMOBJ>
+      </definition>
+    </constant>
+    <constant name="role">
+      <definition>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="OWLBase" name="objectProperty"/>
+        </om:OMOBJ>
+      </definition>
+    </constant>
+    <constant name="subsume">
+      <definition>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="x">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="OWLBase" name="class"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="x1">
+                  <type>
+                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="OWLBase" name="class"/>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/description/owl/owl2.omdoc" module="OWL2SUB" name="subClassOf"/>
+                <om:OMV position="2_2_2" name="x"/>
+                <om:OMV position="2_2_3" name="x1"/>
+              </om:OMA>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </definition>
+    </constant>
+</view>
+</omdoc>

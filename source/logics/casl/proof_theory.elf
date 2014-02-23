@@ -1,0 +1,84 @@
+%namespace "http://latin.omdoc.org/logics/proof_theory".
+%namespace syn = "syntax".
+
+
+%sig CASL = {
+   %include syn.CASLSorted.
+    
+   absurdity : ded false -> {B} wff B -> ded B.
+   
+   TND :  (ded A -> ded B) -> (ded A imp false -> ded B) -> ded B.
+   TNDaux  : (ded A -> ded B) -> (ded not A -> ded B) -> ded B.
+   impI : (ded A -> ded B) -> ded A imp B.
+   
+   impE : ded A -> ded A imp B -> ded B.
+   
+   forallE : ded (forall [x : Var S] (F  ' x)) ->  {x} ded (def S x) imp (F x).
+   
+   forallI : ({x : tm} x # S -> ded (F x)) -> ded (forall [x : Var S] F ' x).   
+   
+   %* reflexivity only for defined terms, serious problem? *%
+   reflexivity : {X : Var S} ded =e= S (' X) (' X).
+   %* this can be proved by induction on the term X
+      this means that any term that has a sort is defined *%
+   reflexivity_all : X # S -> ded =e= S X X. 
+      
+%% auxiliary: to prove.
+=e=sortl : ded =e= S X Y -> X # S.
+=e=sortr : ded =e= S X Y -> Y # S. 
+andI : ded A -> ded B -> ded A and B.   
+andEl : ded A and B -> ded A.
+andEr : ded A and B -> ded B.
+orIl : ded A -> ded A or B.
+orIr : ded B -> ded A or B.
+
+   congruence : {Phi} ded Phi X -> ded =e= S X N -> ded Phi N.
+   %{ n-ary case is derivable, e.g.,
+   congruence2 : ded Phi X X' -> ded X =e= S N -> ded X' =e= N' -> Phi N N'
+     = [p][q][r] (congruence ([x] Phi x N') (congruence ([x] Phi X x) p r : ded Phi X N') q : ded Phi N N').
+   }%
+   
+
+
+   =e=sym : ded =e= S X Y -> ded =e= S Y X 
+          = [p] congruence ([x] =e= S x X) (reflexivity_all (=e=sortl p)) p.
+   =e=trans : ded =e= S X Y -> ded =e= S Y Z -> ded =e= S X Z 
+             = [p][q] congruence ([x] =e= S x Z) q (=e=sym p).
+
+   ==refl : ded == S X X
+           = TNDaux ([q : ded def S X]       orIl q)
+                    ([q : ded not (def S X)] orIr (andI q q)).
+==sym  : ded == S X Y -> ded == S Y X .
+==trans : ded == S X Y -> ded == S Y Z -> ded == S X Z.
+
+
+
+
+   totality : {f : W =>! S} X ## W -> ded (D S (f @! X)) .
+   
+   substitution : ({x} x # S -> ded F x) -> ded D S N imp F N.
+   
+   function_strictness1 : ded =e= S (F X) Y -> ded def S X.
+   function_strictness2 : ded =e= S X (F Y) -> ded def S Y.
+   
+   def* : sortlist -> tmlist -> o.
+   def*_Ehd : ded def* (S * SS) (X , XX) -> ded def S X.
+   def*_Etl : ded def* (S * SS) (X , XX) -> ded def* SS XX.
+   predicate_strictness : {P : pred SS} ded @pred P XX -> ded def* SS XX.
+   
+   %% induction : omitted for now
+   
+   %% sortgen_intro : omitted for now 
+
+
+   %% definitions of the remaining connectives, somehow like this
+   def_notE : ded not F -> ded F imp false.
+   def_notI : ded F imp false -> ded not F.
+   def_orEr : ded A or B -> ded not A -> ded B.
+   def_orEl : ded A or B -> ded not B -> ded A.
+   def_orI : ded not F imp G -> ded F or G.
+   ded_andEr : ded A and B -> ded A.
+   ded_andEl : ded A and B -> ded B.
+   ded_andI : ded not (not F or not G) -> ded F and G.
+
+}.

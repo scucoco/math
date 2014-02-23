@@ -1,0 +1,390 @@
+%namespace "http://latin.omdoc.org/foundations/zfc".
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%* Typed reasoning: basic definitions lifted to the Elem level
+   Naming convention: names of typed operations are capitalized *%
+%sig TypedZFBase = {
+   %include Operations.
+   
+   %* Classes
+      Class P is the class of all sets satisfying P
+      It is represented in LF using proof-carrying terms: pairs of a set and a proof that the set is in the class *%
+   Class  : (i -> o) -> type.
+   %* Class P can be thought of as \Sigma_{x:i} (ded P x); then celem, cwhich, cwhy correpsond to pair, pi1, pi2 *%
+   celem  : {a:i} ded P a -> Class P.
+   cwhich : Class P -> i.
+   cwhy   : {a: Class P} ded (P (cwhich a)).
+
+   %* a term carrying a proof is equal to the original term *% 
+   ceq_which : ded (cwhich (celem X P)) eq X.
+   %* elements of classes are equal if their first components are (proof irrelevance) *%
+   EqcongEl : {F : Class A -> o} ded (cwhich X eq cwhich Y) -> ded (F X) -> ded (F Y).
+
+   %* Elem A specializes Class to those classes that are sets *%
+   Elem   : i -> type = [a] Class [x] x in a.
+   elem   : {a:i} ded a in A -> Elem A = [a][p] celem a p.
+   which  : Elem A -> i = [a] cwhich a.
+   why    : {a: Elem A} ded (which a) in A = [a] cwhy a.  
+   eq_which : ded which (elem X P) eq X = ceq_which.
+
+   %* typed equality *%
+   Eq : Elem A -> Elem A -> o = [a][b] (which a eq which b).   %infix none 25 Eq.
+   %abbrev Eqcong2El : {F : Class A -> Class B -> o} ded cwhich X eq cwhich Y -> ded cwhich X' eq cwhich Y'
+     -> ded (F X X') -> ded (F Y Y') = [F][p][q][r] EqcongEl ([x] F x Y') p (EqcongEl ([y] F X y) q r).
+   EqcongEr : {F : Class A -> o} ded (cwhich X eq cwhich Y) -> ded (F Y) -> ded (F X)
+            = [F][p][q] EqcongEl F (sym p) q.
+   EqcongF  : {F : Class A -> i} ded (cwhich X eq cwhich Y) -> ded (F X) eq (F Y)
+            = [F][p] eqI ([x][q] EqcongEl ([a] x in (F a)) p q) ([x][q] EqcongEr ([a] x in (F a)) p q).
+   EqCongF  : {F: Class A -> Class B} ded (cwhich X eq cwhich Y) -> ded (cwhich (F X) eq cwhich (F Y))
+            = [F][p] EqcongF ([a: Class A] cwhich (F a)) p.
+   %abbrev EqCongF2 : {F: Class A -> Class B -> Class C} ded cwhich X eq cwhich X' -> ded cwhich Y eq cwhich Y'
+                -> ded cwhich (F X Y) eq cwhich (F X' Y') 
+            = [F][p][q] trans (EqCongF ([y] F X y) q) (EqCongF ([x] F x Y') p).
+   EqCongF' : {F: {a:Class A} Class (B a)} ded (cwhich X eq cwhich Y) -> ded (cwhich (F X) eq cwhich (F Y))
+            = [F][p] EqcongF ([a: Class A] cwhich (F a)) p.
+   eq_why   : {F : Class A -> i} ded F (celem X P) eq F (celem X Q)
+            = [F] EqcongF F (trans ceq_which (sym ceq_which)).
+   eq_why'  : ded celem X P Eq celem X Q = trans (ceq_which) (sym ceq_which). 
+            
+   cast  : ded A subset B -> Elem A -> Elem B = [p][a] elem (which a) (subsetE p (why a)).
+   castE : ded which (cast P A) eq which A = eq_which.
+
+   %* proof irrelevance: objects differing only in a proof are equal
+      This is a consistency theorem that can be proved by induction on the syntax.
+      The induction is trivial because there are only two constructors: impl_def and elem,
+      This axiom would be redundant in a framework in which ded F can be introduced as a singleton type. *%
+   proofirrel : {f: ded F -> Class A} ded cwhich (f P) eq cwhich (f Q).
+}.
+
+%* A logic based on a Church-style type theory: intrinsically typed terms, types, propositions, and proofs *% 
+%sig Church = {
+   tp   : type.
+   ttm  : tp -> type.
+   prop : type.
+   ded  : prop -> type.             %prefix 0 ded.
+
+   %* equality of terms *%
+   ==   : ttm A -> ttm A -> prop.   %infix none 25 ==.
+   %* equality of types *%
+   =tp= : tp -> tp -> prop.         %infix none 25 =tp=.
+}.
+
+%* A Logic based on a Curry-style type theory: terms and types with extrinsic typing judgment, propositions, and proofs *% 
+%sig Curry = {
+   tm : type.
+   tp : type.
+   prop : type.
+   ded : prop -> type.          %prefix 0 ded.
+
+   %* typing relation between terms and types *%
+   # : tm -> tp -> prop.        %infix none 25 #.
+   %* equality of terms *%
+   =tm= : tm -> tm -> prop.     %infix none 25 =tm=.
+   %* equality of types *%
+   =tp= : tp -> tp -> prop.     %infix none 25 =tp=.
+   %* subtype relation between types *%
+   < : tp -> tp -> prop.        %infix none 25 <.
+
+   %* We define Church-style typing as a derived notion:
+      ttm A represents the collection of terms t such that |- t : A *% 
+   ttm   : tp -> type. 
+   !     : {t:tm} ded t # A -> ttm A. %infix none 25 !.
+   which : ttm A -> tm.               %prefix 50 which.
+   why   : {t: ttm A} ded which t # A.
+   eq_which : ded which (X ! P) =tm= X.
+
+   %* equality of typed terms *%
+   == : ttm A -> ttm A -> prop = [x][y] which x =tm= which y.       %infix none 25 ==.
+   congPl  : {F : ttm A -> prop} ded X == Y -> ded F X -> ded F Y.
+}.
+
+%view ChurchInCurry : Church -> Curry = {
+   tp   := tp.
+   ttm  := ttm.
+   prop := prop.
+   ded  := [x] ded x.
+   ==   := [A] [x][y] x == y.
+   =tp= := [x][y] x =tp= y.
+}.
+
+%view TypesAsClasses : Curry -> TypedZFBase = {
+   tm := i.
+   tp := i -> o.
+   prop := o.
+   ded  := [x] ded x.
+   
+   #    := [x][p] p x.
+   =tm= := [x][y] x eq y.
+   =tp= := [p][q] forall [x] p x equiv q x.
+   <    := [p][q] forall [x] p x imp q x.
+
+   ttm   := [x] Class x.
+   !     := [A] [x][y] celem x y.
+   which := [A] [x] cwhich x.
+   why   := [A] [x] cwhy x.
+   eq_which := [A][X][P] ceq_which.
+   congPl   := [A][X][Y] EqcongEl.
+}.
+
+%view TypesAsSets : Curry -> TypedZFBase = {
+   tm := i.
+   tp := i.
+   prop := o.
+   ded  := [x] ded x.
+   
+   #    := [x][a] x in a.
+   =tm= := [x][y] x eq y.
+   =tp= := [a][b] forall [x] x in a equiv x in b.
+   <    := [a][b] a subset b.
+
+   ttm   := [a] Class [y] y in a.
+   !     := [A] [x][y] celem x y.
+   which := [A]  [x] cwhich x.
+   why   := [A] [x] cwhy x.
+   eq_which := [A][X][P] ceq_which.
+   congPl   := [A] [X][Y] EqcongEl.
+}.
+
+
+%* Due to the limitations of Twelf's unification, type reconstruction would fail later if these constants had
+   definitions. Therefore, we use a separate signature and a view. The view is given in typed_views.elf.
+ *%
+%sig UniversalQuantifier = {
+   %include TypedZFBase.
+   tforall  : (Class A -> o) -> o.
+   tforallI : ({a: Class A} ded F a) -> ded tforall F.
+   tforallE : ded tforall F -> {a: Class A} ded F a.
+}.
+
+%sig ExistentialQuantifier = {
+   %include TypedZFBase.
+   texists  : (Class A -> o) -> o.
+   texistsI : {a: Class A} ded F a -> ded texists F.
+   texistsE : ded texists F -> ({a: Class A} ded F a -> ded C) -> ded C.
+}.
+
+%sig PredSubTypes = {
+   %include TypedZFBase.
+   predsub : (Elem A -> o) -> i.
+   Predsub : (Elem A -> o) -> type = [F] Elem (predsub F).
+   predsubI : {X} ded F X -> Predsub F.
+   predsubEl : {X: Predsub ([a: Elem A] F a)} Elem A.
+   predsubEr : {X: Predsub F} ded F (predsubEl X).
+   conv_predsubIE : ded predsubI (predsubEl X) P Eq X.
+   conv_predsubEI : ded predsubEl (predsubI X P) Eq X. 
+   eq_predsub : ded predsubEl X Eq predsubEl Y -> ded X Eq Y.
+   %% add subset property?
+}.
+
+%sig ImageTypes = {
+   %include TypedZFBase.
+   Image : (Elem A -> i) -> i.
+   ImageI : {a: Elem A} ded (F a) in Image F.
+   ImageI': {a: Elem A}{f : Elem A -> i} ded (f a) in Image f.
+   ImageE : {b: Elem (Image F)} ({a: Elem A} ded F a eq which b -> ded C) -> ded C.
+   Image_subset : ({a: Elem A} ded (F a) in B) -> ded (Image F) subset B
+                = [p] subsetI [b:i][q: ded b in Image F]
+                    (ImageE (elem b q) [a: Elem A][r: ded (F a eq which (elem b q))]
+                      (eq_in (sym (trans r eq_which)) (p a))).
+}.
+
+%* same remark as for TypedQuantifiers *%
+%sig ConditionalTerms = {
+   %include TypedZFBase.
+   case : (ded F -> Elem A) -> (ded G -> Elem A) -> ded F or G -> ded not (F and G) -> Elem A.
+   case1 : {p: ded F} ded case X Y P Q Eq (X p).
+   case2 : {q: ded G} ded case X Y P Q Eq (Y q).
+   case' : (ded F -> Elem A) -> (ded not F -> Elem A) -> ded F or not F -> Elem A
+         = [then][else][p] case then else p (notI [q] notE (andEr q) (andEl q)).
+}.
+
+%sig BigUnion = {
+   %include TypedZFBase.
+   %* Bigunion F = \bigcup [x] F x *%
+   Bigunion : (Elem A -> i) -> i.
+   BigunionI : {a: Elem A} ded X in F a -> ded X in (Bigunion F).
+   BigunionE : ded X in Bigunion F -> ({a: Elem A} ded X in F a -> ded C) -> ded C.
+   upperbound : ded F X subset Bigunion F = subsetI ([x][p] BigunionI X p).
+   supremum  : ({a: Elem A} ded F a subset G) -> ded Bigunion F subset G
+             = [f] subsetI [x][p] (BigunionE p [a][q] subsetE (f a) q).
+}.
+
+%sig BigInter = {
+   %include TypedZFBase.   
+   %* Biginter F = \bigcap [x] F x *%
+   Biginter : (Elem A -> i) -> i.
+   BiginterE : ded X in (Biginter F) -> {a: Elem A} ded X in F a.
+   BiginterI : ded nonempty A -> ({a: Elem A} ded X in F a) -> ded X in (Biginter F).  
+   lowerbound : ded Biginter F subset F X = subsetI ([x][p] BiginterE p X).
+   infimum    : ded nonempty A -> ({a: Elem A} ded G subset F a) -> ded G subset Biginter F
+     = [p][f] subsetI [x][q] (BiginterI p ([a] subsetE (f a) q)).
+}.
+
+%sig DisjUnion = {
+   %include TypedZFBase.
+   DisjUnion: i -> i -> type = [a][b] Elem (a disjUnion b). 
+   Injl : Elem A -> DisjUnion A B.
+   Injr : Elem B -> DisjUnion A B.
+   Case : DisjUnion A B -> (Elem A -> Elem C) -> (Elem B -> Elem C) -> Elem C.
+   conv_Injl : ded Case (Injl X) F G Eq F X. 
+   conv_Injr : ded Case (Injr X) F G Eq G X.
+   DisjUnionE : {x: DisjUnion A B} ({a: Elem A} ded x Eq Injl a -> ded C)
+                                   -> ({b: Elem B} ded x Eq Injr b -> ded C) -> ded C.
+   conv_Case : ded Case X Injl Injr Eq X
+     = DisjUnionE X ([a][q] trans3 (EqCongF ([x] Case x Injl Injr) q) conv_Injl (sym q))
+                    ([a][q] trans3 (EqCongF ([x] Case x Injl Injr) q) conv_Injr (sym q)).
+}.
+
+%sig Products = {
+   %include TypedZFBase.
+   Prod: i -> i -> type = [x][y] Elem (x prod y).
+   Pair: Elem A -> Elem B -> Prod A B.
+   Pi1 : Prod A B -> Elem A.
+   Pi2 : Prod A B -> Elem B.
+   conv_Pi1  : ded Pi1 (Pair X Y) Eq X.
+   conv_Pi2  : ded Pi2 (Pair X Y) Eq Y.
+   conv_Pair : ded Pair (Pi1 U) (Pi2 U) Eq U.
+   eq_Prod   : ded Pi1 U Eq Pi1 V -> ded Pi2 U Eq Pi2 V -> ded U Eq V
+      = [p][q] trans3 (sym conv_Pair) (EqCongF2 Pair p q) conv_Pair.
+   inj_Pair1: ded Pair X Y Eq Pair X' Y' -> ded X Eq X' = [p] trans3 (sym conv_Pi1) (EqCongF Pi1 p) conv_Pi1.
+   inj_Pair2: ded Pair X Y Eq Pair X' Y' -> ded Y Eq Y' = [p] trans3 (sym conv_Pi2) (EqCongF Pi2 p) conv_Pi2.
+}.
+
+%sig Functions = {
+   %include ImageTypes.
+   Func   : i -> i -> type = [x][y] Elem (func x y).
+   Lambda : (Elem A -> Elem B) -> Func A B 
+     = [f] elem (Image ([x] pair (which x) (which (f x))))
+         (filterI
+           (filterI 
+            ((powersetI (Image_subset([x : Elem A] prodI (why x) (why (f x))))))
+             (forallI [m] (forallI [n] (forallI [n'] (impI [p : ded (pair m n ) in (Image ([x] pair (which x) (which (f x)))) and 
+                                                                    (pair m n') in (Image ([x] pair (which x) (which (f x))))]  
+             (ImageE (elem (pair m n) (andEl p))
+                     [a][r] (ImageE (elem (pair m n') (andEr p))
+                             [b][s] trans3 (sym (andEr (pair_injective (trans r eq_which)))) 
+                                            (EqCongF f (trans (andEl (pair_injective (trans r eq_which))) 
+                                                      (sym (andEl (pair_injective (trans s eq_which))))))
+                                            (andEr (pair_injective (trans s eq_which))))))))) 
+           )
+           (forallI [x] (impI [p : ded x in A] 
+                           existsI (which (f (elem x p))) 
+                                   ((congP (eq_which) ([t] (pair t (which (f (elem x p)))) in (Image ([z] pair (which z) (which (f z)))))   (ImageI (elem x p)))
+                                    )
+                        )
+           ) 
+         ).
+
+   Apply  : Func A B -> Elem A -> Elem B = [F][x] elem (apply (which F) (which x)) (funcE (why F) (why x)).
+   @ = Apply. %infix left 30 @.
+   beta : ded Apply (Lambda F) X Eq (F X)
+        = trans eq_which (funcE3 (why (Lambda F)) (in_eq (ImageI X) (sym eq_which))).
+   %abbrev extensionality : ({a:Elem A} ded (F @ a) Eq (G @ a)) -> ded F Eq G
+        = [f] func_extensionality (why F) (why G) [a][p: ded a in A]
+            trans3
+              (congF (sym eq_which) ([x] apply (which F) x)) 
+              (trans3 (sym eq_which) (f (elem a p)) eq_which)
+              (congF eq_which ([x] apply (which G) x)).
+   eta : ded Lambda ([x] Apply F x) Eq F = extensionality [a] beta.
+   %abbrev xi : ({a: Elem A} ded F a Eq G a) -> ded Lambda F Eq Lambda G
+       = [f] extensionality [a] trans3 beta (f a) (sym beta). 
+   beta2 : ded (Lambda [x] Lambda [y] F x y) @ X @ Y Eq F X Y
+        = trans (EqCongF ([u] u @ Y) beta) beta.  
+   beta3 : ded (Lambda [x] Lambda [y] Lambda [z] F x y z) @ X @ Y @ Z Eq F X Y Z
+        = trans (EqCongF ([u] u @ Z) (trans (EqCongF ([z] z @ Y) beta) beta)) beta.  
+}.
+
+%sig DependentProducts = {
+   %include BigUnion.
+
+   %* depSum A B = { (a,b) | a ‍∈ A, b ‍∈ B(a) } *%
+   depSum  : {A:i} (Elem A -> i) -> i    = [A][B] Bigunion [a: Elem A] (singleton (which a)) prod (B a).
+   DepSum  : {A:i} (Elem A -> i) -> type = [A][B] Elem (depSum A B).
+   
+   depPair : {a: Elem A} Elem (B a) -> DepSum A B
+           = [a][b] elem (pair (which a) (which b)) (BigunionI a (prodI singletonI (why b))).
+   depPi1 : DepSum A B -> Elem A
+          = [u] elem (pi1 (which u))
+                     (BigunionE (why u)
+                              [a: Elem A] [p: ded (which u) in (singleton (which a)) prod (B a)]
+                                 (eq_in (singletonE (prodEl p)) (why a))
+                     ).
+   depPi2 : {u: DepSum A B} Elem (B (depPi1 u))
+          = [u] elem (pi2 (which u))
+                     (BigunionE (why u)
+                              [a: Elem A] [p: ded (which u) in (singleton (which a)) prod (B a)]
+                                 in_eq (prodEr p : ded pi2 (which u) in (B a))
+                                       (sym (EqcongF B (trans eq_which (singletonE (prodEl p)))) : ded B a eq B (depPi1 u))
+                     ).
+   conv_depPi1 : ded depPi1 (depPair X Y) Eq X
+               = trans3 eq_which (congF eq_which pi1) conv_pi1.
+   %{ we cannot use typed equality in conv_depPi2 because the types of the two sides of Eq
+      are only provably (by conv_Pi1) but not definitionally equal }% 
+   conv_depPi2 : ded which (depPi2 (depPair X Y)) eq (which Y)
+               = trans3 eq_which (congF eq_which pi2) conv_pi2.
+   conv_depPair: ded depPair (depPi1 U) (depPi2 U) Eq U
+               = trans3 eq_which
+                        (trans (congF eq_which ([x] pair x (which (depPi2 U))))
+                               (congF eq_which ([y] pair (pi1 (which U)) y))
+                        )
+                        (conv_pair (BigunionE (why U) [a][p] existsE (prodE p) [x][q] (existsE q [y][r]
+                                                                       existsI x (existsI y (and3Er r))))).
+   %{ This theorem needs to expand the definition of depPair.
+      It cannot be proved using the conversions alone because the types of the second projection are not identical. }%
+   eq_DepSum : ded depPi1 U Eq depPi1 V -> ded which (depPi2 U) eq which (depPi2 V) -> ded U Eq V
+            = [p][q] trans3 (trans (sym conv_depPair) eq_which)
+                            (congF2 p q pair)
+                            (trans (sym eq_which) conv_depPair).
+}.
+
+%sig DependentFunctions = {
+   %include PredSubTypes.
+   %include Functions.
+   %include DependentProducts.
+   %include UniversalQuantifier.
+   %% depProd A B = { f : A -> (depSum A B) | \forall a \in A. f(a) = (a,b) where b \in B(a) }
+   %%             = { f : Func A (depSum A B) | pi1 o f = id_A }
+   depProd : {A:i} (Elem A -> i) -> i
+           = [A][B] predsub [f: Func A (depSum A B)] tforall [a: Elem A] depPi1 (f @ a) Eq a and which (depPi2 (f @ a)) in (B a).
+   
+   DepProd : {A:i} (Elem A -> i) -> type = [A][B] Elem (depProd A B).
+   depLambda : ({a: Elem A} Elem (B a)) -> DepProd A B
+             = [f] predsubI (Lambda [a] depPair a (f a)) (tforallI [a] andI (trans (EqCongF depPi1 beta) conv_depPi1)
+                                                                            (eq_in (trans (EqCongF' depPi2 beta) conv_depPi2) (why (f a)))).
+   depApply : DepProd A B -> {a : Elem A} Elem (B a)
+            = [f][a] elem (which (depPi2 ((predsubEl f) @ a))) (andEr (tforallE (predsubEr f) a)).
+   depBeta : ded depApply (depLambda [x] F x) X Eq F X
+        = trans4 eq_which (EqCongF' ([f] depPi2 (f @ X)) conv_predsubEI) (EqCongF' depPi2 beta) conv_depPi2.
+%{   %% comment these out if you want to print omdoc with Twelf; otherwise, you get an SML size exception
+   depEta  : ded depLambda ([x] depApply F x) Eq F
+        = eq_predsub (trans3
+                       conv_predsubEI
+                       (xi [a] eq_DepSum (trans conv_depPi1 (sym (andEl (tforallE (predsubEr F) a))))
+                                        (trans conv_depPi2 eq_which)
+                       ) eta).
+   %abbrev depXi : ({a} ded F a Eq G a) -> ded depLambda F Eq depLambda G
+         = [p] eq_predsub (trans3 conv_predsubEI (xi [a] EqCongF ([x] depPair a x) (p a)) (sym conv_predsubEI)).
+   %abbrev depExten : ({a: Elem A} ded depApply F a Eq depApply G a) -> ded F Eq G
+            = [p] eq_predsub (extensionality [a: Elem A]
+                    eq_DepSum (trans (andEl (tforallE (predsubEr F) a)) (sym (andEl (tforallE (predsubEr G) a))))
+                              (trans3 (sym eq_which) (p a) eq_which)
+                  ).
+                  }%
+}.
+
+%sig TypedZF = {
+  %include TypedZFBase.
+  %include UniversalQuantifier.
+  %include ExistentialQuantifier.
+  %include PredSubTypes.
+  %include ImageTypes.
+  %include ConditionalTerms.
+  %include BigUnion.
+  %include BigInter.
+  %include DisjUnion.
+  %include Products.
+  %include Functions.
+  %include DependentProducts.
+  %include DependentFunctions.
+}.

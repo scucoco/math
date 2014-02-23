@@ -1,0 +1,28 @@
+General structure of current directory at
+https://svn.kwarc.info/repos/twelf/logics/first-order/proof_theory
+
+Abbreviations
+- fol     : first-order logic
+- foleq   : first-order logic with equality
+- ifol    : intuitionistic first-order logic
+- ifoleq  : intuitionistic first-order logic with equality
+- sfol    : sorted first-order logic
+- sifol   : intuitionistic sorted first-order logic
+- sfoleq  : sorted first-order logic with equality
+- isfoleq : intuitionistic sorted first-order logic with equality
+
+This directory contains encodings of 
+
+- proof-theory of fol
+base.elf     - base signature for fol proof-theory
+modules.elf  - separate signatures for proof rules for each quantifier and equality
+ifol.elf     - signatures forming proof theory of ifol and ifoleq
+fol.elf      - signatures forming proof theory of fol and foleq
+derived.elf  - signatures for proof rules of derived terms (e.g. non-equality)
+
+- proof theory of sfol
+sorted_base.elf    - base signature for sfol proof-theory
+sifol.elf          - signature forming proof theory of sifol and sifoleq
+sorted_modules.elf - separates signatures for proof rules for each sorted quantifier and equality
+sorted_fol.elf     - signatures forming proof-theory of sfol and sfoleq
+sorted_derived.elf - signatures for proof rules of derived terms (e.g. sorted non-equality)

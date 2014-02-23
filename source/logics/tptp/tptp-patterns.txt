@@ -1,0 +1,109 @@
+  FOF
+  $term : type.
+  $form : type.
+
+  function symbols
+  f : $term -> ... -> $term -> $term.
+  %pattern funcs = [n : Nat] {
+    f : ($term ^ n) -> $term.
+  }. 
+  
+  predicate symbols
+  p : $term -> ... -> $term -> $form.
+  %pattern preds = [n : Nat] {
+    p : ($term ^ n) -> $form.
+  }.
+
+  axioms/conjectures etc.
+  a : $istrue F. for some F : $o
+  %pattern axioms = [F : $o] {
+    a : $istrue F.
+  }.
+ 
+  Types
+  $tType : type.
+  $tm    : $tType -> type.                  
+  $i     : $tType.
+  
+  TFF
+  $form  : type.
+  !      : ($tm A -> $form) -> $form.
+ 
+  types
+  t: $tType.
+  %pattern types = {t : $tType}.}
+
+  typed function symbols
+  f : $tm A_1 -> ... -> $tm A_n -> $tm A.  for some A_1:$tType, ..., A_n:$tType, A:$tType
+  %pattern typedFun = [n : Nat][tps : $tType ^ n][A : $tType] {
+    f : ([x : 1.. n] $tm (ind tps x)) -> $tm A.
+  }.
+  Alternatively,
+  %pattern typedFun = [n : Nat][tps : $tType ^ n][A : $tType] {
+    f : ([x] $tm x) @ tps -> $tm A.
+  }.
+  
+  predicate symbols
+  p : $tm A_1 -> ... -> $tm A_n -> $form.  for some A_1:$tType, ..., A_n:$tType
+  %pattern typedPred = [n : Nat][tps : $tType ^ n] {
+    f : ([x : 1.. n] $tm (ind tps x)) -> $form.
+    %%Alternatively, f : ([x] $tm x) @ tps -> $form.
+  }.
+
+  axioms/conjectures etc.
+  a : $istrue F. for some F : $form
+  %include %pattern FOF.axioms.
+  
+  PFF
+  !° : ($tType -> $form) -> $form.  
+
+  type operators
+  t: $tType -> ... -> $tType -> $tType.
+  %pattern typeOp = [n : Nat] {
+    t : $tType$ ^ n -> $tType.
+  }.
+
+  polymorphic function symbols
+  f : {a_1:$tType} ... {a_m:$tType} $tm (A_1 a1 ... am) -> ... -> $tm A_n -> $tm A.
+      for some G |- A_1:$tType, ..., G |- A_n:$tType, G |- A:$tType where G is the context a_1:$tType,...,a_m:$tType
+      or (using pattern notation) for some m: Nat, n: Nat, A: ({a: $tType ^ m} $tType) ^ n
+  %pattern polyFun = [m : Nat][n : Nat][argTypes : ($tType ^ m -> $tType) ^ n][A : $tType] { 
+    f : {params : $tType ^ m} [i : 1.. n] $tm ((ind argTypes i) params) -> $tm (A params).
+    %% Alternatively, 
+    %% f : {params : $tType ^ m} (([argType] $tm (argType params)) @ argTypes) -> $tm (A params).
+  }.
+
+  polymorphic predicate symbols
+  p : {a_1:$tType} ... {a_m:$tType} $tm A_1 -> ... -> $tm A_n -> $form.
+      for some G |- A_1:$tType, ..., G |- A_n:$tType where G is the context a_1:$tType,...,a_m:$tType
+  %pattern polyPred = [m : Nat][n : Nat][argTypes : (($tType ^ m) -> $tType) ^ n] { 
+    p : {params : $tType ^ m} ([i : 1.. n] $tm (ind argTypes i) params) -> $form. 
+    %%Alternatively,   
+    %%p : {params : $tType ^ m} (([argType] $tm (argType params)) @ argTypes) -> $form.
+  }.
+
+  axioms/conjectures etc.
+  a : $istrue F. for some F : $form
+  %include %pattern TFF.FOF.axiom.                     
+
+  
+  THF0
+  $o : $tType.
+  > : $tType -> $tType -> $tType.
+  $istrue : $tm $o -> type. 
+     
+  base types
+  t: $tType.
+  %pattern baseTypes = {t : $tType.}.
+
+  typed constants 
+  f : $tm A.  for some A:$tType
+  %pattern typedConstants = [A : $tType] {
+  f : $tm A.
+  }.
+
+  axioms/conjectures etc.
+  a : $istrue F. for some F : $o
+  %pattern axioms = [F : $o] {
+    a : $istrue F.
+  }.

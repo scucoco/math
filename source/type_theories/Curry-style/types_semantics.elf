@@ -1,0 +1,71 @@
+%namespace "http://latin.omdoc.org/foundations/type_theory/curry".
+
+%namespace logic = "../logic/firs-order".
+%namespace zf = "../zfc".
+
+%view _ClassifiedUniverse : ClassifiedUniverse ->  zf.ZFC = {
+    tp := i.
+    tm := i.
+    #  := [a][A] ded (a in A).
+    <  := [A][B] ded (A subset B).
+
+    <I := [A : i][B : i][p : {x} ded x in A -> ded x in B] (subsetI p).
+    <E := [A : i][B : i][X : i][p : ded (A subset B)][q : ded (X in A)] subsetE p q.
+}.
+
+%view _Logic : Logic -> zf.ZFC = {
+    %include _ClassifiedUniverse.
+    prop := o.
+    ded  := [p : o] ded p.
+}.
+
+%view _ExternalLogic : ExternalLogic -> zf.ZFC = {
+    %include _Logic.
+}.
+
+%view _InternalLogic : InternalLogic -> zf.Boolean = {
+    %include _ExternalLogic.
+    bool := bool.
+}.
+
+%view _Equality : Equality -> zf.ZF = {
+    %include _Church.
+    =tp= := [A][B] ded (A eq B).
+    tpRefl := [X : i] refl.
+    tpSym := [X : i][Y : i]
+             [p : ded X eq Y] sym p.
+    tpTrans := [X : i][Y : i][Z : i]
+               [p : ded X eq Y][q : ded Y eq Z] trans p q.
+    tpCong := [X : i][Y : i][F : i -> i]
+              [p : ded X eq Y] cong F p.
+    == := [A][B] ded (A eq B).
+    tmRefl := [X : i] refl.
+    tmSym := [X : i][Y : i]
+             [p : ded X eq Y] sym p.
+    tmTrans := [X : i][Y : i][Z : i]
+               [p : ded X eq Y][q : ded Y eq Z] trans p q.
+    tmCong := [X : i][Y : i][F : i -> i]
+              [p : ded X eq Y] cong F p.
+    #== := [X : i][A : i][Y : i][p : ded X in A][q : ded X eq Y]
+           eq_in (sym q) p. 
+}.
+
+%view _DefinitionalEquality : DefinitionalEquality -> zf.ZFC = {
+    %include _Equality.
+}.
+
+%view _AxiomaticEquality : AxiomaticEquality -> zf.ZFC = {
+    %include _ExternalLogic.
+    %include _Equality.
+    =tp= := [A][B] A eq B.
+    ==   := [a][b] a eq b.
+    tpCongP := [X : i][Y : i][F : i -> o][p : ded X =tp= Y]
+               [q : ded X] congP p F q.
+    tmCongP := [X : i][Y : i][F : i -> o][p : ded X =tp= Y]
+               [q : ded X] congP p F q.
+}.
+
+%view _InternalEquality : InternalEquality -> zf.Boolean = {
+   %include _InternalLogic.
+   %include _AxiomaticEquality.
+}.

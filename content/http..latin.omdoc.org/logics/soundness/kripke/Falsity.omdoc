@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
+  <view 
+  name="Falsity" base="http://latin.omdoc.org/logics/soundness/kripke" from="http://latin.omdoc.org/logics/proof_theory?Falsity" to="http://latin.omdoc.org/logics/model_theory/kripke?Kripke">
+    <import from="http://latin.omdoc.org/logics/syntax?Logic">
+      <definition>
+        <om:OMS base="http://latin.omdoc.org/logics/model_theory/kripke" module="BasePL"/>
+      </definition>
+    </import>
+    <import from="http://latin.omdoc.org/logics/syntax?Falsity">
+      <definition>
+        <om:OMS base="http://latin.omdoc.org/logics/model_theory/kripke" module="Falsity"/>
+      </definition>
+    </import>
+    <constant name="falseE">
+      <definition>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="p">
+                <type>
+                  <om:OMA position="0_1">
+                    <om:OMS position="0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="0_1_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                    <om:OMA position="0_1_2">
+                      <om:OMS position="0_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="0_1_2_1" base="http://latin.omdoc.org/logics/syntax" module="SEqual" name="eq"/>
+                      <om:OMS position="0_1_2_2" base="http://latin.omdoc.org/foundations/minimal" module="Bool" name="bool'"/>
+                      <om:OMS position="0_1_2_3" base="http://latin.omdoc.org/foundations/minimal" module="Bool" name="0"/>
+                      <om:OMS position="0_1_2_4" base="http://latin.omdoc.org/foundations/minimal" module="Bool" name="1"/>
+                    </om:OMA>
+                  </om:OMA>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="A">
+                  <type>
+                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/foundations/minimal" module="Bool" name="bool"/>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_2_1" base="http://latin.omdoc.org/foundations/minimal" module="Bool" name="indirect"/>
+                <om:OMV position="2_2_2" name="A"/>
+                <om:OMBIND position="2_2_3">
+                  <om:OMS position="2_2_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+                  <om:OMBVAR>
+                    <om:OMV position="2_2_3_0" name="q">
+                      <type>
+                        <om:OMA position="2_2_3_0_1">
+                          <om:OMS position="2_2_3_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                          <om:OMS position="2_2_3_0_1_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
+                          <om:OMA position="2_2_3_0_1_2">
+                            <om:OMS position="2_2_3_0_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                            <om:OMS position="2_2_3_0_1_2_1" base="http://latin.omdoc.org/logics/syntax" module="SEqual" name="eq"/>
+                            <om:OMS position="2_2_3_0_1_2_2" base="http://latin.omdoc.org/foundations/minimal" module="Bool" name="bool'"/>
+                            <om:OMV position="2_2_3_0_1_2_3" name="A"/>
+                            <om:OMS position="2_2_3_0_1_2_4" base="http://latin.omdoc.org/foundations/minimal" module="Bool" name="0"/>
+                          </om:OMA>
+                        </om:OMA>
+                      </type>
+                      <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                        <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                      </attribution>
+                    </om:OMV>
+                  </om:OMBVAR>
+                  <om:OMA position="2_2_3_2">
+                    <om:OMS position="2_2_3_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_3_2_1" base="http://latin.omdoc.org/foundations/minimal" module="Bool" name="boole-false"/>
+                    <om:OMA position="2_2_3_2_2">
+                      <om:OMS position="2_2_3_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_2_3_2_2_1" base="http://latin.omdoc.org/logics/proof_theory" module="SEqual" name="sym"/>
+                      <om:OMS position="2_2_3_2_2_2" base="http://latin.omdoc.org/foundations/minimal" module="Bool" name="bool'"/>
+                      <om:OMS position="2_2_3_2_2_3" base="http://latin.omdoc.org/foundations/minimal" module="Bool" name="0"/>
+                      <om:OMS position="2_2_3_2_2_4" base="http://latin.omdoc.org/foundations/minimal" module="Bool" name="1"/>
+                      <om:OMV position="2_2_3_2_2_5" name="p"/>
+                    </om:OMA>
+                  </om:OMA>
+                </om:OMBIND>
+              </om:OMA>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </definition>
+    </constant>
+</view>
+</omdoc>

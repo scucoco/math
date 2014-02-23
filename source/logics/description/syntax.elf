@@ -1,0 +1,248 @@
+%* description logics, following the Wikipedia article *%
+
+%namespace "http://latin.omdoc.org/logics/syntax".
+
+%sig DLBase = {
+  atom : type.
+  conc : type.
+  atomic : atom -> conc.
+  role : type.
+  subsume : conc -> conc -> type.
+  equiv   : conc -> conc -> type.
+  %% ded  : conc -> type. %% probably not important
+  
+  %%patterns for atomic concepts, complex concepts, roles, subsumption axioms, equivalence axioms   
+  %{
+   %pattern atoms   = {a : atom.}.
+   
+   %pattern aConc   = [d : atom] {
+     c : conc = atomic d.
+   }.
+   
+   %pattern cConc   = [d : conc] {
+     c : conc = d.
+   }.
+   
+   %pattern roles   = {r : role.}.
+
+   %pattern subConc = [c : conc] [d : conc] {
+     ax : subsume c d.   
+   }. 
+   
+   %pattern eqConc  = [c : conc ][d : conc] {
+     ax : equiv c d.
+   }.
+  }%
+}.
+
+
+
+%sig FL0 = {
+  %include DLBase.
+  top : conc.
+  bot : conc.
+  inter : conc -> conc -> conc.
+  forall : role -> conc -> conc.
+}.
+
+%sig FLminus = {
+ %include FL0.
+ lim_exists : role -> conc.
+}.
+
+
+%% EL - intersection + existential restrictions
+%% FL	-	intersection + universal restriction + limited existential quantificaation + role restriction
+
+%sig F = {
+ %include DLBase.
+ functional : role -> type.
+ %% pattern for functional role axioms
+ %{
+   %pattern funcR = [r : role] {
+      ax : functional r.
+   }.
+ }%
+}.
+
+%sig E = {
+ %include DLBase.
+ exists : role -> conc -> conc.
+}.
+
+%sig U = {
+ %include DLBase.
+ union : conc -> conc -> conc.
+}.
+
+%sig Catom = {
+ %include DLBase.
+ aneg : atom -> conc.
+}.
+
+
+%sig C = {
+ %include DLBase.
+ neg : conc -> conc.
+}.
+
+%view Cview : Catom -> C = {
+  %include DLBase.
+  aneg := [x] neg (atomic x).
+}.
+
+%sig H = {
+ %include DLBase.
+ sub : role -> role -> type.
+ 
+ %% pattern for sub role axioms: sub r s 
+ %{
+ %pattern subRoles = [r : role][s : role] {
+   ax : sub r s.
+ }.
+ }%
+}.
+
+%sig R = {
+ %include DLBase.
+ 
+ refl   : role -> type.
+ %% pattern for reflexive roles 
+ %{
+	%pattern Refl = [r : role] {
+		ax : refl r.
+	}.
+ }%
+ 
+ irrefl : role -> type.
+ %% pattern for irreflexive roles
+ %{
+	%pattern Irrefl = [r : role] {
+		ax : irrefl r.
+	}.
+ }%
+
+
+ disj   : role -> role -> type.
+ %% pattern for disjoint roles
+ %{
+	%pattern Disj = [r : role] [s : role] {
+		ax : disj r s.
+	}.
+ }%
+ 
+ %* type of complex roles, complex roles are formed from atomic roles by composition *%
+ crole : type.
+ %% pattern for complex role
+	%{
+	%pattern Crole = {cr : crole}.
+	}%
+ 
+ '     : role -> crole.
+ comp  : crole -> crole -> crole.
+ csub  : crole -> crole -> type.
+ %% 3 patterns for limited complex role inclusion axioms: 
+ %%pattern for csub ' r ' s, 
+ %%pattern for csub (comp ' r ' s) ' t, 
+ %%pattern for csub ' r (comp ' s ' t) 
+ %%where r, s, t are simple
+ %{
+	%pattern Csub1 = [r : role] [s : role] {
+		ax : csub ' r ' s.
+	}. 
+		%pattern Csub2 = [r : role] [s : role] [t : role] {
+		ax : csub (comp ' r ' s) ' t.
+	}.
+	%pattern Csub3 = [r : role] [s : role] [t : role] {
+		ax : csub ' r (comp ' s ' t).
+	}.
+	}%
+
+}.
+
+%sig O = {
+ %include DLBase.
+ ind : type.
+ %% constructors for nominals, e.g., oneOf
+ conc_assert : ind -> conc -> type.
+ role_assert : role -> ind -> ind -> type.
+ 
+ %% pattern for nominals (individuals), 
+ %{
+ %pattern inds   = {i : ind.}.
+ 
+ %% pattern for concept assertions
+	%pattern Cassert = [j : ind] [c : conc] {
+		ax : conc_assert j c.	
+	}.
+ %% pattern for role assertions
+	%patterm Rassert = [r : role] [j : ind] [k : ind] {
+		ax : role_assert r j k.
+	}.
+ }%
+ 
+
+}.
+
+%sig I = {
+ %include DLBase.
+ inv : role -> role.
+}.
+
+%sig N = {
+ %include DLBase.
+ nat : type.
+ zero : nat.
+ succ : nat -> nat.
+
+ atleast : nat -> role -> conc -> conc.
+ atmost : nat -> role -> conc -> conc.
+}.
+
+%sig Q = {
+  %include N.
+}.
+
+%sig AL = {
+ %include FLminus.
+ %include Catom.
+}.
+
+%sig ALN = {
+ %include AL.
+ %include N.
+}.
+
+%sig ALC = {
+ %include FLminus.
+ %include C.
+}.
+
+%sig S = {
+ %include ALC.
+ trans : role -> type.
+	
+ %% pattern for transitive roles
+ %{
+	%pattern Trans = [r : role] {
+		ax : trans r.	
+	}.
+	}%
+	
+}.
+
+%sig SHOIN = {
+ %include S.
+ %include H.
+ %include O.
+ %include I.
+ %include N.
+}.
+
+%sig SROIQ = {
+ %include S.
+ %include R.
+ %include O.
+ %include I.
+ %include Q.
+}.

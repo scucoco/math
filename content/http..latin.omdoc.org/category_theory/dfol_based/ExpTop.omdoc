@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
+  <theory name="ExpTop" base="http://latin.omdoc.org/category_theory/dfol_based" meta="http://latin.omdoc.org/logics/proof_theory?DFOL">
+    <import name="exp" from="http://latin.omdoc.org/category_theory/dfol_based?Exponential"> </import>
+    <import name="prod_top" from="http://latin.omdoc.org/category_theory/dfol_based?ProdTop">
+      <import name="prod" from="http://latin.omdoc.org/category_theory/dfol_based?Product">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="ExpTop" name="exp/prod"/>
+        </definition>
+      </import>
+    </import>
+  </theory>
+</omdoc>

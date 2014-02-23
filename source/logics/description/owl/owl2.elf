@@ -1,0 +1,334 @@
+%%OWL2
+%read "owl.elf".
+
+%namespace "http://latin.omdoc.org/logics/description/owl/owl2.omdoc".
+%namespace owl1 = "owl.omdoc".
+
+%sig OWL2Datatype = { %% D2
+ %include owl1.OWL1Datatype %open.	
+ 
+ %%these are only in OWL2
+ rational 	   : dataType.    
+ real          : dataType.
+ %%literal			: dataType. %% RDF_XML Literal
+ plainLiteral  : dataType.   
+ dateTimeStamp : dataType.
+}.
+
+
+%sig OWL2SUB = {
+ %include OWL2Datatype.
+ %include owl1.OWLBase %open.
+  
+ thing   : class. %%universal class
+ nothing : class. %%empty class
+ 
+ %%dataProperty : type. %%dataTypeProperty in OWL1
+ objectIntersectionOf : class -> class -> class. %% Nary
+ literal : type.
+ %%dataRange = datatypes
+ dataIntersectionOf : dataType -> dataType -> dataType. %%Nary    
+ 
+ subClassOf        : class -> class -> type.
+ equivalentClasses : class -> class -> type. %%Nary
+ disjointClasses   : class -> class -> type. %%Nary %%leftlung rightlung , nothing can be both leftlung and rightlung 
+ %%pairwiseDisjointClass : class -> class -> ... -> class. %%Nary
+
+ subObjectPropertyOf  : objectProperty -> objectProperty -> type.
+ objectPropertyDomain : objectProperty -> class -> type. %%hasWife man
+ objectPropertyRange  : objectProperty -> class -> type. %%hasWife woman
+ equivalentObjectProperties : objectProperty -> objectProperty -> type.   %%Nary %%hasPart inverse partOf
+ subDataPropertyOf 	     : dataProperty -> dataProperty -> type. %%hasLastName hasName
+ equivalentDataProperties : dataProperty -> dataProperty -> type. %%Nary %%hasAge Age
+   
+ dataPropertyDomain : dataProperty -> class -> type.    %%hasName person
+ dataPropertyRange  : dataProperty -> dataType -> type. %%hasName 
+ dataTypeDefinition : dataType -> dataType -> type.
+  
+ differentIndividuals       : individual -> individual -> type. %%Nary
+ %%pairwiseDifferentIndividuals : individual -> ... -> individual -> type. %%Nary
+ 
+ objectSomeValuesFrom   : objectProperty -> class -> class.
+ dataSomeValuesFrom     : dataProperty -> dataType -> class. 
+ %% n-aryDataSomeValuesFrom : dataProperty -> dataType -> class. %%hasAge DatatypeRestriction(integer maxExclusive 20)
+ 
+ classAssertion                  : class -> individual -> type. 
+ objectPropertyAssertion         : objectProperty -> individual -> individual -> type. 
+ dataPropertyAssertion           : dataProperty -> individual -> data -> type. 
+ 
+ %%Facets in OWL2 guide
+ facet : type.
+ minInclusive : facet.
+ maxInclusive : facet.
+ minExclusive : facet.
+ maxExclusive : facet.
+ minLength : facet.
+ maxLength : facet.
+ length    : facet.
+ pattern   : facet.
+ langRange : facet.
+ 
+ facetRestriction : facet -> literal -> dataType.
+ dataTypeRestriction : dataType -> facet -> literal -> dataType.
+ annotationProperty      : type.
+ 
+ %{
+ %%Header Information
+ ontology %%resource
+ import   %%resource
+ prefix   %%resource
+ 
+ annotationProperty      : type.
+ namedAnnotationProperty : type.
+ ontologyProperty        : type.
+ 
+ %%Annotation Properties 
+ lable       : annotationProperty. %%string
+ comment     : annotationProperty. %%string
+ seeAlso     : annotationProperty.
+ isDefinedBy : annotationProperty.
+ 
+ %%Versioning 
+ versionInfo            : annotationProperty. %%string
+ priorVersion           : ontologyProperty.   %%resource
+ backwardCompatibleWith : ontologyProperty.   %%resource
+ incompatibleWith       : ontologyProperty.   %%resource
+ deprecatedClass        : class -> comment -> class.
+ deprecatedProperty     : objectProperty -> comment -> obejctProperty.
+
+  
+ annotation %% string
+ annotationAssertion %% string
+ subAnnotationPropertyOf 
+ annotationPropertyDomain 
+ annotationPropertyRange  
+ anotherAnnotation  
+ 
+}%
+}.
+
+
+%sig OWL2ELQL = {
+ %include OWL2SUB %open.
+  
+ topObjectProperty    : objectProperty. %%connects all possible pairs of individuals
+ bottomObjectProperty : objectProperty. %%not connect any pair of individuals
+ topDataProperty      : dataProperty. %%connects all possible individuals with all literals
+ bottomDataProperty   : dataProperty. %%not connect any individual with a literal
+ reflexiveObjectProperty  : objectProperty -> type. %%hasRelative
+}.
+
+
+%sig OWL2ELRL = {
+ %include OWL2SUB %open.
+ 
+ transitiveObjectProperty : objectProperty -> type.	%%hasAncestor
+ objectOneOf : individual -> individual -> class.	%%Nary	
+ objectHasValue : objectProperty -> individual -> class.	%%hasParent John - class of John's children
+ dataHasValue : dataProperty -> data -> class. %%hasAge 17
+ sameIndividual : individual -> individual -> type.	%%Nary
+ negativeObjectPropertyAssertion : objectProperty -> individual -> individual -> type. 
+ negativeDataPropertyAssertion   : dataProperty -> individual -> data -> type.
+ functionalDataProperty   : dataProperty -> type.	%%hasAge
+ hasKey : class -> dataProperty -> type. %% person hasSSN
+}.
+
+
+%sig OWL2QLRL = {
+ %include OWL2SUB %open.
+ 
+ disjointObjectProperties     : objectProperty -> objectProperty -> type. %%Nary %%hasSon hasDoughter
+ symmetricObjectProperty         : objectProperty -> type. %%hasSpouse
+ asymmetricObjetProperty         : objectProperty -> type. %%hasChild 
+ irreflexiveObjectProperty 		: objectProperty -> type. %%parentOf 
+ disjointDataProperties   : dataProperty -> dataProperty -> type. %%Nary %%hasName  hasAddress
+ %% pairwiseDisjointdataProperties : dataProperty -> ... -> dataProperty -> type. %%Nary
+ objectComplementOf   : class -> class.
+ inverseObjectProperties         : objectProperty -> objectProperty -> type.   %%hasParent hasChild
+ objectInverseOf : objectProperty -> objectProperty.
+ 
+}.
+
+
+%sig OWL2EL = { 
+ %include OWL2SUB %open.
+
+ objectHasSelf  : objectProperty -> class. %%loves narcisticperson
+ %%dataOneOf          : tm literal -> tm literal -> tm literal. %%Nary
+ dataOneOf          : literal -> literal -> dataType. %% Nary
+ 
+ %% objectPropertyChain : objectProperty -> objectProperty -> objectProperty.
+ %% disjointObjectPropertyChain : objectProperty ->  ... -> objectProperty -> type.
+ 
+ %%metaclass, but no inverseproperty, negation, disjunction, universalquantification to a class expression, enumerations involving more than one individual (ObjectOneOf and DataOneOf)
+ %%Consequently, the following datatypes MUST NOT be used in OWL 2 EL: xsd:double, xsd:float, xsd:nonPositiveInteger, xsd:positiveInteger, xsd:negativeInteger, xsd:long, xsd:int, 
+ %%xsd:short, xsd:byte, xsd:unsignedLong, xsd:unsignedInt, xsd:unsignedShort, xsd:unsignedByte, xsd:language, and xsd:boolean. 
+}.
+
+
+%sig OWL2QL = { 
+ %include OWL2SUB %open.
+
+ %%no class axioms asymmetrically : if constructs as subclass then not as superclass(you can use constructs as the subclass that you cannot use as the superclass)
+ %%no exitensialquantification of roles to a class expression, propertychain axioms
+ %% n-aryDataSomeValuesFrom : dataProperty -> dataType -> class. %%hasZIP integer 
+}.
+
+
+%sig OWL2RL = {
+ %include OWL2SUB %open.
+  
+ anonymousIndividual : type.  
+ functionalObjectProperty        : objectProperty -> type. %%hasHusband
+ inverseFunctionalObjectProperty : objectProperty -> type. %%hasHusband
+ objectUnionOf 	    : class -> class -> class. %%Nary
+ 
+ objectAllValuesFrom  : objectProperty -> class -> class.
+ dataAllValuesFrom    : dataProperty -> dataType -> class.
+  
+ %%Arbitrary
+ objectMaxCardinality   : tm nonNegativeInteger -> objectProperty -> class. %%4 hasChild  
+ objectMinCardinality   : tm nonNegativeInteger -> objectProperty -> class. 
+ objectExactCardinality : tm nonNegativeInteger -> objectProperty -> class.  
+ 
+ %%Qualified  
+ objectMaxCardinalityQualified   : tm nonNegativeInteger -> objectProperty -> class -> class. %%4 hasChild parent 
+ objectMinCardinalityQualified    : tm nonNegativeInteger -> objectProperty -> class -> class.  
+ objectExactCardinalityQualified : tm nonNegativeInteger -> objectProperty -> class -> class.  
+   
+ %%Applies to all literals that are connected by data property expression %% nonNegativeInteger DataPropertyExpression [DataRange]
+ dataMinCardinality     : tm nonNegativeInteger -> dataProperty -> class.   
+ dataMaxCardinality     : tm nonNegativeInteger -> dataProperty -> class.
+ dataExactCardinality   : tm nonNegativeInteger -> dataProperty -> class.
+ 
+ %%Qualified cardinality 
+ %%cardinality restriction only applies to literals that are connected by data property expression and are in the qualifying data range
+ dataMinCardinalityQualified   : tm nonNegativeInteger -> dataProperty -> dataType -> class.
+ dataMaxCardinalityQualified   : tm nonNegativeInteger -> dataProperty -> dataType -> class.
+ dataExactCardinalityQualified : tm nonNegativeInteger -> dataProperty -> dataType -> class.
+  
+ %%No unknown individuals in our superclass expressions 
+ %%No statements where the existence of an individual enforces the existence of another individual - every person has a parent, class axioms asymmetrically 
+ %%you can use constructs as the subclass that you cannot use as the superclass 
+}.
+
+
+%sig OWL2DL ={
+   %include OWL2RL %open.
+}.
+
+
+%sig OWL2Full = { 
+  %include OWL2DL %open.
+  
+	%%OWL2Full - RDF-based semantics - undecisable
+	%%OWL2DL - direct model-theoretic semantics -decidable
+	%%OWL2DL and OWL2Full - metaclass - the same name for both a class and an individual
+}.
+
+
+
+	
+%sig OWL2 = {
+ %include OWL2Full %open.
+ %include OWL2EL %open.
+ %include OWL2QL %open.
+ %include OWL2ELQL %open.
+ %include OWL2ELRL %open.
+ %include OWL2QLRL %open.
+  
+ %% move it to ?, no support
+ dataUnionOf        : dataType -> dataType -> dataType. %%Nary
+ disjointUnionOf    : class -> class -> class -> type.  %%Nary %%brainhemisphere lefthemisphere or righthemisphere, can not be both of them
+ %%new feature
+ dataComplementOf   : dataType -> dataType. 
+}.
+
+%{
+OWL 
++ 
+new features such as disjoint union of classes
++
+new expressivity such as 
+keys,
+property chains, 
+richer datatypes and data
+s,
+qualified cardinality restrictions,
+asymmetric,
+reflexive,
+disjoint properties, 
+annotation
+
+OWL2DL, OWL2Full, OWL2EL, OWL2QL, OWL2RL
+}%
+
+ %{ New Features
+ local reflexivity
+ object and data qualified exact, min, max cardinality restriction
+ universal and existential restriction on n-ary data range
+ 
+ pairwise disjoint classes
+ class disjoint union
+ 
+ universal and empty object property
+ universal and empty data property
+ inverse object property
+ 
+ property chain inclusion
+ disjoint object property
+ disjoint data property
+ reflexive, irreflexive, asymmetric object property
+ 
+ datatype definition
+ data range complement, intersection, union
+ datatype restriction and facets
+ hook for n-ary datatype
+ 
+ negative object property assertion
+ negative data property assertion
+ 
+ annotation assertion
+ annotation of an axiom or an annotation
+ annotation subproperties
+ annotation property domain and range
+ deprecated annotation property
+ 
+ extra data types such as rational, real, dataTimeStamp, plainLiteral
+ 
+ key
+ decleration
+ metamodeling
+ anonymous individual
+ 
+ dataRange
+ distinctMembers
+ ontologyProperty
+ deprecatedClass
+ deprecatedProperty
+ }%
+
+ %{objectUnionOf 	    : class -> class -> class.
+ objectComplementOf   : class -> class.
+ objectSomeValuesFrom : objectProperty -> class -> class.
+ objectAllValuesFrom  : objectProperty -> class -> class.
+
+ %%dataSomeValuesFrom     : dataProperty -> dataType ? -> class. dataTypeRestriction?
+ %%dataAllValuesFrom      : dataProperty -> dataType ? -> class.
+
+ %%n-ary universal dataAllValuesFrom  : 
+ %%n-ary universal dataSomeValuesFrom : 
+
+ objectInverseOf : objectProperty -> objectProperty.
+
+ dataUnionOf        : dataType -> dataType -> dataType.    
+ dataComplementOf   : dataType -> dataType -> dataType. 
+ 
+ inverseObjectProperty           : objectProperty -> objectProperty -> type.   %%hasParent hasChild
+ inverseFunctionalObjectProperty : objectProperty -> type. %%hasHusband
+	
+ %%subObjectPropertyOfChain : ? property chain inclusion-subObjectProperty ?
+ objectPropertyChain :  objectProperty -> objectProperty -> objectProperty.%% added
+ %%disjointObjectPropertyChain : 
+ }%
+ 

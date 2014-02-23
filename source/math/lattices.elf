@@ -1,0 +1,147 @@
+%*
+  Algebraic hierarchy: unsorted
+  @author:  Mihnea Iancu
+  based on previous work by Stefania Dumbrava.
+*%
+
+%namespace "http://latin.omdoc.org/math".
+%namespace pf = "logics/proof_theory".
+
+%sig SemiLattice = {
+	%meta EqUniverse.
+	%include CommutativeSemigroup %open ∘ %as ∧.
+	idem : X ∧ X == X.
+	⊆ : u -> u -> type = [x][y] x ∧ y == x. %infix none 80 ⊆.
+}.
+
+
+%view RSL : Relation -> SemiLattice = {
+  r := [x] [y]	x ⊆ y.
+}.
+
+%view ReSL : Reflexive -> SemiLattice = {
+	%include RSL.
+	refl :=[x] idem.
+}.
+
+%view TSL : Transitive -> SemiLattice = {
+  %include RSL.
+  trans := [x][y][z][p][q] trans4 (cong ([t] t ∧ z) (sym p)) assoc (cong ([t] x ∧ t) q) p.  
+}.
+
+%view POSL : Preorder -> SemiLattice = {
+  %include ReSL.	
+  %include TSL.  
+}.
+
+%view ASL : Antisymmetric -> SemiLattice = {
+	%include RSL.
+	antisym := [x][y] [p][q] trans3  (sym p) commut q.
+}.
+
+%view OSL : Order -> SemiLattice = {
+  %include POSL.	
+  %include ASL.  
+}.
+
+%sig Lattice = {
+	%meta EqUniverse.
+	%include SemiLattice.
+	dual : u -> u.
+	∨ : u -> u -> u = [x][y] dual (x ∧ y).  %infix none 100 ∨.
+	abs∧ : X ∧ (X ∨ Y) == X.
+	abs∨ : X ∨ (X ∧ Y) == X. 
+	
+}.
+
+
+%sig BoundedLattice = {
+	%meta EqUniverse.
+	%include Lattice.
+	0 : u.
+	1 : u.
+	iden_0 : X ∨ 0 == X.
+	iden_1 : X ∧ 1 == X.
+}.
+
+
+%sig ComplementedLattice = {
+	%meta EqUniverse.
+	%include BoundedLattice.
+	¬ : u -> u.    %prefix 1000 ¬.
+	¬1_ax : X ∨ ¬ X == 1.
+	¬0_ax : X ∧ ¬ X == 0.
+	%%¬¬E : ¬ ¬ X == X.  
+}.
+
+
+%sig OrthocomplementedLattice = {
+	%meta EqUniverse.
+	%include ComplementedLattice.
+	comp_compE : ¬ ¬ X == X.
+	comp_distL : X ∨ Y == Y -> ¬ Y ∨ ¬ X == ¬ X.
+	comp_distR : ¬ Y ∨ ¬ X == ¬ X -> X ∨ Y == Y.
+}.
+
+
+%sig DeMorganAlgebra  = {
+	%meta EqUniverse.
+	%include ComplementedLattice.
+	comp_compE: ¬ ¬ X == X.
+	deMorgan : ¬ (X ∨ Y) == ¬ X ∧ ¬ Y.
+}.
+
+%sig HeytingAlgebra = {
+	%meta EqUniverse.
+   %include BoundedLattice.	
+   → : u -> u -> u. %infix none 100 →.
+   →iden : X → X == 1.
+   →meetL : X ∧ (X → Y) == X ∧ Y.
+   →meetR : Y ∧ (X → Y) == Y.
+   →dist : X → (Y ∧ Z) == (X → Y) ∧ (X → Z).
+   ¬ : u -> u = [x] x → 0.  %prefix 500 ¬.
+}.
+
+%sig DistributiveLattice = {
+  %meta EqUniverse.
+  %include Lattice.  
+  dist∧ : X ∧ (Y ∨ Z) == (X ∧ Y) ∨ (X ∧ Z).
+  dist∨ : X ∨ (Y ∧ Z) == (X ∨ Y) ∧ (X ∨ Z).
+}.
+
+%sig BooleanAlgebra = {
+	%meta EqUniverse.
+	%include DistributiveLattice.
+	%include ComplementedLattice.
+}.
+
+%sig ModalAlgebra = {
+  %meta EqUniverse.
+  %include BooleanAlgebra.
+  □ : u -> u.
+  ◇ : u -> u = [x] ¬ (□ ¬ x).
+}.
+
+
+%sig DerivativeAlgebra = {
+	  %meta EqUniverse.
+	  %include BooleanAlgebra.
+	  ' : u -> u. %postfix 1000 '.
+	  iden' : 0 ' == 0.
+	  ''⊆ : X ' ' ⊆ X ' ∨ X.
+	  'dist : (X ∨ Y) ' == X ' ∨ Y '.
+}.
+
+%sig RelationAlgebra = {
+	%meta EqUniverse.
+	%include BooleanAlgebra.
+	conv : u -> u.
+	convE : conv (conv X) == X.
+	conv_dist∘ : conv (X ∘ Y) == (conv Y) ∘ (conv X). 
+	conv_dist∨ : conv (X ∨ Y) == (conv X) ∨ (conv Y).
+	∘dist∨ : (X ∘ Y) ∨ Z == (X ∨ Z) ∘ (Y ∨ Z).
+	tarski : ((conv X) ∘ ¬ (X ∘ Y)) ∨ ¬ B == ¬ B.  
+}.
+
+
+

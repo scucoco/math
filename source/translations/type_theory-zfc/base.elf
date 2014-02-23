@@ -1,0 +1,14 @@
+%namespace "http://latin.omdoc.org/translations/tt_zfc".
+%namespace tt = "../type_theories".
+%namespace zfc = "../foundations/zfc".
+
+
+%view TypesTerms : tt.TypesTerms -> zfc.TypedZFBase = {
+  tp  := i.
+  tm  := [A] Elem A.
+  ==  := [A][X][Y] ded X Eq Y.
+  types.refl := [A][X] refl.
+  types.sym  := [A][X][Y] [p] sym p.
+  types.trans:= [A][X][Y][Z] [p][q] trans p q.
+  types.cong := [A][X][Y][B][p][F] EqCongF F p.
+}.

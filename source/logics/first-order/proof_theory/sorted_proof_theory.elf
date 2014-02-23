@@ -1,0 +1,56 @@
+%namespace "http://latin.omdoc.org/logics/proof_theory".
+%namespace syn = "syntax".
+
+%sig BaseSFOL = {
+  %include Base.
+  %include syn.BaseSFOL.
+}.
+
+%sig SForall = {
+   %include BaseSFOL.
+   %include syn.SForall. 
+   forallI : ({x : tm S} ded F x) -> ded forall F.
+   forallE : ded forall F -> {x : tm S} ded F x.
+}.
+
+%sig SExists = {
+   %include BaseSFOL.
+   %include syn.SExists. 
+   existsI : {x : tm S} ded F x -> ded exists F.
+   existsE : ded exists F -> ({x : tm S} ded F x -> ded H) -> ded H.
+}.
+
+%sig SEqual = {
+   %include BaseSFOL.
+   %include syn.SEqual.
+   refl  : ded A eq A.
+   sym   : ded A eq B -> ded B eq A.
+   trans : ded A eq B -> ded B eq C -> ded A eq C.
+   congF : ded X eq Y -> {F : tm S -> tm T} ded (F X) eq (F Y).
+   congP : ded X eq Y -> {F : tm S -> o} ded (F X) -> ded (F Y).
+}.
+
+%sig SIFOL = {
+  %include BaseSFOL.
+  %include syn.SFOL.
+  %include IPL.
+  %include SForall.
+  %include SExists.
+}.
+
+%sig SIFOLEQ = {
+  %include SIFOL.
+  %include SEqual.
+}.
+
+%sig SFOL = {
+ %include BaseSFOL.
+ %include SIFOL.
+ %include TND.
+ non_empty_universe : ded exists [x: tm S] true.
+}.
+
+%sig SFOLEQ = {
+ %include SFOL.
+ %include SEqual.
+}.

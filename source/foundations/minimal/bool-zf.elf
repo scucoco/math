@@ -1,0 +1,15 @@
+%namespace "http://latin.omdoc.org/foundations/minimal".
+%namespace zfc = "zfc".
+
+
+%view Bool-ZF : Bool -> zfc.Boolean = {
+   %include STTIFOLEQ-ZF.
+   bool' := cbool.
+   0     := ⊥.
+   1     := ⊤.
+   cons  := ccons.
+   boole := ctnd.
+   ifte  := Lambda [c] Lambda [t] Lambda [e] ifte c t e.
+   ifteT := [C][T][E] impI [p] trans beta3 (EqcongEr ([x] ifte x T E Eq T) p ifte1). 
+   ifteE := [C][T][E] impI [p] trans beta3 (EqcongEr ([x] ifte x T E Eq E) p ifte0). 
+}.

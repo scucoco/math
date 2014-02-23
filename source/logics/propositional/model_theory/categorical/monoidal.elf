@@ -1,0 +1,47 @@
+%* Categorical Logic signature for monoidal categories
+   model theory of linear multiplicative truth and conjunction
+   @author Florian Rabe, Valeria dePaiva, Till Mossakowski *%
+
+%namespace "http://latin.omdoc.org/logics/model_theory/categorical".
+
+
+%sig Monoidal = {
+   %include CatLog.
+
+   %* multiplicative true *%
+   I : Ob.
+   
+   %% multiplicative conjuction (tensor)
+   ⊗ : Ob -> Ob -> Ob.		%infix left 20 ⊗.
+   ⊗⊗ : A => C  ->  B => D  -> A ⊗ B => C ⊗ D.	%infix left 20 ⊗⊗.
+   
+   %% bifunctoriality
+   law_id⊗id : |- (id A) ⊗⊗ (id B) == id (A ⊗ B). 
+   law_;⊗;   : |- (F ; G) ⊗⊗ (F' ; G') == (F ⊗⊗ F') ; (G ⊗⊗ G').
+   
+   %% isomorphisms
+   leftI : {A: Ob} I ⊗ A => A.
+   rightI : {A: Ob} A ⊗ I => A.
+   assoc : {A: Ob} {B: Ob} {C: Ob} (A ⊗ B) ⊗ C => A ⊗ (B ⊗ C). 
+   comm : {A: Ob} {B: Ob} A ⊗ B => B ⊗ A.
+   
+   %% inverse morphisms
+   leftI-inv  : {A: Ob} A => I ⊗ A.
+   leftI-iso  : |- isos (leftI A) (leftI-inv A).
+   rightI-inv : {A: Ob} A => A ⊗ I.
+   rightI-iso : |- isos (rightI A) (rightI-inv A).
+   assoc-inv  : {A: Ob} {B: Ob} {C: Ob} A ⊗ (B ⊗ C) => (A ⊗ B) ⊗ C.
+   assoc-iso  : |- isos (assoc A B C) (assoc-inv A B C).
+   comm-inv   : {A: Ob} {B: Ob} B ⊗ A => A ⊗ B.
+   comm-iso   : |- isos (comm A B) (comm-inv A B).
+
+   %% laws
+   law_unit_1 : |- leftI I == rightI I.
+   law_unit_2 : |- (assoc A I B) ; id A ⊗⊗ leftI B == (rightI A ⊗⊗ id B).
+   law_maclane : |- (assoc A B C) ⊗⊗ id D ; (assoc A (B ⊗ C) D) ; id A ⊗⊗ (assoc B C D)
+                 == (assoc (A ⊗ B) C D) ; (assoc A B (C ⊗ D)).
+   law_comm_1 : |- (comm A B) ; (comm B A) == id A ⊗⊗ id B.
+   law_comm_2 : |- (comm A I) ; leftI A == rightI A.
+   law_comm_3 : |- (assoc A B C) ; (comm A (B ⊗ C)) ; (assoc B C A)
+                == (comm A B) ⊗⊗ id C ; (assoc B A C) ; id B ⊗⊗ (comm A C).
+}.

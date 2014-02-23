@@ -1,0 +1,62 @@
+%namespace "http://latin.omdoc.org/logics/soundness".
+%namespace pf = "proof_theory".
+%namespace mod = "model_theory".
+
+
+%view BaseFOL : pf.BaseFOL -> mod.FOLMOD = {
+  %include Base.
+  %include mod.BaseFOL.
+}.
+
+%view Forall : pf.Forall -> mod.FOLMOD = {
+  %include BaseFOL.
+  %include mod.Forall.
+  forallI := [F][p : {x} ded (F x) eq 1] forall1I (forallI [x] (p x)).
+  forallE := [F][p : ded (∀ [x] F x) eq 1] [c] 
+               (indirect ([q : ded (F c) eq 0] contra (forall0I (existsI c q)) p)).
+}.
+
+%view Exists : pf.Exists -> mod.FOLMOD = {
+  %include BaseFOL.
+  %include mod.Exists.
+  existsI := [F][x][p : ded (F x) eq 1] exists1I (existsI x p).
+  existsE := [F][G][p : ded (∃ [x] F x) eq 1]
+              [f : {y} ded (F y) eq 1 -> ded G eq 1] 
+                (indirect ([q : ded G eq 0] 
+                  contra (exists0I (forallI [y] indirect' ([r : ded F y eq 1] contra q (f y r)))) 
+                         p)).          
+}.
+
+%view Equal : pf.Equal -> mod.FOLMOD = {
+  %include BaseFOL.
+  %include mod.Equal.
+  
+  %% alternatively use equal1 instead of (equivEl equaliff)
+  refl  := [X] equal1I refl. 
+  sym   := [X: elem univ][Y: elem univ][p : ded (X =b= Y) eq 1] 
+             equal1I (sym (equal1E p)).          
+  trans := [X][Y][Z][p : ded (X =b= Y) eq 1][q : ded (Y =b= Z) eq 1]
+             equal1I (trans (equal1E p)
+                                     (equal1E q)).
+  congF := [X][Y][p : ded (X =b= Y)  eq 1][F : elem univ -> elem univ]
+             equal1I (congF (equal1E p) F).
+  congP := [X][Y][p : ded (X =b= Y) eq 1][F][q : ded (F X) eq 1]
+              (congP (equal1E p) 
+                     ([a] (F a) eq 1)  
+                     q).
+}.
+
+%view IFOL : pf.IFOL -> mod.FOLMOD = {
+  %include BaseFOL.
+  %include IPL.
+  %include Forall.
+  %include Exists.
+}.
+
+
+%view FOL : pf.FOL -> mod.FOLMOD = {
+  %include BaseFOL.
+  %include IFOL.
+  %include TND.
+  non_empty_universe := existsE non_empty_universe [u][_] (exists1I (existsI u refl)).
+}.

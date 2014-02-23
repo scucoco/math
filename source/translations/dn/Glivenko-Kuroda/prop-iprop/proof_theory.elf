@@ -1,0 +1,82 @@
+%* the double-negation translation from classical to intuitionistic propositional logic (Glivenko's theorem) *%
+
+%namespace "http://latin.omdoc.org/translations/prop_iprop".
+%namespace pf = "../logics/proof_theory".
+
+
+%view BasePF : pf.Base -> DN-IPL = {
+   %include Base.
+}.
+
+%view TruthPF : pf.Truth -> DN-IPL = {
+   %include BasePF.
+   trueI := notnotI trueI.
+}.
+
+%view FalsityPF : pf.Falsity -> DN-IPL = {
+   %include BasePF.
+   falseE := [p: ded nn false][A] 
+     (notE p (notI [q: ded false] falseE q)) (nn A).     
+}.
+
+%view NEGPF : pf.NEG -> DN-IPL = {
+   %include BasePF.
+   notI := [A][p: ded nn A -> {B} ded nn B] notI [q: ded nn A][B] 
+     (notE (p q (not B)) (p q B)) B.
+   notE := [A][p: ded nn (not A)][q: ded nn A][B] (notE p q) (nn B).    
+}.
+
+%view IMPPF : pf.IMP -> DN-IPL = {
+   %include BasePF.
+   impI :=[A][B][p: ded nn A -> ded nn B] notI [q: ded not (A imp B)]
+     notE (p (notI [r: ded not A] notE q (impI [s: ded A] notE r s B))) 
+          (notI [r : ded B] notE q (impI [_] r)).
+   impE := [A][B][p: ded nn (A imp B)][q: ded nn A] notI [r: ded not B]
+     notE p (notI [s: ded A imp B] notE q (notI [t: ded A] 
+     notE r (impE s t))).        
+}.
+
+%view CONJPF : pf.CONJ -> DN-IPL = {
+   %include BasePF.
+   andI := [A][B][p: ded nn A][q: ded nn B] notI [r: ded not (A and B)]
+     notE p (notI [s: ded A] notE q (notI [t: ded B] notE r (andI s t))).
+   andEl := [A][B][p: ded nn (A and B)] notI [q: ded not A]
+     notE p (notI [r: ded A and B] notE q (andEl r)).
+   andEr := [A][B][p: ded nn (A and B)] notI [q: ded not B]
+     notE p (notI [r: ded A and B] notE q (andEr r)).  
+}.
+
+%view DISJPF : pf.DISJ -> DN-IPL = {
+   %include BasePF.
+   orIl := [A][B][p: ded nn A] notI [q: ded not (A or B)]
+     notE p (notI [r: ded A] notE q (orIl r)).
+   orIr := [B][A][p: ded nn B] notI [q: ded not (A or B)]
+     notE p (notI [r: ded B] notE q (orIr r)).
+   orE := [A][B][C][p : ded nn (A or B)][q: ded nn A -> ded nn C]
+     [r: ded nn B -> ded nn C] notI [s: ded not C] notE p
+     (notI [t: ded A or B][D] orE t 
+       ([u: ded A] notE (q (notnotI u)) s D)
+       ([u: ded B] notE (r (notnotI u)) s D)).                
+}.
+
+%view TND : pf.TND -> DN-IPL = {
+   %include BasePF.
+   %include NEGPF.
+   %include DISJPF.
+   tnd := [A] notI [p: ded not (A or (not A))]
+           notE p (orIr (notI [q: ded A] notE p (orIl q))).
+}.
+
+%view IPLPF : pf.IPL -> DN-IPL = {
+   %include TruthPF.
+   %include FalsityPF.
+   %include CONJPF.
+   %include DISJPF.
+   %include NEGPF.
+   %include IMPPF.
+}.
+
+%view CPLPF : pf.CPL -> DN-IPL = {
+   %include IPLPF.
+   %include TND.
+}.

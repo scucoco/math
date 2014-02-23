@@ -1,0 +1,156 @@
+%* Implementation of category theory.
+
+   categories with terminal, initial, and isomorphism predicates cannot be 
+   formalized in LF since they require the existential quantifier *%
+
+%namespace "http://latin.omdoc.org/category_theory/lf_based".
+
+%* signature of categories *% 
+%sig Category = {
+  Obj : type.
+  --> : Obj -> Obj -> type.   %infix none 20 -->.
+  id  : {A} A --> A.
+  ;   : (A --> B) -> (B --> C) -> (A --> C).   %infix left 15 ;.
+  ==  : (A --> B) -> (A --> B) -> type.   %infix none 10 ==.
+   
+  id_ax_right : {A}{B}{f : A --> B} f ; (id B) == f.   
+  id_ax_left  : {A}{B}{f : A --> B} (id A) ; f == f.
+  assoc       : {A}{B}{C}{D}{f : A --> B}{g : B --> C}{h : C --> D} 
+    (f ; g) ; h == f ; (g ; h).
+  refl        : {A}{B}{f : A --> B} f == f.
+  sym         : {A}{B}{f : A --> B}{g : A --> B} f == g -> g == f.
+  trans       : {A}{B}{f : A --> B}{g : A --> B}{h : A --> B} f == g -> g == h -> f == h.   
+}.
+
+%* categories with a distinguished object "top" representing truth, i.e. there
+   exists a morphism from each object to top *%
+%sig CatTop = {
+  %struct cat : Category %open Obj --> id ; ==.
+  top  : Obj.
+  bang : {A} A --> top.
+  
+  %* deduction axiom, needed for some curry-howard isomorphisms *%
+  top_ax : (top --> A -> top --> B) -> A --> B.   
+}.
+
+%* view representing category duals *%
+%view CatOp : Category -> Category = {
+ Obj := Obj.
+ --> := [A][B] (B --> A).
+ id  := id.
+ ;   := [A][B][C][g][f] f ; g.
+ ==  := [A][B][f][g] f == g.
+ 
+ id_ax_right := [A][B][f : B --> A] (id_ax_left B A f).
+ id_ax_left  := [A][B][f : B --> A] (id_ax_right B A f).
+ assoc       := [A][B][C][D][f : B --> A][g : C --> B][h : D --> C] 
+   (sym D A ((h ; g) ; f) (h ; (g ; f)) (assoc D C B A h g f)).
+ refl        := [A][B][f : B --> A] (refl B A f).
+ sym         := [A][B][f : B --> A][g : B --> A][p : f == g] (sym B A f g p).
+ trans       := [A][B][f : B --> A][g : B --> A][h : B --> A][p : f == g][q : g == h]
+   (trans B A f g h p q).
+}.
+
+%* functor between categories *%
+%sig Functor = {
+  %struct dom : Category.
+  %struct cod : Category.
+ 
+  FO : dom.Obj -> cod.Obj.
+  FM : A dom.--> B -> (FO A) cod.--> (FO B).
+  
+  id_ax   : {A} FM (dom.id A) cod.== cod.id (FO A).
+  comp_ax : {A} {B} {C} {f : A dom.--> B} {g : B dom.--> C} 
+    FM (f dom.; g) cod.== (FM f) cod.; (FM g).
+}.
+
+%* category with binary products *%
+%sig Product = {
+  %struct cat : Category %open Obj --> id ; ==.
+
+  *   : Obj -> Obj -> Obj.   %infix none 25 *.
+  pi1 : {A}{B} A * B --> A.
+  pi2 : {A}{B} A * B --> B.
+  *'  : C --> A -> C --> B -> C --> A * B.   %infix none 25 *'.
+  **' = [f1 : X --> A][f2 : Y --> B] ((pi1 X Y) ; f1) *' ((pi2 X Y) ; f2).   %infix none 25 **'.   
+
+  com_ax_left  : {A}{B}{C}{f1 : C --> A}{f2 : C --> B} f1 == (f1 *' f2) ; (pi1 A B).
+  com_ax_right : {A}{B}{C}{f1 : C --> A}{f2 : C --> B} f2 == (f1 *' f2) ; (pi2 A B).
+  univ_ax      : {A}{B}{C}{f1 : C --> A}{f2 : C --> B}{f : C --> A * B} 
+    f1 == f ; (pi1 A B) -> f2 == f ; (pi2 A B) -> f == f1 *' f2.      
+}.
+
+%* category with binary products and a top object *%
+%sig ProdTop = {
+  %struct prod   : Product %open Obj --> id ; == * pi1 pi2 *'.
+  %struct cat_top : CatTop = {%struct cat := prod.cat.} %open top top_ax.
+}.  
+
+%* category with binary coproducts *%
+%sig Coproduct = {
+  %struct cat : Category %open Obj --> id ; ==.
+
+  +   : Obj -> Obj -> Obj.   %infix none 25 +.
+  in1 : {A}{B} A --> A + B.
+  in2 : {A}{B} B --> A + B.
+  +'  :  A --> C -> B --> C -> A + B --> C.   %infix none 25 +'.
+  ++' = [f1 : A --> X][f2 : B --> Y] (f1 ; (in1 X Y)) +' (f2 ; (in2 X Y)).   %infix none 25 ++'.  
+
+  com_ax_left  : {A}{B}{C}{f1 : A --> C}{f2 : B --> C} f1 == (in1 A B) ; (f1 +' f2).
+  com_ax_right : {A}{B}{C}{f1 : A --> C}{f2 : B --> C} f2 == (in2 A B) ; (f1 +' f2).
+  univ_ax      : {A}{B}{C}{f1 : A --> C}{f2 : B --> C}{f : A + B --> C} 
+    f1 == (in1 A B) ; f -> f2 == (in2 A B) ; f -> f == f1 +' f2. 
+}.
+
+%* category with binary coproducts and a top object *%
+%sig CoprodTop = {
+  %struct coprod  : Coproduct %open Obj --> id ; == + in1 in2 +'.
+  %struct cat_top : CatTop = {%struct cat := coprod.cat.} %open top top_ax.
+}.  
+
+%* if a category has products, its dual has coproducts *%
+%view ProdOp : Coproduct -> Product = {
+  %struct cat := CatOp cat.
+  
+  +   := [A][B] A * B.
+  in1 := [A][B] (pi1 A B).
+  in2 := [A][B] (pi2 A B).
+  +'  := [A][C][B][f1 : C --> A][f2 : C --> B] f1 *' f2.
+  
+  com_ax_left  := com_ax_left.
+  com_ax_right := com_ax_right.
+  univ_ax      := univ_ax.     
+}.  
+
+%* if a category has coproducts, its dual has products *%
+%view CoprodOp : Product -> Coproduct = {
+  %struct cat := CatOp cat.
+  
+  *   := [A][B] A + B.
+  pi1 := [A][B] (in1 A B).
+  pi2 := [A][B] (in2 A B).
+  *'  := [C][A][B][f1 : A --> C][f2 : B --> C] f1 +' f2.
+
+  com_ax_left  := com_ax_left.
+  com_ax_right := com_ax_right.
+  univ_ax      := univ_ax.     
+}.  
+
+%* category with exponentials (and hence products) *%
+%sig Exponential = {
+  %struct prod : Product %open Obj --> id ; == * pi1 pi2 *' **'.
+ 
+  ^     : Obj -> Obj -> Obj.   %infix none 30 ^.
+  eval  : {Z}{Y} Z ^ Y * Y --> Z.
+  curry : {g : X * Y --> Z} X --> Z ^ Y.
+
+  com_ax  : {X}{Y}{Z}{g : X * Y --> Z} g == ((curry g) **' (id Y)) ; (eval Z Y).
+  univ_ax : {X}{Y}{Z}{g : X * Y --> Z}{f : X --> Z ^ Y}
+    g == (f **' (id Y)) ; (eval Z Y) -> f == (curry g).      
+}.
+
+%* category with exponentials and a top object *%
+%sig ExpTop = {
+  %struct exp  : Exponential %open Obj --> id ; == * *' pi1 pi2 ^ eval curry.
+  %struct prod_top : ProdTop = {%struct prod := exp.prod.} %open top top_ax.
+}.  

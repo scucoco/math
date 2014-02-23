@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
+  <view 
+  name="FOLMizarView" base="http://latin.omdoc.org/foundations/mizar" from="http://latin.omdoc.org/logics/syntax?FOL" to="http://latin.omdoc.org/foundations/mizar?Mizar">
+    <import from="http://latin.omdoc.org/logics/syntax?PL">
+      <definition>
+        <om:OMS base="http://latin.omdoc.org/foundations/mizar" module="PLMizarView"/>
+      </definition>
+    </import>
+    <import from="http://latin.omdoc.org/logics/syntax?Forall">
+      <definition>
+        <om:OMS base="http://latin.omdoc.org/foundations/mizar" module="ForallMizarView"/>
+      </definition>
+    </import>
+    <import from="http://latin.omdoc.org/logics/syntax?Exists">
+      <definition>
+        <om:OMS base="http://latin.omdoc.org/foundations/mizar" module="ExistsMizarView"/>
+      </definition>
+    </import>
+</view>
+</omdoc>

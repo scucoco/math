@@ -1,0 +1,50 @@
+%* @author Fulya Horozal, Florian Rabe *%
+
+%namespace "http://latin.omdoc.org/logics/syntax".
+%namespace tt = "../type_theories".
+
+
+%* logic developed in a type theory that at least has the module SimpTypes *%
+%sig HOL-Base = {
+   %include tt.SimpTypes.
+   o  : tp.
+   ⊦  : tm o -> type.           %prefix 0 ⊦.
+%{
+		%pattern pattp = {
+			p : tp.
+		}.
+}%
+
+}.
+
+%sig HOL = {
+   %include HOL-Base.
+   %* extensional equality (axiomatized, undecidable) *%
+   =='  : tm A → A → o.
+   ==   : tm A -> tm A -> tm o = [x: tm A] [y: tm A] ==' @ x @ y.    %infix none 3 ==.
+}.
+
+%sig PrawitzHOL = {
+   %include HOL-Base.
+   ∀' : tm (A → o) → o.
+   ∀  : (tm A -> tm o) -> tm o = [f] ∀' @ (λ [x: tm A] f x).
+   ⇒' : tm o → o → o.
+   ⇒  : tm o -> tm o -> tm o = [x][y] ⇒' @ x @ y.                     %infix none 10 ⇒.
+   == : tm A -> tm A -> tm o = [x][y] ∀ [f: tm A → o] (f @ x) ⇒ (f @ y). %infix none 3 ==.
+}.
+   
+
+%% two examples how HOL is added to type theories
+
+%* HOL based on simple type theory, the traditional HOL *%
+%sig STTHOL = {
+  %include tt.STT.
+  %struct hol : HOL.
+}.
+
+%* HOL based on LambdaP
+   note how the morphism SimpToDep : SimpTypes → DepTypes ↪ LambdaP ↪ LambdaPHOL is used to instantiate the parameter SimpTypes *%
+%sig LambdaPHOL = {
+  %include tt.LambdaP.
+  %struct hol : HOL = {%include tt.SimpToDep.}.
+}.

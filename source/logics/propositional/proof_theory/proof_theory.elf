@@ -1,0 +1,73 @@
+%* @author Fulya Horozal and Florian Rabe *%
+
+%namespace "http://latin.omdoc.org/logics/proof_theory".
+%namespace syn = "syntax".
+
+
+%sig Base = {
+  %include syn.Logic.
+}.
+
+%sig Truth = {
+  %include Base.
+  %include syn.Truth.
+  trueI  : ded true.
+}.
+
+%sig Falsity = {
+  %include Base.
+  %include syn.Falsity.
+  falseE : ded false -> ↯.
+}.
+
+%sig NEG = {
+  %include Base.
+  %include syn.NEG.
+  notI   : (ded A -> ↯) -> ded (not A).
+  notE   : ded not A -> ded A -> ↯.
+}.
+
+%sig IMP = {
+  %include Base.
+  %include syn.IMP.
+  impI   : (ded A -> ded B) -> ded (A imp B).
+  impE   : ded (A imp B) -> ded A -> ded B.
+}.
+
+%sig CONJ = {
+  %include Base.
+  %include syn.CONJ.
+  andI   : ded A -> ded B -> ded (A and B).
+  andEl  : ded (A and B) -> ded A.
+  andEr  : ded (A and B) -> ded B.
+}.
+
+%sig DISJ = {
+  %include Base.
+  %include syn.DISJ.
+  orIl    : ded A -> ded (A or B).
+  orIr    : ded B -> ded (A or B).
+  orE     : ded (A or B) -> (ded A -> ded C) -> (ded B -> ded C) -> ded C.
+}.
+
+%sig TND = {
+  %include Base.
+  %include NEG.
+  %include DISJ. 
+  tnd    : ded (A or (not A)).
+}.
+
+%sig IPL = {
+  %include syn.PL.
+  %include Truth.
+  %include Falsity.
+  %include NEG.
+  %include IMP.
+  %include CONJ.
+  %include DISJ.
+}.
+
+%sig CPL = {
+  %include IPL.
+  %include TND.
+}.

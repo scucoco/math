@@ -1,0 +1,78 @@
+%namespace "http://latin.omdoc.org/foundations/zfc".
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%* Booleans in ZFC *%
+
+%sig Boolean = {
+   %include ZFC %open.
+   %include Powersets %open.
+   
+   %* classical booleans: {0,1} *%
+   cbool : i = uopair 0 1.
+   ⊥ : Elem cbool = elem 0 uopairIl.
+   ⊤ : Elem cbool = elem 1 uopairIr.
+   cons : ded not 1 eq 0 = notI [p][_] emptyE (in_eq adjointIr p).
+   ccons : ded not (⊤ Eq ⊥) = notI [p] notE cons (trans3 (sym eq_which) p eq_which).
+   ctnd  : {b: Elem cbool} ded b Eq ⊤ or b Eq ⊥
+         = [b] orE (uopairE (why b)) ([p] orIr (trans p (sym eq_which))) ([p] orIl (trans p (sym eq_which))).
+   %* if-then-else, base for all propositional connectives *%
+   ifte : Elem cbool -> Elem A -> Elem A -> Elem A
+        = [cond][then][else] case ([p: ded cond Eq ⊤] then) ([p: ded cond Eq ⊥] else)
+                  (ctnd cond) (notI [p][_] notE' (trans (sym (andEl p)) (andEr p)) ccons).
+   ifte0 : ded ifte ⊥ X Y Eq Y = case2 refl.
+   ifte1 : ded ifte ⊤ X Y Eq X = case1 refl.
+
+   %* intuitionistic booleans: P(1) ⊃ {0,1} *%
+   bool : i = powerset 1.
+   ℬ : type = Elem bool.
+   ⟙ : ℬ = ∞.
+   ⟘ : ℬ = ∅.
+   ℬcons  : ded not (⟙ ⚌ ⟘) = notI [p] notE cons (trans3 (sym eq_which) p eq_which).                                                     
+
+   %% propositional connectives
+   ∧ : ℬ -> ℬ -> ℬ = [a][b] a ∩ b.         %infix left 30 ∧.
+   ∨ : ℬ -> ℬ -> ℬ = [a][b] a ∪ b.         %infix left 30 ∨.
+   ¬ : ℬ -> ℬ = ∁.                         %prefix 29 ¬.
+   → : ℬ -> ℬ -> ℬ = [a][b] ∁ (a ∖ b).     %infix left 30 →.
+
+   %% only the intuitionistic booleans admit quantification
+   ∀  : (Elem A -> ℬ) -> ℬ = ⋂.
+   ∃  : (Elem A -> ℬ) -> ℬ = ⋃.
+   
+
+   internalize   : o -> i = [F] (singleton empty) | [x] F.
+   internalizeI0 : ded not F -> ded internalize F eq 0
+                 = [p] emptyI [x][q: ded x in internalize F] notE p (filterEr q) false.
+   internalizeI1 : ded F -> ded internalize F eq 1
+                 = [p] trans (subset_antisym filter_is_subset (subsetI [x][q] eq_in (singletonE q) (filterI singletonI p))) (sym 1prop).
+   internalizeE0 : ded internalize F eq 0 -> ded not F
+                 = [p] notI [q: ded F][_] emptyE (in_eq (in_eq adjointIr (sym (internalizeI1 q))) p).
+   internalizeE1 : ded internalize F eq 1 -> ded F
+                 = [p] filterEr (in_eq singletonI (sym (trans p 1prop))).
+   internalizeI : ded F -> Elem (internalize F) = [p] elem empty (filterI singletonI p).
+   internalizeE : Elem (internalize F) -> ded F = [e] filterEr (why e).
+
+   %* reflecting meta-level equality into intuitionistic object level equality *%
+   reflect   : o -> ℬ = [F] elem (internalize F) (powersetI (subset_eq filter_is_subset (sym 1prop))).
+   reflectI1 : ded F     -> ded (reflect F) ⚌ ⟙ = [p] trans3 eq_which (internalizeI1 p) (sym eq_which).
+   reflectI0 : ded not F -> ded (reflect F) ⚌ ⟘ = [p] trans3 eq_which (internalizeI0 p) (sym eq_which).
+   reflectE1 : ded (reflect F) ⚌ ⟙ -> ded F     = [p] internalizeE1 (trans3 (sym eq_which) p eq_which).
+   reflectE0 : ded (reflect F) ⚌ ⟘ -> ded not F = [p] internalizeE0 (trans3 (sym eq_which) p eq_which).
+}.
+
+%sig TNDBool = {
+   %include Boolean.
+   %* classical and intuitionistic booleans agree iff the meta-logic is classical
+      powerset {0} = {0, {0}} is equivalent to tnd *%
+   ax_bool : ded powerset 1 eq (uopair 0 1).
+   tnd : ded F or not F
+       = lemma (internalize F in powerset 1)
+               (powersetI (congEr 1prop ([x] (internalize F) subset x) filter_is_subset))
+         [lem] orE (uopairE (in_eq lem ax_bool))
+                   ([p: ded internalize F eq 0] orIr (internalizeE0 p))
+                   ([p: ded internalize F eq 1] orIl (internalizeE1 p)).
+   ℬ_prop : {b: ℬ} ded b ⚌ ⟙ or b ⚌ ⟘
+      = [b] orE (uopairE (in_eq (why b) ax_bool)) ([p: ded which b eq 0] orIr (trans p (sym eq_which)))
+                                                  ([p: ded which b eq 1] orIl (trans p (sym eq_which))).
+}.

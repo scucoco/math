@@ -1,0 +1,19 @@
+%{
+%namespace "http://latin.omdoc.org/logics/soundness".
+%namespace syn = "syntax".
+%namespace pf = "proof_theory".
+%namespace mod = "model_theory".
+
+%view CASLSorting : syn.CASLSorting -> mod.CASLMOD = {
+  %include mod.CASLSem.
+  wff := ded not none
+  # := ded in
+  wff_∧:=
+}.
+
+%view CASL : pf.CASL -> mod.CASLMod = {
+  %include CASLSorting.
+  andI :=
+  ...
+}.
+}%

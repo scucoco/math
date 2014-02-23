@@ -1,0 +1,22 @@
+%* Categorical Logic signature for intuitionistic linear logic
+   @author Florian Rabe, Valeria dePaiva, Till Mossakowski *%
+
+%namespace "http://latin.omdoc.org/logics/model_theory/categorical".
+
+%sig ILL = {
+   %include CatLog.
+   %include MILL.
+   %include Cartesian.
+   %include CoCartesian.
+   
+   %% derived morphisms: distributive laws
+
+   %* dist*+2 cannot be derived since the category is not cartesian closed *%
+   dist*+1 : (A * C) + (B * C) => (A + B) * C
+         = ((pi1 A C ; inl A B) +' (pi1 B C ; inr A B)) pair (pi2 A C +' pi2 B C).
+
+   dist⊗+1 : (A ⊗ C) + (B ⊗ C) => (A + B) ⊗ C = (inl A B ⊗⊗ (id C)) +' (inr A B ⊗⊗ (id C)).
+   dist⊗+2 : (A + B) ⊗ C => (A ⊗ C) + (B ⊗ C) =
+    (lin_curry (inl (A ⊗ C) (B ⊗ C)) +' lin_curry (inr (A ⊗ C) (B ⊗ C))) ⊗⊗ id C
+           ; lin_eval C ((A ⊗ C) + (B ⊗ C)).
+}.

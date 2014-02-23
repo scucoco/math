@@ -1,0 +1,47 @@
+%namespace "http://latin.omdoc.org/translations/sfol_hol".
+%namespace prop_hol = "prop_hol".
+%namespace syn = "../logics/syntax".
+%namespace hol = "../foundations/hol".
+
+
+%view BaseSFOL : syn.BaseSFOL -> hol.SFOL-Syn = {
+   %include prop_hol.Base.
+   sort := tp.
+   tm   := [a] tm a.
+   %%pattern transl. for sort and tm.
+   %{
+			%pattern psort = {
+					p : tp.
+			}.
+			%pattern ptm = {
+				p : [a] tm a.			%% ???
+			}.
+			}%
+}.
+
+%view SForall : syn.SForall -> hol.SFOL-Syn = {
+  %include BaseSFOL.
+  forall  := [S][f] ∀ f.
+}.
+
+%view SExists : syn.SExists -> hol.SFOL-Syn = {
+  %include BaseSFOL.
+  exists  := [S][f] ∃ f.
+}.
+
+%view SFOL : syn.SFOL -> hol.SFOL-Syn = {
+   %include BaseSFOL.
+   %include prop_hol.Prop.
+   %include SForall.
+   %include SExists.
+}.
+
+%view SEqual : syn.SEqual -> hol.SFOL-Syn = {
+  %include BaseSFOL.
+  eq  := [S][a][b] a == b.
+}.
+
+%view SFOLEQ : syn.SFOLEQ -> hol.SFOL-Syn = {
+   %include SFOL.
+   %include SEqual.
+}.

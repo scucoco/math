@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
+  <theory name="ProdTop" base="http://latin.omdoc.org/category_theory/lf_based" meta="http://cds.omdoc.org/urtheories?LF">
+    <metadata>
+      <meta property="http://purl.org/dc/terms?_?description">
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMSTR>category with binary products and a top object</om:OMSTR>
+        </om:OMOBJ>
+      </meta>
+    </metadata>
+    <import name="prod" from="http://latin.omdoc.org/category_theory/lf_based?Product"> </import>
+    <import name="cat_top" from="http://latin.omdoc.org/category_theory/lf_based?CatTop">
+      <import name="cat" from="http://latin.omdoc.org/category_theory/lf_based?Category">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/category_theory/lf_based" module="ProdTop" name="prod/cat"/>
+        </definition>
+      </import>
+    </import>
+  </theory>
+</omdoc>

@@ -1,0 +1,64 @@
+%*
+  defining an order in a magma
+  @author: Florian Rabe
+*%
+
+%namespace "http://latin.omdoc.org/math".
+%namespace pf = "logics/proof_theory".
+
+%% EqLogic.eq(Magma)
+%sig MagmaFOL = {
+  %meta pf.IFOLEQ.
+  %struct Magma : Magma = {%include pf.Equal.equniv.} %open ∘.
+}.
+
+%% EqLogic.eq(Semigroup)
+%sig SemigroupFOL = {
+   %meta pf.IFOLEQ.
+   %include MagmaFOL.
+   %struct Semigroup : Semigroup = {%include pf.Equal.equniv. %include Magma.}.
+}.
+
+%% EqLogic.eq(Commutative)
+%sig CommutativeFOL = {
+   %meta pf.IFOLEQ.
+   %include MagmaFOL.
+   %struct Commutative : Commutative = {%include pf.Equal.equniv. %include Magma.}.
+}.
+
+%% EqLogic.eq(NeutralElement)
+%sig NeutralElementFOL = {
+   %meta pf.IFOLEQ.
+   %include MagmaFOL.
+   %struct Neutral : NeutralElement = {%include pf.Equal.equniv. %include Magma.}.
+}.
+
+%view OMRelation : Relation -> MagmaFOL = {
+   r := [x][y] ⊦ exists [z] x ∘ z == y.
+}.
+
+%view OMReflexive : Reflexive -> NeutralElementFOL = {
+   %include OMRelation.
+   refl := [X] existsI Neutral..PointedMagma..point Neutral..NeutralElementRight..neutral.
+}.
+
+%view OMBottom : Bottom -> NeutralElementFOL = {
+  %include OMRelation.
+  bot := Neutral..PointedMagma..point.
+  bound := [X] existsI X Neutral..NeutralElementLeft..neutral.
+}.
+
+%view OMTransitive : Transitive -> SemigroupFOL = {
+   %include OMRelation.
+   trans := [L][M][N] [p][q] existsE p [d][r: ⊦ L ∘ d == M] existsE q [e][s: ⊦ M ∘ e == N]
+      existsI (d ∘ e) (trans3 (sym Semigroup.assoc) (congF ([x] x ∘ e) r) s).
+}.
+%{
+%view OMAntisymmetric : Antisymmetric -> CancellationRightFOL = {
+   %include OMRelation.
+}.
+
+%view OMMonotonous : Monotonous -> Commutative = {
+   %include OMRelation.
+%view OMOrderedMonoid : OrderedMonoid -> Monoid Commutative Cancellation
+}%

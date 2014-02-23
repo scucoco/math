@@ -1,0 +1,85 @@
+%namespace "http://latin.omdoc.org/foundations/isabelle".
+%namespace pf = "../logics/proof_theory".
+
+%view PureSemantics : Pure -> NesetZFC = {
+   tp := neset.
+   tm := elems.
+   ⇒ := fun.   
+   λ := [A][B][f] lam f.
+   @ := [A][B][f][a] app f a.
+
+   prop := boolne.
+   ⋀ := [A][f] bbne (∀ [x] bneb (f x)).
+   ⟹ := [a][b] bbne ((bneb a) → (bneb b)).
+   ≡ := [A][a][b] bbne (reflect (a Eq b)).
+   ⊦ := proof.
+
+   ⋀I := [A][B][p : {x : elems A} proof (B x)]  trans (b_idem) (⊆antisym ∞greatest  (⋂infimum ([a] EqcongEr ([x] ⟙ ⊆‍ x) (p a) (∞greatest)))).
+
+   ⋀E := [A][B] [p : proof (bbne (∀ [x] bneb (B x)))] [a] ⊆antisym ∞greatest (EqcongEl ([x] x ⊆‍ (bneb (B a)) ) (trans (sym b_idem) p) ⋂subset). 
+
+   ⟹I := [A][B][p: proof A -> proof B] trans (b_idem) (orE pf.TND.tnd
+   ([q: proof A] (EqcongEr ([x]  ∞ ∖ x ⚌ ∞) (EqcongEr ([x] (bneb A) ∖ x ⚌ ∅) (p q) ∖rep) ∖neut))
+   ([q] orE (ℬ_prop (bneb A))
+    ([r] notE q r  ((bneb A → bneb B) ⚌ ⟙))
+    ([r] (EqcongEr ([x]  ∞ ∖ x ⚌ ∞) (EqcongEr ([x] x ∖ (bneb B) ⚌ ∅) (r) ∖attr) ∖neut) )
+   )).
+   
+   ⟹E := [A][B] [p : proof (bbne ((bneb A) → (bneb B)))] [q : proof A]  
+         orE pf.TND.tnd 
+         ([r : proof B] r) 
+         ([r] orE (ℬ_prop (bneb B))
+          ([s] s)
+          ([s] notE  ℬcons (trans (trans (sym p) b_idem) (EqcongEr ([x]  ∞ ∖ x ⚌ ∅ )  (trans (EqcongEr ([x] (bneb A) ∖ x ⚌ (bneb A)) s ∖neut) q) ∖rep))  ((bneb B) Eq ⟙ )  )
+         ).
+
+
+%% (trans (sym b_idem) p))      
+  %%     ⊆antisym ∞greatest (EqcongEl ([x] x ⊆‍ (bneb B)) (q) (reflectE1 (trans (sym b_idem) (p)))).  
+
+   refl := [A][X] trans (b_idem) (reflectI1 refl).
+   subs := [A][B][X][Y] [F : elems A -> elems B] [p : proof (bbne (reflect (X Eq Y)))] trans (b_idem) (reflectI1 (EqCongF F (reflectE1 (trans (sym b_idem) (p))))).
+   exten := [A][B][F][G] [p: {x : elems A} proof (bbne (reflect ((F x) Eq (G x))))] 
+       trans (b_idem) (reflectI1 
+       (trans3 
+         (trans eq_which eq_which) 
+         (subset_antisym 
+           (Image_subset ([x] (EqcongEr ([y] (pair (which x) (which y)) in (Image ([z] pair (which z) (which (G z)) )) )  
+               ((reflectE1 (trans (sym b_idem) (p x)))) ((ImageI x)))) )
+           (Image_subset ([x] (EqcongEl ([y] (pair (which x) (which y)) in (Image ([z] pair (which z) (which (F z)) )) )  
+               ((reflectE1 (trans (sym b_idem) (p x)))) ((ImageI x)))) )) 
+         (trans (sym eq_which) (sym eq_which)))).
+   beta := [B][A][F][X] beta.
+   eta := [A][X][F] eta.
+
+}.
+
+%view HOLSemantics : HOL -> NesetZFC = {
+  %include PureSemantics.
+  bool := boolne.
+  trueprop' :=  lam ([x] x).
+
+  %* not *%
+  ~'   := lam ([x] bbne (¬ bneb x)).
+  true := bbne ⟙.
+  false:= bbne ⟘.
+  %* some *%
+  eps  := [A]  lam ([x] (some ([y] ((app x y) Eq (bbne ⟙))))).
+  %* the *%
+  the'  := [A]  lam ([x] (the ([y] ((app x y) Eq (bbne ⟙))))).
+  all'  := [A]  lam ([x] bbne (reflect (which (some ([y] ((app x y) Eq (bbne ⟙)))) eq (cwhich A)))).    %% forall 
+  ex'  := [A]  lam ([x] bbne (reflect (not (which (some ([y] ((app x y) Eq (bbne ⟙)))) eq (empty))) )). %% exists
+  %* eq *%
+  ≐'    := [A] lam ([x] (lam ([y] bbne (reflect (x Eq y))))).
+  %* and *%
+  &'    := lam ([x] lam ([y] bbne ((bneb x) ∧ (bneb y)) )).
+  %* or *%
+  |'    := lam ([x] lam ([y] bbne ((bneb x) ∨ (bneb y)) )).
+  %* imp *%
+  ⟶'    := lam ([x] lam ([y] bbne ((bneb x) → (bneb y)) )).
+%% refl := [A][X : elems A]  trans (reflectE1 (trans (sym b_idem) eta)) (reflectE1 (trans (sym b_idem) beta)).
+%% typedef := [A][s][p] celem (some [x] (app (s x))) p.
+%% Rep := [A][S][P] elems (fun (celem (some ([x] (app S x))) P) A).
+%% Abs := [A][S][P] elems (fun A (celem (some ([x] (app S x))) P)).
+%%trans (sym (EqCongF ([x] bneb (([y] y) x)) beta')) (trans (sym (EqCongF ([x] bneb x) beta')) p) .
+}.

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
+  <theory name="IndexedUniverse" base="http://latin.omdoc.org/foundations/type_theory/church" meta="http://cds.omdoc.org/urtheories?LF">
+    <import name="types" from="http://latin.omdoc.org/math?Universe"> </import>
+    <constant name="tm" role="type">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/foundations/type_theory/church" module="IndexedUniverse" name="types/u"/>
+            <om:OMS position="2" base="http://cds.omdoc.org/urtheories" module="Typed" name="type"/>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+    </constant>
+  </theory>
+</omdoc>

@@ -1,0 +1,130 @@
+%* @author Fulya Horozal, Florian Rabe *%
+
+%namespace "http://latin.omdoc.org/type_theories".
+
+%sig IDENT = {
+  %include TypesTerms %open.
+  id   : tm A -> tm A -> tp.
+  refl  : X == Y -> tm id X Y.
+  %{ left-over from old version, should be refactored
+  subsType : X == Y -> {F : tm A -> tp} (F X) === (F Y).
+  cast   : A === B -> tm A -> tm B.
+  casteq : {p : A === B} {a : tm A} a == (cast (TEq..sym p) (cast p a)).
+}%
+}.
+  
+%sig UNIT = {
+  %include TypesTerms %open.
+  unit' : tp.
+  unit = tm unit'.
+  ! : unit.
+}.
+
+%sig VOID = {
+  %include TypesTerms %open.
+  void' : tp.
+  void = tm void'.
+  !! : void -> tm A.
+}.
+  
+%* Disjoint union types *%
+%sig DUNION = {
+  %include TypesTerms.
+  +' : tp -> tp -> tp.        %infix none 5 +'.
+  +  = [a][b] (tm a +' b).    %infix none 5 +.
+  inj1 : tm A -> A + B.
+  inj2 : tm B -> A + B.
+  case : A + B -> (tm A -> tm C) -> (tm B -> tm C) -> tm C.
+}.
+
+%sig Product = {
+  %include TypesTerms.
+  *    : tp -> tp -> tp.      %infix none 5 *.
+  pair : tm A -> tm B -> tm A * B.
+  pi1  : tm A * B -> tm A.
+  pi2  : tm A * B -> tm B.
+  convpi1 : pi1 (pair X Y) == X.
+  convpi2 : pi2 (pair X Y) == Y.
+  convpair: pair (pi1 U) (pi2 U) == U.
+}.
+
+%sig SIGMA = {
+  %include TypesTerms.
+  S'   : (tm A -> tp) -> tp.
+  S    = [f] tm (S' f).
+  pair : {a : tm A} tm (B a) -> S [x] (B x).
+  ,    : {a : tm A} tm (B a) -> S [x] (B x) = [a][b] (pair a b).
+                                                      %infix left 1 ,.
+  pi1  : S ([x : tm A] (B x)) -> tm A.
+  pi2  : {u : S [x : tm A] (B x)} tm (B (pi1 u)).
+  convpi1 : pi1 (pair X Y) == X.
+  %% convpi2 requires Curry-typing
+  %%convpi2 : pi2 (pair X Y) == Y.
+  convpair: pair (pi1 U) (pi2 U) == U.
+  *'   = [a][b] S' [x:tm a] b.                        %infix none 5 *'.
+  *    = [a][b] (tm a *' b).                          %infix none 5 *.
+}.
+
+
+%view Product-Sigma : Product -> SIGMA = {
+ *    := [a][b] S' [x : tm a] b.
+ pair := [A][B][a : tm A][b : tm B] pair a b.
+ pi1  := [A][B][p] pi1 p. 
+ pi2  := [A][B][p] pi2 p.
+ convpi1 := [A][B][X][Y] convpi1.
+ %%convpi2 := [A][B][X][Y] convpi2.
+ convpair := [A][B][U] convpair.
+}.
+
+%sig Naturals = {
+   %include TypesTerms.
+   nat : tp.
+   zero : tm nat.
+   succ : tm nat -> tm nat.
+   ind_def : tm A -> (tm nat -> tm A) -> (tm nat -> tm A).
+   cases   : tm nat -> tm A -> (tm nat -> tm A) -> tm A = [n][a][f] ind_def a f n.
+}.
+
+%sig NatTypes = {
+   %include Naturals.
+   before : tm nat -> tp.
+   ↑    : tm before N -> tm before (succ N).
+   last : tm before (succ N).
+   zeroE : tm before zero -> tm A.
+   succE : (tm before N -> tm A) -> tm A -> (tm before (succ N) -> tm A).
+   cases : tm before (succ N) -> (tm before N -> tm A) -> tm A -> tm A = [n][f][a] succE f a n.
+}.
+
+%sig Option = {
+   %include TypesTerms.
+   %include UNIT.
+   %include DUNION.
+   opt : tp -> tp = [a] a +' unit'.
+   none : tm opt A = inj2 !.
+   some : tm A -> tm opt A = [a] inj1 a.
+   cases : tm opt A -> tm A -> tm A = [o][else] case o ([a] a) ([_] else).
+}.
+
+%.
+%sig Lists = {
+   %include NatTypes.
+   %include SimpTypes.
+   %include SIGMA.
+   listn : tm nat -> tp -> tp = [n][a] (before n) → a.
+   list  : tp -> tp = [a] S' [n: tm nat] listn n a.
+   nil   : tm list A = pair zero (λ zeroE).
+   cons  : tm A -> tm list A -> tm list A = [a][l] pair (succ (pi1 l)) (λ [x] succE ([n] (pi2 l) @ n) a x).
+   %{ ind_def b f (n,l) = n match {
+         case 0 => b
+         case i+1 => cons h t) => f h t
+   }%
+   ind_def : tm B -> (tm A -> tm list A -> tm B) -> (tm list A -> tm B)
+           = [b][f][l] Naturals.cases (pi1 l)
+                         b
+                         ([i] f ((pi2 l) @ last) (pair i (λ [j] (pi2 l) @ (↑ j)))). %% does not type-check because information that pi1 l = succ i not available within case
+   head  : tm list A -> tm opt A = ind_def none ([hd][_] some hd).
+   tail  : tm list A -> tm opt (list A) = ind_def none ([_][tl] some tl).
+   %* need recursion: *%
+   append : tm list A -> tm list A -> tm list a = [l][m] ind_def m ([hd][tl] cons hd (append tl m)) l.
+   map  : (tm A -> tm B) -> (tm list A -> tm list B) = [f][l] ind_def nil ([hd][tl] cons (f hd) (map f tl)).
+}.

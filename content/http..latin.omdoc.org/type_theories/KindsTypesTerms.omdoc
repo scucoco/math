@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
+  <theory name="KindsTypesTerms" base="http://latin.omdoc.org/type_theories" meta="http://cds.omdoc.org/urtheories?LF">
+    <metadata>
+      <meta property="http://purl.org/dc/terms?_?description">
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMSTR>
+            three-levelled type theory:\n - kind-level classifiers are kinds, expressions are type families\n - type-level classifiers are type families of kind tp', expressions are terms
+          </om:OMSTR>
+        </om:OMOBJ>
+      </meta>
+    </metadata>
+    <import name="kinds" from="http://latin.omdoc.org/type_theories?Level"> </import>
+    <constant name="tp'" role="constructor">
+      <metadata>
+        <meta property="http://purl.org/dc/terms?_?description">
+          <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+            <om:OMSTR>the kind of types</om:OMSTR>
+          </om:OMOBJ>
+        </meta>
+      </metadata>
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/type_theories" module="KindsTypesTerms" name="kinds/cl"/>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <import name="types" from="http://latin.omdoc.org/type_theories?Level">
+      <constant name="cl">
+        <definition>
+          <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+            <om:OMA>
+              <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+              <om:OMS position="1" base="http://latin.omdoc.org/type_theories" module="KindsTypesTerms" name="kinds/exp"/>
+              <om:OMS position="2" base="http://latin.omdoc.org/type_theories" module="KindsTypesTerms" name="tp'"/>
+            </om:OMA>
+          </om:OMOBJ>
+        </definition>
+      </constant>
+    </import>
+  </theory>
+</omdoc>

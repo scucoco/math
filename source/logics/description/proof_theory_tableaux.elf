@@ -1,0 +1,93 @@
+%namespace "http://latin.omdoc.org/logics/proof_theory".
+%namespace syn = "syntax".
+
+
+%sig DLBase = {
+  %include syn.DLBase %open role conc subsume.
+
+  u : type.
+  ded : u -> conc -> type.
+  inrole : u -> role -> u -> type.
+  * : type.
+   
+}.
+
+%sig C = {
+  %include DLBase %open ded *.
+  %include syn.C %open neg.
+  %* rules for neg here *%
+   ruleBot : ded X C -> ded X (neg C) -> *.
+}.
+
+%sig FL0 = {
+  %include syn.DLBase %open role conc subsume.
+  %include syn.FL0 %open inter forall.
+  %include DLBase %open ded * inrole.
+  ruleAND : ( ded X (inter P Q) -> *) <- (ded X P -> ded X Q -> *).
+  ruleForall : ( ded X (forall R P) -> inrole X R Y -> *) <- (ded Y P -> *).
+}.
+
+%% as above, do signatures TableauxU and TableauxE
+%sig U = {
+  %include syn.U %open union.
+  %include DLBase %open ded *.
+  ruleOR : ( ded X (union P Q) -> *) <- (ded X P -> *) <- (ded X Q -> *).
+ 
+}.
+
+%sig E = {
+ %include syn.E %open exists.
+ %include DLBase %open ded * inrole.
+ ruleExists : ( ded X (exists R P) -> *) <- ({Y}inrole X R Y -> ded Y P -> *).
+}.
+
+%sig DL = {
+  %include DLBase %open.
+  %include C %open.   
+  %include FL0 %open.   
+  %include U %open.   
+  %include E %open.
+}.
+  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%example 1%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%{
+%sig Example = {
+   %include DL %open.
+
+  Person : conc.
+  Haschrom : role.
+  ChromY : conc.
+  Haschild : role.
+  Man =  inter Person (exists Haschrom ChromY). 
+  Woman = inter Person (exists Haschrom (neg ChromY)).
+  Mother = inter Woman (exists Haschild Person).
+  Father = inter Man (exists Haschild Person).
+  Grandparent = inter Person (exists Haschild (union Mother Father)).
+  Grandfather = inter Grandparent Father.
+  Grandmother = inter Grandparent Mother.
+  toCheck = inter (forall Haschild Man) (exists HAschild (neg Man)).
+  %%subproof = ruleForall ([yIsMan: ded Y Man] ruleBot (yIsMan) (axiomC Y (neg Man)))  
+                    %%    (axiomC X (forall Haschild Man))  
+                      %%  (axiomR X Haschild Y).
+ 
+%%% proof of the contradiction   inter (forall Haschild Man) (exists HAschild (neg Man)).
+  Mainproof1  = ruleAND ([xforall: ded X (forall Haschild Man)]  [xexists: ded X (exists Haschild (neg Man))]
+               ruleExists ([Y][hasChild: inrole X Haschild Y]  [yNotMan: ded Y (neg Man)] ruleForall ([yIsMan: ded Y Man] ruleBot yIsMan yNotMan)(xforall)
+              (hasChild))(xexists)).
+
+              
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%example 2%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ %%Vehicle : conc.
+ %%Goods : conc.
+ %%Transports : role.
+ %%DrivenOn : role.
+ %%RailTrack : conc.
+ %%Train = inter  Vehicle (forall DrivenOn RailTrack).
+ %%FreightTrain = inter Train (exists Transports Goods).
+ %%TransportVehicle = inter Vehicle (exists Transports Goods).
+%%%%%%%%%%%%%%%%%%%%%%%%%%to proof contradiction (inter FreightTrain (neg TransportVehicle))%%%%%%%%%%%%% 
+ %%toCheck1 = inter FreightTrain (neg TransportVehicle).
+  
+
+}.
+}%

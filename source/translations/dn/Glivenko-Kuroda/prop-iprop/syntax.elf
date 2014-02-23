@@ -1,0 +1,47 @@
+%* the double-negation translation from classical to intuitionistic propositional logic (Glivenko's theorem) *%
+
+%namespace "http://latin.omdoc.org/translations/prop_iprop".
+%namespace syn = "../logics/syntax".
+%namespace pf = "../logics/proof_theory".
+
+
+%* the target logic: intuitionistic logic with some useful abbreviations for negation *%
+%sig DN-IPL = {
+   %include pf.IPL %open.
+   %include pf.NEGExt %open. 
+}.
+
+%view Base : syn.Logic -> DN-IPL = {
+   o   := o.
+   ded := [a] ded not (not a). 
+}.
+
+%view Truth : syn.Truth -> DN-IPL = {
+   %include Base.
+   true := true.
+}.
+
+%view Falsity : syn.Falsity -> DN-IPL = {
+   %include Base.
+   false := false.
+}.
+
+%view NEG : syn.NEG -> DN-IPL = {
+   %include Base.
+   not := [x] not x.
+}.
+
+%view IMP : syn.IMP -> DN-IPL = {
+   %include Base.
+   imp := [x][y] x imp y.
+}.
+
+%view CONJ : syn.CONJ -> DN-IPL = {
+   %include Base.
+   and := [x][y] x and y.
+}.
+
+%view DISJ : syn.DISJ -> DN-IPL = {
+   %include Base.
+   or := [x][y] x or y.
+}.

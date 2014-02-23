@@ -1,0 +1,173 @@
+%%OWL
+%namespace "http://latin.omdoc.org/logics/description/owl/owl.omdoc".
+
+%sig OWL1Datatype = { %% XML Schema datatypes / D1  	
+ %%Datatypes
+ data     :type.
+ dataType : type.
+ tm       : dataType -> type.
+ is       : data -> dataType -> type.
+ 
+ string             : dataType. 
+ normalizedString   : dataType. 
+ token              : dataType.
+ language           : dataType. 
+ NMToken            : dataType. 
+ name               : dataType. 
+ NCName             : dataType.
+ 
+ boolean            : dataType. 
+ 
+ decimal            : dataType. 
+ float              : dataType. 
+ double             : dataType. 
+ integer            : dataType.
+ nonNegativeInteger : dataType.
+ nonPositiveInteger : dataType.
+ positiveInteger    : dataType.
+ negativeInteger    : dataType.
+ long 				  : dataType.
+ int                : dataType.
+ short              : dataType.
+ byte               : dataType.
+ unsignedLong       : dataType.
+ unsignedInt        : dataType.
+ unsignedShort      : dataType.
+ unsignedByte       : dataType.
+ 
+ dateTime           : dataType.
+ time               : dataType.
+ date               : dataType.
+ gYearMonth         : dataType.
+ gYear              : dataType.
+ gMonthDay          : dataType.
+ gDay               : dataType.
+ gMonth             : dataType.
+ 
+ hexBinary          : dataType.
+ base64Binary       : dataType.
+ 
+ anyURI             : dataType.
+ %%OWL 1 provides support for only integers and strings as datatypes and does not support any subsets of these datatypes
+ %% XML Schema datatypes + literal  = built-in datatypes.
+}.
+
+
+%sig OWLBase = {
+  class              : type.
+  objectProperty     : type.
+  dataTypeProperty   : type.  %%hasAge
+  dataProperty = dataTypeProperty.
+  individual         : type.  
+}.
+
+
+%sig OWLLite = {
+ %%SHIF + D
+ %include OWLBase.
+ %include OWL1Datatype %open.
+ 
+ %%RDF Schema Features
+ thing   : class. %%universal class
+ nothing : class. %%empty class
+ 
+ subClassOf           : class -> class -> type. %%woman person
+ subPropertyOf        : objectProperty ->  objectProperty -> type. %%hasSun hasChild
+ 
+ Domain : objectProperty -> class -> type. %%hasWife man
+ Range  : objectProperty -> class -> type. %%hasWife woman
+ 
+ %%Equality / Inequality
+ equivalentClass    : class -> class -> type. 
+ equivalentProperty : objectProperty -> objectProperty -> type. 
+ differentFrom      : individual -> individual -> type. %%Nary
+ sameAs	           : individual -> individual -> type. %%Nary
+ %% distinctMembers : individual -> ... -> individual -> type. %%Nary
+ 
+ %%Property Characteristics 
+ inverseOf           : objectProperty -> objectProperty. %%hasChild
+ transitiveProperty  : objectProperty -> type.           %%hasAncestor
+ symmetricProperty   : objectProperty -> type. 				%%hasSpouse
+ functionalProperty  : objectProperty -> type. 				%%hasHusband
+ inverseFunctionalProperty : objectProperty -> type. 		%%hasHusband
+ 
+ %%Property Restrictions 
+ %% restriction 
+ %% onProperty  
+ someValuesFrom : objectProperty -> class -> class. %%hasChild person
+ allValuesFrom  : objectProperty -> class -> class. %%hasChild female
+  
+ %%Restricted Cardinality only 0 or 1  
+ %% maxCardinality   : tm nonNegativeInteger -> objectProperty -> class -> class.   
+ %% minCardinality   : tm nonNegativeInteger -> objectProperty -> class -> class.  
+ %% cardinality      : tm nonNegativeInteger -> objectProperty -> class -> class.  
+
+ %%Class Intersection
+ intersectionOf : class -> class -> class. %%Nary
+ 
+ %{
+ %%Header Information
+ ontology %%resource
+ imports  %%resource
+ 
+ %%Annotation Properties
+ annotationProperty : type.
+ ontologyProperty   : type.
+  
+ lable       : annotationProperty. %%string
+ comment     : annotationProperty. %%string
+ seeAlso     : annotationProperty.
+ isDefinedBy : annotationProperty.
+ 
+ %%Versioning 
+ versionInfo            : annotationProperty. %%string
+ priorVersion           : ontologyProperty.   %%resource
+ backwardCompatibleWith : ontologyProperty.   %%resource
+ incompatibleWith       : ontologyProperty.   %%resource
+ deprecatedClass        : class -> comment -> class.
+ deprecatedProperty     : objectProperty -> comment -> obejctProperty.
+}%               
+ 
+ %%no union and  no complement, restricts cardinality
+ %%classes cannot be instances
+}.
+ 
+
+%sig OWLDL = {
+ %%SHOIN + D
+ %include OWLLite %open.
+
+ %%Class Axioms
+ oneOf : individual -> individual -> class. %%Nary
+ disjointWith   : class -> class -> type. %%Nary
+ %%equivalentClass is applied to class expressions
+ %%subClassOf is applied to class expressions
+ 
+ %%Boolean Combination of Class Expressions
+ unionOf 	    : class -> class -> class. %%Nary
+ complementOf   : class -> class.
+ 
+ %%Arbitrary Cardinality (Full Cardinality)
+ %% maxCardinalityFull   : tm nonNegativeInteger -> objectProperty -> class.  
+ %% minCardinalityFull   : tm nonNegativeInteger -> objectProperty -> class. 
+ %% cardinalityFull      : tm nonNegativeInteger -> objectProperty -> class.
+  
+ %%Filler Information 
+ hasValue : objectProperty -> individual -> class. 
+ 
+ %%complex classes 
+ %%classes cannot be instances
+}.
+
+
+%sig OWLFull = {
+ %include OWLDL %open.
+ %%meta class - classes can be instances
+}.
+
+%%list, rest, nil 
+
+
+
+
+

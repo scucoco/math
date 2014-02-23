@@ -1,0 +1,47 @@
+%namespace "http://latin.omdoc.org/logics/soundness".
+%namespace pf = "proof_theory".
+%namespace mod = "model_theory".
+
+
+%view DLBase : pf.DLBase -> pf.FOL  = {
+   %include mod.DLBase.
+   u := i.
+   ded := [u][c] ded (c u).
+   inrole := [x][r][y] ded (r x y).
+   * := ded false.
+   
+}.
+%view C : pf.C -> pf.FOL = {
+  %include DLBase.
+  %include mod.C.
+  ruleBot :=  [X : i][C : i -> o][P : ded (C X)][Q : ded not (C X)] notE Q P false .
+  
+}.
+%view U : pf.U -> pf.FOL = {
+  %include DLBase.
+  %include mod.U.
+  ruleOR :=  [X : i][Q : i -> o][P : i -> o][S : ded (Q X) -> ded false][R : ded (P X) -> ded false]([T : ded (P X or Q X)] orE T R S). 
+
+}.
+%view FL0 : pf.FL0 -> pf.FOL = {
+ %include DLBase.
+ %include mod.FL0.
+ ruleAND :=  [X : i][P : i -> o][Q : i -> o][T : ded (P X) -> ded (Q X) -> ded false]([Z : ded (P X and Q X)]T (andEl Z) (andEr Z)).
+ ruleForall := [Y : i][P : i -> o][X : i][R : i -> i -> o] [ Q : ded (P Y) -> ded false]([S : ded forall [Z] ((R X Z) imp(P Z))][T : ded (R X Y)]Q (impE (forallE S Y) T)). 
+}.
+
+%%%view E : pf.E -> pf.FOL = {
+  %% %include DLBase.
+  %% %include mod.E.
+ %%ruleExists := [Y : i][P : i -> o][X : i][R : i -> i -> o][ Q : ded (R X Y) -> ded (P Y) -> ded false]([S :  ded exists [Z] ((R X Z) and (P Z))]( existsE S (ded ((R X Z) and (P Z)) -> ded()) ).
+
+
+%%}
+
+%%%view TableauxSound : pf.DL -> pf.FOL = {
+ %% %include DLBase %open.
+ %% %include C %open.   
+ %% %include FL0 %open.   
+ %% %include U %open.   
+ %% %include E %open.
+%%}.

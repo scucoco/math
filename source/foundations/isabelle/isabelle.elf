@@ -1,0 +1,152 @@
+%namespace "http://latin.omdoc.org/foundations/isabelle".
+
+%* Isabelle's Pure syntax, according to Isabelle/Isar reference manual, Sect. 2.1.1 *%
+%sig Pure = {
+  
+  %% types
+  tp   : type.
+  %% function type
+  ⇒    : tp -> tp -> tp.                %infix right 5 ⇒.
+
+  %% terms
+  tm   : tp -> type.                    %prefix 0 tm.
+  %% lambda
+  λ    : (tm A -> tm B) -> tm (A ⇒ B).
+  %% application (written as iuxtaposition in Isabelle)
+  @    : tm (A ⇒ B) -> tm A -> tm B.    %infix left 1000 @.
+
+  %% type of propositions/formulas  
+  prop : tp.
+  %% universal quantification at every type
+  ⋀   : (tm A -> tm prop) -> tm prop.
+  %% implication
+  ⟹  : tm prop -> tm prop -> tm prop.  %infix right 5 ⟹.
+  %% equality at every type
+  ≡   : tm A -> tm A -> tm prop.        %infix none 6 ≡.
+  
+  %% truth of propositions
+  ⊦   : tm prop -> type.                %prefix 0 ⊦.
+  
+  %% proof rules
+  ⋀I  : ({x: tm A} ⊦ (B x)) -> ⊦ ⋀ ([x] B x).
+  ⋀E  : ⊦ ⋀ ([x] B x) -> {x: tm A} ⊦ (B x).
+  ⟹I : (⊦ A -> ⊦ B) -> ⊦ A ⟹ B.
+  ⟹E : ⊦ A ⟹ B -> ⊦ A -> ⊦ B.
+  refl : ⊦ X ≡ X.
+  subs : {F: tm A -> tm B} ⊦ X ≡ Y -> ⊦ F X ≡ F Y.
+  exten: ({x : tm A} ⊦ (F x) ≡ (G x)) -> ⊦ λ F ≡ λ G.
+  beta : ⊦ (λ [x: tm A] F x) @ X ≡ F X.
+  eta  : ⊦ λ ([x: tm A] F @ x) ≡ F. 
+}.
+
+%* Isabelle/HOL, according to Isabelle distribution Isabelle2009-1 *%
+%sig HOL = {
+  %include Pure %open tp tm ⊦ ⇒ prop λ @ ⋀ ⟹ ≡.
+
+  %% fromHOL.thy, ll. 1 - 205
+  %% typedecl
+  bool : tp.
+  %% judgment
+  trueprop': tm bool ⇒ prop.
+  ↑        : tm bool -> tm prop
+           = [x] trueprop' @ x.               %prefix 1 ↑.           
+
+  %% consts
+  ~'     : tm bool ⇒ bool.
+  ~      : tm bool -> tm bool
+         = [x] ~' @ x.                       %prefix 40 ~.
+  true   : tm bool.
+  false  : tm bool.
+
+  the'   : tm (A ⇒ bool) ⇒ A.
+  the    : (tm A -> tm bool) -> tm A
+         = [f] the' @ (λ f).
+  all'   : tm (A ⇒ bool) ⇒ bool.
+  all    : (tm A ⇒ bool) -> tm bool
+         = [x] all' @ x.                      %prefix 10 all.
+  !      : (tm A -> tm bool) -> tm bool
+         = [f] all (λ f).
+  ex'    : tm (A ⇒ bool) ⇒ bool.
+  ex     : (tm A ⇒ bool) -> tm bool
+         = [x] ex' @ x.                       %prefix 10 ex.
+  ?      : (tm A -> tm bool) -> tm bool
+         = [f] ex (λ f).
+  %% skipping Ex1 and Let
+  
+  ≐'    : tm A ⇒ A ⇒ bool.                   %% written = in Isabelle
+  ≐     : tm A -> tm A -> tm bool
+          = [x][y] ≐' @ x @ y.               %infix left 50 ≐.
+  &'      : tm bool ⇒ bool ⇒ bool.
+  &       : tm bool -> tm bool -> tm bool
+          = [x][y] &' @ x @ y.               %infix left 35 &.
+  |'      : tm bool ⇒ bool ⇒ bool.
+  |       : tm bool -> tm bool -> tm bool
+          = [x][y] |' @ x @ y.               %infix left 30 |.
+  ⟶'     : tm bool ⇒ bool ⇒ bool.
+  ⟶      : tm bool -> tm bool -> tm bool
+          = [x][y] ⟶' @ x @ y.              %infix left 25 ⟶.
+          
+  %% axioms
+  refl    : ⊦ ↑ X ≐ X.
+  subst   : ⊦ ↑ S ≐ T ⟶ P @ S ⟶ P @ T.
+  ext     : ⊦ (⋀ [x:tm A] ↑ (F @ x ≐ G @ x)) ⟹ ↑ ((λ [x] F @ x) ≐ (λ [x] G @ x)).
+
+  the_eq_trivial : ⊦ ↑ (the [x] x ≐ A) ≐ A.
+  impI    : ⊦ ((↑ P) ⟹ (↑ Q)) ⟹ (↑ P ⟶ Q).
+  mp      : ⊦ (↑ P ⟶ Q) ⟹ (↑ P) ⟹ (↑ Q). 
+  
+  %% defs 
+  true_def   : ⊦ true  ≡ (λ[x: tm bool] x) ≐ (λ[x] x).
+  all_def    : ⊦ all P ≡ (P ≐ (λ [x] true)).
+  ex_def     : ⊦ all P ≡ ![Q] (![x] P @ x ⟶ Q) ⟶ Q.
+  false_def  : ⊦ false ≡ (![P] P).
+  not_def    : ⊦ ~ P   ≡ P ⟶ false.
+  and_def    : ⊦ P & Q ≡ ![R] (P ⟶ Q ⟶ R) ⟶ R.
+  or_def     : ⊦ P | Q ≡ ![R] (P ⟶ R) ⟶ (Q ⟶ R) ⟶ R.
+  %% skipping Ex1
+  
+  %% axioms
+  iff        : ⊦ ↑ (P ⟶ Q) ⟶ (Q ⟶ P) ⟶ (P ≐ Q).
+  true_or_false : ⊦ ↑ (P ≐ true) | (P ≐ false).
+  
+  %% defs
+  %% skipping Let, if
+  
+  %% axiomatization
+  undefined : tm A.
+
+  %% skipping default, fixes
+
+  %% from Hilbert_Choice.thy
+  eps   : tm (A ⇒ bool) ⇒ A.
+  someI : ⊦ (↑ (P @ X)) ⟹ (↑ P @ (eps @ P)).
+  
+  %% from Nat.thy: axiom of infinity
+  %% inj is actually defined in terms of inj_on, UNIV, top; top requires the type classes top, preorder, ord
+  ind                  : tp.
+  zero_Rep             : tm ind.
+  suc_Rep              : tm ind ⇒ ind.
+  inj                  : tm (A ⇒ A) ⇒ bool = λ [f] ! [x] ! [y] f @ x ≐ f @ y ⟶ x ≐ y.
+  inj_Suc_Rep          : ⊦ ↑ inj @ suc_Rep.
+  suc_Rep_not_Zero_Rep : ⊦ ↑ ~ suc_Rep @ X ≐ zero_Rep.
+  
+  %% from Set.thy: sets (needed for type definitions)
+  %% types
+  set     : tp -> tp = [a] a ⇒ bool.
+  %% consts
+  in'     : tm A ⇒ set A ⇒ bool
+          = λ [x: tm A] λ [s: tm set A] s @ x.      %% written : in Isabelle/HOL
+  in      : tm A -> tm set A -> tm bool
+          =  [x: tm A] [s: tm set A] in' @ x @ s.   %infix none 20 in.
+
+  %% from Typedef.thy: type definitions (every nonempty set can be turned into a type)
+  %% this is a primitive feature of Isabelle/HOL that goes beyond Isabelle
+  %% nonempty is our abbreviation
+  nonempty : (tm set A) -> type = [s] ⊦ ↑ (? [x:tm A] s @ x).  
+  typedef  : {s: tm set A} nonempty s -> tp.
+  Rep      : tm (typedef S P) ⇒ A.
+  Abs      : tm A ⇒ (typedef (S : tm set A) P).
+  Rep_thm  : {x: tm typedef S P} ⊦ ↑ (Rep @ x) in S.
+  Rep_inverse : {x: tm typedef S P} ⊦ ↑ Abs @ (Rep @ x) ≐ x.
+  Abs_inverse : {y: tm A} ⊦ (↑ y in S) ⟹ (↑ Rep @ ((Abs @ y) : tm typedef S P) ≐ y).
+}.

@@ -1,0 +1,493 @@
+%% IMPLEMENTATION OF CATEGORY THEORY IN DFOL
+%% This supersedes dfol-based.elf if it compiles
+
+%namespace "http://latin.omdoc.org/category_theory/dfol_based".
+%namespace pf = "../logics/proof_theory".
+
+%% signature of categories 
+%sig Category = {
+  %meta pf.DFOL.
+
+  obj : Sort.
+  Obj = ^ obj.
+  mor : Obj -> Obj -> Sort.
+  --> = [x][y] (^ (mor x y)).   %infix none 20 -->.
+  id  : {A} A --> A.
+  ;   : (A --> B) -> (B --> C) -> (A --> C).  %infix left 15 ;.
+  isom    : Obj -> Obj -> Form.
+
+  isom_ax : |- forall [A] forall [B] 
+    (isom A B <=> exists [f : A --> B] exists [g : B --> A] 
+    f ; g == id A and g ; f == id B).   
+  id_ax_right : |- forall [A] forall [B] forall [f : A --> B] f ; (id B) == f.
+  id_ax_left  : |- forall [A] forall [B] forall [f : A --> B] (id A) ; f == f.
+  assoc       : |- forall [A] forall [B] forall [C] forall [D] 
+    forall [f : A --> B] forall [g : B --> C] forall [h : C --> D] 
+    (f ; g) ; h == f ; (g ; h).
+}.
+
+%% categories with a distinguished object "top" representing truth, i.e. there
+%% exists a morphism from each object to top  
+%sig CatTop = {
+  %meta pf.DFOL.
+  %struct cat : Category %open Obj --> id ;.
+  
+  top  : Obj.
+  bang : {A} A --> top. 
+}.
+
+%% view representing category duals
+%view CatOp : Category -> Category = {
+  obj  := obj.
+  mor  := [A][B] (mor B A).
+  id   := id.
+  ;    := [A][B][C][g][f] f ; g.
+  isom := [A] [B] isom B A.
+  isom_ax := forallI [A] forallI [B] equivTrans 
+               (forallE (forallE isom_ax B) A)
+               (equivI' ([leftExpr] existsDeriv ([x] [pf] existsDeriv ([y] andSym) pf) leftExpr)
+                        ([leftExpr] existsDeriv ([x] [pf] existsDeriv ([y] andSym) pf) leftExpr)).
+  id_ax_right := forallI [A] forallI [B] forallE (forallE id_ax_left B) A. 
+  id_ax_left  := forallI [A] forallI [B] forallE (forallE id_ax_right B) A. 
+  assoc       := forallI [A] forallI [B] forallI [C] forallI [D] 
+    forallI [f : B --> A] forallI [g : C --> B] forallI [h : D --> C] 
+    (sym (forallE (forallE (forallE (forallE (forallE (forallE (forallE assoc D) C) B) A) h) g) f)). 
+}.
+
+%% functor between categories
+%sig Functor = {
+  %meta pf.DFOL.
+
+  %struct dom : Category.
+  %struct cod : Category.
+ 
+  FO : dom.Obj -> cod.Obj.
+  FM : A dom.--> B -> (FO A) cod.--> (FO B).
+  
+  id_ax   : |- forall [A] FM (dom.id A) == cod.id (FO A).
+  comp_ax : |- forall [A] forall [B] forall [C] 
+    forall [f : A dom.--> B] forall [g : B dom.--> C] 
+    FM (f dom.; g) == (FM f) cod.; (FM g).
+}.
+
+
+%% endofunctors are functors from a category to itself
+%sig EndoFunctor = {
+  %meta pf.DFOL.
+
+  %struct cat : Category.
+  %struct F : Functor = {
+    %struct dom := cat.
+    %struct cod := cat.
+  }.
+}.
+
+
+%sig IdFunctor = {
+   %meta pf.DFOL.   
+   %struct cat : Category %open Obj -->.
+   %struct F : Functor = {
+      %struct dom := cat.
+      %struct cod := cat.
+      FO := [A : Obj] A.
+      FM := [A] [B] [f : A --> B] f.
+   }.
+}.
+
+%view IsFunctor : Functor -> IdFunctor = {
+   %struct dom := F.dom.
+   %struct cod := F.cod.
+   FO := F.FO.
+   FM := [A] [B] F.FM.
+   id_ax := F.id_ax.
+   comp_ax := F.comp_ax.
+}.
+ 
+%sig Comp = { 
+  %meta pf.DFOL.
+  %struct C : Category. 
+  %struct D : Category.
+  %struct E : Category. 
+  %struct f : Functor = {%struct dom := C. %struct cod := D.}.
+  %struct g : Functor = {%struct dom := D. %struct cod := E.}.
+}.
+
+%view Composition : Functor -> Comp = {
+  %struct dom := C.
+  %struct cod := E.
+  FO := [x] g.FO (f.FO x). %%C.Obj -> E.Obj    
+  FM := [A][B] [m : A C.--> B] g.FM (f.FM m). %% A C.--> B -> (FO A) E.--> (FO B) 
+  id_ax := forallI [x] (trans 
+                          (cong g.FM (forallE f.id_ax x))
+                          (forallE g.id_ax (f.FO x))
+                        ).
+  comp_ax := forallI [a] forallI [b] forallI [c] forallI [m: a C.--> b] forallI [n: b C.--> c] 
+                       (trans 
+                          (cong g.FM (forallE (forallE (forallE (forallE (forallE f.comp_ax a) b) c) m) n)) 
+                          (forallE (forallE (forallE (forallE (forallE g.comp_ax (f.FO a)) (f.FO b)) (f.FO c)) (f.FM m)) (f.FM n)) 
+                       ).
+}.
+
+%% natural transformations are morphisms between functors whose source and target categories agree
+%sig NatTrans = {
+  %meta pf.DFOL.
+  %struct nt_dom : Functor.
+  %struct nt_cod : Functor = {
+    %struct dom := nt_dom.dom.
+    %struct cod := nt_dom.cod.
+  }.
+  
+  lam : {X:Terms nt_dom.dom.obj} (nt_dom.FO X) nt_cod.cod.--> (nt_cod.FO X).
+  comp_ax : {X:Terms nt_dom.dom.obj} {Y:Terms nt_dom.dom.obj} {f:Terms (nt_dom.dom.mor X Y)}
+      |- ((nt_dom.FM f) nt_cod.cod.; (lam Y)) == ((lam X) nt_cod.cod.; (nt_cod.FM f)).  
+}.
+
+%sig CompNatFun = {
+ %meta pf.DFOL.
+ %struct C : Category.
+ %struct D : Category.
+ %struct E : Category.
+ %struct F : Functor = {%struct dom := C. %struct cod := D.}.
+ %struct G : Functor = {%struct dom := C. %struct cod := D.}.
+ %struct H : Functor = {%struct dom := D. %struct cod := E.}.
+ %struct n : NatTrans = {%struct nt_dom := F. %struct nt_cod := G.}.
+ %struct HF : Comp = {%struct C := C. %struct D := D. %struct E := E. %struct f := F. %struct g := H.}.
+ %struct HG : Comp = {%struct C := C. %struct D := D. %struct E := E. %struct f := G. %struct g := H.}.
+}.
+
+%view CompositionNF : NatTrans -> CompNatFun = {
+ %struct nt_dom  := Composition HF.
+ %struct nt_cod  := Composition HG.
+ lam := [X] H.FM (n.lam X).
+ comp_ax :=  [X:Terms n.nt_dom.dom.obj]  [Y:Terms n.nt_dom.dom.obj]  [f:Terms (n.nt_dom.dom.mor X Y)]
+             (trans (sym (forallE (forallE (forallE (forallE (forallE H.comp_ax (n.nt_dom.FO X)) (n.nt_dom.FO Y)) (n.nt_cod.FO Y)) (F.FM f)) (n.lam Y)))
+                    (trans (cong (H.FM) (n.comp_ax X Y f))
+                           (forallE (forallE (forallE (forallE (forallE H.comp_ax (n.nt_dom.FO X)) (n.nt_cod.FO X)) (n.nt_cod.FO Y)) (n.lam X)) (G.FM f)))
+             ).
+}.
+
+
+%sig CompFunNat = {
+ %meta pf.DFOL.
+ %struct C : Category.
+ %struct D : Category.
+ %struct E : Category.
+ %struct F : Functor = {%struct dom := C. %struct cod := D.}.
+ %struct G : Functor = {%struct dom := D. %struct cod := E.}.
+ %struct H : Functor = {%struct dom := D. %struct cod := E.}.
+ %struct n : NatTrans = {%struct nt_dom := G. %struct nt_cod := H.}.
+ %struct GF : Comp = {%struct C := C. %struct D := D. %struct E := E. %struct f := F. %struct g := G.}.
+ %struct HF : Comp = {%struct C := C. %struct D := D. %struct E := E. %struct f := F. %struct g := H.}.      
+}.
+
+%view CompositionFN : NatTrans -> CompFunNat = {
+ %struct nt_dom  := Composition GF.
+ %struct nt_cod  := Composition HF.
+ lam := [X] (n.lam (F.FO X)).
+ comp_ax :=  [X:Terms C.obj]  [Y:Terms C.obj]  [f:Terms (C.mor X Y)]
+             (n.comp_ax (F.FO X) (F.FO Y) (F.FM f)).
+}.
+
+
+%sig CompNatVert = {
+ %meta pf.DFOL.
+ %struct C : Category.
+ %struct D : Category.
+ %struct F : Functor = {%struct dom := C. %struct cod := D.}.
+ %struct G : Functor = {%struct dom := C. %struct cod := D.}.
+ %struct H : Functor = {%struct dom := C. %struct cod := D.}.
+ %struct n : NatTrans = {%struct nt_dom := F. %struct nt_cod := G.}.
+ %struct m : NatTrans = {%struct nt_dom := G. %struct nt_cod := H.}.
+}.
+
+%sig CompNatHoriz = {
+ %meta pf.DFOL.
+ %struct C : Category.
+ %struct D : Category.
+ %struct E : Category.
+ %struct F : Functor = {%struct dom := C. %struct cod := D.}.
+ %struct G : Functor = {%struct dom := C. %struct cod := D.}.
+ %struct H : Functor = {%struct dom := D. %struct cod := E.}.
+ %struct I : Functor = {%struct dom := D. %struct cod := E.}.
+ %struct n : NatTrans = {%struct nt_dom := F. %struct nt_cod := G.}.
+ %struct m : NatTrans = {%struct nt_dom := H. %struct nt_cod := I.}.
+}.
+
+%view CompositionNN : NatTrans -> CompNatVert = {
+ %struct nt_dom := F. 
+ %struct nt_cod := H.
+ lam := [X] (n.lam X) D.; (m.lam X).
+ comp_ax := [X:Terms n.nt_dom.dom.obj]  [Y:Terms n.nt_dom.dom.obj]  [f:Terms (n.nt_dom.dom.mor X Y)] 
+   (trans 
+     (trans 
+       (trans 
+         (trans 
+           (sym (forallE (forallE (forallE (forallE (forallE (forallE (forallE D.assoc (F.FO X)) (F.FO Y)) (G.FO Y)) (H.FO Y)) (F.FM f)) (n.lam Y)) (m.lam Y)))
+           (cong ([h] (h D.; (m.lam Y))) (n.comp_ax X Y f))
+         )
+         (forallE (forallE (forallE (forallE (forallE (forallE (forallE D.assoc (F.FO X)) (G.FO X)) (G.FO Y)) (H.FO Y)) (n.lam X)) (G.FM f)) (m.lam Y))
+       )
+       (cong ([h:Terms (D.mor (G.FO X) (H.FO Y))] ((n.lam X) D.; h)) (m.comp_ax X Y f))
+     )
+     (sym (forallE (forallE (forallE (forallE (forallE (forallE (forallE D.assoc (F.FO X)) (G.FO X)) (H.FO X)) (H.FO Y)) (n.lam X)) (m.lam X)) (H.FM f)))
+   ).
+ }.
+
+
+
+%sig Adjunction = {
+ %meta pf.DFOL.
+ %struct C : Category.
+ %struct D : Category.
+ %struct F : Functor  = {%struct dom := D. %struct cod := C.}.
+ %struct G : Functor  = {%struct dom := C. %struct cod := D.}.
+ %struct IC : IdFunctor = {%struct cat := C.}.
+ %struct ID : IdFunctor = {%struct cat := D.}.
+ %struct FG : Comp = {%struct C := C. %struct D := D. %struct E := C. %struct f := G. %struct g := F.}.
+ %struct GF : Comp = {%struct C := D. %struct D := C. %struct E := D. %struct f := F. %struct g := G.}.
+ %struct eta : NatTrans = {%struct nt_dom := Composition FG. %struct nt_cod := IsFunctor IC.}. %%counit
+ %struct miu : NatTrans = {%struct nt_dom := IsFunctor ID. %struct nt_cod := Composition GF.}. %%unit
+ %struct etaF : CompFunNat = {%struct C := D. %struct D := C.  %struct E := C. 
+                              %struct F := F. %struct G := Composition FG. %struct H := IsFunctor IC.  %struct n := eta.}.
+ %struct Fmiu : CompNatFun = {%struct C := D. %struct D := D. %struct E := C.  
+                              %struct F := IsFunctor ID. %struct G := Composition GF. %struct H := F. %struct n := miu.}.
+ %struct Geta : CompNatFun = {%struct C := C. %struct D := C. %struct E := D.  
+                              %struct F := Composition FG. %struct G := IsFunctor IC. %struct H := G. %struct n := eta.}.
+ %struct miuG : CompFunNat = {%struct C := C. %struct D := D.  %struct E := D. 
+                              %struct F := G. %struct G := IsFunctor ID. %struct H := Composition GF.  %struct n := miu.}.
+ %%need functor associativity for counit-unit axioms.
+}.
+
+%{
+%sig Monad = {
+  %meta pf.DFOL.
+  %struct cat: Category.
+ 
+  %struct T : EndoFunctor = {
+   %struct cat := cat.
+   }. 
+  
+  %struct CompT2 : Comp = {
+   %struct C := cat.
+   %struct D := cat.
+   %struct E := cat.
+   %struct f := T.F.
+   %struct g := T.F.
+  }.
+
+ %struct miu : NatTrans = {
+   %struct nt_dom := Composition CompT2.
+   %struct nt_cod := T.F.
+ }. 
+
+ %struct CompT3R : Comp = {
+   %struct C := cat.
+   %struct D := cat.
+   %struct E := cat.
+   %struct f := T.F.
+   %struct g := Composition CompT2.
+ }.
+
+%struct CompT3L : Comp = {
+   %struct C := cat.
+   %struct D := cat.
+   %struct E := cat.
+   %struct f := Composition CompT2.
+   %struct g := T.F.
+  }.
+
+
+ %struct CompTmiu : CompFunNat = {
+   %struct C := cat.
+   %struct D := cat.
+   %struct E := cat.
+   %struct F := T.F.
+   %struct G := Composition CompT2.
+   %struct H := T.F.
+   %struct n := miu.
+   %struct GF := CompT3R.
+   %struct HF := CompT2.
+  }.
+
+ %struct CompmiuT : CompNatFun = {
+   %struct C := cat.
+   %struct D := cat.
+   %struct E := cat.
+   %struct F := Composition CompT2.
+   %struct G := T.F.
+   %struct H := T.F.
+   %struct n := miu.
+   %struct HF := CompT3L.
+   %struct HG := CompT2.
+  }.
+ 
+ %struct CompTmiumiu : CompNatVert = {
+   %struct C := cat.
+   %struct D := cat.
+   %struct F := Composition CompT3L.
+   %struct G := Composition CompT2.
+   %struct H := T.F.
+   %struct n := CompositionFN CompTmiu.
+   %struct m := miu.   
+}.
+ 
+%struct CompmiuTmiu : CompNatVert = {
+   %struct C := cat.
+   %struct D := cat.
+   %struct F := Composition CompT3.
+   %struct G := Composition CompT2.
+   %struct H := T.F.
+   %struct n := CompositionNF CompmiuT.
+   %struct m := miu.   
+}.
+
+  %struct I : IdFunctor = {
+    %struct cat := cat.       
+  }. 
+  %struct eta : NatTrans = {
+    %struct nt_dom := IsFunctor I.
+    %struct nt_cod := T.F.
+  }.
+
+}.
+}%
+
+%% category with a unary predicate indicating whether an object is terminal in
+%% the category
+%sig Terminal = {
+  %meta pf.DFOL.
+  %struct cat : Category %open Obj --> id ;.
+
+  term    : Obj -> Form.
+  term_ax : |- forall [A] (term A <=> forall [B] exists [f : B --> A] 
+            forall [g : B --> A] f == g).
+}.
+
+%% category with a unary predicate indicating whether an object is initial in
+%% the category
+%sig Initial = {
+  %meta pf.DFOL.
+  %struct cat : Category %open Obj --> id ;.
+
+  init    : Obj -> Form.
+  init_ax : |- forall [A] (init A <=> forall [B] exists [f : A --> B] 
+            forall [g : A --> B] f == g).
+}.
+
+
+%% an object is initial iff it is terminal in the dual category
+%view TermOp : Initial -> Terminal = {
+  %struct cat := CatOp cat.
+
+  init    := term.
+  init_ax := term_ax.
+}.
+
+%% an object is terminal iff it is initial in the dual category
+%view InitOp : Terminal -> Initial = {
+  %struct cat := CatOp cat.
+
+  term    := init.
+  term_ax := init_ax.
+}.
+
+%% category with binary products
+%sig Product = {
+  %meta pf.DFOL.
+  %struct cat : Category %open Obj --> id ;.
+
+  *   : Obj -> Obj -> Obj.   %infix none 25 *.
+  pi1 : {A}{B} A * B --> A.
+  pi2 : {A}{B} A * B --> B.
+  *'  : C --> A -> C --> B -> C --> A * B.   %infix none 25 *'.
+  **' = [f1 : X --> A][f2 : Y --> B] ((pi1 X Y) ; f1) *' ((pi2 X Y) ; f2).   %infix none 25 **'.   
+
+  com_ax_left  : |- forall [A] forall [B] forall [C] forall [f1 : C --> A] forall [f2 : C --> B]
+    f1 == (f1 *' f2) ; (pi1 A B).
+  com_ax_right : |- forall [A] forall [B] forall [C] forall [f1 : C --> A] forall [f2 : C --> B]
+    f2 == (f1 *' f2) ; (pi2 A B).
+  univ_ax      : |- forall [A] forall [B] forall [C] forall [f1 : C --> A] forall [f2 : C --> B] forall [f : C --> A * B]
+    f1 == f ; (pi1 A B) and f2 == f ; (pi2 A B) impl f == f1 *' f2.      
+}.
+
+%% category with binary products and a top object
+%sig ProdTop = {
+  %meta pf.DFOL.
+  %struct prod   : Product %open Obj --> id ; * pi1 pi2 *'.
+  %struct cat_top : CatTop = {%struct cat := prod.cat.} %open top.
+}.
+
+%% category with binary coproducts
+%sig Coproduct = {
+  %meta pf.DFOL.
+  %struct cat : Category %open Obj --> id ;.
+  
+  +   : Obj -> Obj -> Obj.   %infix none 25 +.
+  in1 : {A}{B} A --> A + B.
+  in2 : {A}{B} B --> A + B.
+  +'  :  A --> C -> B --> C -> A + B --> C.   %infix none 25 +'.
+  ++' = [f1 : A --> X][f2 : B --> Y] (f1 ; (in1 X Y)) +' (f2 ; (in2 X Y)).   %infix none 25 ++'.  
+
+  com_ax_left  : |- forall [A] forall [B] forall [C] forall [f1 : A --> C] forall [f2 : B --> C] 
+    f1 == (in1 A B) ; (f1 +' f2).
+  com_ax_right : |- forall [A] forall [B] forall [C] forall [f1 : A --> C] forall [f2 : B --> C]
+    f2 == (in2 A B) ; (f1 +' f2).
+  univ_ax      : |- forall [A] forall [B] forall [C] forall [f1 : A --> C] forall [f2 : B --> C] forall [f : A + B --> C] 
+    f1 == (in1 A B) ; f and f2 == (in2 A B) ; f impl f == f1 +' f2. 
+}.
+
+%% category with binary coproducts and a top object
+%sig CoprodTop = {
+  %meta pf.DFOL.
+  %struct coprod  : Coproduct %open Obj --> id ; + in1 in2 +'.
+  %struct cat_top : CatTop = {%struct cat := coprod.cat.} %open top.
+}.
+
+%% if a category has products, its dual has coproducts
+%view ProdOp : Coproduct -> Product = {
+  %struct cat := CatOp cat.
+  
+  +   := [A][B] A * B.
+  in1 := [A][B] (pi1 A B).
+  in2 := [A][B] (pi2 A B).
+  +'  := [A][C][B][f1 : C --> A][f2 : C --> B] f1 *' f2.
+
+  com_ax_left  := com_ax_left.
+  com_ax_right := com_ax_right.
+  univ_ax      := univ_ax.     
+}.
+
+%% if a category has coproducts, its dual has products
+%view CoprodOp : Product -> Coproduct = {
+  %struct cat := CatOp cat.
+  
+  *   := [A][B] A + B.
+  pi1 := [A][B] (in1 A B).
+  pi2 := [A][B] (in2 A B).
+  *'  := [C][A][B][f1 : A --> C][f2 : B --> C] f1 +' f2.
+
+  com_ax_left  := com_ax_left.
+  com_ax_right := com_ax_right.
+  univ_ax      := univ_ax.     
+}.  
+
+%% category with exponentials (and hence products)
+%sig Exponential = {
+  %meta pf.DFOL.
+  %struct prod : Product %open Obj --> id ; * pi1 pi2 *' **'.
+ 
+  ^     : Obj -> Obj -> Obj.   %infix none 30 ^.
+  eval  : {Z}{Y} Z ^ Y * Y --> Z.
+  curry : {g : X * Y --> Z} X --> Z ^ Y.
+
+  com_ax  : |- forall [X] forall [Y] forall [Z] forall [g : X * Y --> Z] g == ((curry g) **' (id Y)) ; (eval Z Y).
+  univ_ax : |- forall [X] forall [Y] forall [Z] forall [g : X * Y --> Z] forall [f : X --> Z ^ Y]
+    g == (f **' (id Y)) ; (eval Z Y) impl f == (curry g).      
+}.
+
+%% category with exponentials and a top object
+%sig ExpTop = {
+  %meta pf.DFOL.
+  %struct exp  : Exponential %open Obj --> id ; * *' pi1 pi2 ^ eval curry.
+  %struct prod_top : ProdTop = {%struct prod := exp.prod.} %open top.
+}.

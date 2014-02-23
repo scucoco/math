@@ -1,0 +1,171 @@
+%namespace "http://latin.omdoc.org/logics/syntax".
+
+
+%sig Subsorted-Sorted = {
+   %include CASLSorts.
+   %struct s  : CASLSorted  %open # ## @.
+   %struct ss : CASLSubSorted = {%include s.}.
+   %struct s' : CASLSorted  %open #  %as #'
+                                    ## %as ##'
+                                    @  %as @'.
+                                    
+   =>map          : (SS s.=>  S) -> (SS s'.=>  S) -> type.
+   predmap        : s.pred SS -> s'.pred SS -> type.
+   termmap        : {TERM : s.tm} TERM # S -> {T : s'.tm} T #' S -> type.
+   tmlistmap      : {tl : s.tmlist} tl ## SS -> {tl' : s'.tmlist} tl' ##' SS -> type.
+   formmap        : {FORM : s.o} s.wff FORM -> {PHI : s'.o} s'.wff PHI -> type.
+
+   %mode =>map +P -Q.
+   %mode predmap +P -Q.
+   %mode termmap +TERM +D -T -D'.
+   %mode tmlistmap +SS +DD -TT -EE.
+   %mode formmap +X +D -Y -E.
+
+   tmlistmap_nil  : tmlistmap s.tmnil s.##nil s'.tmnil s'.##nil.
+   tmlistmap_cons : termmap X D X' D' -> tmlistmap XX E XX' E' -> tmlistmap (X s., XX) (D s.##cons E) (X' s'., XX') (D' s'.##cons E'). 
+   
+   
+   termmap_@      : =>map F F'  -> tmlistmap XX D XX' D'
+                  -> termmap (F @  XX) (s.#@  F D) (F' @'  XX') (s'.#@  F' D').
+                  
+   formmap_@pred  : predmap P P' -> tmlistmap XX D XX' D' 
+                  -> formmap (s.@pred P XX) (s.wff_@pred P D) (s'.@pred P' XX') (s'.wff_@pred P' D').
+     
+   termmap_then-when-else : formmap F V F' V' -> termmap X D X' D' -> termmap Y E Y' E'  
+                          -> termmap (s.then-when-else F X Y) (s.wff_then-when-else V D E) (s'.then-when-else F' X' Y') (s'.wff_then-when-else V' D' E'). 
+   
+   formmap_forall : ({x : s.Var S} {x' : s'.Var S} termmap (s.' x) (s.#' x) (s'.' x') (s'.#' x') -> formmap (F x) (V x) (F' x') (V' x')) 
+                  -> formmap (s.forall [x] (F x)) (s.wff_forall [x] V x) (s'.forall [x] (F' x)) (s'.wff_forall [x] V' x).
+   formmap_exists : ({x : s.Var S} {x' : s'.Var S} termmap (s.' x) (s.#' x) (s'.' x') (s'.#' x') -> formmap (F x) (V x) (F' x') (V' x')) 
+                  -> formmap (s.exists [x] (F x)) (s.wff_exists [x] V x) (s'.exists [x] (F' x)) (s'.wff_exists [x] V' x).
+   formmap_and    : formmap A V A' V' -> formmap B W B' W' -> formmap (A s.and B)   (s.wff_and V W)   (A' s'.and B')   (s'.wff_and V' W').
+   formmap_or     : formmap A V A' V' -> formmap B W B' W' -> formmap (A s.or  B)   (s.wff_or  V W)   (A' s'.or  B')   (s'.wff_or  V' W').
+   formmap_imp    : formmap A V A' V' -> formmap B W B' W' -> formmap (A s.imp B)   (s.wff_imp V W)   (A' s'.imp B')   (s'.wff_imp V' W').
+   formmap_equiv  : formmap A V A' V' -> formmap B W B' W' -> formmap (A s.equiv B) (s.wff_equiv V W) (A' s'.equiv B') (s'.wff_equiv V' W').
+   formmap_not    : formmap A V A' V' -> formmap (s.not A) (s.wff_not V) (s'.not A') (s'.wff_not V').
+   formmap_true   : formmap s.true s.wff_true s'.true s'.wff_true.  
+   formmap_false  : formmap s.false s.wff_false s'.false s'.wff_false.
+   formmap_=e=    : termmap X D X' D' -> termmap Y E Y' E' -> formmap (s.=e= S X Y) (s.wff_=e= D E) (s'.=e= S X' Y') (s'.wff_=e= D' E'). 
+   %% case for exists!
+}.
+
+%sig SigmaSorts = {
+   %include CASLSorts.
+   a : sort.
+   b : sort.
+}.   
+
+%sig Sigma = {
+   %include CASLSubSorted.
+   %include SigmaSorts.
+   r  : a < b.
+   tf : a * sortnil =>! a.
+   pf : a * b * sortnil =>? a.
+   p  : pred b * sortnil.
+}.
+
+%sig Theta = {
+   %include Sigma.
+   f  : o = forall [x: Var a] exists [y: Var b] p *< (pf ?< (tf !< ' x >) , ' y >) >.
+   d  : wff f = wff_forall [x] wff_exists [y] wff_@pred p (#< r (#@ (?=> pf) (#@ (!=> tf) ((#' x) ##cons ##nil) ##cons (#' y) ##cons ##nil)) ##cons ##nil).
+   ax : ded f.
+}.
+
+%* should be generated using patterns *%
+%sig Sigma' = {
+   %include CASLSorted.
+   %include SigmaSorts.
+   em_r : a * sortnil =>! b.
+   pr_r : b * sortnil =>? a.
+   in_r : pred b * sortnil.
+   
+   tf   : a * sortnil =>! a.
+   pf   : a * b * sortnil =>? a.
+   p    : pred b * sortnil.
+}.
+
+%* should be generated using patterns *%
+%sig Sigma-Sigma' = {
+   %include Subsorted-Sorted.
+   %include SigmaSorts.
+   %struct sig  : Sigma  = {%include ss.}.
+   %struct sig' : Sigma' = {%include s'. }.
+   
+   %* for every predicate p *%
+   predmap_p : predmap sig.p sig'.p.
+
+   %* for every function symbol f *%
+   =>map_tf  : =>map (s.!=> sig.tf) (s'.!=> sig'.tf).   
+   =>map_pf  : =>map (s.?=> sig.pf) (s'.?=> sig'.pf).   
+   
+   %* for every subsort relation r *%
+   termmap_#<_r : {D : TERM # a} {D' : T #' a} termmap TERM D T D' 
+                -> termmap TERM (ss.#< sig.r D : TERM # b) (sig'.em_r s'.@!1 T) (s'.#@1 (s'.!=> sig'.em_r) D').
+   %* sorted-term *%
+   term_st_r    : {D : TERM # a} {D' : T #' a} termmap TERM D T D'
+                -> termmap (ss.sorted-term TERM b) (ss.#sorted-term sig.r D) (sig'.em_r s'.@!1 T) (s'.#@1 (s'.!=> sig'.em_r) D').                    
+   %* membership *%
+   formmap_in_r : {D : TERM # b} {D' : T #' b} termmap TERM D T D' 
+                -> formmap (TERM ss.in a) (ss.#in sig.r D) (s'.@pred sig'.in_r (T s'., s'.tmnil)) (s'.wff_@pred sig'.in_r (D' s'.##cons s'.##nil)).
+   %* cast *%
+   termmap_as_r : {D : TERM # b} {D' : T #' b} termmap TERM D T D' 
+                -> termmap (TERM ss.as a) (ss.#as sig.r D) (sig'.pr_r s'.@?1 T) (s'.#@1 (s'.?=> sig'.pr_r) D').
+    
+   %block b : some {S: sort} block {x : s.Var S} {x' : s'.Var S} {p: termmap (s.' x) (s.#' x) (s'.' x') (s'.#' x')}.
+   %worlds (b) (=>map F _) (predmap P _) (termmap X D _ _) (tmlistmap X D _ _) (formmap X D _ _).
+   %%total (B C D E F) (=>map B _) (predmap C _) (formmap _ D _ _) (tmlistmap _ E _ _) (termmap _ F _ _).
+
+   %* translating the axioms of Theta *%
+   %struct axioms : Theta = {%include sig.}.
+   %define f' : s'.o = F
+     %solve _ : formmap axioms.f axioms.d F D.
+
+%{     
+     f' : Subsorted-Sorted.s'.o
+     = Subsorted-Sorted.s'.forall
+        ([x:Subsorted-Sorted.s'.Var SigmaSorts.a]
+            Subsorted-Sorted.s'.exists
+               ([x1:Subsorted-Sorted.s'.Var SigmaSorts.b]
+                   Subsorted-Sorted.s'.@pred sig'.p
+                      ((sig'.em_r
+                           Subsorted-Sorted.s'.@!1 
+       (Subsorted-Sorted.s'.?=> sig'.pf
+          Subsorted-Sorted.s'.@ (Subsorted-Sorted.s'.!=> sig'.tf
+                              Subsorted-Sorted.s'.@ 
+          Subsorted-Sorted.s'.' x Subsorted-Sorted.s'., Subsorted-Sorted.s'.tmnil)
+                             Subsorted-Sorted.s'., Subsorted-Sorted.s'.' x1
+                             Subsorted-Sorted.s'., Subsorted-Sorted.s'.tmnil))
+                          Subsorted-Sorted.s'., Subsorted-Sorted.s'.tmnil))).
+}%
+}.
+
+%sig Theta' = {
+   %include Sigma'.
+   %* annoying: need to include this to get the translated axioms *%
+   %include Sigma-Sigma'.
+   ax : ded f'.
+}.
+
+%.
+
+%sig CASLSubPat = {
+ %include CASLSubsorted.
+ %pattern P_pred = [l] {p : pred l}.
+ %pattern P_rel  = [a][b] {r : a < b}.
+ 
+}.
+
+%functor F (Sigma) = {
+   %sig Sigma' = {
+     P_pred := [l] {p' : pred l}.
+     P_rel  := [a][b] {em : a * sortnil =>! b}.
+   }. 
+   %sig Sigma-Sigma' = {
+      %include Subsorted-Sorted.
+      %include SigmaSorts.
+      %struct sig  : Sigma  = {%include ss.}.
+      %struct sig' : Sigma' = {%include s'. }.
+      P_pred := [l] {_ : predmap sig.NNNN.p sig.NNNN.p'}.
+      P_rel  := [a][b] {_ : }.
+   }.
+}.

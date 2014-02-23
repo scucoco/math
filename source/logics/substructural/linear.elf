@@ -1,0 +1,177 @@
+%* Ressource semantics of linear logic
+   @author Florian Rabe
+   @encodes Reed and Pfenning, "Focus-preserving Embeddings of Substructural Logics in Intuitionistic Logic", Sect. 2, 3
+*% 
+
+%namespace "http://latin.omdoc.org/logics/syntax/focused".
+
+%* meta-logic FF, based on focused sorted intuitionistic logic *%
+%sig FF = {
+   
+   %% syntax
+
+   %% first-order sorts and terms 
+   sort : type.
+   tm : sort -> type.
+
+   %% negative and positive formulas
+   neg : type.
+   pos : type.
+
+   %% the inference system distinguishes atoms; so we need special types for negative and positive atoms and injections to make them formulas
+   A- : type.
+   A+ : type.
+   - : A- -> neg.                  %prefix 10 -.
+   + : A+ -> pos.                  %prefix 10 +.
+
+   %% formulas
+   ⇒ : pos -> neg -> neg.          %infix right 5 ⇒.
+   ∧ : neg -> neg -> neg.          %infix right 5 ∧.
+   ⊤ : neg.
+   ∀ : (tm S -> neg) -> neg.
+   ↓ : neg -> pos.
+
+   %% proof theory
+   
+   hyp  : pos -> type.             %prefix 0 hyp.
+   conc : neg -> type.             %prefix 0 conc.
+   ≡ : tm S -> tm S -> type.       %infix none 7 ≡.
+   %% todo: fdidn't quite know how to do focussed judgments bests
+   
+   %% todo: rules for atoms, ≡
+   
+   ↓R : conc A -> hyp ↓ A.
+   ↓L : (hyp ↓ A -> conc A -> conc - S) -> (hyp ↓ A -> conc - S).
+
+   ⊤R : conc ⊤.
+
+   ⇒R : (hyp B -> conc A) -> conc B ⇒ A.
+   ⇒L : hyp B -> (conc A -> conc - S) -> (conc B ⇒ A -> conc - S).
+   
+   ∧R  : conc A1 -> conc A2 -> conc A1 ∧ A2.
+   ∧L1 : (conc A1 -> conc - S) -> (conc A1 ∧ A2 -> conc - S).
+   ∧L2 : (conc A2 -> conc - S) -> (conc A1 ∧ A2 -> conc - S).
+   
+   ∀R  : ({α} conc (A α)) -> conc ∀ A.
+   ∀L  : (conc (A P) -> conc - S) -> (conc ∀ A -> conc - S).
+}.
+
+%* theory of FF that specifies the model theory of linear logic *%
+%sig Linear_MOD = {
+   %include FF.
+
+   world : sort.
+   frame : sort.
+   struc : sort.
+
+   %* the unary predicate that lifts structures to formulas, elided in paper *%
+   true : tm struc -> neg.
+
+   %% commutative monoid on worlds, world represent multisets of atomic worlds
+   ε : tm world.
+   * : tm world -> tm world -> tm world.    %infix left 10 *.
+   
+   unit   : ε * P ≡ P.
+   comm   : P * Q ≡ Q * P.
+   assoc  : P * (Q * R) ≡ (P * Q) * R.
+
+   %% structures are pairs of a world and a frame, worlds can still be added forming a structure 
+   ◁ : tm frame -> tm world -> tm struc.   %infix none 10 ◁.
+   ⊛ : tm frame -> tm world -> tm frame.    %infix left 10 ⊛.
+   assoc' : (F ⊛ P) ◁ Q ≡ F ◁ (P * Q).
+}.
+
+%* linear logic using positive and negative propositions *%
+%sig Linear_SYN = {
+
+   %% syntax
+
+   p : type.
+   n : type.
+
+   ↓ : n -> p.
+   ⊗ : p -> p -> p.                 %infix left 20 ⊗.
+   1 : p.
+   ⊕ : p -> p -> p.                 %infix left 20 ⊕.
+   0 : p.
+   ! : n -> p.
+
+   ↑ : p -> n.
+   & : n -> n -> n.                 %infix left 20 &.
+   ⊤ : n.
+   ⊸ : p -> n -> n.                 %infix left 20 ⊸.
+
+   %* truth judgment, i.e., derivability in empty context
+      todo: proof rules cannot be elegantly encoded in LF, but can sequents be encoded as judgments without giving any inference rules? *%
+   
+   ded : n -> type.
+}.
+
+%* the ressource semantics of linear logic
+   linear propositions are interpreted as negative FF propositons
+   positive propositions are interpreted relative a continuation k : world -> neg
+   negative propositions are interpreted relative a world p : world
+*% 
+%view Linear_model : Linear_SYN -> Linear_MOD = {
+   %* paper: (P @ k); here (P k) *%
+   p := (tm world -> neg) -> neg.
+   %* paper: (N @ p); here (N p) *%
+   n := tm world -> neg.
+   
+   ↓ := [N] [k] ∀ [α] (↓ (N α) ⇒ k α).
+   ⊗ := [P1][P2] [k] P2 ([α] P1 ([β] k (α * β))).    
+   1 := [k] k ε.
+   ⊕ := [P1][P2] [k] (P1 k) ∧ (P2 k).
+   0 := [k] ⊤.
+   ! := [N] [k] ↓ (N ε) ⇒ (k ε).
+   
+   ↑ := [P] [p] ∀ [φ] ↓ (P [α] true (φ ◁ α)) ⇒ true (φ ◁ p). 
+   ⊸ := [P][N] [p] P [α] N (p * α).
+   & := [N1][N2] [p] (N1 p) ∧ (N2 p).
+   ⊤ := [p] ⊤.
+   
+   ded := [N] conc (N ε).
+}.
+
+%* encoding of an example signature Sigma of linear logic declaring a positive and a negative atom *%
+%sig Sigma_SYN = {
+   %include Linear_SYN.
+   a- : n.
+   a+ : p.
+}.
+
+%* translation of example signature to FF (note: not a pushout) *%
+%sig Sigma_MOD = {
+   %include Linear_MOD.
+   %* negative atomes are modelled as unary predicates on frames *%
+   a- : tm frame -> pos.
+   %* positive atoms are modelled as unary predicates on worlds *%
+   a+ : tm world -> pos.
+}.
+
+%* interpretation of example signature in its translation to FF *%
+%view Sigma_model : Sigma_SYN -> Sigma_MOD = {
+   %include Linear_model.
+   a- := [p] ∀ [φ] (a- φ) ⇒ (true (φ ◁ p)).
+   a+ := [k] ∀ [α] (a+ α) ⇒ (k α). 
+}.
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%* trying out ideas how to do it differently *% 
+
+%sig Linear_MOD_Alternative = {
+   %include FF.
+
+   world : sort.
+   frame : sort.
+   λ : (tm world -> neg) -> tm frame.
+   ◁ : tm frame -> tm world -> A-.          %infix none 10 ◁.
+
+   ε : tm world.
+   * : tm world -> tm world -> tm world.    %infix left 10 *.
+   unit   : ε * P ≡ P.
+   comm   : P * Q ≡ Q * P.
+   assoc  : P * (Q * R) ≡ (P * Q) * R.
+
+   %abbrev ⊗ : tm frame -> tm world -> tm frame = [f][p] (λ [q] - (f ◁ (p * q))).
+}.

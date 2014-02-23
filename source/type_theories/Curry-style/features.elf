@@ -1,0 +1,97 @@
+%namespace "http://latin.omdoc.org/foundations/type_theory/curry".
+
+%namespace logic = "../../logics/proof_theory".
+
+%% @II: reorder similar to church
+
+%sig BigInter = {
+    %include ClassifiedUniverse.
+    %include NonEmpty.
+    Biginter : tp -> tp.
+    BiginterI : ({a} a # A -> X # a) -> X # (Biginter A).
+    BiginterE :  X # (Biginter A) -> Y # A -> X # Y.    
+    lowerbound :  A # X -> (Biginter X) < A 
+               = <I ([x][p] BiginterE p X).
+    infimum : ({b} b # A -> C < b) -> C < (Biginter A)
+            = [p][f] <I [x][q] (BiginterI p ([a] <E (f a) x q)).
+}.
+
+%sig BigUnion = {
+   %include ClassifiedUniverse.
+   Bigunion : tp -> tp.
+   BigunionI : A # B -> B # X -> A # (Bigunion X).
+   BigunionE : A # (Bigunion X) -> ({x : tm} x # X -> A # x).
+   upperbound : (F X) < (Bigunion F) 
+              = <I ([x][p] BigunionI X p).
+   supremum : ({a: tm}  (F a) < G) ->  (Bigunion F) < G
+            = [f] <I [x][p] (BigunionE p [a][q] <E (f a) x q).
+}.
+
+%sig PredSubTypes = {
+    %include Logic. 
+    %include Equality.
+    predsub : tp -> (tm -> prop) -> tp.
+    pred_subtype : (predsub A P) < A.
+    predsubI : X # A -> ded (P X) -> X # (predsub A P).
+    predsubEl : X # (predsub A P) -> X # A.
+    predsubEl : X # (predsub A P) -> ded (P X).
+}.
+
+%sig Quotient = {
+   %include ClassifiedUniverse.
+   dom   : tp.
+   equiv : tm dom -> tm dom -> prop.
+   %struct equiv : Equivalence = {a := tm dom. ≡ := [x][y]  equiv x y.}.
+   quot  : tp.
+   class : tm dom -> tm quot.
+   ind   : {f: tm dom -> tm A} ({x}{y}  equiv x y ->  f x == f y) -> tm quot -> tm A.  
+}.
+
+%sig ImageTypes = {
+    %include Logic. 
+    %include Equality.
+    Image : (tm -> tm) -> tp.
+    ImageI : X # A -> (F X) # (image F).
+    ImageE : X # (Image F) -> ({a : tm} (F a) == X -> ded C) -> ded C.
+    Image_subset : ({a: tm} (F a) # B) -> (Image F) < B.
+}.
+
+%sig PowerTypes = {
+    %include Logic.
+    Power : tp -> tp.
+    PowerI : A < B -> A # (Power B).
+    PowerE : A # (Power B) -> A < B.
+}.
+
+%sig NonEmpty = {
+    %include ClassifiedUniverse.
+    nonempty : tp -> type.
+    nonemptyI : X # A -> nonempty A.
+}.
+
+%%%sig Functions
+%%
+%%%sig Products
+
+%sig DependentFunctions = {
+   %include Equality.
+   %% Pi [x: tm A] B x = { f : A -> (depSum A B) | \forall a \in A. f(a) = (a,b) where b \in B(a) }
+   %%                   = { f : Func A (depSum A B) | pi1 prop f = id_A }
+   Π : tp -> (tm -> tp) -> tp.
+   Pi : tp -> (tm -> tp) -> type
+      = [B : tm -> tp] tm (Π A B).
+   λ : tp -> ({a: tm} tp) -> tm.
+   #λ : ({x: tm} x # A -> F x # B x) -> λ A F # Pi A B.
+%    apply  : tm Π [x: tm A] B x -> {a : tm A} tm (B a).
+%    beta :  apply (lambda [x] F x) X == F X.
+%    eta  :  lambda ([x] apply F x) == F.
+   xi   : ({x}  F x == G x) ->  lambda F == lambda G.
+%    extensionality : ({x: tm A}  apply F x == apply G x) ->  F == G.
+%% @II: typing rules for curry functions
+}.
+
+%% @II DependentProducts from church goes here
+
+%%%view Functions -> DependentFunctions
+%%
+%%%view Products -> DependentProducts

@@ -1,0 +1,72 @@
+%namespace "http://latin.omdoc.org/foundations/type_theory/church".
+
+%namespace logic = "../../logics/syntax".
+%namespace mod   = "../../logics/model_theory".
+%namespace math  = "../../math".
+%namespace minimal = "../minimal".
+%namespace zf = "../zfc".
+
+%view _IndexedUniverse : IndexedUniverse ->  zf.TypedZF = {
+    tp := i.
+    tm := [a] Elem a.
+}.
+
+%view _ELogic : Logic -> zf.TypedZF = {
+    %include _IndexedUniverse.
+    %include logic.Logic.
+}.
+
+%view _ILogic : Logic -> zf.Boolean = {
+    %include _IndexedUniverse.
+    %include mod.Base minimal.Bool-ZF.
+}.
+
+%view _ExternalLogic : ExternalLogic -> zf.TypedZF = {
+    %include _ELogic.
+}.
+
+%view _InternalLogic : InternalLogic -> zf.Boolean = {
+    %include _IndexedUniverse.
+    bool := cbool.
+    %struct log := _ILogic.
+}.
+
+%view _Equality : Equality -> zf.TypedZF = {
+    %include _IndexedUniverse.
+    =tp= := [A][B] ded (A eq B).
+    ==   := [A][a : Elem A][b : Elem A] ded (a Eq b).
+    teq.refl := [X : i] refl.
+    teq.sym := [X : i][Y : i]
+             [p : ded X eq Y] sym p.
+    teq.trans := [X : i][Y : i][Z : i]
+               [p : ded X eq Y][q : ded Y eq Z] trans p q.
+    teq.cong := [X : i][Y : i][F : i -> i]
+              [p : ded X eq Y] cong F p.
+    refl := [A : i][X : Elem A] refl.
+    sym := [A : i][X : Elem A][Y : Elem A]
+             [p : ded X Eq Y] sym p.
+    trans := [A : i][X : Elem A][Y : Elem A][Z : Elem A]
+               [p : ded X Eq Y][q : ded Y Eq Z] trans p q.
+    congF := [A : i][B : i][X : Elem A][Y : Elem A][F : Elem A -> Elem B]
+              [p : ded X Eq Y] EqCongF F p.
+}.
+
+%view _DefinitionalEquality : DefinitionalEquality -> zf.TypedZF = {
+    %include _Equality.
+}.
+
+%view _AxiomaticEquality : AxiomaticEquality -> zf.TypedZF = {
+    %include _ELogic.
+    =tp= := [A][B] A eq B.
+    ==   := [A][a : Elem A][b : Elem A] a Eq b.
+    %struct equality := _Equality.
+    tpCongP := [X : i][Y : i][F : i -> o][p : ded X == Y]
+               [q] congP p F q.
+    tmCongP := [A][X][Y][F] [p][q] EqcongEl F p q.
+}.
+
+
+%view _InternalEquality : InternalEquality -> zf.Boolean = {
+   %include _InternalLogic.
+   %% for the rest of this view, we need Elem A -> Elem A -> Elem cbool in ZFC.
+}.

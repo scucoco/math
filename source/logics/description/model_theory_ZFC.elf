@@ -1,0 +1,35 @@
+%{ under construction }%
+
+%namespace "http://latin.omdoc.org/logics/model_theory/zfc".
+%namespace syn = "../syntax".
+%namespace zfc = "../../foundations/zfc".
+
+
+%view DLBase : syn.DLBase -> zfc.Relations = {
+  atom := Powerset univ.
+  role := EdRel univ.
+  conc := Powerset univ.
+}.
+
+%view FL0 : FL0 -> zfc.Relations  = {
+  %include DLBase.
+  
+  atomic := [a : Powerset univ] a.
+  top := elem univ (powersetI subset_refl).
+  bot := elem empty (powersetI (subsetI [x][p: ded x in empty] (emptyE p))).
+
+
+  %%inter := [a : Powerset univ][b : Powerset univ] elem ((which a) ZFC..inter (which b)) (powersetI filter_is_subset).
+  %%ToDo: Restricted!
+  %%forall := role -> conc -> conc.
+}.
+
+%view FLminus : syn.FLminus -> zfc.ZFC = {
+ %include FL0.
+}.
+
+%view AL : syn.AL -> zfc.ZFC = {
+  %include FLminus.
+  
+  aneg := [a : Powerset univ] elem (univ dif (which a)) (powersetI filter_is_subset).  
+}.

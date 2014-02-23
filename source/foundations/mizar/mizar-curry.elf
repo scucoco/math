@@ -1,0 +1,114 @@
+%namespace "http://latin.omdoc.org/foundations/mizar".
+
+%sig Mizar-Curry = {
+   %% terms (any in Mizar/TG)
+   any : type.
+   %% types
+   tp : type.
+   %% propositions
+   prop : type.
+   %% proofs
+   proof : prop -> type.        %prefix 0 proof.
+
+   %% typing proposition
+   is  : any -> tp -> prop.       %infix none 50 is.
+   be : any -> tp -> type =[x][a] proof x is a.        %infix none 50 be.
+
+   %% proposition constructors
+   true : prop.
+   false : prop.
+   not : prop -> prop.                                                   %prefix 20 not.
+   and : prop -> prop -> prop.                                           %infix right 10 and.
+   &   : prop -> prop -> prop = [x][y] x and y.                          %infix right 10 &.
+   or  : prop -> prop -> prop = [a][b] not ((not a) and (not b)).        %infix right 10 or. 
+   implies : prop -> prop -> prop = [a][b] not ( a and (not b)).         %infix right 15 implies.
+   iff : prop -> prop -> prop = [a][b] (a implies b) and (b implies a).  %infix right 15 iff.
+   eq  : any -> any -> prop.                      %infix right 25 eq.
+   for : tp -> (any -> prop) -> prop.
+   ex  : tp -> (any -> prop) -> prop = [t][p] not (for t ([x] not p x)).
+   ex! : tp -> (any -> prop) -> prop  = [A][f] ex A [x] (f x and for A [y] f y implies y eq x).
+   
+   
+
+   %% propositional logic
+   contradiction : type = proof false.
+   
+   trueI : proof true.
+   proof_by_contradiction : (proof (not A) -> contradiction) -> proof A.
+   contradictionE : contradiction -> {B} proof B.
+   notE : proof (not A) -> proof A -> contradiction. 
+   
+   andI : proof A -> proof B -> proof A and B.  %% thus
+   andEl : proof A and B -> proof A.            %% by/from
+   andEr : proof A and B -> proof B.            %% by/from
+
+   not_idem : proof not (not A) -> proof A  = [p] proof_by_contradiction ([q] notE p q).
+   tnd : proof A or not A = proof_by_contradiction ([p] notE (andEr (not_idem p)) (andEl (not_idem p))).
+   
+   orIl : proof A -> proof A or B = [p] (proof_by_contradiction [q : proof not not ((not A) and (not B))] notE (andEl (not_idem q)) p).
+   orIr : proof B -> proof A or B = [p] (proof_by_contradiction [q : proof not not ((not A) and (not B))] notE (andEr (not_idem q)) p).
+   per_cases : (proof A -> proof C) -> (proof B -> proof C) -> (proof A or B -> proof C).
+   
+   %%assume
+   impliesI : (proof A -> proof B) -> proof (A implies B) 
+       = [p] per_cases ([q: proof A] proof_by_contradiction ([s : proof not (not (A and (not B)))] notE (andEr (not_idem s)) (p q) ) ) 
+                       ([r: proof (not A)] proof_by_contradiction ([s : proof not (not (A and (not B)))] notE r (andEl (not_idem s)) ) )
+                            tnd. 
+   impliesE : proof A implies B -> proof A -> proof B = [p][q] proof_by_contradiction([r : proof (not B)] notE p (andI q r)) . 
+   implies_refl : proof A implies A = proof_by_contradiction ([p] notE (andEr (not_idem p)) (andEl (not_idem p))). 
+   
+   iffI : (proof A -> proof B) -> (proof B -> proof A) -> proof (A iff B) = [p][q] andI (impliesI p) (impliesI q).
+   iffEl : proof A iff B -> proof A -> proof B = [p][q] impliesE (andEl p) q.
+   iffEr : proof A iff B -> proof B -> proof A = [p][q] impliesE (andEr p) q.
+   iff_refl : proof A iff A = andI implies_refl implies_refl.
+   
+   %% quantifier rules, using Mizar keywords
+   let : ({x} x be A -> proof (F x)) -> proof (for A [x] F x).    %%forallI
+   consider : proof (for A [x] F x) -> {c} c be A -> proof (F c). %%forallE
+   
+   take : {x} x be A -> proof (F x) -> proof (ex A [x] F x).      %%exI
+   given : proof (ex A [x] F x) -> ({y} y be A -> proof F y -> proof G) -> proof G. %%exE 
+   
+   %% equality rules
+   refl  : proof X eq X.
+   sym   : proof X eq Y -> proof Y eq X.
+   trans : proof X eq Y -> proof Y eq Z -> proof X eq Z.
+   congP : proof X eq Y -> {F : any -> prop} proof F Y -> proof F X. 
+   congF : proof X eq Y -> {F : any -> any} proof F X eq F Y.
+   
+   
+   %% for implicitly defined functions: an element uniquely characterized by a predicate
+   func : {A:tp}{f : any -> prop} (proof ex A [x] f x) -> (proof for A [x] for A [y] (f x and f y) implies (x eq y)) -> any.
+   func_prop' : {A}{f}{ex}{unq} proof f (func A f ex unq).
+   func_prop : {S} proof S eq func A F EX UNQ -> proof F S = [S][p] congP p F (func_prop' A F EX UNQ). %% abbreviation to support Twelf's type reconstruction 
+   %% for implicitly defined modes: a type characterized by a predicate
+   mode : {A : tp} {f : any -> prop} proof (ex A [x] (f x)) -> tp.
+   mode_prop : proof X is (mode A F P) iff X is A and F X.
+ 
+      
+   %% attributes as predicates on types
+   %abbrev attr : tp -> type = [t] (any -> prop).
+   %abbrev neg-attr : attr T -> attr T = [a] ([x] not (a x)). 
+   
+   %% clusters as conjunctions of attributes
+   %abbrev cluster: attr T -> attr T -> attr T = [a][b] [x] (a x) and (b x).
+     
+   %% choice operator 
+   choice : tp -> any.
+   choice_prop : {t : tp} proof (choice t) is t.
+    
+   %% types formed by imposing a possibly negated attribute on a type
+   adjective : {t: tp} attr t -> tp.
+   adjective-non : {t: tp} attr t -> tp.
+
+   %% adjective_prop : proof X is (adjective T A) iff X is T and A X.
+   adjI : {x : any} x be X -> (proof A x) -> x be (adjective X A).
+   adjE : {x : any} x be (adjective X A) ->  x be X.
+   adjE': {x : any} x be (adjective X A) -> proof A x.
+   adj-nonI : {x : any} x be X -> proof not (A x) -> x be (adjective-non X A).
+   adj-nonE : {x : any} x be (adjective-non X A) -> x be X.
+   %%adj-nonE': {x : be (adjective-non X A)}  proof not (A (adj-nonE x)).
+
+   fraenkel : tp -> (any -> prop) -> (any -> any) -> any.
+  
+}.

@@ -1,0 +1,34 @@
+%namespace "http://latin.omdoc.org/translations/sfol_fol".
+%namespace syn = "../logics/syntax".
+
+
+%view BaseSFOL : syn.BaseSFOL -> syn.FOL = {
+  sort := i -> o.
+  tm := [_] i.
+}.
+
+%view SForall : syn.SForall -> syn.FOL = {
+	%include BaseSFOL.
+	forall := [S : i -> o][F : i -> o] forall [x] (S x) imp (F x).
+}.
+
+%view SExists : syn.SExists -> syn.FOL = {
+	%include BaseSFOL.
+	exists := [S : i -> o][F : i -> o] exists [x] (S x) and (F x).
+}.
+
+%view SFOL : syn.SFOL -> syn.FOL = {
+	%include BaseSFOL.
+	%include SForall.
+   %include SExists.
+}.
+
+%view SEqual : syn.SEqual -> syn.FOLEQ = {
+	%include BaseSFOL.
+	eq := [_][x : i][y : i] x eq y.
+}.
+
+%view SFOLEQ : syn.SFOLEQ -> syn.FOLEQ = {
+	%include SFOL.
+   %include SEqual.
+}.

@@ -1,0 +1,309 @@
+%namespace "http://latin.omdoc.org/foundations/zfc".
+
+
+%* elementary operations on sets *%
+%sig Operations = {
+   %include ZFC.
+   
+   %% biginter a = \bigcap_{x \in a} x
+   biginter : i -> i = [a] filter (bigunion a) ([x] forall [X] (X in a imp x in X)).
+   biginterI : ded (nonempty X) -> ({B} ded B in X -> ded A in B) -> ded A in biginter X
+             = [p][f] (filterI (existsE p ([B][q: ded B in X] bigunionI (f B q) q)) (forallI [x] impI ([p] f x p))).
+   biginterE : ded A in biginter X -> ded B in X -> ded A in B = [p][q] impE (forallE (filterEr p) B) q.
+   biginter_subset : ded A in X -> ded (biginter X) subset A = [p] subsetI ([x][q] biginterE q p).
+   biginter_infimum : ded nonempty X -> ({b} ded b in X -> ded C subset b) -> ded C subset biginter X
+      = [p][f] subsetI [c][q] biginterI p ([b][r] subsetE (f b r) q).
+
+   %% inter a b = a \cap b
+   inter : i -> i -> i = [a][b] biginter (uopair a b).  %infix left 30 inter.
+   interI : ded A in X -> ded A in Y -> ded A in (X inter Y)
+          = [p][q] biginterI (nonemptyI uopairIl) ([B] [r: ded B in (uopair X Y)] 
+               orE (uopairE r) ([s: ded B eq X] in_eq p (sym s)) ([s: ded B eq Y] in_eq q (sym s))
+            ).
+   interEl : ded A in X inter Y -> ded A in X = [p] biginterE p uopairIl.
+   interEr : ded A in X inter Y -> ded A in Y = [p] biginterE p uopairIr.
+   inter_subsetl : ded X inter Y subset X = biginter_subset uopairIl.
+   inter_subsetr : ded X inter Y subset Y = biginter_subset uopairIr.
+   inter_inf : ded Z subset X -> ded Z subset Y -> ded Z subset (X inter Y)
+             = [p][q] subsetI [z][r] interI (subsetE p r) (subsetE q r).
+   inter_comm : ded X inter Y eq Y inter X = congF uopair_comm biginter.
+   inter_ass  : ded (X inter Y) inter Z eq X inter (Y inter Z)
+      = eqI ([x][p] interI (interEl (interEl p)) (interI (interEr (interEl p)) (interEr p)))
+            ([x][p] interI (interI (interEl p) (interEl (interEr p))) (interEr (interEr p))).
+   inter_idem : ded X inter X eq X = eqI ([x][p] interEl p) ([x][p] interI p p).
+   inter_attractor : ded empty inter X eq empty
+                   = subset_antisym inter_subsetl empty_subset.
+   
+   %% dif a b = a \setminus b
+   dif : i -> i -> i = [a][b] filter a ([x] (not x in b)). %infix left 30 dif.
+   difI : ded A in X -> ded not A in Y -> ded A in X dif Y = [p][q] filterI p q.
+   difEl : ded A in X dif Y -> ded A in X = [p] filterEl p.
+   difEr : ded A in X dif Y -> ded not A in Y = [p] filterEr p.
+   dif_subset : ded X dif Y subset X = subsetI [x][p] (difEl p).
+   
+   %* pair a b = (a,b) = {{a}, {{b},0}} *%
+   pair :  i -> i -> i = [a][b] uopair (singleton a) (uopair (singleton b) empty).
+   ispair : i -> o = [p] exists [x] exists [y] p eq (pair x y).  
+   %%pairIl : ded singleton A in (pair A B)  = uopairIl.
+   
+   %* pi1 (x,y) = x, value unspecified if argument is not a pair *%
+   pi1 : i -> i = [X] bigunion (filter (bigunion X) ([x] ((singleton x) in X))).
+   %* pi2 (x,y) = y, value unspecified if argument is not a pair *%
+   pi2 : i -> i = [X] bigunion (filter (bigunion (bigunion X)) ([y] (uopair (singleton y) empty) in X)). %% modified
+   
+   bigsingE : ded (bigunion (singleton X)) eq X 
+            = eqI ([x][p] existsE (bigunionE p) ([y][q : ded y in (singleton X) and x in y] 
+                        (congP ( singletonE (andEl q)) ([y] x in y)) (andEr q)))
+                  ([x][p] bigunionI p singletonI). 
+ 
+   conv_pi1  : ded pi1 (pair X Y) eq X 
+             = eqI
+                ([x][p] existsE (bigunionE p) ( [y] [q: ded (y in filter (bigunion (pair X Y)) ([z] (singleton z) in (pair X Y))) and x in y] 
+                    ( congP (orE ( uopairE (filterEr (andEl q))) singletonInj 
+                           ([r] emptyE ( congEl (congEr
+                              (impE (forallE (congEl r ([l] forall [z] z in l imp z eq y) (forallI [t] (impI singletonE)) ) (empty)) (uopairIr))  ([t] singleton Y eq t)
+                              (impE (forallE (congEl r ([l] forall [z] z in l imp z eq y) (forallI [t] (impI singletonE)) ) (singleton Y)) (uopairIl)))  
+                              ([t] Y in t) (singletonI) )) ) 
+                   ([y] x in y)) (andEr q) ))
+	        ([x][p]  bigunionI p (filterI (bigunionI singletonI uopairIl) uopairIl)).
+   
+         
+    conv_pi2  : ded pi2 (pair X Y) eq Y = eqI
+               ([x][p] existsE (bigunionE p) ([y] [q: ded (y in filter (bigunion (bigunion (pair X Y) )) ([z] uopair (singleton z) empty in pair X Y)) and x in y] 
+                       (congP
+                      (orE (uopairE (filterEr (andEl q))) 
+                      ([r] emptyE ( congEl (congEr 
+                        (impE (forallE (congEl (sym r) ([t] forall [l] l in t imp l eq X) (forallI [x] (impI singletonE)) ) (empty)) (uopairIr) )  ([x] singleton y eq x)
+			(impE (forallE (congEl (sym r) ([t] forall [l] l in t imp l eq X) (forallI [x] (impI singletonE)) ) (singleton y)) (uopairIl)))  
+		       ([x] y in x) (singletonI) )) 
+                      ([r] orE (impE (forallE (congEl r ([t] forall [x] x in t imp ((x eq singleton y) or (x eq empty))) 
+                            (forallI [x] (impI uopairE)))(singleton Y)) (uopairIl))
+                        ([s] sym (singletonE (in_eq singletonI s)))
+                        ([s] emptyE (congEl (s) ([t] Y in t) (singletonI)))))
+                     ([y] x in y)) (andEr q) ))
+               ([x][p] bigunionI p ( filterI (bigunionI singletonI (bigunionI uopairIl uopairIr)) (uopairIr))) .
+   
+   
+   conv_pair : ded ispair X -> ded pair (pi1 X) (pi2 X) eq X
+             = [p] existsE p [a][q] existsE q [b][r: ded X eq pair a b]
+                   trans (sym ((congP (((congP (sym r) ([y] pi1 y eq a)) conv_pi1)) 
+                                 ([z] pair z b eq pair (pi1 X) (pi2 X) )) 
+                                 ((congP (((congP (sym r) ([y] pi2 y eq b)) conv_pi2)) 
+                                 ([y] pair (pi1 X) y eq pair (pi1 X) (pi2 X))) refl))) 
+                         (sym r).
+   
+   pair_injective : ded pair A B eq pair C D -> ded A eq C and B eq D 
+                  = [p] andI (trans (sym conv_pi1) (congEr p ([x] (pi1 x) eq C) conv_pi1 )) 
+                             (trans (sym conv_pi2) (congEr p ([x] (pi2 x) eq D) conv_pi2 )).
+   
+                                             
+   %* a prod b = a \times b *%
+   prod : i -> i -> i = [a][b] bigunion (image ([x] image ([y] pair x y) b) a). %infix left 30 prod.
+   isPair : i -> i -> i -> o = [x][A][B] exists [a] exists [b] (a in A and b in B and x eq (pair a b)).
+   isPairispair : ded isPair X A B -> ded ispair X
+      = [p] existsE p [a][q] existsE q [b][r] existsI a (existsI b (andEr r)).
+   prodI : ded X in A -> ded Y in B -> ded (pair X Y) in (A prod B)
+         = [p][q] bigunionI (imageI q : ded (pair X Y) in (image ([y] pair X y) B)) (imageI p).
+   prodE : ded X in (A prod B) -> ded isPair X A B
+         = [p] existsE (bigunionE p) [z] [q: ded z in (image ([x] image ([y] pair x y) B) A) and X in z] (
+              existsE (imageE (andEl q)) [u] [r: ded u in A and image ([y] pair u y) B eq z] (
+                 existsE (imageE (in_eq (andEr q) (sym (andEr r)))) [v] [s: ded v in B and pair u v eq X] (
+                   existsI u (existsI v (andI (andI (andEl r) (andEl s)) (sym (andEr s))))
+                 )
+              )
+           ).
+   prodEl : ded U in (A prod B) -> ded (pi1 U) in A
+          = [p] existsE (prodE p) [a][q] (existsE q [b][r] eq_in (trans (congF (andEr r) pi1) conv_pi1) (andEl (andEl r))).
+   prodEr : ded U in (A prod B) -> ded (pi2 U) in B
+          = [p] existsE (prodE p) [a][q] (existsE q [b][r] eq_in (trans (congF (andEr r) pi2) conv_pi2) (andEr (andEl r))).
+   
+   prodEl' : ded (pair X Y) in (A prod B) -> ded X in A 
+           = [p] (congP (conv_pi1) ([y] y in A)) ((existsE (prodE p) ([a][q: ded exists [b] ( a in A and b in B and (pair X Y) eq (pair a b) )]  
+                           existsE q ([b] [r : ded a in A and b in B and (pair X Y) eq ( pair a b) ] (congP (sym (andEr r)) ([x] pi1 x in A ) ) 
+                                     (( congP (sym conv_pi1) ([y] y in A)) (andEl ( andEl r))  )) ))).
+   
+   prodEr' : ded (pair X Y) in (A prod B) -> ded Y in B  
+           = [p] (congP (conv_pi2) ([x] x in B)) ((existsE (prodE p) ([a][q: ded exists [b] ( a in A and b in B and (pair X Y) eq (pair a b) )]  
+                         existsE q ([b] [r : ded a in A and b in B and (pair X Y) eq ( pair a b) ] (congP (sym (andEr r)) ([x] pi2 x in B ) ) 
+                                   (( congP (sym conv_pi2) ([y] y in B)) (andEr ( andEl r))))))).
+   prod_subset : ded A subset B -> ded A' subset B' -> ded (A prod A') subset (B prod B')
+               = [p][q] subsetI [x][r] eq_in (sym (conv_pair (isPairispair (prodE r)))) (prodI (subsetE p (prodEl r)) (subsetE q (prodEr r))). 
+   rel  : i -> i -> i = [a][b] (powerset (a prod b)).
+   rel_subset : ded A subset B -> ded A' subset B' -> ded (rel A A') subset (rel B B')
+              = [p][q] subsetI ([x][r] powersetI (subset_trans (powersetE r) (prod_subset p q))).
+   
+   %* img r a = {b | (a,b) in r} *%
+   img : i -> i -> i = [r][a] image pi2 (filter r ([x] (pi1 x) eq a)).
+   
+   %abbrev functional : i -> i -> i -> o
+              = [a][b] [r] (forall [x] forall [y] forall [y'] ((pair x y) in r and (pair x y') in r) imp y eq y').
+   pfunc   : i -> i -> i = [a][b] filter (rel a b) ([r] functional a b r).
+   defined : i -> i -> o = [r][x] exists [y] (pair x y) in r.
+   func    : i -> i -> i = [a][b] filter (pfunc a b) ([r] forall [x] x in a imp defined r x).
+
+   %* lambda a f = {(x,f(x)) : x in a} *%
+   %abbrev lambda : i -> (i -> i) -> i = [a][f] image ([x] pair x (f x)) a.
+   %* apply f a = f(a), value unspecified unless definedAf f a *%
+   apply  : i -> i -> i = [f][a] bigunion (img f a).
+   
+   %abbrev funcI : ({x} ded x in A -> ded F x in B) -> ded lambda A F in func A B 
+                 = [f] filterI (filterI (powersetI (subsetI ([l][p : ded l in lambda A F] existsE (imageE p) 
+                              ([a] [q: ded a in A and pair a (F a) eq l] congEl (andEr q) ([x] x in A prod B) (prodI (andEl q) (f a (andEl q)) ) )))) 
+                              (forallI [m] (forallI [n] (forallI [n'] impI ([q : ded (pair m n) in (lambda A F) and (pair m n') in (lambda A F)] 
+                                trans (existsE ( imageE ( andEl q)) ([a] [r : ded a in A and (pair a (F a)) eq (pair m n)] 
+                                 sym ( trans (congEr (andEl (pair_injective(andEr r))) ([x] (F m) eq (F x)) (refl))   (andEr (pair_injective (andEr r)))    )))
+                                (existsE ( imageE ( andEr q)) ([a] [r : ded a in A and (pair a (F a)) eq (pair m n')]  
+                                 trans (congEr (andEl (pair_injective(andEr r))) ([x] (F m) eq (F x)) (refl))   (andEr (pair_injective (andEr r)))))))))) 
+                              (forallI [x] impI ([r : ded x in A] existsI (F x) (imageI r) )).
+   
+   funcI' : ded F in rel A B -> ({x} ded x in A -> ded existsU [y] pair x y in F) -> ded F in func A B
+          = [p][f] filterI
+                      (filterI p (forall3I [x][y][y'] impI [q]
+                         (existsE (f x (prodEl' (subsetE (powersetE p) (andEl q)))) [Y][r]
+                           trans (impE (forallE (andEr r) y) (andEl q)) (sym (impE (forallE (andEr r) y') (andEr q)))  
+                         )
+                      ))
+                      (forallI [x] impI [q] existsE (f x q) [y][r] existsI y (andEl r)).
+   funcEl': ded F in func A B -> ded F in rel A B = [p] filterEl (filterEl p).
+   funcEr': ded F in func A B -> ded X in A -> ded existsU [y] pair X y in F
+          = [p][q] existsE (impE (forallE (filterEr p) X) q) [y][r: ded pair X y in F]
+              existsUI (existsI y r) ([y1][y2][s1][s2] impE (forall3E (filterEr (filterEl p)) X y1 y2) (andI s1 s2)).
+   
+   pfuncE : ded F in pfunc A B -> ded X in F -> ded isPair X A B = [p][q] prodE (subsetE (powersetE (filterEl p)) q).
+   
+   functionalE : ded X in pfunc A B -> ded (pair Y Z) in X -> ded (pair Y Z') in X -> ded Z eq Z' 
+      = [p][r][s]  impE (forallE (forallE (forallE (filterEr p) Y ) Z ) Z') (andI r s).
+   
+   totalE : ded F in func A B -> ded X in A -> ded isSingleton (img F X) 
+          = [p][q] existsE (impE (forallE (filterEr p) X) (q)) 
+                   ([y] [r : ded (pair X y) in F] existsI (y) (andI (congEl (conv_pi2) ([l] l in (img F X)) (imageI (filterI r (conv_pi1)))  )
+                        (forallI [z] impI [s : ded z in img F X] existsE (imageE s) ([xz] [t : ded xz in (filter F ([x] (pi1 x) eq X)) and pi2 xz eq z] 
+                         trans (sym (andEr t))(functionalE (filterEl p) 
+                         (existsE (pfuncE (filterEl p) (filterEl (andEl t))) ([m][u : ded exists [n] (m in A and n in B and xz eq (pair m n))]
+                                  existsE u ([n] [v : ded m in A and n in B and xz eq (pair m n)] 
+				  congEr (congEl (filterEr (andEl t)) ([l] pair l (pi2 xz) eq xz) (conv_pair (existsI m (existsI n (andEr v)))))
+					 ([l] l in F) (filterEl (andEl t))))) 
+                                    r))))). 
+   
+   funcE : ded F in func A B  -> ded X in A -> ded apply F X in B = [p][q] existsE (isSingletonE (totalE p q)) 
+                             ([y] [r : ded img F X eq singleton y] existsE
+                                (existsE (impE (forallE (filterEr p) X) q)
+                                  ([y] [r : ded (pair X y) in F] existsI y 
+                                     (andI (congEl conv_pi2 ([z] z in img F X) (imageI (filterI r conv_pi1))) r)
+                                  )
+                                )
+                                ([z] [s : ded z in img F X and (pair X z) in F] 
+                              congEr r ([t] bigunion t in B)
+                              (congEr bigsingE ([t] t in B) 
+                              (congEl (singletonE (congEl r ([x] z in x) (andEl s)))
+                                      ([t] t in B)
+                                      (existsE (pfuncE (filterEl p) (andEr s)) [a][u] existsE u [b][v]
+                                         eq_in (andEr (pair_injective (and3Er v))) (and3Em v))
+                              )))). 
+   
+   funcE2 : ded F in func A B -> ded X in A -> ded pair X (apply F X) in F = [p][q] existsE (isSingletonE (totalE p q)) 
+                             ([y] [r : ded img F X eq singleton y] existsE (existsE (impE (forallE (filterEr p) X) (q)) 
+                                 ([y] [r : ded (pair X y) in F] existsI y (andI (congEl (conv_pi2) 
+                                 ([y] y in img F X)(imageI (filterI r conv_pi1))) r)  ))
+                                ([z] [s : ded z in img F X and (pair X z) in F] 
+                              congEr (r) ([t] (pair X (bigunion t)) in F)
+                              (congEr (bigsingE) ([t] (pair X t) in F) 
+                              (congEl (singletonE (congEl r ([x] z in x) (andEl s)))
+                              ([t] (pair X t) in F)  (andEr s)))
+                              )
+                                ).
+   
+   funcE3 : ded F in func A B -> ded pair X Y in F -> ded apply F X eq Y =
+          [p][q] functionalE (filterEl p) (funcE2 p (prodEl' (subsetE (powersetE (funcEl' p)) q))) q.
+   %abbrev func_extensionality : ded F in func A B -> ded G in func A B -> ({a} ded a in A -> ded apply F a eq apply G a) -> ded F eq G 
+                               = [p][q][r] eqI 
+                                 ([z][s:ded z in F] existsE (pfuncE (filterEl p) s) ([x] [u : ded exists [y] (x in A and y in B and z eq (pair x y))] existsE u
+                                                     ([y][v : ded x in A and y in B and z eq (pair x y ) ] congEr (andEr v) ([l] l in G)
+                                                     (congEr (trans (functionalE (filterEl p) (congEl (andEr v) ([l] l in F) s) (funcE2 p (andEl (andEl v))))
+                                                     (r x (andEl (andEl v)))) ([l] (pair x l) in G )  (funcE2 q (andEl (andEl v)))))))
+                                 ([z][s:ded z in G] existsE (pfuncE (filterEl q) s) ([x] [u : ded exists [y] (x in A and y in B and z eq (pair x y))] existsE u
+                                                     ([y][v : ded x in A and y in B and z eq (pair x y ) ] congEr (andEr v) ([l] l in F)
+                                                     (congEr (trans (functionalE (filterEl q) (congEl (andEr v) ([l] l in G) s) (funcE2 q (andEl (andEl v))))
+                                                     (sym (r x (andEl (andEl v)))) ) ([l] (pair x l) in F )  (funcE2 p (andEl (andEl v))))))).   
+   %* beta conversion *%
+   conv_apply : ded X in A -> ded apply (lambda A F) X eq F X 
+            = [p] eqI 
+              ([t][q : ded t in apply(lambda A F) X]  existsE (bigunionE q) ([y] [r : ded y in img(lambda A F) X and t in y]                          
+                       congEl ( existsE (imageE (andEl r)) ([z] [q : ded z in filter (lambda A F) ([x] (pi1 x) eq X) and pi2 z eq y]
+                       trans (sym(andEr q)) (existsE (imageE (filterEl (andEl q))) ([x] [s : ded x in A and pair x (F x) eq z] 
+                       congEl (trans (sym conv_pi1) (congEr (andEr s) ([l] pi1 l eq X) (filterEr (andEl q)))) ([l] (pi2 z) eq (F l) ) 
+                       (congEl (andEr s) ([l] pi2 l eq (F x)) (conv_pi2) )) )))   ([l] t in l) (andEr r)))
+	      ([t][q : ded t in F X ] bigunionI q (congEl (conv_pi2) ([l] l in (img (lambda A F) X))  (imageI (filterI (imageI p) (conv_pi1)))) ).
+
+
+   %* eta conversion *%
+   conv_lambda : ded F in func A B -> ded lambda A ([x] apply F x) eq F 
+               = [p] func_extensionality (filterI (filterI 
+                        (powersetI (subsetI ([l][r : ded l in lambda A ([x] apply F x)] existsE (imageE r) 
+                              ([a] [q: ded a in A and pair a (apply F a) eq l] 
+                               congEl (andEr q) ([x] x in A prod B) (prodI (andEl q) (funcE (p) (andEl q) )))))) 
+                              (forallI [m] forallI [n] forallI [n'] (impI [q : ded (pair m n ) in lambda A ([x] apply F x) and pair m n' in lambda A ([x] apply F x)]
+                                  existsE (imageE (andEl q)) ([x] [r : ded x in A and (pair x (apply F x)) eq (pair m n) ] 
+                                  existsE (imageE (andEr q)) ([y] [s : ded y in A and (pair y (apply F y)) eq (pair m n') ] 
+                                  trans (sym (congEl (andEl (pair_injective (andEr r))) ([l] apply F l eq n) (andEr (pair_injective(andEr r))) ))
+                                        (congEl (andEl (pair_injective (andEr s))) ([l] apply F l eq n') (andEr (pair_injective(andEr s))))  )))))
+                     (forallI [x] (impI [q: ded x in A] existsI (apply F x) (imageI q) ))) p ([x][p] conv_apply p).
+   
+   %* the empty function from empty to A *%
+   emptyfun : i = lambda empty ([x:i] x).
+   emptyfun_type : ded emptyfun in func empty A = funcI [x][p] emptyE p.
+   emptyfun_prop : ded emptyfun eq empty
+      = subset_antisym (subsetI [_][p] existsE (imageE p) [_][q] emptyE (andEl q)) empty_subset. 
+   
+   %* the identity function from A to A *%
+   idfun : i -> i = [a] lambda a ([x:i] x).
+   idfun_type : ded idfun A in func A A = funcI [x][p] p.
+   idfun_prop : ded X in A -> ded apply (idfun A) X eq X = [p] conv_apply p.
+
+   %% case-based function definition
+   func_cases : i -> (i -> i) -> i -> (i -> i) -> i = [a][f][b][g] (lambda a f) union (lambda b g).
+   func_union  : ded disjoint A B -> ded F in func A C -> ded G in func B C -> ded (F union G) in func (A union B) C
+       = [p][q][r] funcI' (powersetI (union_sup (subset_trans (powersetE (funcEl' q)) (prod_subset union_subsetl subset_refl))
+                                                (subset_trans (powersetE (funcEl' r)) (prod_subset union_subsetr subset_refl))
+                          ))
+                          ([x][s: ded x in A union B] existsUI
+                             (orE (unionE s) ([t] existsI (apply F x) (unionIl (funcE2 q t)))
+                                             ([t] existsI (apply G x) (unionIr (funcE2 r t)))
+                             )
+                             ([y][y'][t: ded pair x y in (F union G)][t': ded pair x y' in (F union G)]
+                                orE (unionE t)
+                                    ([u] orE (unionE t') ([v] functionalE (filterEl q) u v)
+                                                         ([v] notE' (existsI x (andI (prodEl' (subsetE (powersetE (funcEl' q)) u))
+                                                                                    (prodEl' (subsetE (powersetE (funcEl' r)) v)))) p)
+                                   )([u] orE (unionE t') ([v] notE' (existsI x (andI (prodEl' (subsetE (powersetE (funcEl' q)) v))
+                                                                                    (prodEl' (subsetE (powersetE (funcEl' r)) u)))) p)
+                                                         ([v] functionalE (filterEl r) u v)
+                                   )
+                             )
+                           ).
+   
+
+   
+   func_unionl : ded disjoint A B -> ded F in func A C -> ded G in func B C -> ded X in A
+              -> ded apply (F union G) X eq apply F X
+              = [p][q][r][s] funcE3 (func_union p q r) (subsetE union_subsetl (funcE2 q s)). 
+   func_unionr : ded disjoint A B -> ded F in func A C -> ded G in func B C -> ded X in B
+              -> ded apply (F union G) X eq apply G X
+              = [p][q][r][s] funcE3 (func_union p q r) (subsetE union_subsetr (funcE2 r s)). 
+   
+   disjUnion   : i -> i -> i = [X][Y] ((singleton 0) prod X) union ((singleton 1) prod Y).  %infix left 30 disjUnion.
+   disjUnionIl : ded A in X -> ded (pair 0 A) in (X disjUnion Y) = [p] unionIl (prodI singletonI p).
+   disjUnionIr : ded A in Y -> ded (pair 1 A) in (X disjUnion Y) = [p] unionIr (prodI singletonI p).
+   disjUnionE  : ded A in X disjUnion Y -> ded (pi1 A eq 0 and pi2 A in X) or (pi1 A eq 1 and pi2 A in Y) 
+               = [p] orE (unionE p)
+                            ([q] exists2E (prodE q)[u][x][r] orIl (andI
+                               (trans (trans (congF (and3Er r) pi1) conv_pi1) (singletonE (and3El r)))
+                               (eq_in (trans (congF (and3Er r) pi2) conv_pi2) (and3Em r))
+                            ))([q] exists2E (prodE q)[u][x][r] orIr (andI
+                               (trans (trans (congF (and3Er r) pi1) conv_pi1) (singletonE (and3El r)))
+                               (eq_in (trans (congF (and3Er r) pi2) conv_pi2) (and3Em r))
+                            )).
+   disjUnionE' : ded A in X disjUnion Y -> ded ispair A
+     = [p] orE (unionE p) ([q] isPairispair (prodE q)) ([q] isPairispair (prodE q)).
+
+}.

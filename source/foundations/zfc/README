@@ -1,0 +1,15 @@
+This folder contains the encoding of ZFC set theory.
+
+The most important files are:
+fol.elf        imports first-order and extends it with the features needed for the logic underlying ZFC (description operator and sequential connectives).
+axioms.elf     This introduces the axioms of set theory and defines the primitive operations on sets (union, powerset, etc.) using the axioms and the description operator. Note that i (inherited from first-order logic) is used for the universe of sets.
+operations.elf defines further operations on sets based on the primitive ones (intersection, pairs, functions, etc.).
+
+Typed set theory is introduced in the following files:
+types.elf       This defines the primitives and basic typed operations on sets.
+typed_views.elf This gives some views that establish that typed operations can be added to set theory. Using views instead of definitions permits hiding the definitions so that the module system guarantees that later constructions do not depend on the definitions.
+
+The following files introduce additional features:
+nat.elf         natural numbers
+bool.elf        intuitionistic and classical Booleans (classical logic is used to show that they are equal)
+if.elf          an if-then-else construct for classical logic

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
+  <theory name="Field" base="http://latin.omdoc.org/math" meta="http://latin.omdoc.org/logics/proof_theory?InEqLogic">
+    <import from="http://latin.omdoc.org/math?RingDivision"> </import>
+    <import name="com" from="http://latin.omdoc.org/math?RingCommut">
+      <import from="http://latin.omdoc.org/math?Ring">
+        <definition>
+          <om:OMS base="http://latin.omdoc.org/math" module="RingUnitLogic" name="ring/[http:%2F%2Flatin.omdoc.org%2Fmath%3FRing]"/>
+        </definition>
+      </import>
+    </import>
+    <constant name="nontrivial" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMA>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+            <om:OMS position="1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="⊦"/>
+            <om:OMA position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+              <om:OMS position="2_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/syntax" module="Equal" name="relation/rel"/>
+                <om:OMS position="2_2_2" base="http://latin.omdoc.org/math" module="RingUnitLogic" name="ring/[http:%2F%2Flatin.omdoc.org%2Fmath%3FPointedMagma]/point"/>
+                <om:OMS position="2_2_3" base="http://latin.omdoc.org/math" module="RingUnitLogic" name="ring/mon/[http:%2F%2Flatin.omdoc.org%2Fmath%3FPointedMagma]/point"/>
+              </om:OMA>
+            </om:OMA>
+          </om:OMA>
+        </om:OMOBJ>
+      </type>
+    </constant>
+  </theory>
+</omdoc>

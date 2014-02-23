@@ -1,0 +1,107 @@
+%namespace "http://latin.omdoc.org/foundations/type_theory/church".
+
+%namespace logic = "../../logics/syntax".
+%namespace proof = "../../logics/proof_theory".
+%namespace math  = "../../math".
+
+%* a family of universes indexed by a type
+   This is the base of Church-style, also called intrinsically typed, type theory.
+*%
+%sig IndexedUniverse = {
+    %struct types : math.Universe %open u %as tp.
+    tm : tp -> type.
+}.
+
+%sig Logic = {
+    %include IndexedUniverse.
+    %include logic.Logic %open o ded.
+}.
+
+%* a logic on top of the type theory
+   propositions are ontologically different from terms
+*% 
+%sig ExternalLogic = {
+    %include Logic.
+}.
+
+%* a logic inside the type theory
+   propositions are a special case of terms using a type of booleans
+*% 
+%sig InternalLogic = {
+    %include IndexedUniverse.
+    bool : tp.
+    
+    %struct log : Logic = {
+        %include IndexedUniverse.
+        o := tm bool.
+    } %open ded.
+}.
+
+%* an abstract theory of equality on types and terms
+*%
+%sig Equality = {
+    %include IndexedUniverse.
+
+    %struct teq : math.EqUniverse = {
+        u := tp.
+    } %open == %as =tp=.
+
+    ==    : tm A -> tm A -> type.                                %infix none 25 ==.
+    refl  : X == X.
+    sym   : X == Y -> Y == X.
+    trans : X == Y -> Y == Z -> X == Z.
+    congF  : {F : tm A -> tm B} X == Y -> (F X) == (F Y).
+    
+}.
+
+%* reflecting a weak meta-level equality into a stronger object-level equality *%
+%sig ReflectedEquality = {
+    %struct meta: Equality.
+    %struct object: Equality = {%include meta..IndexedUniverse.}.
+    reflect_tp : X meta.=tp= Y -> X object.=tp= Y.
+    reflect_tm : X meta.==   Y -> X object.== Y.
+}.
+
+%* reflecting a weak meta-level logic into a stronger object-level logic *%
+%sig ReflectedLogic = {
+    %struct meta: Logic.
+    %struct object: Logic = {%include meta..IndexedUniverse.}.
+    reflect_o : meta.o -> object.o.
+    reflect_ded : meta.ded X -> object.ded (reflect_o X).
+}.
+
+%* a concrete theory of equality: definitional equality
+   also called intensional or judgmental equality
+   formulated as an LF judgment
+*%
+%sig DefinitionalEquality = {
+   %include Equality.
+}.
+
+%* a concrete theory of equality: axiomatic equality
+   also called extensional or logical equality
+   formulated in terms of a logic, i.e., an LF type of propositions
+*%
+%sig AxiomaticEquality = {
+    %include IndexedUniverse.
+    %include Logic.
+    
+    =tp= : tp -> tp -> o.                 %infix none 25 =tp=.
+    ==   : tm A -> tm A -> o.             %infix none 25 ==.
+
+    %struct equality : Equality = {
+        %include IndexedUniverse.
+        =tp= := [x][y] ded x =tp= y.
+        ==   := [A][x:tm A][y: tm A] ded x == y.
+    }.
+    tpCongP : {F : tp -> o} ded X =tp= Y -> ded (F X) -> ded (F Y).
+    tmCongP : {F : tm A -> o} ded X == Y -> ded (F X) -> ded (F Y).
+}.
+
+%sig InternalEquality = {
+   %include InternalLogic.
+   %struct axeq: AxiomaticEquality = {
+      %include IndexedUniverse.
+      %include InternalLogic.log.
+   } %open =tp= ==.
+}.

@@ -1,0 +1,9 @@
+%namespace "http://latin.omdoc.org/logics/proof_theory".
+%namespace syn = "syntax".
+
+%view ConjAsDisj : CONJ -> DISJ NEG NEGExt TND = {
+   %include syn.ConjAsDisj.
+   andI := [A][B] [p][q] notI [r: ded not A or not B][_] orE r ([s] notE' p s) ([s] notE' q s).
+   andEl := [A][B] [p] orE tnd ([q: ded A] q) ([q: ded not A] notE' (orIl q) p).
+   andEr := [A][B] [p] orE tnd ([q: ded B] q) ([q: ded not B] notE' (orIr q) p).
+}.

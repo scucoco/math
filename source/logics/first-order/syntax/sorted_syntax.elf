@@ -1,0 +1,55 @@
+%namespace "http://latin.omdoc.org/logics/syntax".
+%namespace tt = "../type_theories".
+
+%sig BaseSFOL = {
+  %include Logic.
+  %struct sorts : tt.Level' %open exp %as tm cl %as sort.
+}.
+
+%sig SForall = {
+  %include BaseSFOL   %open.
+  forall : (tm S -> o) -> o.
+}.
+
+%sig SExists = {
+  %include BaseSFOL   %open.
+  exists : (tm S -> o) -> o.
+}.
+
+%sig SEqual = {
+  %include BaseSFOL   %open.
+  eq : tm S -> tm S -> o.  %infix none 30 eq.
+}.
+
+%sig SFOL = {
+  %include BaseSFOL   %open.
+  %include PL         %open true false not imp and or.
+  %include SForall    %open forall.
+  %include SExists    %open exists. 
+
+%{
+		%pattern func = [n:Nat] [s : (sort ^ n)] [t : sort] {
+				
+		%% (ind s i) = s_{i}
+		%% 1.. special type family: 1.. : Nat-> type
+
+		%% note : special brackets
+
+		%% brackets ⟨, ⟩ for binding i			 
+		f : ⟨i : 1.. n⟩ tm (ind s i) -> tm t. 		
+	}.
+
+	%pattern pred = [n:Nat] [s : sort ^ n]  {
+		p : ⟨i : 1.. n⟩ tm (ind s i) -> o.
+	}. 
+	
+	%pattern axiom = [F : o] {
+		x : ded F.
+	}.
+}%
+}.
+
+%sig SFOLEQ = {
+  %include SFOL   %open.
+  %include SEqual %open.
+}.

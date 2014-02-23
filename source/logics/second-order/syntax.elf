@@ -1,0 +1,38 @@
+%* @author Fulya Horozal and Florian Rabe *%
+
+%namespace "http://latin.omdoc.org/logics/syntax".
+%namespace math = "../math".
+
+%sig BaseSecOL = {
+  %include UniverseLogic.
+  ii : type.
+  in : i -> ii -> o.                   %infix none 50 in.
+  those : (i -> o) -> ii.
+}.
+
+
+%view I2II : math.Universe -> BaseSecOL = {
+   u := ii.
+}.
+
+%sig SecOL = {
+  %include BaseSecOL.
+  %include FOLEQ.
+  nin : i -> ii -> o = [x][u] not x in u.                     %infix none 50 nin.
+  ⊆‍  : ii -> ii -> o = [u][v] forall [x] x in u imp x in v.   %infix none 60 ⊆‍.
+  ∅  : ii = those [x] false.
+  univ : ii = those [x] true.
+  ∪  : ii -> ii -> ii = [u][v] those [x] x in u or x in v.    %infix none 50 ∪.
+  ∩  : ii -> ii -> ii = [u][v] those [x] x in u and x in v.   %infix none 50 ∩.
+  ∖  : ii -> ii -> ii = [u][v] those [x] x in u and x nin v.  %infix none 50 ∖.
+  ∁  : ii -> ii = [u] those [x] x nin u.                      %prefix 55 ∁.
+  atom : i -> ii = [x] those [y] y eq x.
+
+  %struct ff : Forall = {i := ii.}.
+  %struct ee : Exists = {i := ii.}.
+  %include Equiv.
+  %view qq : Equal -> = {
+     %include I2II.
+     eq := [u][v] forall [x] x in u equiv x in v.
+  }.
+}.

@@ -1,0 +1,67 @@
+%* Syntax of propositional logic 
+   @author Fulya Horozal and Florian Rabe *%
+
+%namespace "http://latin.omdoc.org/logics/syntax".
+
+%sig Logic = {
+  o     : type.
+  ded   : o -> type.        %prefix 0 ded.
+  ⊦     = [x] ded x.        %prefix 0 ⊦.
+  ↯ : type = {F} ded F.
+
+	 %{ %% pattern for o, ded
+		%pattern prop = {
+				p : o.
+		}.
+		%pattern dax = [d : o] {
+				ax : ded d. 
+		}.
+		}%
+}.
+
+%sig Truth = {
+  %include Logic.
+  true  : o.
+}.
+
+%sig Falsity = {
+  %include Logic.
+  false : o.
+}.
+
+%sig NEG = {
+  %include Logic.
+  not   : o -> o.           %prefix 20 not.
+}.
+
+%sig IMP = {
+  %include Logic.
+  imp   : o -> o -> o.      %infix right 5 imp.
+}.
+
+%sig CONJ = {
+  %include Logic.
+  and   : o -> o -> o.      %infix left 10 and.
+}.
+
+%sig DISJ = {
+  %include Logic.
+  or   : o -> o -> o.       %infix left 10 or.
+}.
+
+%sig Equiv = {
+  %include Logic.
+  %include CONJ.
+  %include IMP.
+  equiv   : o -> o -> o = [a] [b] ((a imp b) and (b imp a)). %infix left 5 equiv.
+}.
+
+%sig PL = {
+  %include Logic.	
+  %include Truth.
+  %include Falsity.
+  %include NEG.    
+  %include IMP.
+  %include CONJ.
+  %include DISJ.
+}.

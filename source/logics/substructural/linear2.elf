@@ -1,0 +1,208 @@
+%* Linear logic
+   Syntax: intuitionistic linear logic
+   Proof theory: resource semantics based on Frank Pfenning's lecture notes
+   (http://www.cs.cmu.edu/~fp/courses/15816-s10/schedule.html, Lecture 23-24)
+   Model theory: categorical models based on the encoding given by Valeria de Paiva, Till Mossakowski, and Florian Rabe
+   @author Florian Rabe
+*% 
+
+
+%namespace "http://latin.omdoc.org/logics/syntax".
+%namespace mod_cat = "model_theory/categorical".
+%%read "../propositional/model_theory/categorical/ill.elf".
+
+%* syntax of linear logic *%
+%sig Linear_Syn = {
+   o : type.
+   ⊗ : o -> o -> o. %infix none 20 ⊗.
+   1 : o.
+   & : o -> o -> o. %infix none 20 &.
+   ⊤ : o.
+   ⊕ : o -> o -> o. %infix none 20 ⊕.
+   0 : o.
+   ⊸ : o -> o -> o. %infix none 20 ⊸.
+   ! : o -> o.      %prefix 20 !.
+}.
+
+%namespace "proof_theory".
+%namespace syn = "syntax".
+
+%* proof theory of linear logic
+   Proofs of the linear sequent A1, ..., An |- A are represented as terms of type
+   (A1 ⊗ ... ⊗ An) ⊸ A  @  ε
+*%
+%sig Linear_Pf = {
+   %include syn.Linear_Syn.
+
+   %* worlds contain resources *%
+   world : type.
+   %* union of worlds, corresponds to multiset union of resources *%
+   * : world -> world -> world. %infix left 20 *.
+   %* empty world with no resources *%
+   ε : world.
+   
+   %* P == Q: P and Q have equivalent resources *% 
+   == : world -> world -> type.  %infix left 10 ==.
+   refl   : P == P.
+   sym    : P == Q -> Q == P.
+   trans  : P == Q -> Q == R -> P == R.
+   %* * is a commutative monoid *%
+   neutL  : ε * P == P.
+   neutR  : P * ε == P.
+   assoc  : (P * Q) * R == P * (Q * R).
+   comm   : P * Q == Q * P.
+   %* congruence rule for * *%
+   cong*  : P == P' -> Q == Q' -> P * Q == P' * Q'. 
+
+   %* A @ P: A can be produced by using all resources available in world P *%
+   @ : o -> world -> type. %infix none 10 @.
+   
+   %* availability of resources respects equivalence of worlds
+      (This is a special case of congruence if (A @ _) is seen as a unary predicate of first-order logic.) *%
+   cong@ : A @ P -> P == Q -> A @ Q.
+ 
+   ⊗R  : A @ P -> B @ Q -> A ⊗ B @ P * Q.
+   ⊗L  : A ⊗ B @ H -> ({a}{b} A @ a -> B @ b -> C @ a * b * P) -> C @ H * P.
+
+   1R : 1 @ ε.
+   1L : 1 @ H -> C @ P -> C @ H * P.
+
+   &R  : A @ P -> B @ P -> A & B @ P.
+   &Ll : A & B @ H -> ({a} A @ a -> C @ a * P) -> C @ H * P.
+   &Lr : A & B @ H -> ({b} B @ b -> C @ b * P) -> C @ H * P.
+
+   ⊤R  : ⊤ @ P.
+   
+   ⊕Rl : A @ P -> A ⊕ B @ P.
+   ⊕Rr : B @ P -> A ⊕ B @ P.
+   ⊕L  : A ⊕ B @ H -> ({a} A @ a -> C @ a * P) -> ({b} B @ b -> C @ b * P) -> C @ H * P.  
+
+   0L  : 0 @ H -> C @ H * P. 
+   
+   ⊸R  : ({a} A @ a -> B @ a * P) -> A ⊸ B @ P.
+   ⊸L : A ⊸ B @ H -> A @ P -> ({b} B @ b -> C @ b * Q) -> C @ H * P * Q.
+   %{ alternatively
+   ⊸E  : A ⊸ B @ P -> A @ Q -> B @ P * Q.
+   %abbrev ⊸L : A ⊸ B @ H -> A @ P -> ({b} B @ b -> C @ b * Q) -> C @ H * P * Q
+      = [p][q][f] f (H * P) (⊸E p q).
+   }%
+
+   !R : A @ ε -> ! A @ ε.
+   !L : ! A @ H -> (A @ ε -> C @ P) -> C @ H * P.
+}.
+
+%namespace "model_theory/categorical".
+
+%* Categorical models
+   Formulas are interpreted as objects of a fixed category C. In particular, C has
+     - objects Ob : type and morphisms A => B : type
+     - monoidal closed structure (⊗, I, ⊸),
+     - finite products (*, top),
+     - finite coproducts (+, bot),
+     - a monoidal endofunctor !.
+   Proofs of the linear formula A are interpreted as morphisms I => A.
+   In particular, due to the monoidal closed structure,
+     proofs of A1 ⊗ ... ⊗ An ⊸ A can be interpreted as morphisms A1 ⊗ ... ⊗ An => A. *%
+%view Linear_mod : syn.Linear_Syn -> mod_cat.ILL = {
+   o := Ob.
+   ⊗ := [a][b] a ⊗ b.
+   1 := I.
+   & := [a][b] a * b.
+   ⊤ := top.
+   ⊕ := [a][b] a + b.
+   0 := bot.
+   ⊸ := [a][b] a ⊸ b.
+   ! := [a] ! a.
+}.
+
+%namespace "../soundness/categorical".
+%namespace pf = "../proof_theory".
+
+%* Soundness: 
+   - worlds are interpreted as objects of C, equality as isomorphism
+   - derivations of A @ P are interpreted as morphisms P => A
+   This view has two missing cases - see the comments below.
+*%
+%view Linear_sound : pf.Linear_Pf -> mod_cat.ILL = {
+   %include mod_cat.Linear_mod.
+   
+   world := Ob.
+   *     := [a][b] a ⊗ b.
+   ε     := I.
+
+   ==    := [a:Ob][b:Ob] |- a ~ b.
+   refl  := [P] ~_refl.
+   sym   := [P][Q] ~_sym.
+   trans := [P][Q][R] ~_trans.
+
+   neutL := [P] existsI (leftI P) (existsI (leftI-inv P) leftI-iso).
+   neutR := [P] existsI (rightI P) (existsI (rightI-inv P) rightI-iso).
+   assoc := [P][Q][R] existsI (assoc P Q R) (existsI (assoc-inv P Q R) assoc-iso).
+   comm  := [P][Q] existsI (mod_cat.Monoidal.comm P Q) (existsI (comm-inv P Q) comm-iso).
+   cong* := [P][P'][Q][Q'] [p1][q1] existsE p1 [f: P => P'][p2] existsE p2 [f': P' => P][p]
+                                    existsE q1 [g: Q => Q'][q2] existsE q2 [g': Q' => Q][q]
+                                    existsI (f ⊗⊗ g) (existsI (f' ⊗⊗ g') (andI
+                                      (trans (sym law_;⊗;)
+                                      (trans (cong ([x] x ⊗⊗ (g ; g')) (andEl p : |- f ; f' == id P))
+                                      (trans (cong ([x] (id P) ⊗⊗ x) (andEl q : |- g ; g' == id Q))
+                                             law_id⊗id 
+                                      )))
+                                      (trans (sym law_;⊗;)
+                                      (trans (cong ([x] x ⊗⊗ (g' ; g)) (andEr p : |- f' ; f == id P'))
+                                      (trans (cong ([x] (id P') ⊗⊗ x) (andEr q : |- g' ; g == id Q'))
+                                             law_id⊗id 
+                                      )))
+                                    )).
+   @   := [a:Ob][p:Ob] p => a.
+   %{ This case does not work.
+      We need an isomorphism ??? : Q => P, but all we have is a proof that such an isomorphism exists.
+   cong@ := [A][P][Q] [f: P => A][r: |- P ~ Q] (??? : Q => P) ; f.
+      Possible solutions:
+        - interpret P == Q as the set of isomorphisms P => Q instead of a type of proofs (requires set theory)
+        - choose an arbitrary isomorphism (requires a set theory with a choice operator)
+        - interpret A @ P as the type of proofs that a morphism P => A exists (breaks the proofs-as-morphisms intuition)
+   }%
+   
+   ⊗R  := [A][P][B][Q] [f: P => A][g: Q => B] f ⊗⊗ g.
+   ⊗L  := [A][B][H][C][P] [f: H => A ⊗ B][r: {a}{b} a => A -> b => B -> a ⊗ b ⊗ P => C] (f ⊗⊗ (id P)) ; (r A B (id A) (id B)).
+   
+   1R  := id I.
+   1L  := [H][C][P] [f][g] (f ⊗⊗ g) ; (leftI C).
+   
+   &R  := [A][P][B] [f][g] f pair g.
+   &Ll := [A][B][H][C][P] [f][r] ((f ; pi1 A B) ⊗⊗ (id P)) ; (r A (id A)).
+   &Lr := [A][B][H][C][P] [f][r] ((f ; pi2 A B) ⊗⊗ (id P)) ; (r B (id B)).
+
+   ⊤R  := [P] bang.
+   
+   ⊕Rl := [A][P][B] [f] f ; (inl A B).
+   ⊕Rr := [B][P][A] [f] f ; (inr A B).
+   ⊕L  := [A][B][H][C][P] [f][r1][r2] (f ⊗⊗ (id P)) ; dist⊗+2 ; ((r1 A (id A)) +' (r2 B (id B))).
+   
+   0L  := [H][C][P] [f] ((f ; bangbang) ⊗⊗ (id P)) ; lin_eval P C.
+   
+   ⊸R  := [A][B][P] [h] lin_curry (mod_cat.Monoidal.comm P A ; (h A (id A))).
+   ⊸L  := [A][B][H][P][C][Q] [f: H => A ⊸ B][g: P => A][r] (((f ⊗⊗ g) ; (lin_eval A B)) ⊗⊗ (id Q)) ; (r B (id B)).
+   
+   !R  := [A] [f] mc.munit ; (!' f).
+   %{ This case does not work:
+   !L  := [A][H][C][P] [f: H => ! A][r: I => A -> P => C] (f ⊗⊗ (id P)) ; (??? : ! A ⊗ P => C).
+   We first have to prove a deduction theorem that
+   for every f:  I => A -> I => B
+   exists    f': ! A => B
+   This must be proved by induction of f, which cannot be expressed as an LF term.
+   Alternatively, this could be added to ILL and justified by a Twelf logic program.
+   }%
+}.
+
+   %{ a possible alternative to the above: equality of worlds is interpreted as biconvertability of their resources (i.e., linear equivalence)
+   ==    := [a:Ob][b:Ob] I => (a ⊸ b) ⊗ (b ⊸ a).
+   refl  := [P] (leftI-inv I) ; (lin_curry (leftI P)) ⊗⊗ (lin_curry (leftI P)).
+   sym   := [P][Q] [f] f ; (Monoidal.comm (P ⊸ Q) (Q ⊸ P)).
+   trans := [P][Q][R] [f][g] ...
+   cong  := ...
+   neutL := [P] (leftI-inv I) ; (name (leftI P)) ⊗⊗ (name (leftI-inv P)).
+   neutR := [P] (leftI-inv I) ; (name (rightI P)) ⊗⊗ (name (rightI-inv P)).
+   assoc := [P][Q][R] (leftI-inv I) ; (name (assoc P Q R)) ⊗⊗ (name (assoc-inv P Q R)). 
+   comm  := [P][Q] (leftI-inv I) ; (name (Monoidal.comm P Q)) ⊗⊗ (name (comm-inv P Q)).
+   }%

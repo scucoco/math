@@ -1,0 +1,12 @@
+%namespace "http://latin.omdoc.org/logics/syntax".
+
+%sig SExistsUnique = {
+  %include SFOLEQ %open.
+  existsU : (tm S -> o) -> o = [f : tm S -> o] exists [x : tm S] (f x and forall [y : tm S] f y imp y eq x).
+}.
+
+%sig SInequal = {
+  %include NEG    %open.
+  %include SEqual %open.
+  neq : tm S -> tm S -> o = [x][y] not x eq y.   %infix none 20 neq.
+}.

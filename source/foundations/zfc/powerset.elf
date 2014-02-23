@@ -1,0 +1,120 @@
+%namespace "http://latin.omdoc.org/foundations/zfc".
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%* properties of the power set of a set in ZFC *%
+%sig Powersets = {
+   %include TypedZF.
+   Powerset : i -> type      = [x] Elem (powerset x).
+   PowPowerset : i -> type   = [x] Powerset (powerset x).
+   ‍∈ : Elem A -> Powerset A -> o = [a][b] (which a in which b).                 %infix none 25 ‍∈.
+
+   %% definitions type check but would cause ambiguous typing lateron 
+   those  : (Elem A -> o) -> Powerset A
+       .%%   = [F] elem (filter A [a] a in A And [p] (F (elem a p))) (powersetI filter_is_subset).
+   thoseI : ded F X -> ded X ‍∈ those F
+       .%%   = [p] in_eq (filterI (why X) (AndI (why X) (EqcongEr F eq_which p))) (sym eq_which).
+   thoseE : ded X ‍∈ those F -> ded F X
+       .%%= [p] EqcongEl F eq_which (AndEr (filterEr (in_eq p eq_which))).
+   Values : (Elem A -> Elem B) -> Powerset B
+          = [f] elem (Image [a: Elem A] which (f a)) (powersetI (Image_subset [a] why (f a))).
+
+   ⊆‍ : Powerset A -> Powerset A -> o = [a][b] (which a subset which b).         %infix none 25 ⊆‍.
+   ⚌: Powerset A -> Powerset A -> o = [a][b] a Eq b.                           %infix none 20 ⚌.
+   
+   ⊆‍refl      : ded A ⊆‍ A = subset_refl.
+   ⊆trans     : ded A ⊆‍ B -> ded B ⊆‍ C -> ded A ⊆‍ C = subset_trans.
+   ⊆antisym   : ded A ⊆‍ B -> ded B ⊆‍ A -> ded A ⚌ B = subset_antisym.
+   %abbrev ⊆‍I : ({a: Elem A} ded a ‍∈ B -> ded a ‍∈ C) -> ded B ⊆‍ C
+              = [f] subsetI [x][p: ded x in (which B)]
+                  eq_in (sym eq_which) (f (elem x (subsetE (powersetE (why B)) p)) (eq_in eq_which p)).
+   ⊆‍E : ded B ⊆‍ C -> ded A ‍∈ B -> ded A ‍∈ C = subsetE. 
+           
+   ↑  : Elem A -> Powerset A
+      = [a] elem (singleton (which a)) (powersetI (subsetI ([x][p] eq_in (singletonE p) (why a)))).
+   ↑I : ded Y ‍∈ (↑ Y).
+   ↑E : ded X ‍∈ (↑ Y) -> ded X Eq Y.
+   
+   ∅      : Powerset A = elem empty (powersetI empty_subset).
+   ∅least : ded ∅ ⊆‍ X = eq_subset eq_which empty_subset.
+   
+   ∞         : Powerset A = elem A (powersetI subset_refl).
+   ∞greatest : ded X ⊆‍ ∞ = subset_eq (powersetE (why X)) (sym eq_which).
+   
+   ∪     : Powerset A -> Powerset A -> Powerset A
+         = [a][b] elem ((which a) union (which b))
+                       (powersetI (subsetI ([x][p] orE (unionE p)
+                                                       ([q] subsetE (powersetE (why a)) q)
+                                                       ([q] subsetE (powersetE (why b)) q)))). %infix left 30 ∪.
+   ∪comm : ded A ∪ B ⚌ B ∪ A
+         = trans3 eq_which union_comm (sym eq_which).
+   ∪ass  : ded (A ∪ B) ∪ C ⚌ A ∪ (B ∪ C)
+         = trans3 (trans eq_which (congF eq_which ([x] x union (which C))))
+                  union_ass  
+                  (trans (congF (sym eq_which) ([x] (which A) union x)) (sym eq_which)).
+   ∪idem : ded A ∪ A ⚌ A
+         = trans eq_which union_idem.
+   ∪neut : ded A ∪ ∅ ⚌ A = trans3 eq_which union_comm (trans (congF eq_which ([x] x union (which A))) union_neutral).
+   ∪attr : ded A ∪ ∞ ⚌ ∞ = subset_antisym (subset_eq (powersetE (why (A ∪ ∞))) (sym eq_which))
+                                           (subset_eq union_subsetr (sym eq_which)).
+   
+   ∩     : Powerset A -> Powerset A -> Powerset A
+         = [a][b] elem ((which a) inter (which b))
+                       (powersetI (subset_trans inter_subsetl (powersetE (why a)))).           %infix left 30 ∩.
+   
+   ∩comm : ded A ∩ B ⚌ B ∩ A
+         = trans3 eq_which inter_comm (sym eq_which).
+   ∩ass  : ded (A ∩ B) ∩ C ⚌ A ∩ (B ∩ C)
+         = trans3 (trans eq_which (congF eq_which ([x] x inter (which C))))
+                  inter_ass
+                  (trans (congF (sym eq_which) ([x] (which A) inter x)) (sym eq_which)).
+   ∩idem : ded A ∩ A ⚌ A
+         = trans eq_which inter_idem.
+   ∩attr : ded A ∩ ∅ ⚌ ∅ = eqI ([x][p] emptyE (in_eq (interEr (in_eq p eq_which)) eq_which))
+                                ([x][p] emptyE (in_eq p eq_which)).
+   ∩neut : ded A ∩ ∞ ⚌ A
+         = subset_antisym (congEr eq_which ([a] a subset which A) inter_subsetl)
+                          (congEr eq_which ([a] which A subset a)
+                             (subsetI [x][p] (interI p (subsetE (congEr eq_which ([a] which A subset a)
+                                                                  (powersetE (why A))) p)))
+                               
+                          ).
+   
+   ∖     : Powerset A -> Powerset A -> Powerset A
+         = [a][b] elem (which a dif which b) (powersetI (subset_trans dif_subset (powersetE (why a)))).
+                                      %infix none 30 ∖.
+   ∖neut : ded A ∖ ∅ ⚌ A = eqI ([x][p] difEl (in_eq p eq_which))
+                                ([x][p] in_eq (difI p (notI [p][_] emptyE (in_eq p eq_which))) (sym eq_which)).
+   ∖attr : ded ∅ ∖ A ⚌ ∅ = eqI ([x][p] emptyE (in_eq (difEl (in_eq p eq_which)) eq_which))
+                                ([x][p] emptyE (in_eq p eq_which)).
+   ∖rep  : ded A ∖ ∞ ⚌ ∅ = eqI ([x][p] notE' (in_eq (subsetE (powersetE (why (A ∖ ∞))) p) (sym eq_which))
+                                              (difEr (in_eq p eq_which))
+                                )
+                                ([x][p] emptyE (in_eq p eq_which)).
+   ∁         : Powerset A -> Powerset A
+             = [a] ∞ ∖ a.
+         
+   ⋃         : (Elem A -> Powerset B) -> Powerset B
+             = [f] those [b : Elem B] texists [a: Elem A] b ‍∈ (f a).
+   ⋃subset   : ded (F X) ⊆‍ (⋃ F) = ⊆‍I ([a][p] thoseI (texistsI X p)).
+   ⋃supremum : ({a: Elem A} ded (F a) ⊆‍ C) -> ded ⋃ F ⊆‍ C
+             = [f] ⊆‍I ([l] [p: ded l ‍∈ ⋃ F] texistsE (thoseE p) [a][q: ded l ‍∈ (F a)] (⊆‍E (f a) q)).
+   
+   ⋂         : (Elem A -> Powerset B) -> Powerset B
+             = [f] those [b : Elem B] tforall [a: Elem A] b ‍∈ (f a).
+   ⋂subset   : ded (⋂ F) ⊆‍ (F X) 
+             = ⊆‍I ([b][p] tforallE (thoseE p) X).
+            
+   ⋂infimum  : ({a: Elem A} ded C ⊆‍ (F a)) -> ded C ⊆‍ ⋂ F
+             = [f] ⊆‍I ([b][p : ded b ‍∈ C]
+                         thoseI  (tforallI [a: Elem A](⊆‍E (f a) p))).
+
+%{
+   pred : Powerset A -> Elem A -> o = [X][a] a ‍∈ X.
+   ∞pred     : ded ∞ ⚌ those [a] true.
+   ∅pred     : ded ∅ ⚌ those [a] false.
+   ∪pred     : ded X ∪ Y ⚌ (those [a] (pred X a) or (pred Y a)).
+   ∩pred     : ded X ∪ Y ⚌ (those [a] (pred X a) and (pred Y a)).
+   ↑pred     : ded ↑ A ⚌ those [x] x Eq A.
+}%
+}.

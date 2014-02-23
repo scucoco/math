@@ -1,0 +1,45 @@
+%* Twelf signature for DFOL, Florian Rabe
+*%
+
+%namespace "http://latin.omdoc.org/logics/proof_theory".
+%namespace syn = "syntax".
+
+%sig DFOL = {
+  %include syn.DFOL.
+  trueI : |- true.
+  falseE : |- false -> |- F.
+  andI : |- F -> |- G -> |- F and G.
+  andEl : |- F and G -> |- F.
+  andEr : |- F and G -> |- G.
+  orIl : |- F -> |- F or G.
+  orIr : |- G -> |- F or G.
+  orE : (|- F -> |- H) -> (|- G -> |- H) -> (|- F or G -> |- H).
+  implI : (|- F -> |- G) -> |- F impl G.
+  implE : |- F impl G -> |- F -> |- G.
+  notI : |- F or not F.
+  notE : |- F -> |- not F -> |- false.
+  forallI : ({x: ^ S} |- F x) -> |- forall F.
+  forallE : |- forall F -> {x: ^ S} |- F x.
+  existsI : {x: ^ S} |- F x -> |- exists F.
+  existsE : |- exists F -> ({x: ^ S} |- F x -> |- H) -> |- H.
+  equivI : (|- F impl G) -> (|- G impl F) -> |- F <=> G.
+  equivEl : (|- F <=> G) -> (|- F impl G).
+  equivEr : (|- F <=> G) -> (|- G impl F).
+  refl : |- X == X.
+  sym : |- X == Y -> |- Y == X.
+  trans : |- X == Y -> |- Y == Z -> |- X == Z.
+  cong : {f : ^ S -> ^ T} |- X == Y -> |- f X == f Y.
+
+  %% some lemmas that should be imported from PL, SFOL
+  implTrans : (|- F impl G) -> (|- G impl H) -> (|- F impl H)
+      = [implFG] [implGH] implI ([F] implE implGH (implE implFG F)).
+  equivTrans : (|- F <=> G) -> (|- G <=> H) -> (|- F <=> H)
+      = [equivFG] [equivGH] equivI (implTrans (equivEl equivFG) (equivEl equivGH))
+                                   (implTrans (equivEr equivGH) (equivEr equivFG)).
+  equivI' : (|- F -> |- G) -> (|- G -> |- F) -> (|- F <=> G)
+      = [implFG] [implGF] equivI (implI implFG) (implI implGF).
+  andSym : |- F and G -> |- G and F
+      = [andFG] andI (andEr andFG) (andEl andFG).
+  existsDeriv : ({x} |- A x -> |- B x) -> |- exists A -> |- exists B
+      = [implAB] [existsA] existsE existsA ([y] [pAy: |- A y] (existsI y (implAB y pAy))). 
+}.

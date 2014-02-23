@@ -1,0 +1,231 @@
+%%OWL2 to FOLEQD
+
+%read "FOLEQD.elf".
+%read "owl.elf".
+%read "owl2.elf".
+%read "OWLtoFOL.elf".
+
+%namespace "http://latin.omdoc.org/logics/description/owl/owl2.omdoc".
+
+%view D2FOLEQD : D2 -> FOLEQD = { 
+ %include D1FOLEQD.	
+ %% only in OWL2
+ %%numbers 
+ rational 	:= rational.
+ real       := real. 
+ %%strings
+ plainLiteral := plainLiteral. 
+ %%time instants
+ dateTimeStamp := dateTimeStamp. 
+ %%XML literals
+ xmlLiteral := xmlLiteral. 
+}.
+
+
+%view OWL2SUBFOLEQD : OWL2SUB -> FOLEQD = {
+ %include D2FOLEQD.
+ %include OWLBaseFOLEQD.		
+	
+ thing   := [x: i] true.
+ nothing := [x: i] false.
+ 
+ dataProperty := i -> i -> o.
+  
+ objectIntersectionOf  := [f: i -> o] [g: i -> o] [x: i] ((f x) and (g x)).
+ %%objectOneOf
+
+ objectHasValue := [r: i -> i -> o] [y: i] [x: i] (r x y). 
+ objectHasSelf  := [r: i -> i -> o] [x: i] (r x x).
+
+ %%arbitrary
+ %% objectMaxCardinality    
+ %% objectMinCardinality   
+ %% objectExactCardinality  
+ 
+ %%qualified  
+ %% objectMaxCardinalityQualified    
+ %% objectMinCardinalityQualified     
+ %% objectExactCardinalityQualified   
+
+ dataHasValue  := [r: i -> i -> o] [d: i] [x: i] (r x d).
+ 
+ %% dataMinCardinality        
+ %% dataMaxCardinality     
+ %% dataExactCardinality   
+ 
+ %% dataMinCardinalityQualified    
+ %% dataMaxCardinalityQualified    
+ %% dataExactCardinalityQualified  
+ 
+ topObjectProperty    := [x: i][y: i] true.   %%connects all possible pairs of individuals
+ bottomObjectProperty := [x: i][y: i] false.  %% not connect any pair of individuals
+  
+ topDataProperty      := [x: i][d: i] true. %%connects all possible individuals with all literals
+ bottomDataProperty   := [x: i][d: i] false. %%not connect any individual with a literal
+ anonymousIndividual := i.
+   
+ %%dataRange = datatypes
+ %%dataIntersectionOf ?    
+ %%dataOneOf ?
+ 
+ subClassOf           := [f: i -> o] [g: i -> o] ded (forall [x: i] ((f x) imp (g x))).
+ equivalentClasses    := [f: i -> o] [g: i -> o] ded (forall [x: i] ((f x) imp (g x)) and ((g x) imp (f x)) ).
+ disjointClasses      := [f: i -> o] [g: i -> o] ded (forall [x: i] (forall[y: i] ( ((f x) imp (not(g x))) and ((g x) imp (not(f x))) ) )).
+ %%disjointUnion   
+ %%pairwiseDisjointClass 
+  
+ subObjectPropertyOf  := [r: i -> i -> o] [q: i -> i -> o] ded (forall [x: i] (forall [y: i] ((r x y) imp (q x y)))).
+ 
+ objectPropertyDomain       := [r: i -> i -> o] [f: i -> o] ded (forall [x: i] (forall [y: i] ((r x y) imp (f x)))).
+ objectPropertyRange        := [r: i -> i -> o] [f: i -> o] ded (forall [y: i] (forall [x: i] ((r x y) imp (f y)))).
+ equivalentObjectProperty   := [r: i -> i -> o] [q: i -> i -> o] ded (forall [x: i] (forall [y: i] (((r x y ) imp (q x y)) and ((q x y) imp (r x y))))).
+ disjointObjectProperty     := [r: i -> i -> o] [q: i -> i -> o] ded (forall [x: i] (forall [y: i] ((r x y) imp (not(q x y))) or ((q x y)imp (not(r x y))))).
+ 
+ functionalObjectProperty   := [r: i -> i -> o] ded (forall [x: i] (forall [y: i] (forall [z: i] (((r x y) and (r x z)) imp (y eq z))))).
+ symmetricObjectProperty    := [r: i -> i -> o] ded (forall [x: i] (forall [y: i] ((r x y) imp (r y x)))).
+ asymmetricObjetProperty    := [r: i -> i -> o] ded (forall [x: i] (forall [y: i] ((r x y) imp (not (r y x))))). 
+ reflexiveObjectProperty    := [r: i -> i -> o] ded (forall [x: i] (r x x)).
+ irreflexiveObjectProperty	 := [r: i -> i -> o] ded (not (forall [x : i] (r x x))).
+ transitiveObjectProperty   := [r: i -> i -> o] ded (forall [x: i] (forall [y: i] (forall[z: i] (((r x y) and (r y z)) imp (r x z))))).
+
+ subDataPropertyOf         := [r: i -> i -> o] [q: i -> i -> o] ded (forall [x: i] (forall [d: i] ((r x d) imp (q x d)) )).
+ equivalentDataProperties  := [r: i -> i -> o] [q: i -> i -> o] ded (forall [x: i] (forall [y: i] (((r x y ) imp (q x y)) and ((q x y) imp (r x y))))).
+ disjointDataProperties    := [r: i -> i -> o] [q: i -> i -> o] ded (forall [x: i] (forall [y: i] ((r x y) imp (not(q x y))) or ((q x y)imp (not(r x y))))).
+ %% pairwiseDisjointdataProperties 
+ dataPropertyDomain        := [r: i -> i -> o] [f: i -> o] ded (forall [x: i] (forall [d: i] ((r x d) imp (f x)))).
+ dataPropertyRange         := [r: i -> i -> o] [dt: dataType] ded (forall [d: i] (forall [x: i] ((r x d) imp (is d dt)))).
+ 
+ functionalDataProperty    := [r: i -> i -> o] ded (forall [x: i] (forall [d1: i] (forall [d2: i] (((r x d1) and (r x d2)) imp (d1 eq d2))))).
+ 
+ %%dataTypeDefinition : dataType -> ?
+ 
+ differentIndividuals       := [x: i][y: i] ded (not (x eq y)).
+ %%differentIndividualsPairwise
+ sameIndividual 	          := [x: i][y: i] ded (x eq y).
+ 
+ classAssertion := [f: i -> o][x: i] ded (f x).
+ objectPropertyAssertion := [r: i -> i -> o][x: i][y: i] ded (r x y).
+ negativeObjectPropertyAssertion := [r: i -> i -> o][x: i][y: i] ded (not (r x y)).
+ dataPropertyAssertion := [r: i -> i -> o][x: i][d: i] ded (r x d).
+ negativeDataPropertyAssertion := [r: i -> i -> o][x: i][d: i] ded (not(r x d)).
+
+ hasKey := [f: i -> o][r: i -> i -> o] ded (forall [x: i] (forall [d1: i] (forall [d2: i] (((r x d1) and (r x d2)) imp (d1 eq d2))))).
+  
+   
+ %{
+ %%Header Information
+ ontology %%resource
+ import   %%resource
+ prefix   %%resource
+ 
+ annotationProperty      
+ namedAnnotationProperty 
+ ontologyProperty        
+ 
+ %%Annotation Properties 
+ lable      
+ comment    
+ seeAlso    
+ isDefinedBy
+ 
+ %%Versioning 
+ versionInfo           
+ priorVersion          
+ backwardCompatibleWith
+ incompatibleWith      
+ deprecatedClass       
+ deprecatedProperty    
+
+  
+ annotation 
+ annotationAssertion 
+ subAnnotationPropertyOf 
+ annotationPropertyDomain 
+ annotationPropertyRange  
+ anotherAnnotation  
+  
+
+ Facets in OWL2 guide
+ facet 
+ minInclusive 
+ maxInclusive 
+ minExclusive 
+ maxExclusive 
+ minLength 
+ maxLength 
+ length    
+ pattern   
+ langRange 
+ 
+ %%dataTypeRestriction : ? DatatypeRestriction( xsd:integer xsd:minInclusive "5"^^xsd:integer xsd:maxExclusive "10"^^xsd:integer ) 
+}%
+ 
+}.
+
+
+%view OWL2ELFOLEQD : OWL2EL -> FOLEQD = {
+ 
+ %include OWL2SUBFOLEQD.	
+ 
+ %%metaclass, but no inverseproperty, negation, disjunction, universalquantification
+   
+ objectSomeValuesFrom := [r: i -> i -> o][f: i -> o][x: i] (exists [y: i] ((r x y) and (f y))).
+ dataSomeValuesFrom   := [r: i -> i -> o][dt: dataType] [x: i] (exists [d: i] ((r x d) and (is d dt))). 
+ %%n-ary universal dataSomeValuesFrom
+ %%objectPropertyChain ?
+ %%disjointObjectPropertyChain 
+  
+}.
+ 
+ 
+%view OWL2QLFOLEQD : OWL2QL -> FOLEQD = { 
+  
+ %include OWL2SUBFOLEQD.	
+    
+ %% no class axioms asymmetrically : if constructs as subclass then not as superclass(you can use constructs as the subclass that you cannot use as the superclass)
+ %% no exitensialquantification of roles to a class expression, propertychain axioms
+ 	
+ objectUnionOf         := [f: i -> o][g: i -> o][x: i] ((f x) or (g x)).
+ objectComplementOf    := [f: i -> o][x: i] (not (f x)).
+ objectAllValuesFrom   := [r: i -> i -> o] [f: i -> o][x: i] (forall [y: i] ((r x y) imp (f y)) ).
+ 
+ dataAllValuesFrom    := [r: i -> i -> o][dt: dataType][x: i] (forall [d: i] ((r x d) imp (is d dt))).
+ %% n-aryDataSomeValuesFrom ?
+
+ anonymousIndividual := i.
+ %% dataUnionOf         ?    
+ %% dataComplementOf    ? 
+ 
+ objectInverseOf                 := [r: i -> i -> o] ([x: i] [y: i] (r x y) imp (r y x)).
+ inverseObjectProperties         := [r: i -> i -> o] [q: i -> i -> o] ded (forall [x: i] (forall[y: i] (((r x y) imp (q y x)) or ((q x y) imp (r y x))))).
+ inverseFunctionalObjectProperty := [r: i -> i -> o] ded (forall [x:i] (forall [y: i] (forall [z: i] (((r x y) and (r z y)) imp (x eq z))))).
+   
+}.
+
+
+%view OWL2RLFOLEQD : OWL2RL -> FOLEQD = {
+	
+ %include OWL2ELFOLEQD.	
+ %include OWL2QLFOLEQD.	
+   
+%% No unknown individuals in our superclass expressions 
+%% No statements where the existence of an individual enforces the existence of another individual - every person has a parent, class axioms asymmetrically 
+%% you can use constructs as the subclass that you cannot use as the superclass 
+  
+}.
+
+
+%view OWL2DLFOLEQD : OWL2DL -> FOLEQD = {
+   %include OWL2RLFOLEQD.
+}.
+
+%view OWL2FullFOLEQD : OWL2Full -> FOLEQD = {
+	%include OWL2DLFOLEQD.
+	
+	%%OWL2Full - RDF-based semantics - undecisable
+	%%OWL2DL - direct model-theoretic semantics -decidable
+	%% OWL2DL and OWL2Full - metaclass - the same name for both a class and an individual
+}.
+ 
+ 
+

@@ -1,0 +1,19 @@
+%* Model translation from modal to first-order logic *%
+
+%namespace "http://latin.omdoc.org/translations/ml_fol".
+%namespace mod = "../logics/model_theory".
+%namespace kripke = "../logics/model_theory/kripke".
+%namespace minimal = "../foundations/minimal".
+
+
+%sig ML-FOLMOD = {
+   %include minimal.STTIFOLEQExt.
+   %include mod.FOLMOD.	
+   %struct po : ML-FOL = {%include mod.FOL.} %open rel.
+}.
+
+%view Kripke : kripke.Kripke -> ML-FOLMOD = {
+   world := univ.
+   acc'  := λ[x] λ[y] x rel y.
+   exists_world := non_empty_universe.
+}.

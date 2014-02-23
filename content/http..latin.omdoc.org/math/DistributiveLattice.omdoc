@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
+  <theory name="DistributiveLattice" base="http://latin.omdoc.org/math" meta="http://latin.omdoc.org/math?EqUniverse">
+    <import from="http://latin.omdoc.org/math?Lattice"> </import>
+    <constant name="dist∧" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="X">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/math" module="Universe" name="u"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="Y">
+                  <type>
+                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/math" module="Universe" name="u"/>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMBIND position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+                <om:OMBVAR>
+                  <om:OMV position="2_2_0" name="Z">
+                    <type>
+                      <om:OMS position="2_2_0_1" base="http://latin.omdoc.org/math" module="Universe" name="u"/>
+                    </type>
+                    <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                      <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                    </attribution>
+                  </om:OMV>
+                </om:OMBVAR>
+                <om:OMA position="2_2_2">
+                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/math" module="EqUniverse" name="eq/[http:%2F%2Flatin.omdoc.org%2Fmath%3FRelation]/r"/>
+                  <om:OMA position="2_2_2_2">
+                    <om:OMS position="2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_2_2_1" base="http://latin.omdoc.org/math" module="Magma" name="∘"/>
+                    <om:OMV position="2_2_2_2_2" name="X"/>
+                    <om:OMA position="2_2_2_2_3">
+                      <om:OMS position="2_2_2_2_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_2_2_2_3_1" base="http://latin.omdoc.org/math" module="Lattice" name="∨"/>
+                      <om:OMV position="2_2_2_2_3_2" name="Y"/>
+                      <om:OMV position="2_2_2_2_3_3" name="Z"/>
+                    </om:OMA>
+                  </om:OMA>
+                  <om:OMA position="2_2_2_3">
+                    <om:OMS position="2_2_2_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_2_3_1" base="http://latin.omdoc.org/math" module="Lattice" name="∨"/>
+                    <om:OMA position="2_2_2_3_2">
+                      <om:OMS position="2_2_2_3_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_2_2_3_2_1" base="http://latin.omdoc.org/math" module="Magma" name="∘"/>
+                      <om:OMV position="2_2_2_3_2_2" name="X"/>
+                      <om:OMV position="2_2_2_3_2_3" name="Y"/>
+                    </om:OMA>
+                    <om:OMA position="2_2_2_3_3">
+                      <om:OMS position="2_2_2_3_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_2_2_3_3_1" base="http://latin.omdoc.org/math" module="Magma" name="∘"/>
+                      <om:OMV position="2_2_2_3_3_2" name="X"/>
+                      <om:OMV position="2_2_2_3_3_3" name="Z"/>
+                    </om:OMA>
+                  </om:OMA>
+                </om:OMA>
+              </om:OMBIND>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/math?DistributiveLattice?dist∧" precedence="0" fixity="prefix" arguments="3"/>
+      </notation>
+    </constant>
+    <constant name="dist∨" role="constructor">
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="X">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/math" module="Universe" name="u"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="Y">
+                  <type>
+                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/math" module="Universe" name="u"/>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMBIND position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
+                <om:OMBVAR>
+                  <om:OMV position="2_2_0" name="Z">
+                    <type>
+                      <om:OMS position="2_2_0_1" base="http://latin.omdoc.org/math" module="Universe" name="u"/>
+                    </type>
+                    <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                      <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                    </attribution>
+                  </om:OMV>
+                </om:OMBVAR>
+                <om:OMA position="2_2_2">
+                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/math" module="EqUniverse" name="eq/[http:%2F%2Flatin.omdoc.org%2Fmath%3FRelation]/r"/>
+                  <om:OMA position="2_2_2_2">
+                    <om:OMS position="2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_2_2_1" base="http://latin.omdoc.org/math" module="Lattice" name="∨"/>
+                    <om:OMV position="2_2_2_2_2" name="X"/>
+                    <om:OMA position="2_2_2_2_3">
+                      <om:OMS position="2_2_2_2_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_2_2_2_3_1" base="http://latin.omdoc.org/math" module="Magma" name="∘"/>
+                      <om:OMV position="2_2_2_2_3_2" name="Y"/>
+                      <om:OMV position="2_2_2_2_3_3" name="Z"/>
+                    </om:OMA>
+                  </om:OMA>
+                  <om:OMA position="2_2_2_3">
+                    <om:OMS position="2_2_2_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                    <om:OMS position="2_2_2_3_1" base="http://latin.omdoc.org/math" module="Magma" name="∘"/>
+                    <om:OMA position="2_2_2_3_2">
+                      <om:OMS position="2_2_2_3_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_2_2_3_2_1" base="http://latin.omdoc.org/math" module="Lattice" name="∨"/>
+                      <om:OMV position="2_2_2_3_2_2" name="X"/>
+                      <om:OMV position="2_2_2_3_2_3" name="Y"/>
+                    </om:OMA>
+                    <om:OMA position="2_2_2_3_3">
+                      <om:OMS position="2_2_2_3_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                      <om:OMS position="2_2_2_3_3_1" base="http://latin.omdoc.org/math" module="Lattice" name="∨"/>
+                      <om:OMV position="2_2_2_3_3_2" name="X"/>
+                      <om:OMV position="2_2_2_3_3_3" name="Z"/>
+                    </om:OMA>
+                  </om:OMA>
+                </om:OMA>
+              </om:OMBIND>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <text-notation name="http://latin.omdoc.org/math?DistributiveLattice?dist∨" precedence="0" fixity="prefix" arguments="3"/>
+      </notation>
+    </constant>
+  </theory>
+</omdoc>

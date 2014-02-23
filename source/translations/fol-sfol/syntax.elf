@@ -1,0 +1,52 @@
+%namespace "http://latin.omdoc.org/translations/fol-sfol".
+%namespace syn = "../logics/syntax".
+
+
+%sig FOL-SFOL-Sig = {
+   %include syn.SFOL.
+   ind : sort.
+}.
+
+%view BaseFOL : syn.UniverseLogic -> FOL-SFOL-Sig = {
+   i := tm ind.
+
+			%{
+			%%  translation for i.
+			%%		for formula symbols in FOL:
+			%%		f : i ^ n -> i.
+			%pattern pi := [n : Nat] {
+			 f : (tm ind) ^ n -> tm ind.
+			}.
+			}%
+}.
+
+%view Forall : syn.Forall -> FOL-SFOL-Sig = {
+   %include BaseFOL.
+   forall := [f] forall f.
+}.
+
+%view Exists : syn.Exists -> FOL-SFOL-Sig = {
+   %include BaseFOL.
+   exists := [f] exists f.
+}.
+
+%view FOL : syn.FOL -> FOL-SFOL-Sig = {
+   %include BaseFOL.
+   %include Forall.
+   %include Exists.
+}.
+
+%sig FOLEQ-SFOLEQ-Sig = {
+   %include syn.SFOLEQ %open.
+   %include FOL-SFOL-Sig %open.
+}.
+
+%view Equal : syn.Equal -> FOLEQ-SFOLEQ-Sig = {
+   %include BaseFOL.
+   eq := [x][y] x eq y.
+}.
+
+%view FOLEQ : syn.FOLEQ -> FOLEQ-SFOLEQ-Sig = {
+   %include FOL.
+   %include Equal.
+}.

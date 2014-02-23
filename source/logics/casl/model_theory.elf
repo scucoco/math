@@ -1,0 +1,283 @@
+%namespace "http://latin.omdoc.org/logics/model_theory".
+%namespace syn = "syntax".
+%namespace zfc = "../foundations/zfc".
+
+%%read "../../set_theories/zfc/bool.elf".
+%%read "../../set_theories/zfc/types.elf".
+%%read "../../set_theories/zfc/option.elf".
+%%read "../../set_theories/zfc/list.elf".
+
+%sig CASLMOD = {
+  %include zfc.Boolean.
+  %include zfc.TND.
+  %include zfc.Option.
+  %include zfc.Lists.
+
+  carriers : i.
+  non_empty: ded tforall [x: Elem carriers] nonempty (which x).
+  universe : i = Bigunion [x: Elem carriers] option (which x).
+
+  empty_carrier : Elem carriers. %% = Elem empty.
+
+sortuniv_option_aux : {S : Elem carriers} ded (option (which S)) subset universe
+                    = [S] upperbound.
+
+sortuniv_aux : {S : Elem carriers} ded (which S) subset universe
+              = [S] subset_trans adjoint_subset 
+                                 (sortuniv_option_aux S).
+
+ifte_aux : {TT : List universe} {SS : List carriers} {S : Elem carriers} Func (which SS)(option (which S)) -> Option (which S)
+         = [TT][SS][S][F] case' ([p : ded ((which TT) in (which SS))] Apply F (elem (which TT) p) )
+                                ([p : ded not ((which TT) in (which SS))]  none )
+                                 tnd.     
+
+option_elim_aux : {x : Option A} ded not (x Eq none) -> ded (which x) in A
+                = [x : Option A] [p : ded not (x Eq none)] 
+                  orE (adjointE (why x))
+                      ( [q : ded (which x) in A] q )
+                      ( [q : ded (which x) eq A] (notE (notI ([r : ded (which x) eq A] notE p (trans r (sym eq_which))))   
+                                                       q  
+                                                       ((which x) in A) ) ).
+                  
+some_elim_aux : {x : Option A} ded not (x Eq none) -> Elem A 
+              = [x][p] elem (which x) (option_elim_aux x p).
+
+neq_aux : ded A Eq B -> ded not (B Eq C) -> ded not (A Eq C)
+        = [p][q]  notI ( [r : ded A Eq C] notE  q (trans (sym p) r )).
+}.
+
+
+%view CASLSemSorts : syn.CASLSorts -> CASLMOD = {
+   sort     := Elem carriers.
+   sortlist := List carriers.
+   sortnil  := nil.            
+   *        := [S : Elem carriers][SS : List carriers] Lists.cons S SS.
+}.
+
+%view  CASLSem : syn.CASLSorted -> CASLMOD = {
+   %include CASLSemSorts.
+   o   := Option bool.
+   wff := [x : Option bool] ded not (x Eq none).
+   ded := [x] ded x Eq some ⟙.
+
+   tm     := Elem universe.
+   tmlist := List universe.
+   tmnil  := nil.
+   ,      := [T : Elem universe][TT : List universe] Lists.cons T TT.
+
+   #    := [T][S] ded (which T) in (which S).
+   ##   := [T][S] ded (which T) in (which S).
+%% ##nil  := %% nil_tmlist in nil_sortlist     
+%% ##cons := [A : Elem universe][B : Elem carriers][AA : List universe][BB : List carriers]
+%%           [p : ded (which A) in (which B)][q : ded (which AA) in (which BB)]
+%%           ded (which (Lists.cons A AA)) in (which (Lists.cons B BB)).
+
+    =>! := [SS : List carriers][S : Elem carriers] Func (which SS) (which S).
+    =>? := [SS : List carriers][S : Elem carriers] Func (which SS) (option (which S)).
+    =>  := [SS : List carriers][S : Elem carriers] Func (which SS) (option (which S)).
+
+    !=>  := [SS : Lists.List carriers][S : Elem carriers][F : Func (which SS) (which S)] 
+            elem (which F)
+                 ( funcI' (subsetE ( rel_subset subset_refl
+                                                adjoint_subset)
+                                   ( funcEl' (why F)) )
+                          ([T] [ p : ded T in which SS] 
+                           funcEr' (why F)
+                                    p)).
+
+   ?=>  := [SS : Lists.List carriers][S : Elem carriers][F : Func (which SS) (option (which S))] F.
+
+   @ := [SS : List carriers][S : Elem carriers][F : Func (which SS) (option (which S))][TT : List universe]             
+          elem (which (ifte_aux TT SS S F))
+               ( subsetE (sortuniv_option_aux S)
+                         (why (ifte_aux TT SS S F)) 
+               ).
+
+%    #@   : {F : SS => S} TT ## SS -> (F @ TT) # S.
+ 
+%    #@ := [SS : List carriers][S : Elem carriers][F : Func (which SS) (option (which S))][TT : List universe]
+%          [p : ded (which TT) in (which SS)]
+%          (why (Apply F (elem (which TT) p))) % = ded (which Apply... in (option (which S))  
+
+
+   pred := [SS : List carriers] Powerset (which SS).
+            
+   @pred := [SS : List carriers][P : Elem (powerset (which SS))] [TT : List universe]
+            case' ([p : ded (which TT) in (which SS)] some (reflect ((which TT) in (which P)))    )
+                  ([p : ded not ((which TT) in (which SS))] none)
+                   tnd. 
+
+  wff_@pred := [SS : List carriers][TT : List universe]
+               [P : Powerset (which SS)][q : ded (which TT) in (which SS)]
+               neq_aux (case1 q)
+                       free_some_none.
+
+
+%   then-when-else := [A : Elem universe] [F : Option bool] [B : Elem universe] 
+%                     case' ([p : ded (F Eq some ⟙)]     A)
+%                           ([p : ded not (F Eq some ⟙)] B)
+%                           tnd. 
+
+
+   Var := [S : Elem carriers] Elem (which S).
+   '   := [S : Elem carriers] [T : Elem (which S)] cast (sortuniv_aux S) T. 
+   #'  := [S : Elem carriers] [T : Elem (which S)] eq_in castE (why T).
+                        
+ 
+
+
+
+
+
+
+
+
+ 
+
+and := [p : Option bool][q : Option bool]
+       case' ([v : ded p Eq none] none
+              )
+             ([v : ded not (p Eq none)]       case' ( [w : ded q Eq none] none
+                                                      )
+                                                    ( [w : ded not (q Eq none)] some ((some_elim_aux p v) ∧ (some_elim_aux q w)) 
+                                                      )
+                                                     (tnd)
+              )
+             (tnd).
+
+or := [p : Option bool][q : Option bool]
+       case' ([v : ded p Eq none] none
+              )
+             ([v : ded not (p Eq none)]       case' ( [w : ded q Eq none] none
+                                                      )
+                                                    ( [w : ded not (q Eq none)] some ((some_elim_aux p v) ∨ (some_elim_aux q w)) 
+                                                      )
+                                                     (tnd)
+              )
+             (tnd).
+
+imp := [p : Option bool][q : Option bool]
+       case' ([v : ded p Eq none] none
+              )
+             ([v : ded not (p Eq none)]       case' ( [w : ded q Eq none] none
+                                                      )
+                                                    ( [w : ded not (q Eq none)] some ((some_elim_aux p v) → (some_elim_aux q w)) 
+                                                      )
+                                                     (tnd)
+              )
+             (tnd).
+
+if  := [p : Option bool][q : Option bool]
+       case' ([v : ded p Eq none] none
+              )
+             ([v : ded not (p Eq none)]       case' ( [w : ded q Eq none] none
+                                                      )
+                                                    ( [w : ded not (q Eq none)] some ((some_elim_aux q w) → (some_elim_aux p v)) 
+                                                      )
+                                                     (tnd)
+              )
+             (tnd).
+
+equiv := [p : Option bool][q : Option bool]
+          case' ([v : ded p Eq none] none
+                 )
+                ([v : ded not (p Eq none)]       case' ( [w : ded q Eq none] none
+                                                         )
+                                                       ( [w : ded not (q Eq none)] some ( ((some_elim_aux p v) → (some_elim_aux q w)) 
+                                                                                        ∧ ((some_elim_aux q w) → (some_elim_aux p v)) )
+                                                         )
+                                                        (tnd)
+                 )
+                (tnd).
+
+not := [p : Option bool]
+       case'  ( [v : ded (p Eq none)] 
+                none 
+              )
+             ( [v : ded not (p Eq none)]  
+                some ( ⟙ ∖ (some_elim_aux p v))
+%               some ( elem (1 dif (which p)) (dif1_aux p v) )
+ 
+              )
+              (tnd).
+
+true := some ⟙.
+
+false := some ⟘.
+
+=e= := [A : Elem universe][B : Elem universe]
+       some( reflect (A Eq B)).
+% =e= := [S : Elem carriers][A : Elem universe][B : Elem universe]
+%        some (reflect(    ((which A) in (which S)) 
+%                      and ((which B) in (wchih S))
+%                      and (A Eq B) )).
+
+
+forall := [S : Elem carriers]
+          [f : Elem (which S) -> Option bool]
+          some( Filter [b : Elem 1]
+                       tforall [a : Elem (which S)] (   (not ((f a) Eq none))
+                                                    and ((which b) in (which (f a)))   )
+              ).
+
+exists := [S : Elem carriers]
+          [f : Elem (which S) -> Option bool]
+          some( Filter [b : Elem 1]
+                       texists [a : Elem (which S)] (   (not ((f a) Eq none))
+                                                    and ((which b) in (which (f a)))   )
+              ).  
+
+
+      
+
+
+
+wff_and := [A : Option bool]        [B : Option bool]
+           [p : ded not (A Eq none)][q : ded not (B Eq none)]
+           neq_aux (case2 p)
+                   (neq_aux (case2 q)
+                             free_some_none 
+                    ). 
+
+wff_or := [A : Option bool]        [B : Option bool]
+           [p : ded not (A Eq none)][q : ded not (B Eq none)]
+           neq_aux (case2 p)
+                   (neq_aux (case2 q)
+                             free_some_none 
+                    ).
+
+wff_imp := [A : Option bool]        [B : Option bool]
+           [p : ded not (A Eq none)][q : ded not (B Eq none)]
+           neq_aux (case2 p)
+                   (neq_aux (case2 q)
+                             free_some_none 
+                    ).
+
+wff_if  := [A : Option bool]        [B : Option bool]
+           [p : ded not (A Eq none)][q : ded not (B Eq none)]
+           neq_aux (case2 p)
+                   (neq_aux (case2 q)
+                             free_some_none 
+                    ).
+
+wff_equiv := [A : Option bool]        [B : Option bool]
+             [p : ded not (A Eq none)][q : ded not (B Eq none)]
+             neq_aux (case2 p)
+                     (neq_aux (case2 q)
+                               free_some_none 
+                      ).
+
+wff_not := [F : Option bool][p : ded not (F Eq none)]
+            neq_aux (case2 p)
+                     free_some_none.
+
+wff_true := free_some_none.
+
+wff_false := free_some_none.
+
+
+wff_=e= := [A : Elem universe][S : Elem carriers][B : Elem universe]
+           [p : ded (which A) in (which S)][q : ded (which B) in (which S)]
+           free_some_none.
+
+}.

@@ -1,0 +1,68 @@
+%namespace "http://latin.omdoc.org/translations/tt_zfc".
+%namespace tt = "../type_theories".
+%namespace zfc = "../foundations/zfc".
+
+
+%view IDENT : tt.IDENT -> zfc.Boolean = {
+ %include TypesTerms.
+ id   := [A][X: Elem A][Y: Elem A] internalize (which X eq which Y).
+ refl := [A][X: Elem A][Y: Elem A] [p] internalizeI p.
+
+%{from old version
+ sym  := [A][X: Elem A][Y: Elem A][p] internalizeI (sym (internalizeE p)).
+ subsTerm := [A][X: Elem A][Y: Elem A][B][p: Elem (internalize (which X eq which Y))][F: Elem A -> Elem B]
+               internalizeI (EqCongF F (internalizeE p)).
+ subsType := [A][X: Elem A][Y: Elem A][p: Elem (internalize (which X eq which Y))][F: Elem A -> i]
+               (EqcongF F (internalizeE p)).
+ cast := [A][B][p: ded A eq B][a: Elem A] elem (which a) (congP p ([x] which a in x) (why a)).
+ casteq := [A][B][p][a] internalizeI (sym (trans eq_which eq_which)).
+}%
+}.
+
+%view UNIT : tt.UNIT -> zfc.TypedZFBase = {
+ %include TypesTerms.
+ unit' := singleton empty.
+ !     := elem empty singletonI.
+}.
+ 
+%view VOID : tt.VOID -> zfc.TypedZFBase = {
+ %include TypesTerms.
+ void' := empty.
+ !!    := [A] [x: Elem empty] elem empty (emptyE (why x)).
+}.
+
+%view DUNION : tt.DUNION -> zfc.DisjUnion = {
+ %include TypesTerms.
+ +'   := [A][B] A disjUnion B.
+ inj1 := [A][B][a] Injl a. 
+ inj2 := [B][A][b] Injr b. 
+ case := [A][B][C][x][f][g] Case x f g.
+}.
+
+%view Product : tt.Product -> zfc.Products = {
+ %include TypesTerms.
+ *    := [A][B] A prod B.
+ pair := [A][B][a][b] Pair a b.
+ pi1  := [A][B][u] Pi1 u.
+ pi2  := [A][B][u] Pi2 u.
+ convpi1 := [A][B][X][Y] conv_Pi1.
+ convpi2 := [A][B][X][Y] conv_Pi2.
+ convpair:= [A][B][U] conv_Pair.
+}.
+
+%view SIGMA : tt.SIGMA -> zfc.DependentProducts = {
+ %include TypesTerms.
+ S' := [A][B] depSum A B.
+ pair := [A][B][a][b] depPair a b.
+ pi1 := [A][B][u] depPi1 u.
+ pi2 := [A][B][u] depPi2 u.
+}.
+
+%view SimpTypes : tt.SimpTypes -> zfc.Functions = {
+ %include TypesTerms.
+ funtypes.→   := [A][B] (func A B).
+ funtypes.λ   := [A][B][f] Lambda f.
+ funtypes.@   := [A][B][f][a] Apply f a.
+ funtypes.beta := [A][B][F][X] beta.
+ funtypes.eta  := [A][B][F] eta.
+}.

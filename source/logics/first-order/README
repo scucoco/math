@@ -1,0 +1,23 @@
+General structure of current directory at
+https://svn.kwarc.info/repos/twelf/logics/first-order
+
+Subdirectories are
+
+/model_theory
+/proof_theory
+/soundness
+/syntax
+ 
+Each subdirectory contains encodings of sorted and unsorted first-order logic:
+
+- for first-order logic
+
+base.elf    - signatures with auxiliary declarations and definitions
+modules.elf - separate signatures for the syntax/proof-theory/model-theory of first-order quantifiers and equality
+fol.elf     - signatures collecting individual signatures for logical symbols together
+
+- for sorted first-order logic
+sorted_base.elf    - signatures with auxiliary declarations and definitions
+sorted_modules.elf - separate signatures for the syntax/proof-theory/model-theory of first-order quantifiers and equality
+sorted.elf         - signatures collecting individual signatures for logical symbols together
+

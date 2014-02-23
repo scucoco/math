@@ -1,0 +1,24 @@
+%*
+  Rational numbers
+  axiomatically, based on unbounded, dense, totally ordered fields
+  @author: Florian Rabe
+*%
+
+%namespace "http://latin.omdoc.org/math".
+%namespace syn = "logics/syntax".
+%namespace pf = "logics/proof_theory".
+
+%sig Rat = {
+   %meta pf.IFOLEQ.
+   %include Total.
+   %include Dense.
+   %include UnboundedAbove.
+   %include UnboundedBelow.
+   %include Field.
+   %struct +monotonous : Monotonous = {
+       %include pf.Equal.equniv.
+       %include ring..Magma.
+       %include order..Relation.
+   }.
+   *monotonous : ⊦ X ≤ Y -> ⊦ 0 ≤ U -> ⊦ X * U ≤ Y * U.   
+}.

@@ -1,0 +1,14 @@
+%namespace "http://latin.omdoc.org/translations/tt_zfc".
+%namespace tt = "../type_theories".
+%namespace zfc = "../foundations/zfc".
+
+
+%view MLTT : tt.MLTT -> zfc.Boolean = {
+  %include TypesTerms.
+  %include UNIT.
+  %include VOID.
+  %include IDENT.
+  %include DUNION.
+  %include SIGMA.
+  %include PI.
+}.

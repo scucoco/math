@@ -1,0 +1,50 @@
+%* Model theory for first-order logic, uses operations on booleans to interpret the connectives *%
+
+%namespace "http://latin.omdoc.org/logics/model_theory".
+%namespace syn = "syntax".
+%namespace math = "../math".
+%namespace minimal = "../foundations/minimal".
+
+
+%sig FOLMOD = {
+  %include minimal.Universes.
+  
+  univ : set.
+  non_empty_universe : ded exists [x : elem univ] true.
+}.
+
+%view Universe : math.Universe -> FOLMOD = {
+  u := elem univ.
+}.
+
+%view BaseFOL : syn.UniverseLogic -> FOLMOD = {
+  %include Base.
+  %include Universe.
+}.
+
+%view Forall : syn.Forall -> FOLMOD = {
+  %include BaseFOL.
+  forall := ∀.
+}.
+
+%view Exists : syn.Exists -> FOLMOD = {
+  %include BaseFOL.
+  exists := ∃.
+}.
+
+%view Equal : syn.Equal -> FOLMOD = {
+  %include BaseFOL.
+  eq := [A][B] equal @ A @ B.
+}.
+
+%view FOL : syn.FOL -> FOLMOD = {
+  %include BaseFOL.
+  %include PL.
+  %include Forall.
+  %include Exists.
+}.
+
+%view FOLEQ : syn.FOLEQ -> FOLMOD = {
+  %include FOL.
+  %include Equal.  
+}.

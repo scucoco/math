@@ -1,0 +1,290 @@
+%*
+  Algebraic hierarchy: unsorted
+  @author:  Mihnea Iancu
+*%
+%%TODO refactor using assoc, distrib etc.
+
+%namespace "http://latin.omdoc.org/math".
+%namespace pf = "logics/proof_theory".
+
+%%Group-like with two binary operations 
+
+%sig Rack = {
+	%meta EqUniverse.
+	%struct right : Magma %open ∘ %as ◅. %infix none 50 ◅ .
+	%struct left : Magma %open ∘ %as ▻. %infix none 50 ▻.
+	
+	self-distrib-left   : X ▻ ( Y ▻ Z) == (X ▻ Y) ▻ (X ▻ Z).
+	self-distrib-right : ( Z ◅ Y) ◅ X  == (Z ◅ X) ◅ (Y ◅ X).
+	elim_left : (X ▻ Y) ◅ X == Y. 
+	elim_right: X ▻ (Y ◅ X) == Y.	
+}.
+
+%sig Quandle = {
+	%meta EqUniverse.
+	%include Rack.
+	idem◅ : X ◅ X == X.
+	idem▻ : X ▻ X == X = trans (cong ([t] X ▻ t) (sym idem◅)) elim_right.
+}.
+
+%%Group-like three binary operations
+
+%sig Quasigroup = {
+	%meta EqUniverse.
+	%struct mul : Magma %open ∘ %as *. %infix none 50 *.
+	%struct slash : Magma %open ∘ %as /. %infix none 50 /.
+	%struct backslash : Magma %open ∘ %as \. %infix none 50 \.
+	
+	\right_elim : X * (X \ Y) == Y.
+	\left_elim : X \ (X * Y) == Y.
+	/left_elim : (Y / X) * X == Y.
+	/right_elim : (Y * X) / X == Y.	
+}.
+
+%sig Loop = {
+	%meta EqUniverse.
+	%include Quasigroup.
+	%struct mul : Monoid = {%include mul.} %open e idenL idenR assoc.
+	
+	invR : u -> u = [x] x \ e.
+	invR_ax : X * (X \ e) == e = \right_elim.
+	
+	invL : u -> u = [x] e / x.
+	invL_ax : (e / X) * X == e = /left_elim.
+
+}.
+
+%sig MoufangLoop = {
+	%meta EqUniverse.
+	%include Loop.
+	moufang : (X * Y) * (Z * X) == X * ((Y * Z) * X).
+}.
+
+%sig AssocLoop = {
+	%meta EqUniverse.
+	%include Loop.
+	assoc : (X * Y) * Z  == X * (Y * Z).
+	
+	inv_equiv : e / X == X \ e =  trans (trans4 (sym idenR) (cong ([t] (e / X) * t) (sym invR_ax)) (sym assoc)  (cong ([t] t * (X \ e)) invL_ax)) (idenL).
+	
+}.
+
+%view %implicit QSG : Quasigroup -> Group = {
+   * := [x][y] x ∘ y.
+   / := [x][y] x ∘ (inv y).	
+   \ := [x][y] (inv x) ∘ y.
+   \right_elim := [x][y] trans3 (sym assoc) (cong ([t] t ∘ y) (inv_right)) idenL.
+   \left_elim := [x][y] trans3 (sym assoc) (cong ([t] t ∘ y) (inv_left)) idenL.
+   /left_elim := [y][x] trans3 (assoc) (cong ([t] y ∘ t) (inv_left)) idenR.
+   /right_elim := [y][x] trans3 (assoc) (cong ([t] y ∘ t) (inv_right)) idenR.
+}.
+
+%view %implicit LG : Loop -> Group = {
+	%include QSG.
+	e := e.
+	idenL := [X] idenL.
+	idenR := [X] idenR.
+   assoc := [x][y][z] assoc.	
+}.
+
+%view %implicit ALG : AssocLoop -> Group = {
+	%include LG.
+   assoc := [X][Y][Z] assoc.	
+}.
+
+
+%view MAL : Magma -> AssocLoop = {
+  	∘ := [x][y] x * y.  	
+}.
+
+%view SAL : Semigroup -> AssocLoop = {
+  %include MAL.	
+  assoc := [X][Y][Z] assoc.
+}.
+
+%view PMAL : PointedMagma -> AssocLoop = {
+   %include MAL. 
+   point := e.
+}.
+
+%view NERAL : NeutralElementRight -> AssocLoop = {
+   %include PMAL.	
+   neutral := [X] idenR.
+}.
+
+%view NELAL : NeutralElementLeft -> AssocLoop = {
+   %include PMAL.	
+   neutral := [X] idenL.
+}.
+
+%view NEAL : NeutralElement -> AssocLoop = {
+  %include NERAL.
+	%include NELAL.
+ 
+}.
+
+%view MNAL : Monoid -> AssocLoop = {
+   %include SAL.	
+   %include NEAL.
+}.
+
+%view IAL : Inverse -> AssocLoop = {
+	%include NEAL.
+	inv := [x] x \ e.
+}.
+
+%view RIAL : RightInverse -> AssocLoop = {
+	%include IAL.
+   inverse := [x]  invR_ax.
+}.
+
+%view LIAL : LeftInverse -> AssocLoop = {
+	%include IAL.
+	inverse := [x] trans (cong ([t] t * x) (sym inv_equiv)) invL_ax.
+}.
+
+%view GAL : Group -> AssocLoop = {
+   %include MNAL.	
+   %include RIAL.    
+}.
+
+%%Group-like structures with one ternary operation.
+%sig Semiheap = {
+  	%meta EqUniverse.
+	* : u -> u -> u -> u.
+  	para-assocL : (* (* X Y Z) T W) == (* X (* T Z Y) W).
+  	para-assocR : (* X (* T Z Y) W) == (* X Y (* Z T W)).
+
+}.
+
+
+%sig IdempotentSemiheap = {
+  %meta EqUniverse.
+  %include Semiheap.
+  idem : (* X X X) == X.
+}.
+
+%sig GeneralizedHeap = {
+	%meta EqUniverse.
+	%include IdempotentSemiheap.
+	para-symL : (* X X (* Y Y Z)) == (* Y Y (* X X Z)).
+	para-symR : (* (* X Y Y) Z Z) == (* (* X Z Z) Y Y).
+}.
+
+%sig Heap = {
+	%meta EqUniverse.
+	%include Semiheap.
+	idenL : (* X X Y) == Y.
+  	idenR : (* Y X X) == Y.
+}.
+
+
+%sig HeapUnit = {
+  %meta EqUniverse.
+  %include Heap.
+  1 : u.  
+}.
+
+%view MHU : Magma -> HeapUnit = {
+  	∘ := [x][y] * x 1 y.  	
+}.
+
+%view SHU : Semigroup -> HeapUnit = {
+  %include MHU.	
+  assoc := [X][Y][Z] trans para-assocL para-assocR.
+}.
+
+%view PMHU : PointedMagma -> HeapUnit = {
+   %include MHU. 
+   point := 1.
+}.
+
+%view NERHU : NeutralElementRight -> HeapUnit = {
+   %include PMHU.	
+   neutral := [X] idenR.
+}.
+
+%view NELHU : NeutralElementLeft -> HeapUnit = {
+   %include PMHU.	
+   neutral := [X] idenL.
+}.
+
+%view NEHU : NeutralElement -> HeapUnit = {
+  %include NERHU.
+  %include NELHU.
+ 
+}.
+
+%view MNHU : Monoid -> HeapUnit = {
+   %include SHU.	
+   %include NEHU.
+}.
+
+%view IHU : Inverse -> HeapUnit = {
+	%include NEHU.
+	inv := [x] * 1 x 1.
+}.
+
+%view RIHU : RightInverse -> HeapUnit = {
+	%include IHU.
+   inverse := [x]  trans3 (sym para-assocR) (cong ([t] * x t 1) idenR) idenL.
+}.
+
+%view LIHU : LeftInverse -> HeapUnit = {
+	%include IHU.
+	inverse := [x] trans3 (para-assocL) (cong ([t] * 1 t x) idenL) idenR.
+}.
+
+%view GHU : Group -> HeapUnit = {
+   %include MNHU.	
+   %include RIHU.    
+}.
+
+
+%view %implicit SG : Semiheap -> Group = {
+	* := [x][y][z] x ∘ ((inv y) ∘ z).
+	para-assocL := [x][y][z][t][w] trans (trans4 assoc 
+	                                                         (cong ([u] x ∘ u) (sym assoc))
+	                                                         (cong ([u] x ∘ ((((inv y) ∘ u) ∘ (inv t))∘ w)) (sym inv_invE))
+	                                                         (cong ([u] x ∘ ((u ∘ (inv t))∘ w)) (sym inv_distr) ))
+	                                                         (cong ([u] x ∘ (u ∘ w)) (sym inv_distr)).
+	
+	para-assocR := [x][t][z][y][w] trans (trans4 (cong ([u] x ∘ (u ∘ w)) (inv_distr))
+	                                                          (cong ([u] x ∘ ((u ∘ (inv t)) ∘ w)) (inv_distr))
+	                                                          (cong ([u] x ∘ ((((inv y) ∘ u) ∘ (inv t))∘ w)) (inv_invE))
+	                                                          (cong ([u] x ∘ u) assoc))
+	                                                          (cong ([u] x ∘ u) assoc).
+}.
+
+
+%view %implicit ISG : IdempotentSemiheap -> Group = {
+	%include SG.
+	idem := [x] trans (cong ([u] x ∘ u) inv_left) idenR.
+}.
+
+%view %implicit GHG : GeneralizedHeap -> Group = {
+	%include ISG.
+   para-symL := [x][y][z] trans (trans (trans3 (sym assoc) (cong ([u] u ∘ (y ∘ ((inv y) ∘ z)) ) (inv_right)) (idenL))
+                                               (trans3 (sym assoc) (cong ([u] u ∘ z) (inv_right)) (idenL)))
+                                     (sym (trans (trans3 (sym assoc) (cong ([u] u ∘ (x ∘ ((inv x) ∘ z)) ) (inv_right)) (idenL))
+                                               (trans3 (sym assoc) (cong ([u] u ∘ z) (inv_right)) (idenL)))).	
+                                               
+   para-symR := [x][y][z] trans (trans (trans (cong ([u] (x ∘ ((inv y) ∘ y)) ∘ u) inv_left) idenR)
+                                               (trans (cong ([u] x ∘ u) inv_left) idenR))
+                                      (sym (trans (trans (cong ([u] (x ∘ ((inv z) ∘ z)) ∘ u) inv_left) idenR)
+                                               (trans (cong ([u] x ∘ u) inv_left) idenR))).
+}.
+
+%view %implicit HG : Heap -> Group = {
+	%include SG.
+	idenL := [x][y]  trans3 (sym assoc) (cong ([u] u ∘ y) inv_right) idenL. 
+	idenR := [y][x] trans (cong ([u] y ∘ u) inv_left) idenR.
+}.
+
+%view %implicit HUG : HeapUnit -> Group = {
+	%include HG.
+	1 := e.	
+}.
+
+
+

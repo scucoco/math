@@ -1,0 +1,101 @@
+%namespace "http://latin.omdoc.org/foundations/mizar".
+%namespace zfc = "zfc".
+
+
+%sig Mizar_ZFC = {
+  %include zfc.TypedZF %open.
+ %% %include HIDDEN %open.
+   not_idem : ded not not A -> ded A. %%tnd
+   h0 : ded A -> ded not ( not A and not B) = [p] notI ([q : ded not A and not B] notE (andEl q) p).
+   h1 : ded B -> ded not ( not A and not B) = [p] notI ([q : ded not A and not B] notE (andEr q) p).
+   h2 : ded A or B -> ded not ( not A and not B ) = [p] orE p ([q] h0 q) ([r] h1 r).
+  
+   h3 : ded not ( not A and not B ) -> ded not B -> ded A = [p][q] not_idem (notI ([r : ded not A] notE p (andI r q) )). %%%
+   
+   h5 : ded not (not A and not B) -> ded A or B = [p] orE (tnd) ([q] orIr q) ([r] orIl (h3 p r)).
+   
+   orEquiv : ded ((A or B) equiv (not ( not A and not B))) = equivI h2 h5. 
+   
+   %%h6 : ded (A imp B) -> ded A -> ded not (A and (not B))
+   impEquiv : ded (A imp B) equiv (not ( A and (not B))). 
+
+%%%%%
+orM : o -> o -> o = [a][b] not ( (not a) and (not b) ).   %infix right 10 orM.
+impM : o -> o -> o = [a][b] not ( a and (not b)).  %infix right 15 impM.
+equivM : o -> o -> o = [a][b] (a impM b) and (b impM a).  %infix left 15 equivM.
+%%%%%
+
+%%%%%
+orZM  : ded A or B -> ded A orM B = [p] orE p ([q] notI ([r] notE (andEl r) q)) ([q] notI ([r] notE (andEr r) q)). 
+orMZ : ded A orM B -> ded A or B = [p] orE (tnd) ([q] orIr q) ([r] orIl (not_idem (notI ([s] notE p (andI s r) )))).   %%% 
+orM_prop : ded (A orM B) equiv (A or B) = equivI orMZ orZM. 
+
+impZM : ded A imp B -> ded A impM B = [p] notI ([q] notE (andEr q) (impE p (andEl q)) ).
+impMZ : ded A impM B -> ded A imp B = [p] impI [q : ded A] nnotE (notI ([r : ded not B]  notE p (andI q r))) . 
+impM_prop : ded (A impM B) equiv (A imp B) = equivI impMZ impZM. 
+
+equivZM: ded A equiv B -> ded A equivM B = [p] andI (impZM (andEl p)) (impZM (andEr p)). 
+equivMZ: ded A equivM B -> ded A equiv B = [p] andI (impMZ (andEl p)) (impMZ (andEr p)). 
+equivM_prop: ded (A equivM B) equiv (A equiv B) = equivI equivMZ equivZM. 
+%%%%
+%% f' = [x] ((G x) And [p] F (celem x p)) 
+%% existsI (which a) andI (AndI (why a) (s)) (forallI [b] (impI [r : f' b] impE (impMZ (tforallE (tforallE q a) b)) (andI s r) ))
+%% celem (implDef f' (E!..))  (AndEl impl_prop f' (E!..))  
+%%
+
+func_def : {F : Class G -> o} ded texists ([x] F x) -> ded tforall ([x] tforall ([y] (((F x) and (F y)) impM (cwhich x eq cwhich y)))) -> Class G
+         = [F][p][q] celem (implDef ([x] ((G x) And [p] F (celem x p)))  (texistsE p [a][s : ded F a] (existsI (cwhich a) (andI 
+                            (AndI (cwhy a)  (EqcongEr F ceq_which s))
+                            (forallI [y] (impI [r] trans (sym ceq_which) (impE (impMZ (tforallE (tforallE q (celem y (AndEl r))) a )) (andI (AndEr r) s) )))))))  
+                            (AndEl (impl_prop ([x] ((G x) And [p] F (celem x p)))  (texistsE p [a][s : ded F a] (existsI (cwhich a) (andI 
+                            (AndI (cwhy a)  (EqcongEr F ceq_which s))
+                            (forallI [y] (impI [r] trans (sym ceq_which) (impE (impMZ (tforallE (tforallE q (celem y (AndEl r))) a )) (andI (AndEr r) s) )))))) )).
+
+func_prop' : {F : Class G -> o}{EX}{UNQ} ded F (func_def F EX UNQ) 
+           = [F][p][q] AndEr (impl_prop 
+                            ([x] ((G x) And [p] F (celem x p)))
+ 
+                            (texistsE p [a][s : ded F a] (existsI (cwhich a) (andI 
+                            (AndI (cwhy a)  (EqcongEr F ceq_which s))
+                            (forallI [y] (impI [r] trans (sym ceq_which) (impE (impMZ (tforallE (tforallE q (celem y (AndEl r))) a )) (andI (AndEr r) s) ))))))
+)
+                            .
+
+adjI : {x : Class A}{F : Class A -> o} ded F x -> Class ([x] (A x) And ([p] F (celem x p))) = [x][F][p] celem (cwhich x) (AndI (cwhy x) (EqcongEr F ceq_which p)).
+%abbrev adjE : {A}{F}{x : Class ([x] A x And [p] F (celem x p))} Class A = [A][F][x] celem (cwhich x) ( AndEl (cwhy x)).
+%abbrev adjE' : {A}{F}{x : Class ([x] A x And [p] F (celem x p))} ded F (adjE A F x) = [A][F][x] AndEr (cwhy x).
+
+adj-nonI : {x : Class A}{F : Class A -> o} ded not (F x) -> Class ([x] (A x) And ([p] not (F (celem x p)))) = [x][F][p] celem (cwhich x) (AndI (cwhy x) (EqcongEr ([y] not F y) ceq_which p)).
+%abbrev adj-nonE : {A}{F}{x : Class ([x] A x And [p] not F (celem x p))} Class A = [A][F][x] celem (cwhich x) ( AndEl (cwhy x)).
+%abbrev adj-nonE' : {A}{F}{x : Class ([x] A x And [p] not F (celem x p))} ded not F (adj-nonE A F x) = [A][F][x] AndEr (cwhy x).
+
+forZM : ded forall ([x] F x) -> ded tforall ([x] F (cwhich x)) = [p] tforallI ([a : Class A] (forallE p (cwhich a))). 
+forMZ : ded tforall ([x : Class ([y] true)] F (cwhich x)) -> ded forall [x] F x
+= [p] forallI ([x] (congP (ceq_which) F ((tforallE p (celem x trueI)))  ) ).
+
+exZM : ded exists ([x] F x) -> ded texists ([x] F (cwhich x)) = [p] existsE p ([x][q : ded F x] texistsI (celem x trueI) (congP (sym ceq_which) F q)).
+exMZ : ded texists ([x] F (cwhich x)) -> ded exists ([x] F x) = [p] texistsE p ([x][q : ded F (cwhich x)]  existsI (cwhich x) q ).
+
+
+test : ded (tforall [x] ((cwhich x) in X) equivM ((cwhich x) in Y)) -> ded (forall [x] ((x in X) equivM (x in Y))) = [p] (forMZ p) .
+test2 : ded (forall [x] ((x in X) equivM (x in Y))) -> {x} ded ((x in X) equivM (x in Y)) = [p][x] forallE p x. 
+test3 : ded (tforall [x] ((cwhich x) in X) equivM ((cwhich x) in Y)) -> {x} ded ((x in X) equivM (x in Y)) = [p] test2 (test p).
+test4 : ded (tforall [x] ((cwhich x) in X) equivM ((cwhich x) in Y)) -> {x} ded ((x in X) equivM (x in Y)) = [p][x] forallE (test p) x.
+
+%%test5 : ded (tforall [x : Class ([y] true)] ((cwhich x) in X) equivM ((cwhich x) in Y)) -> {x} ded ((x in X) equivM (x in Y)) = [p][x] forallE (forMZ p) x.
+
+
+eqh2: ded  ( tforall [X : Class ([y] true)] tforall [Y : Class ([y] true)] ((tforall [x : Class ([y] true)] 
+     ((cwhich x) in (cwhich X)) equivM ((cwhich x) in (cwhich Y))) impM ((cwhich X) eq (cwhich Y))))
+ = tforallI [X] tforallI [Y] impZM (impI [p] (impE (forallE (forallE (ax_extensionality) (cwhich X)) (cwhich Y))) 
+   (forallI ([z] (congP (ceq_which) ([t] t in (cwhich X) equiv t in (cwhich Y)) (equivMZ (tforallE p (celem z trueI))))))).
+%%(impZM (impI ([p] eqI ([x] equivEl ( equivMZ (forallE (test p) x) )) ([x] equivEr ( equivMZ (forallE (test p) x)))))).
+
+_singleton_existence_h0 : {y : Class [a] true} ded (exists [it] tforall [x : Class [a] true] ((cwhich x) in (it) equivM ((cwhich x) eq (cwhich y))))
+ -> ded texists [it : Class [x] true] (tforall [x : Class [a] true] (cwhich x) in (cwhich it) equivM (cwhich x) eq (cwhich y)) = [y][p] exZM p. %% to prevent ambiguous constraints
+
+
+singleton_existence : {y : Class [x] true} ded texists [it : Class [x] true] (tforall [x : Class [a] true] (cwhich x) in (cwhich it) equivM (cwhich x) eq (cwhich y))
+                    = [y] _singleton_existence_h0 y (existsI (singleton (cwhich y)) (tforallI [x] equivZM (andI (impI singletonE) (impI [p : ded (cwhich x) eq (cwhich y)] congP (sym p) ([t] t in singleton (cwhich y)) singletonI )))). 
+
+}.

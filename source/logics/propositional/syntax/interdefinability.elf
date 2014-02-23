@@ -1,0 +1,9 @@
+%namespace "http://latin.omdoc.org/logics/syntax".
+
+%view ConjAsDisj : CONJ -> DISJ NEG = {
+   and := [x][y] not (not x or not y).
+}.
+
+%view DisjAsConj : DISJ -> CONJ NEG = {
+   or := [x][y] not (not x and not y).
+}.

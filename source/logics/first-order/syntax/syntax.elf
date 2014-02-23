@@ -1,0 +1,61 @@
+%* @author Fulya Horozal and Florian Rabe *%
+
+%namespace "http://latin.omdoc.org/logics/syntax".
+%namespace math = "../math".
+
+%sig UniverseLogic = {
+   %include Logic.
+   %include math.Universe %open u %as i.
+}.
+
+%sig Forall = {
+  %include UniverseLogic.
+  forall : (i -> o) -> o.
+}.
+
+%sig Exists = {
+  %include UniverseLogic.
+  exists : (i -> o) -> o.
+}.
+
+%sig RelationLogic = {
+   %meta UniverseLogic.
+   rel : u -> u -> o.                         %infix none 25 rel.
+   rel^ : u -> u -> type = [x][y] ded x rel y.  %infix none 25 rel^.
+}.
+
+%sig Equal = {
+  %include UniverseLogic.
+  %struct relation : RelationLogic %open rel %as eq rel^ %as ==^.
+  == = [x][y] x eq y. %infix none 25 ==.
+}.
+
+%sig FOL = {
+  %include UniverseLogic.
+  %include PL.
+  %include Forall.
+  %include Exists.
+
+%{
+  %pattern func = [n : Nat] {
+  f : i ^ n -> i.
+  }.  
+  %pattern pred = [n : Nat] {
+  p : i ^ n -> o.
+  }.  
+  %pattern ax = [F : o] {
+  ax : ded F.
+  }.
+}.
+}%
+}.
+
+%sig FOLEQ = {
+  %include FOL.
+  %include Equal.
+}.
+
+%view RelationInLogic : math.Relation -> RelationLogic = {
+   r := [x][y] x rel^ y.
+}.
+

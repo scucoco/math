@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
+  <view name="__" base="http://latin.omdoc.org/logics/proof_theory">
+    <from>
+      <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+        <om:OMS base="http://latin.omdoc.org/logics/proof_theory" module="TNDEq"/>
+      </om:OMOBJ>
+    </from>
+    <to>
+      <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+        <om:OMA>
+          <om:OMS position="0" base="http://cds.omdoc.org/mmt" module="mmt" name="theory-union"/>
+          <om:OMS position="1" base="http://latin.omdoc.org/logics/proof_theory" module="TND"/>
+          <om:OMS position="2" base="http://latin.omdoc.org/logics/proof_theory" module="Equal"/>
+        </om:OMA>
+      </om:OMOBJ>
+    </to>
+    <constant name="eq_tnd">
+      <definition>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+            <om:OMBVAR>
+              <om:OMV position="0" name="X">
+                <type>
+                  <om:OMS position="0_1" base="http://latin.omdoc.org/math" module="Universe" name="u"/>
+                </type>
+                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                </attribution>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMBIND position="2">
+              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
+              <om:OMBVAR>
+                <om:OMV position="2_0" name="Y">
+                  <type>
+                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/math" module="Universe" name="u"/>
+                  </type>
+                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
+                  </attribution>
+                </om:OMV>
+              </om:OMBVAR>
+              <om:OMA position="2_2">
+                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/proof_theory" module="TND" name="tnd"/>
+                <om:OMA position="2_2_2">
+                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
+                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="Equal" name="relation/rel"/>
+                  <om:OMV position="2_2_2_2" name="X"/>
+                  <om:OMV position="2_2_2_3" name="Y"/>
+                </om:OMA>
+              </om:OMA>
+            </om:OMBIND>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </definition>
+    </constant>
+  </view>
+</omdoc>

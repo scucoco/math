@@ -1,0 +1,59 @@
+%*
+   Syntax of FOL in the TPTP family of languages
+   (the CNF syntax is understood to be syntactic sugar for this one)
+   @author Florian Rabe, based on TPTP grammar
+   proof rules are omitted, the semantics is implicitly classical first-order logic
+*%
+
+%namespace "http://latin.omdoc.org/logics/tptp".
+
+%sig FOF = {
+  %* terms *%
+  $term : type.
+  %* formulas *%
+  $form : type.
+
+  $false: $form.
+  $true : $form.
+  &     : $form -> $form -> $form.    %infix left 5 &.
+  |     : $form -> $form -> $form.    %infix left 5 |.
+  ~     : $form -> $form.
+  =>    : $form -> $form -> $form.    %infix none 5 =>.
+  <=    : $form -> $form -> $form.    %infix none 5 <=.
+  <=>   : $form -> $form -> $form.    %infix none 5 <=>.
+  <~>   : $form -> $form -> $form.    %infix none 5 <~>.
+  ~&    : $form -> $form -> $form.    %infix none 5 ~&.
+  ~|    : $form -> $form -> $form.    %infix none 5 ~|.
+  ==    : $term -> $term -> $form.    %infix none 10 ==.
+  !=    : $term -> $term -> $form.    %infix none 10 !=.
+  !     : ($term -> $form) -> $form.  %prefix 5 !.
+  ?     : ($term -> $form) -> $form.  %prefix 5 ?.
+
+  $istrue : $form -> type.            %prefix 1 $istrue.
+
+%% legal declarations in theories
+
+%% function symbols
+%% f : $term -> ... -> $term -> $term.
+%{ 
+   %pattern funcs = [n : Nat] {
+     f : ($term ^ n) -> $term.
+   }.
+}%
+
+%% predicate symbols
+%% p : $term -> ... -> $term -> $form.
+%{
+   %pattern preds = [n : Nat] {
+     p : ($term ^ n) -> $form.
+   }.
+}%
+
+%% axioms/conjectures etc.
+%% a : $istrue F. for some F : $form
+%{ 
+   %pattern axioms = [F : $form] {
+   a : $istrue F.
+   }.
+}%   
+}.

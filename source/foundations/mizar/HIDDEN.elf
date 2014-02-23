@@ -1,0 +1,18 @@
+%namespace "http://latin.omdoc.org/foundations/mizar".
+
+%sig HIDDEN = {
+   %include Mizar-Curry %open.
+   %% sets
+   set : tp.
+   set_ax : proof X is set.
+
+   %%this may change
+   == : any -> any -> prop = [x][y] x eq y.     %infix right 25 ==.
+   <> : any -> any -> prop = [x][y] not (x == y). %infix right 25 <>.
+   
+   in : any -> any -> prop.                      %infix right 35 in.
+
+   fraenkelE : {t : tp} {p : any -> prop}{f : any -> any} proof for set [x] x in (fraenkel t p f) implies ex t [y] p y and (f y == x).
+   fraenkelI : {t : tp} {p : any -> prop}{f : any -> any} proof for t [x] (p x) implies (f x) in (fraenkel t p f).
+
+}.

@@ -1,0 +1,21 @@
+%namespace "http://latin.omdoc.org/logics/syntax".
+
+%*
+  minimal propositional logic
+  following Tarski, Bernays, and Wajsberg with primitive ⇒ and ⊥
+*%
+%sig MPL = {
+  %include Logic %open.
+  ⊥ : o.
+  ⇒ : o -> o -> o.                                 %infix right 5 ⇒.
+  ¬ : o -> o = [x] x ⇒ ⊥.                          %prefix 20 ¬.
+  ⊤ : o = ¬ ⊥.
+  ∧ : o -> o -> o = [x][y] ¬ (x ⇒ ¬ y).            %infix left 10 ∧.
+  ∨ : o -> o -> o = [x][y] ¬ x ⇒ y.                %infix left 10 ∨.
+  ⇔ : o -> o -> o = [x][y] (x ⇒ y) ∧ (y ⇒ x).      %infix none 5 ⇔.
+}.
+
+%view MPL-PL : MPL -> PL = {
+  ⊥ := false.
+  ⇒ := [x][y] x imp y.
+}.

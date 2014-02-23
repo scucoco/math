@@ -1,0 +1,17 @@
+%namespace "http://latin.omdoc.org/translations/sfol_fol".
+%namespace mod = "../logics/model_theory".
+
+
+%view BaseSFOLMOD : mod.BaseSFOLMOD -> mod.FOLMOD = {
+  univ := univ → bool'.
+  term := [_] univ.
+}.
+
+%view SForallMOD : mod.SForallMOD -> mod.FOLMOD = {
+  %include BaseSFOLMOD.
+  forall' := [S : elem (univ → bool')] λ [F : elem (univ → bool')]
+    forall' @ (λ [x : elem univ] imp' @ (S @ x) @ (F @ x)).
+  %% forall0 := .. %% fails  
+}.
+
+

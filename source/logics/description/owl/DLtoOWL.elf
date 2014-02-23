@@ -1,0 +1,243 @@
+%% DL to OWL2
+%read "../syntax.elf ".
+%read "owl2.elf".
+
+%namespace "http://latin.omdoc.org/logics/description/owl/owl2.omdoc".
+%namespace syn = "http://latin.omdoc.org/logics/syntax".
+
+%view DLBasetoOWL2 : syn.DLBase -> OWL2 = {
+
+ conc := class.
+ role := objectProperty.
+ atom := class.
+ %%ded
+ subsume := subClassOf.
+ %%eq := equivalentClasses.
+ 	
+}.
+
+%view FL0toOWL2 : syn.FL0 -> OWL2 = {
+	
+ %include DLBasetoOWL2.
+	%%atomic :=
+	top    := thing.
+	bot    := nothing.
+	inter  := objectIntersectionOf.
+	forall := objectAllValuesFrom.
+	
+}.
+
+%view FLminustoOWL2 : syn.FLminus -> OWL2 = {
+
+ %include FL0toOWL2.
+ lim_exists := objectMaxCardinality.  %% this is not limited, limited one is in OWL : maxCardinality ?
+	
+}.
+
+
+%view ALtoOWL2 : syn.AL -> OWL2 = {
+	
+ %include FLminustoOWL2.
+ 
+ %%aneg := 
+ 
+}.
+
+
+%view CtoOWL2 : syn.C -> OWL2 = {
+	
+ %include DLBasetoOWL2.
+ 
+ neg := objectComplementOf.
+
+}.
+
+
+%view EtoOWL2 : syn.E -> OWL2 = {
+
+ %include DLBasetoOWL2.
+
+ exists := objectSomeValuesFrom.
+ 	
+}.
+
+
+%view FtoOWL2 : syn.F -> OWL2 = {
+
+ %include DLBasetoOWL2.
+ 
+ functional := functionalObjectProperty.
+	
+}.
+
+
+%view NtoOWL2 : syn.N -> OWL2 = {
+
+ %include DLBasetoOWL2.
+ 
+%% nat  := 
+%% zero := 
+%% succ :=
+%% ==   :=
+ atleast := objectMinCardinalityQualifed.
+ atmost  := objectMaxCardinalityQualified.
+ 
+}.
+
+
+%view UtoOWL2 : syn.U -> OWL2 = {
+
+ %include DLBasetoOWL2.
+ 
+ union := objectUnionOf.
+ 	
+}.
+
+
+%view ALNtoOWL2 : syn.ALN -> OWL2 = {
+	
+ %include ALtoOWL2.
+ %include NtoOWL2.
+  	
+}.
+
+
+%view ALCtoOWL2 : syn.ALC -> OWL2 = {
+	
+ %include ALtoOWL2.
+ %include CtoOWL2.
+  	
+}.
+
+
+%view ELtoOWL2 : syn.EL -> OWL2 = {
+	
+ %include EtoOWL2.
+ %include FLOtoOWL2.
+ 
+ %%fullexistentialrestriction :=
+		
+}.
+
+
+%view StoOWL2 : syn.S -> OWL2 = {
+	
+ %include ALCtoOWL2.
+ 
+ trans := transitiveObjectProperty.
+ 	
+}.
+
+
+%view HtoOWL2 : syn.H -> OWL2 = {
+
+ %include DLBasetoOWL2.
+ <= := subObjectPropertyOf.
+ 	
+}.
+
+
+%view RtoOWL2 : syn.R -> OWL2 = {
+
+ %include DLBasetoOWL2.
+ %include HtoOWL2.
+ 
+ refl     := reflexiveObjectProperty.
+ irrefl   := irreflexiveObjectProperty.
+ disjoint := disjointObjectProperty.
+	
+}.
+
+
+%view OtoOWL2 : syn.O -> OWL2 = {
+
+ %include DLBasetoOWL2.
+ ind := individual.
+ concAssert := classAssertion.  %% but this is in OWL2, different order
+ roleAssert := objectPropertyAssertion. %% but this is in OWL2, different order
+ %%negRoleAssert := negativeObjectPropertyAssertion.  %% but this is in OWL2, different order
+	
+}.
+
+%view ItoOWL2 : syn.I -> OWL2 = {
+  
+ %include DLBasetoOWL2.
+ inv := objectInverseOf.
+		
+}.
+
+
+%view QtoOWL2 : syn.Q -> OWL2 = {
+
+ %include DLBasetoOWL2.
+ %include IndtoOWL2.
+
+%% U :=
+ localrefl   := objectHasSelf.
+%% comproleinc := 
+ antisym     := asymmetricObjetProperty.
+%% composit    := 
+ 
+	
+}.
+
+
+%view ALCOINtoOWL2 : syn.ALCOIN -> OWL2 = {
+
+ %include ALCtoOWL2.
+ %include OtoOWL2.
+ %include ItoOWL2.
+ %include NtoOWL2.
+	
+}.
+
+
+%view SHIQtoOWL2 : syn.SHIQ -> OWL2 = {
+	
+ %include StoOWL2.
+ %include HtoOWL2.
+ %include ItoOWL2.
+ %include QtoOWL2.
+	
+}.
+
+
+%view SROIQtoOWL2 : syn.SROIQ -> OWL2 = {
+
+ %include StoOWL2.
+ %include RtoOWL2.
+ %include OtoOWL2.
+ %include ItoOWL2.
+ %include QtoOWL2.
+
+}.
+
+
+%view SHOINtoOWL2 : syn.SHOIN -> OWL2 = {
+ 
+ %include StoOWL2.
+ %include HtoOWL2.
+ %include OtoOWL2.
+ %include ItoOWL2.
+ %include NtoOWL2.
+
+}.
+
+
+%view SHIFtoOWL2 : syn.SHIF -> OWL2 = {
+	
+ %include StoOWL2.
+ %include HtoOWL2.
+ %include ItoOWL2.
+ %include FtoOWL2.
+
+}.
+
+
+
+
+
+
+
+
+
