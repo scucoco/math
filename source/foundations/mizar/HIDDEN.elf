@@ -2,14 +2,17 @@
 
 %sig HIDDEN = {
    %include Mizar-Curry %open.
-   %% sets
+   
+   %% object: tp = mode [x] true, the universal type
+   %% sets (submode of object)
    set : tp.
    set_ax : proof X is set.
 
-   %%this may change
+   %% be object -> be object -> prop
    == : any -> any -> prop = [x][y] x eq y.     %infix right 25 ==.
    <> : any -> any -> prop = [x][y] not (x == y). %infix right 25 <>.
    
+   %% be object -> be set -> prop
    in : any -> any -> prop.                      %infix right 35 in.
 
    fraenkelE : {t : tp} {p : any -> prop}{f : any -> any} proof for set [x] x in (fraenkel t p f) implies ex t [y] p y and (f y == x).

@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
+  <theory name="HOL" base="http://latin.omdoc.org/foundations/hollight" meta="http://cds.omdoc.org/urtheories?LF">
+    <metadata>
+      <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2353.68.0:2730.81.1"/>
+    </metadata>
+    <import from="http://latin.omdoc.org/foundations/hollight?Kernel">
+      <metadata>
+        <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2405.69.2:2421.69.18"/>
+      </metadata>
+    </import>
+    <constant name="ind">
+      <metadata>
+        <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2427.71.2:2441.71.16"/>
+      </metadata>
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMS base="http://latin.omdoc.org/foundations/hollight" module="Kernel" name="holtype">
+            <metadata>
+              <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2433.71.8:2439.71.14"/>
+            </metadata>
+          </om:OMS>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="select">
+      <metadata>
+        <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2447.73.2:2487.73.42"/>
+      </metadata>
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <metadata>
+              <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2456.73.11:2478.73.33"/>
+            </metadata>
+            <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+            <om:OMBVAR>
+              <om:OMV name="A">
+                <metadata>
+                  <tag property="http://cds.omdoc.org/mmt?mmt?infered"/>
+                  <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2457.73.12:2457.73.12"/>
+                </metadata>
+                <type>
+                  <om:OMS base="http://latin.omdoc.org/foundations/hollight" module="Kernel" name="holtype"></om:OMS>
+                </type>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMA>
+              <metadata>
+                <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2460.73.15:2478.73.33"/>
+              </metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/hollight" module="Kernel" name="term"></om:OMS>
+              <om:OMA>
+                <metadata>
+                  <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2465.73.20:2478.73.33"/>
+                </metadata>
+                <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+                <om:OMS base="http://latin.omdoc.org/foundations/hollight" module="Kernel" name="fun"></om:OMS>
+                <om:OMA>
+                  <metadata>
+                    <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2465.73.20:2474.73.29"/>
+                  </metadata>
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+                  <om:OMS base="http://latin.omdoc.org/foundations/hollight" module="Kernel" name="fun"></om:OMS>
+                  <om:OMV name="A">
+                    <metadata>
+                      <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2466.73.21:2466.73.21"/>
+                    </metadata>
+                  </om:OMV>
+                  <om:OMS base="http://latin.omdoc.org/foundations/hollight" module="Kernel" name="bool">
+                    <metadata>
+                      <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2470.73.25:2473.73.28"/>
+                    </metadata>
+                  </om:OMS>
+                </om:OMA>
+                <om:OMV name="A">
+                  <metadata>
+                    <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2478.73.33:2478.73.33"/>
+                  </metadata>
+                </om:OMV>
+              </om:OMA>
+            </om:OMA>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </type>
+      <notation>
+        <notation dimensions="1" name="http://latin.omdoc.org/foundations/hollight?HOL?select" precedence="0" fixity="mixfix" arguments="@ 1"/>
+      </notation>
+    </constant>
+    <constant name="SELECT_AX">
+      <metadata>
+        <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2490.74.2:2562.74.74"/>
+      </metadata>
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <metadata>
+              <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2502.74.14:2560.74.72"/>
+            </metadata>
+            <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+            <om:OMBVAR>
+              <om:OMV name="A">
+                <metadata>
+                  <tag property="http://cds.omdoc.org/mmt?mmt?infered"/>
+                  <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2503.74.15:2503.74.15"/>
+                </metadata>
+                <type>
+                  <om:OMS base="http://latin.omdoc.org/foundations/hollight" module="Kernel" name="holtype"></om:OMS>
+                </type>
+              </om:OMV>
+              <om:OMV name="P">
+                <metadata>
+                  <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2506.74.18:2506.74.18"/>
+                </metadata>
+                <type>
+                  <om:OMA>
+                    <metadata>
+                      <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2509.74.21:2521.74.33"/>
+                    </metadata>
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+                    <om:OMS base="http://latin.omdoc.org/foundations/hollight" module="Kernel" name="term"></om:OMS>
+                    <om:OMA>
+                      <metadata>
+                        <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2514.74.26:2521.74.33"/>
+                      </metadata>
+                      <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+                      <om:OMS base="http://latin.omdoc.org/foundations/hollight" module="Kernel" name="fun"></om:OMS>
+                      <om:OMV name="A"></om:OMV>
+                      <om:OMS base="http://latin.omdoc.org/foundations/hollight" module="Kernel" name="bool"></om:OMS>
+                    </om:OMA>
+                  </om:OMA>
+                </type>
+              </om:OMV>
+              <om:OMV name="x">
+                <metadata>
+                  <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2524.74.36:2524.74.36"/>
+                </metadata>
+                <type>
+                  <om:OMA>
+                    <metadata>
+                      <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2527.74.39:2532.74.44"/>
+                    </metadata>
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+                    <om:OMS base="http://latin.omdoc.org/foundations/hollight" module="Kernel" name="term"></om:OMS>
+                    <om:OMV name="A">
+                      <metadata>
+                        <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2532.74.44:2532.74.44"/>
+                      </metadata>
+                    </om:OMV>
+                  </om:OMA>
+                </type>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMA>
+              <metadata>
+                <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2535.74.47:2560.74.72"/>
+              </metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+                <metadata>
+                  <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2535.74.47:2541.74.53"/>
+                </metadata>
+                <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+                <om:OMS base="http://latin.omdoc.org/foundations/hollight" module="Kernel" name="thm"></om:OMS>
+                <om:OMA>
+                  <metadata>
+                    <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2537.74.49:2541.74.53"/>
+                  </metadata>
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+                  <om:OMS base="http://latin.omdoc.org/foundations/hollight" module="Kernel" name="Comb"></om:OMS>
+                  <om:OMV name="A"></om:OMV>
+                  <om:OMS base="http://latin.omdoc.org/foundations/hollight" module="Kernel" name="bool"></om:OMS>
+                  <om:OMV name="P">
+                    <metadata>
+                      <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2537.74.49:2537.74.49"/>
+                    </metadata>
+                  </om:OMV>
+                  <om:OMV name="x">
+                    <metadata>
+                      <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2541.74.53:2541.74.53"/>
+                    </metadata>
+                  </om:OMV>
+                </om:OMA>
+              </om:OMA>
+              <om:OMA>
+                <metadata>
+                  <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2545.74.57:2560.74.72"/>
+                </metadata>
+                <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+                <om:OMS base="http://latin.omdoc.org/foundations/hollight" module="Kernel" name="thm"></om:OMS>
+                <om:OMA>
+                  <metadata>
+                    <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2547.74.59:2560.74.72"/>
+                  </metadata>
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+                  <om:OMS base="http://latin.omdoc.org/foundations/hollight" module="Kernel" name="Comb"></om:OMS>
+                  <om:OMV name="A"></om:OMV>
+                  <om:OMS base="http://latin.omdoc.org/foundations/hollight" module="Kernel" name="bool"></om:OMS>
+                  <om:OMV name="P">
+                    <metadata>
+                      <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2547.74.59:2547.74.59"/>
+                    </metadata>
+                  </om:OMV>
+                  <om:OMA>
+                    <metadata>
+                      <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2551.74.63:2560.74.72"/>
+                    </metadata>
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+                    <om:OMS base="http://latin.omdoc.org/foundations/hollight" module="Kernel" name="Comb"></om:OMS>
+                    <om:OMA>
+                      <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+                      <om:OMS base="http://latin.omdoc.org/foundations/hollight" module="Kernel" name="fun"></om:OMS>
+                      <om:OMV name="A">
+                        <metadata>
+                          <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2466.73.21:2466.73.21"/>
+                        </metadata>
+                      </om:OMV>
+                      <om:OMS base="http://latin.omdoc.org/foundations/hollight" module="Kernel" name="bool">
+                        <metadata>
+                          <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2470.73.25:2473.73.28"/>
+                        </metadata>
+                      </om:OMS>
+                    </om:OMA>
+                    <om:OMV name="A"></om:OMV>
+                    <om:OMA>
+                      <metadata>
+                        <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2552.74.64:2556.74.68"/>
+                      </metadata>
+                      <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+                      <om:OMS base="http://latin.omdoc.org/foundations/hollight" module="HOL" name="select"></om:OMS>
+                      <om:OMV name="A">
+                        <metadata>
+                          <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2555.74.67:2555.74.67"/>
+                        </metadata>
+                      </om:OMV>
+                    </om:OMA>
+                    <om:OMV name="P">
+                      <metadata>
+                        <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2559.74.71:2559.74.71"/>
+                      </metadata>
+                    </om:OMV>
+                  </om:OMA>
+                </om:OMA>
+              </om:OMA>
+            </om:OMA>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </type>
+    </constant>
+    <constant name="ETA_AX">
+      <metadata>
+        <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2566.76.2:2618.76.54"/>
+      </metadata>
+      <type>
+        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
+          <om:OMBIND>
+            <metadata>
+              <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2575.76.11:2616.76.52"/>
+            </metadata>
+            <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+            <om:OMBVAR>
+              <om:OMV name="A">
+                <metadata>
+                  <tag property="http://cds.omdoc.org/mmt?mmt?infered"/>
+                  <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2576.76.12:2576.76.12"/>
+                </metadata>
+                <type>
+                  <om:OMS base="http://latin.omdoc.org/foundations/hollight" module="Kernel" name="holtype"></om:OMS>
+                </type>
+              </om:OMV>
+              <om:OMV name="B">
+                <metadata>
+                  <tag property="http://cds.omdoc.org/mmt?mmt?infered"/>
+                  <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2578.76.14:2578.76.14"/>
+                </metadata>
+                <type>
+                  <om:OMS base="http://latin.omdoc.org/foundations/hollight" module="Kernel" name="holtype"></om:OMS>
+                </type>
+              </om:OMV>
+              <om:OMV name="F">
+                <metadata>
+                  <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2581.76.17:2581.76.17"/>
+                </metadata>
+                <type>
+                  <om:OMA>
+                    <metadata>
+                      <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2584.76.20:2593.76.29"/>
+                    </metadata>
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+                    <om:OMS base="http://latin.omdoc.org/foundations/hollight" module="Kernel" name="term"></om:OMS>
+                    <om:OMA>
+                      <metadata>
+                        <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2589.76.25:2593.76.29"/>
+                      </metadata>
+                      <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+                      <om:OMS base="http://latin.omdoc.org/foundations/hollight" module="Kernel" name="fun"></om:OMS>
+                      <om:OMV name="A"></om:OMV>
+                      <om:OMV name="B"></om:OMV>
+                    </om:OMA>
+                  </om:OMA>
+                </type>
+              </om:OMV>
+            </om:OMBVAR>
+            <om:OMA>
+              <metadata>
+                <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2596.76.32:2616.76.52"/>
+              </metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/hollight" module="Kernel" name="thm"></om:OMS>
+              <om:OMA>
+                <metadata>
+                  <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2598.76.34:2616.76.52"/>
+                </metadata>
+                <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+                <om:OMS base="http://latin.omdoc.org/foundations/hollight" module="Kernel" name="Comb"></om:OMS>
+                <om:OMA>
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+                  <om:OMS base="http://latin.omdoc.org/foundations/hollight" module="Kernel" name="fun"></om:OMS>
+                  <om:OMV name="A"></om:OMV>
+                  <om:OMV name="B"></om:OMV>
+                </om:OMA>
+                <om:OMS base="http://latin.omdoc.org/foundations/hollight" module="Kernel" name="bool"></om:OMS>
+                <om:OMA>
+                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+                  <om:OMS base="http://latin.omdoc.org/foundations/hollight" module="Kernel" name="Comb"></om:OMS>
+                  <om:OMA>
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+                    <om:OMS base="http://latin.omdoc.org/foundations/hollight" module="Kernel" name="fun"></om:OMS>
+                    <om:OMV name="A"></om:OMV>
+                    <om:OMV name="B"></om:OMV>
+                  </om:OMA>
+                  <om:OMA>
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+                    <om:OMS base="http://latin.omdoc.org/foundations/hollight" module="Kernel" name="fun"></om:OMS>
+                    <om:OMA>
+                      <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+                      <om:OMS base="http://latin.omdoc.org/foundations/hollight" module="Kernel" name="fun"></om:OMS>
+                      <om:OMV name="A"></om:OMV>
+                      <om:OMV name="B"></om:OMV>
+                    </om:OMA>
+                    <om:OMS base="http://latin.omdoc.org/foundations/hollight" module="Kernel" name="bool"></om:OMS>
+                  </om:OMA>
+                  <om:OMA>
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+                    <om:OMS base="http://latin.omdoc.org/foundations/hollight" module="Kernel" name="equal"></om:OMS>
+                    <om:OMA>
+                      <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+                      <om:OMS base="http://latin.omdoc.org/foundations/hollight" module="Kernel" name="fun"></om:OMS>
+                      <om:OMV name="A"></om:OMV>
+                      <om:OMV name="B"></om:OMV>
+                    </om:OMA>
+                  </om:OMA>
+                  <om:OMA>
+                    <metadata>
+                      <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2598.76.34:2612.76.48"/>
+                    </metadata>
+                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+                    <om:OMS base="http://latin.omdoc.org/foundations/hollight" module="Kernel" name="Abs"></om:OMS>
+                    <om:OMV name="A"></om:OMV>
+                    <om:OMV name="B"></om:OMV>
+                    <om:OMBIND>
+                      <metadata>
+                        <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2601.76.37:2611.76.47"/>
+                      </metadata>
+                      <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                      <om:OMBVAR>
+                        <om:OMV name="x">
+                          <metadata>
+                            <tag property="http://cds.omdoc.org/mmt?mmt?infered"/>
+                            <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2602.76.38:2602.76.38"/>
+                          </metadata>
+                          <type>
+                            <om:OMA>
+                              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+                              <om:OMS base="http://latin.omdoc.org/foundations/hollight" module="Kernel" name="term"></om:OMS>
+                              <om:OMV name="A"></om:OMV>
+                            </om:OMA>
+                          </type>
+                        </om:OMV>
+                      </om:OMBVAR>
+                      <om:OMA>
+                        <metadata>
+                          <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2605.76.41:2611.76.47"/>
+                        </metadata>
+                        <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+                        <om:OMS base="http://latin.omdoc.org/foundations/hollight" module="Kernel" name="Comb"></om:OMS>
+                        <om:OMV name="A"></om:OMV>
+                        <om:OMV name="B"></om:OMV>
+                        <om:OMV name="F">
+                          <metadata>
+                            <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2606.76.42:2606.76.42"/>
+                          </metadata>
+                        </om:OMV>
+                        <om:OMV name="x">
+                          <metadata>
+                            <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2610.76.46:2610.76.46"/>
+                          </metadata>
+                        </om:OMV>
+                      </om:OMA>
+                    </om:OMBIND>
+                  </om:OMA>
+                </om:OMA>
+                <om:OMV name="F">
+                  <metadata>
+                    <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#2616.76.52:2616.76.52"/>
+                  </metadata>
+                </om:OMV>
+              </om:OMA>
+            </om:OMA>
+          </om:OMBIND>
+        </om:OMOBJ>
+      </type>
+    </constant>
+  </theory>
+</omdoc>

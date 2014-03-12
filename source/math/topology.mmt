@@ -1,0 +1,41 @@
+namespace http://latin.omdoc.org/math
+
+theory NeighborhoodTopology : http://latin.omdoc.org/logics/syntax?PowerSorts =
+  X     : sort
+  NN    : tm X → tm ℘℘X
+  in    : tm X → tm ℘X → o
+        = [x,N] N ‍∈ (NN x)# 1 ∘ 2
+  
+  non-empty : {x} ded nonempty NN x
+  inneighborhood : {x,N} ded x ‍∘ N → ded x ‍∈ N
+  superset_closed   : {M,N,x} ded x ∘ M → M ⊆‍ N → ded x ∘ N
+  intersection_closed : {M,N,x} ded x ∘ M → ded x ∘ N → ded x ∘ M ∩ N
+  openness       : {N,x} ded x ∘ N → ded ∃ [M] ∀ [y] x ∘ M ∧ (y ‍∈ M ⇒ y ∘ N)
+
+
+theory OpenTopology : http://latin.omdoc.org/logics/syntax?PowerSorts =
+  X     : sort
+  OO    : tm ℘℘X
+  
+  empty_open : ded ∅ ‍∈ OO
+  full_open  : ded (full X) ‍∈ OO
+  union      :          {Q: tm ℘℘X} Q ⊆‍ OO → (⋃ Q) ‍∈ OO
+  finite_intersection : {A,B} ded A ‍∈ OO → ded B ‍∈ OO → ded A ∩ B ‍∈ OO
+
+
+theory ClosedTopology : http://latin.omdoc.org/logics/syntax?PowerSorts =
+  X     : sort
+  CC    : tm ℘℘X
+  
+  empty_closed : ded ∅ ‍∈ CC
+  full_closed  : ded (full X) ‍∈ CC
+  finite_union : {A,B} ded A ‍∈ CC → ded B ‍∈ CC → ded A ∪ B ‍∈ CC
+  intersection : {Q: tm ℘℘X} Q ⊆‍ OO → (⋂ Q) ‍∈ OO
+
+
+//   views:
+      Neighborhood → Open: NN = supersets of open sets
+      Open → Neighborhood: OO = sets that are neightborhoods for every element
+      Open → Closed: OO = complements of CC
+      Closed → Open: CC = complements of OO
+

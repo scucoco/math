@@ -1,0 +1,35 @@
+namespace http://latin.omdoc.org/foundations/interface
+
+theory Interface : http://cds.omdoc.org/urtheories?LF =
+  obj  : type
+  tp   : type
+  prop : type
+  ded  : prop → type role Judgment
+
+  of   : obj → tp → type # 1 ‍# 2 role Judgment
+  elem : tp → type
+  
+  tpeq : tp → tp → type # 1 == 2 prec 20 role Judgment
+  eleq : {a} elem a → elem a → type # 2 = 3 prec 20 role Judgment
+  
+  sub  : tp → tp → type # 1 ≤ 2
+  sub_trans : {a,b,c} a ≤ b → b ≤ c → a ≤ c# sub_trans 4 5
+  cast : {a,b} a ≤ b → elem a → elem b# 4 @ 3 prec 30 
+  cast_trans : {a,b,c, p: a ≤ b, q: b ≤ c, x} (x @ p) @ q = x @ (sub_trans p q)  role Simplify
+
+  is   : obj → tp → prop # 1 ‍∈ 2
+  those : (obj → prop) → tp
+
+ // sfol for elem and for tp
+  power types
+  function types
+  product types
+  list, option types
+  
+  nat : tp
+  int : tp
+  _ : nat ≤ int
+
+
+
+  

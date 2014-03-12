@@ -1,17 +1,20 @@
 %namespace "http://latin.omdoc.org/foundations/mizar".
 
 %sig Mizar-Curry = {
-   %% terms (any in Mizar/TG)
+   %% terms (a meta-type for all objects)
    any : type.
-   %% types
+   %% types (intuitively unary predicates on any, correspond to modes in Mizar)
    tp : type.
+   %% the mode object/element in Mizar/hidden corresponds to the universal mode, i.e., any
+   %% thus 'be object' corresponds to any 
+
    %% propositions
    prop : type.
    %% proofs
    proof : prop -> type.        %prefix 0 proof.
 
    %% typing proposition
-   is  : any -> tp -> prop.       %infix none 50 is.
+   is : any -> tp -> prop.       %infix none 50 is.
    be : any -> tp -> type =[x][a] proof x is a.        %infix none 50 be.
 
    %% proposition constructors
@@ -27,8 +30,6 @@
    for : tp -> (any -> prop) -> prop.
    ex  : tp -> (any -> prop) -> prop = [t][p] not (for t ([x] not p x)).
    ex! : tp -> (any -> prop) -> prop  = [A][f] ex A [x] (f x and for A [y] f y implies y eq x).
-   
-   
 
    %% propositional logic
    contradiction : type = proof false.
