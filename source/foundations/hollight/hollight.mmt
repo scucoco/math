@@ -69,7 +69,7 @@ theory HOL : http://cds.omdoc.org/urtheories?LF =
   
   ind : holtype
   
-  select : {A} term (A ⇒ bool) ⇒ A # @ 1
+  select : {A} term (A ⇒ bool) ⇒ A # @ 1## ε V2T . 3 
   SELECT_AX : {A, P: term A ⇒ bool, x: term A} ⊦ P ' x → ⊦ P ' ((@ A)' P)
 
   ETA_AX : {A,B, F: term A ⇒ B} ⊦ (λ [x] (F ' x)) = F
