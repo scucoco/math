@@ -29,7 +29,7 @@ theory Kernel : http://cds.omdoc.org/urtheories?LF =
   TRANS : {A}{X,Y,Z:term A} ⊦ X = Y → ⊦ Y = Z → ⊦ X = Z
   BETA  : {A,B,F: term A → term B,X: term A} ⊦ (λ F)'X = (F X)
   MK_COMB : {A,B, F,G: term A ⇒ B, X,Y: term A} ⊦ F = G → ⊦ X = Y → ⊦ F'X = G'Y
-  ABS   : {A,B, t1,t2: term A → term B} ({x: term A} ⊦ (t1 x) = (t2 x)) → ⊦ λ t1 = λ t2
+  ABS   : {A,B, t1,t2: term A → term B} ({x: term A} ⊦ (t1 x) = (t2 x)) → ⊦ (λ t1) = (λ t2)
   
   MP    : {p,q} ⊦ p = q → ⊦ p → ⊦ q
   DEDUCT_ANTISYM_RULE : {p,q} (⊦ p → ⊦ q) → (⊦ q → ⊦ p) → ⊦ p = q
