@@ -8,21 +8,21 @@ theory Kernel : http://cds.omdoc.org/urtheories?LF =
   // types 
   holtype  : type
   // function type 
-  fun  : holtype → holtype → holtype #1 ⇒ 2 prec 10
+  fun  : holtype → holtype → holtype # 1 ⇒ 2 prec 0
 
   // terms
-  term : holtype → type # term 1 prec 0 ## 1 prec 0
+  term : holtype → type # term 1 prec -1 ## 1 prec -1
   // lambda
-  Abs  : {A,B} (term A → term B) → term (A ⇒ B) # λ 3 prec 20## λ V3T . 4 
+  Abs  : {A,B} (term A → term B) → term (A ⇒ B) # λ 3 prec 0## λ V3T . 4 prec 0
   // application
-  Comb : {A,B} term (A ⇒ B) → term A → term B # 3 ' 4 prec 20 ## 3 %w 4 prec 20
+  Comb : {A,B} term (A ⇒ B) → term A → term B # 3 ' 4 prec 1000 ## 3 %w 4 prec 1000
 
   // type of propositions/formulas  
   bool  : holtype
-  equal : {A} term A ⇒ (A ⇒ bool)# meta ?Kernel 2 = 3 prec 10## meta ?Kernel 2 = _ %I1 3 prec 10
+  equal : {A} term A ⇒ (A ⇒ bool)# meta ?Kernel 2 = 3 prec 12## meta ?Kernel 2 = _ %I1 3 prec 12
   
   // truth of propositions
-  thm   : term bool → type # ⊦ 1 prec 0  role Judgement
+  thm   : term bool → type # ⊦ 1 prec -1  role Judgement
   
   // proof rules
   REFL  : {A}{X: term A} ⊦ X = X
