@@ -39,9 +39,11 @@
           </om:OMA>
         </om:OMOBJ>
       </type>
-      <notation>
-        <notation dimensions="1" name="http://latin.omdoc.org/foundations/hollight?Kernel?fun" precedence="0" fixity="mixfix" arguments="1 ⇒ 2"/>
-      </notation>
+      <notations>
+        <notation dimension="1" precedence="0" fixity="mixfix" arguments="1 ⇒ 2">
+          <scope languages="" priority="0"/>
+        </notation>
+      </notations>
     </constant>
     <constant name="term">
       <metadata>
@@ -63,10 +65,14 @@
           </om:OMA>
         </om:OMOBJ>
       </type>
-      <notation>
-        <notation dimensions="1" name="http://latin.omdoc.org/foundations/hollight?Kernel?term" precedence="-1" fixity="mixfix" arguments="term 1"/>
-        <notation dimensions="2" name="http://latin.omdoc.org/foundations/hollight?Kernel?term" precedence="-1" fixity="mixfix" arguments="1"/>
-      </notation>
+      <notations>
+        <notation dimension="1" precedence="-1" fixity="mixfix" arguments="term 1">
+          <scope languages="" priority="0"/>
+        </notation>
+        <notation dimension="2" precedence="-1" fixity="mixfix" arguments="1">
+          <scope languages="" priority="0"/>
+        </notation>
+      </notations>
     </constant>
     <constant name="Abs">
       <metadata>
@@ -162,10 +168,14 @@
           </om:OMBIND>
         </om:OMOBJ>
       </type>
-      <notation>
-        <notation dimensions="1" name="http://latin.omdoc.org/foundations/hollight?Kernel?Abs" precedence="0" fixity="mixfix" arguments="λ 3"/>
-        <notation dimensions="2" name="http://latin.omdoc.org/foundations/hollight?Kernel?Abs" precedence="0" fixity="mixfix" arguments="λ V3T . 4"/>
-      </notation>
+      <notations>
+        <notation dimension="1" precedence="0" fixity="mixfix" arguments="λ 3">
+          <scope languages="" priority="0"/>
+        </notation>
+        <notation dimension="2" precedence="0" fixity="mixfix" arguments="λ V3T . 4">
+          <scope languages="" priority="0"/>
+        </notation>
+      </notations>
     </constant>
     <constant name="Comb">
       <metadata>
@@ -255,10 +265,14 @@
           </om:OMBIND>
         </om:OMOBJ>
       </type>
-      <notation>
-        <notation dimensions="1" name="http://latin.omdoc.org/foundations/hollight?Kernel?Comb" precedence="1000" fixity="mixfix" arguments="3 ' 4"/>
-        <notation dimensions="2" name="http://latin.omdoc.org/foundations/hollight?Kernel?Comb" precedence="1000" fixity="mixfix" arguments="3 %w 4"/>
-      </notation>
+      <notations>
+        <notation dimension="1" precedence="1000" fixity="mixfix" arguments="3 ' 4">
+          <scope languages="" priority="0"/>
+        </notation>
+        <notation dimension="2" precedence="1000" fixity="mixfix" arguments="3 %w 4">
+          <scope languages="" priority="0"/>
+        </notation>
+      </notations>
     </constant>
     <constant name="bool">
       <metadata>
@@ -335,14 +349,14 @@
           </om:OMBIND>
         </om:OMOBJ>
       </type>
-      <notation>
-        <notation 
-        dimensions="1" name="http://latin.omdoc.org/foundations/hollight?Kernel?equal" precedence="12" meta="http://latin.omdoc.org/foundations/hollight?Kernel" fixity="mixfix" arguments="2 = 3">
-</notation>
-        <notation 
-        dimensions="2" name="http://latin.omdoc.org/foundations/hollight?Kernel?equal" precedence="12" meta="http://latin.omdoc.org/foundations/hollight?Kernel" fixity="mixfix" arguments="2 = _ %I1 3">
-</notation>
-      </notation>
+      <notations>
+        <notation dimension="1" precedence="12" meta="http://latin.omdoc.org/foundations/hollight?Kernel" fixity="mixfix" arguments="2 = 3">
+          <scope languages="" priority="0"/>
+        </notation>
+        <notation dimension="2" precedence="12" meta="http://latin.omdoc.org/foundations/hollight?Kernel" fixity="mixfix" arguments="2 = _ %I1 3">
+          <scope languages="" priority="0"/>
+        </notation>
+      </notations>
     </constant>
     <constant name="thm" role="Judgement">
       <metadata>
@@ -368,9 +382,11 @@
           </om:OMA>
         </om:OMOBJ>
       </type>
-      <notation>
-        <notation dimensions="1" name="http://latin.omdoc.org/foundations/hollight?Kernel?thm" precedence="-1" fixity="mixfix" arguments="⊦ 1"/>
-      </notation>
+      <notations>
+        <notation dimension="1" precedence="-1" fixity="mixfix" arguments="⊦ 1">
+          <scope languages="" priority="0"/>
+        </notation>
+      </notations>
     </constant>
     <constant name="REFL">
       <metadata>
@@ -728,11 +744,7 @@
                       </metadata>
                       <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
                       <om:OMS base="http://latin.omdoc.org/foundations/hollight" module="Kernel" name="term"></om:OMS>
-                      <om:OMV name="B">
-                        <metadata>
-                          <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#1024.29.32:1024.29.32"/>
-                        </metadata>
-                      </om:OMV>
+                      <om:OMV name="B"></om:OMV>
                     </om:OMA>
                   </om:OMA>
                 </type>
@@ -898,16 +910,8 @@
                       </metadata>
                       <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
                       <om:OMS base="http://latin.omdoc.org/foundations/hollight" module="Kernel" name="fun"></om:OMS>
-                      <om:OMV name="A">
-                        <metadata>
-                          <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#1084.30.28:1084.30.28"/>
-                        </metadata>
-                      </om:OMV>
-                      <om:OMV name="B">
-                        <metadata>
-                          <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#1088.30.32:1088.30.32"/>
-                        </metadata>
-                      </om:OMV>
+                      <om:OMV name="A"></om:OMV>
+                      <om:OMV name="B"></om:OMV>
                     </om:OMA>
                   </om:OMA>
                 </type>
@@ -985,11 +989,7 @@
                             <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#1084.30.28:1084.30.28"/>
                           </metadata>
                         </om:OMV>
-                        <om:OMV name="B">
-                          <metadata>
-                            <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#1088.30.32:1088.30.32"/>
-                          </metadata>
-                        </om:OMV>
+                        <om:OMV name="B"></om:OMV>
                       </om:OMA>
                       <om:OMS base="http://latin.omdoc.org/foundations/hollight" module="Kernel" name="bool"></om:OMS>
                     </om:OMA>
@@ -1004,11 +1004,7 @@
                             <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#1084.30.28:1084.30.28"/>
                           </metadata>
                         </om:OMV>
-                        <om:OMV name="B">
-                          <metadata>
-                            <link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/foundations/hollight/hollight.mmt#1088.30.32:1088.30.32"/>
-                          </metadata>
-                        </om:OMV>
+                        <om:OMV name="B"></om:OMV>
                       </om:OMA>
                     </om:OMA>
                     <om:OMV name="F">
