@@ -1,0 +1,33 @@
+theory IMPS : http://cds.omdoc.org/urtheories?LF = 
+   S: type
+   expr : type
+   encloses : S → S → type # 1 ≤ 2
+   oftype   : expr → S → type # 1 % 2
+   
+   // pattern Type = {s: S} 
+
+   // pattern Sort = [S] {s: S, e: s prec S}
+   
+   // pattern Constant = [S] {c: expr, tp: c % S}
+
+   
+   fun: S → S → S # < 1 , 2 > // should be flexary, use [1,2] notation
+   
+   bool : S # *
+
+   
+   enclfun : {S1,T1,S2,T2} S1 ≤ T1 → S2 ≤ T2 → <S1,S2> ≤ <T1,T2>
+ 
+   // sorts have kind * if they return * and kind i otherwise 
+   
+   the_true : expr  # ⊤
+   the_true_type : ⊤ % *
+   
+   if_form : expr → expr → expr # if 1 then 2 else 3
+   // if_form_type : {S} C % * → T % S → E % S → if C then T else E % S
+   if_form_type : {C,T,E} C % * → T % * → E % * → if C then T else E % *
+   
+
+ 
+ 
+   
