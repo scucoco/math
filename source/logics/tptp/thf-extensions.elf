@@ -57,9 +57,9 @@
 %% equality and quantifiers over types
 %sig QuantTypes = {
    %include THF0.   
-   ==° : $tm A -> $tm A -> $tm $o.                 %infix none 10 ==°.
-   !° : ($tType -> $tm $o) -> $tm $o.              %prefix 5 !°.
-   ?° : ($tType -> $tm $o) -> $tm $o.              %prefix 5 ?°.
+   =t= : $tm A -> $tm A -> $tm $o.                 %infix none 10 =t=.
+   !t! : ($tType -> $tm $o) -> $tm $o.             %prefix 5 !t!.
+   ?t? : ($tType -> $tm $o) -> $tm $o.             %prefix 5 ?t?.
 }.
 
 %% dependent typing
@@ -134,6 +134,13 @@
    $product    : $tm ($arithtype D) > ($arithtype D) > ($arithtype D).
    $quotient   : $tm ($arithtype D) > ($arithtype D) > ($arithtype D).
    
+   $quotient_e : $tm ($arithtype D) > ($arithtype D) > ($arithtype D).
+   $quotient_t : $tm ($arithtype D) > ($arithtype D) > ($arithtype D).
+   $quotient_f : $tm ($arithtype D) > ($arithtype D) > ($arithtype D).
+   $remainder_e: $tm ($arithtype D) > ($arithtype D) > ($arithtype D).
+   $remainder_t: $tm ($arithtype D) > ($arithtype D) > ($arithtype D).
+   $remainder_f: $tm ($arithtype D) > ($arithtype D) > ($arithtype D).
+
    %% testing for arithmetic types
    $is_int  : $tm ($arithtype D) > $o.
    $is_rat  : $tm ($arithtype D) > $o.
