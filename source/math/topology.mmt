@@ -1,5 +1,68 @@
 namespace http://latin.omdoc.org/math
 
+theory ClosureSystem : http://latin.omdoc.org/logics/syntax?PowerSorts =
+  X     : sort
+  cl    : tm ℘℘X
+  
+  intersection : {Q: tm ℘℘X} Q ⊆‍ OO → (⋂ Q) ‍∈ OO
+  // provable 
+  full_closed  : ded (full X) ‍∈ CC
+
+
+theory ClosedTopology : http://latin.omdoc.org/logics/syntax?PowerSorts =
+  include ?ClosureSystem  
+  empty_closed : ded ∅ ‍∈ CC
+  finite_union : {A,B} ded A ‍∈ CC → ded B ‍∈ CC → ded A ∪ B ‍∈ CC
+
+
+theory ClosureOperator : http://latin.omdoc.org/logics/syntax?PowerSorts =
+  X     : sort
+  cl    : tm ℘X → tm ℘X
+  
+  extensive    : {A} ded A ⊆‍ cl A
+  monotonous   : {A,B} ded A ⊆‍ B ⇒ cl A ⊆‍ cl B
+  idempotent   : {A} ded cl (cl A) == cl A
+
+
+theory ClosureTopology : http://latin.omdoc.org/logics/syntax?PowerSorts =
+  include ?ClosureOperator
+
+  union        : {A,B} ded cl (A ∪ B) == cl A ∪ cl B
+  empty        : cl ∅ == ∅
+  
+  // monotonous provable from union 
+
+
+//   isomorphic to ClosureOperator
+theory Closeness : http://latin.omdoc.org/logics/syntax?PowerSorts =
+  X     : sort
+  close : tm X → tm ℘X → o # 1 | 2
+
+  in_close     : {x,A} ded x ‍∈ A ⇒ x | A
+  bigger_close : {x,A,B} ded x | A ⇒ A ⊆‍ B ⇒ x | B
+  transitive   : {A,B,x} ded x | B ⇒ (∀ [x] x ‍∈ B ⇒ x | A) ⇒ x | A
+
+  
+theory ClosenessTopology : http://latin.omdoc.org/logics/syntax?PowerSorts =
+  include ?Closeness
+
+  finite_union : {x,A,B} ded x | A ∪ B ⇒ x | A ∨ x | B
+  empty        : {x} ded ¬ x | ∅
+  
+  // bigger_close provable from union 
+
+
+//   empty and full axioms are implied by/correspond to empty union and empty intersection
+theory OpenTopology : http://latin.omdoc.org/logics/syntax?PowerSorts =
+  X     : sort
+  OO    : tm ℘℘X
+  
+  empty_open : ded ∅ ‍∈ OO 
+  full_open  : ded (full X) ‍∈ OO
+  union      :          {Q: tm ℘℘X} Q ⊆‍ OO → (⋃ Q) ‍∈ OO
+  finite_intersection : {A,B} ded A ‍∈ OO → ded B ‍∈ OO → ded A ∩ B ‍∈ OO
+
+
 theory NeighborhoodTopology : http://latin.omdoc.org/logics/syntax?PowerSorts =
   X     : sort
   NN    : tm X → tm ℘℘X
@@ -13,24 +76,16 @@ theory NeighborhoodTopology : http://latin.omdoc.org/logics/syntax?PowerSorts =
   openness       : {N,x} ded x ∘ N → ded ∃ [M] ∀ [y] x ∘ M ∧ (y ‍∈ M ⇒ y ∘ N)
 
 
-theory OpenTopology : http://latin.omdoc.org/logics/syntax?PowerSorts =
-  X     : sort
-  OO    : tm ℘℘X
-  
-  empty_open : ded ∅ ‍∈ OO
-  full_open  : ded (full X) ‍∈ OO
-  union      :          {Q: tm ℘℘X} Q ⊆‍ OO → (⋃ Q) ‍∈ OO
-  finite_intersection : {A,B} ded A ‍∈ OO → ded B ‍∈ OO → ded A ∩ B ‍∈ OO
-
+// views
+   ClosureSystem → ClosureOperator: A closed if A fixed point of cl
+   ClosureOperator → ClosureSystem: cl A = intersection of closed supersets of A
+   Closeness ↔ ClosureOperator: X close A ⇔ X ‍∈ cl A
+   ClosureSystem → Closeness: A closed if A contains all points close to it 
+   Closeness ↔ ClosureSystem: X close A if X in every closed superset of A
 
-theory ClosedTopology : http://latin.omdoc.org/logics/syntax?PowerSorts =
-  X     : sort
-  CC    : tm ℘℘X
-  
-  empty_closed : ded ∅ ‍∈ CC
-  full_closed  : ded (full X) ‍∈ CC
-  finite_union : {A,B} ded A ‍∈ CC → ded B ‍∈ CC → ded A ∪ B ‍∈ CC
-  intersection : {Q: tm ℘℘X} Q ⊆‍ OO → (⋂ Q) ‍∈ OO
+for functions f: X → Y
+  f(cl A) ⊆‍ cl f(A)  ⇔  preservation of closeness   ⇔  reflection of closedness  (= continuous)
+  f(cl A) ⊇ cl f(A)  ⇔  preservation of closedness
 
 
 //   views:

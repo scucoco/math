@@ -4,7 +4,7 @@ theory PowerSorts =
   include ?BaseSFOL
   
   power : sort → sort# ℘ 1 prec 100
-  in    : {S} tm S → tm ℘S → o 1 ‍∈ 2
+  in    : {S} tm S → tm ℘S → o # 1 ‍∈ 2
   subset : {S} tm ℘S → tm ℘S → type
          = [S,A,B} {x} ded x ‍∈ A → ded x ‍∈ B # 1 ⊆‍ 2
 
