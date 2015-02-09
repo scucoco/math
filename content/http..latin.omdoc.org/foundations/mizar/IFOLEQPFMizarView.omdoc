@@ -1,16 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
-  <view 
-  name="IFOLEQPFMizarView" base="http://latin.omdoc.org/foundations/mizar" from="http://latin.omdoc.org/logics/proof_theory?IFOLEQ" to="http://latin.omdoc.org/foundations/mizar?Mizar">
-    <import from="http://latin.omdoc.org/logics/proof_theory?IFOL">
-      <definition>
-        <om:OMS base="http://latin.omdoc.org/foundations/mizar" module="IFOLPFMizarView"/>
-      </definition>
-    </import>
-    <import from="http://latin.omdoc.org/logics/proof_theory?Equal">
-      <definition>
-        <om:OMS base="http://latin.omdoc.org/foundations/mizar" module="EqualPFMizarView"/>
-      </definition>
-    </import>
-</view>
-</omdoc>
+<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><view name="IFOLEQPFMizarView" base="http://latin.omdoc.org/foundations/mizar" from="http://latin.omdoc.org/logics/proof_theory?IFOLEQ" to="http://latin.omdoc.org/foundations/mizar?Mizar">
+           
+           <import name="[http://latin.omdoc.org/logics/proof_theory?IFOL]" from="http://latin.omdoc.org/logics/proof_theory?IFOL" implicit="true">
+          
+          
+          <definition><om:OMS base="http://latin.omdoc.org/foundations/mizar" module="IFOLPFMizarView"></om:OMS></definition>
+      </import><import name="[http://latin.omdoc.org/logics/proof_theory?Equal]" from="http://latin.omdoc.org/logics/proof_theory?Equal" implicit="true">
+          
+          
+          <definition><om:OMS base="http://latin.omdoc.org/foundations/mizar" module="EqualPFMizarView"></om:OMS></definition>
+      </import>
+         </view></omdoc>

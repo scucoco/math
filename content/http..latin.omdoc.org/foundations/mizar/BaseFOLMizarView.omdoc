@@ -1,16 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
-  <view 
-  name="BaseFOLMizarView" base="http://latin.omdoc.org/foundations/mizar" from="http://latin.omdoc.org/logics/syntax?UniverseLogic" to="http://latin.omdoc.org/foundations/mizar?Mizar">
-    <import from="http://latin.omdoc.org/logics/syntax?Logic">
-      <definition>
-        <om:OMS base="http://latin.omdoc.org/foundations/mizar" module="BaseMizarView"/>
-      </definition>
-    </import>
-    <import from="http://latin.omdoc.org/math?Universe">
-      <definition>
-        <om:OMS base="http://latin.omdoc.org/foundations/mizar" module="UniverseMizarView"/>
-      </definition>
-    </import>
-</view>
-</omdoc>
+<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><view name="BaseFOLMizarView" base="http://latin.omdoc.org/foundations/mizar" from="http://latin.omdoc.org/logics/syntax?UniverseLogic" to="http://latin.omdoc.org/foundations/mizar?Mizar">
+           
+           <import name="[http://latin.omdoc.org/logics/syntax?Logic]" from="http://latin.omdoc.org/logics/syntax?Logic" implicit="true">
+          
+          
+          <definition><om:OMS base="http://latin.omdoc.org/foundations/mizar" module="BaseMizarView"></om:OMS></definition>
+      </import><import name="[http://latin.omdoc.org/math?Universe]" from="http://latin.omdoc.org/math?Universe" implicit="true">
+          
+          
+          <definition><om:OMS base="http://latin.omdoc.org/foundations/mizar" module="UniverseMizarView"></om:OMS></definition>
+      </import>
+         </view></omdoc>
