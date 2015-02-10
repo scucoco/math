@@ -1,57 +1,27 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
-  <theory name="Sigma_MOD" base="http://latin.omdoc.org/logics/syntax/focused" meta="http://cds.omdoc.org/urtheories?LF">
-    <metadata>
-      <meta property="http://purl.org/dc/terms?_?description">
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMSTR>translation of example signature to FF (note: not a pushout)</om:OMSTR>
-        </om:OMOBJ>
-      </meta>
-    </metadata>
-    <import from="http://latin.omdoc.org/logics/syntax/focused?Linear_MOD"> </import>
-    <constant name="a-" role="constructor">
-      <metadata>
-        <meta property="http://purl.org/dc/terms?_?description">
-          <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-            <om:OMSTR>negative atomes are modelled as unary predicates on frames</om:OMSTR>
-          </om:OMOBJ>
-        </meta>
-      </metadata>
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMA>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-            <om:OMA position="1">
-              <om:OMS position="1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-              <om:OMS position="1_1" base="http://latin.omdoc.org/logics/syntax/focused" module="FF" name="tm"/>
-              <om:OMS position="1_2" base="http://latin.omdoc.org/logics/syntax/focused" module="Linear_MOD" name="frame"/>
-            </om:OMA>
-            <om:OMS position="2" base="http://latin.omdoc.org/logics/syntax/focused" module="FF" name="pos"/>
-          </om:OMA>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="a+" role="constructor">
-      <metadata>
-        <meta property="http://purl.org/dc/terms?_?description">
-          <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-            <om:OMSTR>positive atoms are modelled as unary predicates on worlds</om:OMSTR>
-          </om:OMOBJ>
-        </meta>
-      </metadata>
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMA>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-            <om:OMA position="1">
-              <om:OMS position="1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-              <om:OMS position="1_1" base="http://latin.omdoc.org/logics/syntax/focused" module="FF" name="tm"/>
-              <om:OMS position="1_2" base="http://latin.omdoc.org/logics/syntax/focused" module="Linear_MOD" name="world"/>
-            </om:OMA>
-            <om:OMS position="2" base="http://latin.omdoc.org/logics/syntax/focused" module="FF" name="pos"/>
-          </om:OMA>
-        </om:OMOBJ>
-      </type>
-    </constant>
-  </theory>
-</omdoc>
+<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><theory name="Sigma_MOD" base="http://latin.omdoc.org/logics/syntax/focused" meta="http://cds.omdoc.org/urtheories?LF"><metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT value="translation of example signature to FF (note: not a pushout)" type="http://mmt.kwarc.info/openmath?Base?OMSTR"/></om:OMOBJ></meta></metadata><import from="http://latin.omdoc.org/logics/syntax/focused?Linear_MOD">
+          
+          
+          
+      </import><constant name="a-" role="constructor">
+       <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT value="negative atomes are modelled as unary predicates on frames" type="http://mmt.kwarc.info/openmath?Base?OMSTR"/></om:OMOBJ></meta></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax/focused" module="FF" name="tm"></om:OMS><om:OMS base="http://latin.omdoc.org/logics/syntax/focused" module="Linear_MOD" name="frame"></om:OMS>
+      </om:OMA><om:OMS base="http://latin.omdoc.org/logics/syntax/focused" module="FF" name="pos"></om:OMS>
+      </om:OMA></om:OMOBJ></type>
+       
+       
+     </constant><constant name="a+" role="constructor">
+       <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT value="positive atoms are modelled as unary predicates on worlds" type="http://mmt.kwarc.info/openmath?Base?OMSTR"/></om:OMOBJ></meta></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax/focused" module="FF" name="tm"></om:OMS><om:OMS base="http://latin.omdoc.org/logics/syntax/focused" module="Linear_MOD" name="world"></om:OMS>
+      </om:OMA><om:OMS base="http://latin.omdoc.org/logics/syntax/focused" module="FF" name="pos"></om:OMS>
+      </om:OMA></om:OMOBJ></type>
+       
+       
+     </constant></theory></omdoc>

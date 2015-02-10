@@ -1,311 +1,137 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
-  <theory name="CatLog" base="http://latin.omdoc.org/logics/model_theory/categorical" meta="http://latin.omdoc.org/logics/proof_theory?DFOL">
-    <import from="http://latin.omdoc.org/logics/model_theory/categorical?Category"> </import>
-    <constant name="~&gt;" role="constructor">
-      <metadata>
-        <meta property="http://purl.org/dc/terms?_?description">
-          <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-            <om:OMSTR>predicate for rewrites/preordering</om:OMSTR>
-          </om:OMOBJ>
-        </meta>
-      </metadata>
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMBIND>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-            <om:OMBVAR>
-              <om:OMV position="0" name="A">
-                <type>
-                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"/>
-                </type>
-                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                </attribution>
-              </om:OMV>
-            </om:OMBVAR>
-            <om:OMBIND position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-              <om:OMBVAR>
-                <om:OMV position="2_0" name="B">
-                  <type>
-                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"/>
-                  </type>
-                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                  </attribution>
-                </om:OMV>
-              </om:OMBVAR>
-              <om:OMA position="2_2">
-                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-                <om:OMA position="2_2_1">
-                  <om:OMS position="2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                  <om:OMS position="2_2_1_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="=&gt;"/>
-                  <om:OMV position="2_2_1_2" name="A"/>
-                  <om:OMV position="2_2_1_3" name="B"/>
-                </om:OMA>
-                <om:OMA position="2_2_2">
-                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-                  <om:OMA position="2_2_2_1">
-                    <om:OMS position="2_2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                    <om:OMS position="2_2_2_1_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="=&gt;"/>
-                    <om:OMV position="2_2_2_1_2" name="A"/>
-                    <om:OMV position="2_2_2_1_3" name="B"/>
-                  </om:OMA>
-                  <om:OMS position="2_2_2_2" base="http://latin.omdoc.org/logics/syntax" module="DFOL" name="Form"/>
-                </om:OMA>
-              </om:OMA>
-            </om:OMBIND>
-          </om:OMBIND>
-        </om:OMOBJ>
-      </type>
-      <notation>
-        <text-notation name="http://latin.omdoc.org/logics/model_theory/categorical?CatLog?~&gt;" precedence="10" fixity="infix" arguments="2"/>
-      </notation>
-    </constant>
-    <constant name="Des" role="constructor">
-      <metadata>
-        <meta property="http://purl.org/dc/terms?_?description">
-          <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-            <om:OMSTR>distinguished object for the smallest designated truth value</om:OMSTR>
-          </om:OMOBJ>
-        </meta>
-      </metadata>
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"/>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="law_refl" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMBIND>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-            <om:OMBVAR>
-              <om:OMV position="0" name="A">
-                <type>
-                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"/>
-                </type>
-                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                </attribution>
-              </om:OMV>
-            </om:OMBVAR>
-            <om:OMBIND position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-              <om:OMBVAR>
-                <om:OMV position="2_0" name="B">
-                  <type>
-                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"/>
-                  </type>
-                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                  </attribution>
-                </om:OMV>
-              </om:OMBVAR>
-              <om:OMA position="2_2">
-                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/syntax" module="DFOL" name="|-"/>
-                <om:OMA position="2_2_2">
-                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="DFOL" name="forall"/>
-                  <om:OMA position="2_2_2_2">
-                    <om:OMS position="2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                    <om:OMS position="2_2_2_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="mor"/>
-                    <om:OMV position="2_2_2_2_2" name="A"/>
-                    <om:OMV position="2_2_2_2_3" name="B"/>
-                  </om:OMA>
-                  <om:OMBIND position="2_2_2_3">
-                    <om:OMS position="2_2_2_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-                    <om:OMBVAR>
-                      <om:OMV position="2_2_2_3_0" name="f">
-                        <type>
-                          <om:OMA position="2_2_2_3_0_1">
-                            <om:OMS position="2_2_2_3_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                            <om:OMS position="2_2_2_3_0_1_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="=&gt;"/>
-                            <om:OMV position="2_2_2_3_0_1_2" name="A"/>
-                            <om:OMV position="2_2_2_3_0_1_3" name="B"/>
-                          </om:OMA>
-                        </type>
-                        <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                          <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                        </attribution>
-                      </om:OMV>
-                    </om:OMBVAR>
-                    <om:OMA position="2_2_2_3_2">
-                      <om:OMS position="2_2_2_3_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_2_2_3_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="CatLog" name="~&gt;"/>
-                      <om:OMV position="2_2_2_3_2_2" name="A"/>
-                      <om:OMV position="2_2_2_3_2_3" name="B"/>
-                      <om:OMV position="2_2_2_3_2_4" name="f"/>
-                      <om:OMV position="2_2_2_3_2_5" name="f"/>
-                    </om:OMA>
-                  </om:OMBIND>
-                </om:OMA>
-              </om:OMA>
-            </om:OMBIND>
-          </om:OMBIND>
-        </om:OMOBJ>
-      </type>
-      <notation>
-        <text-notation name="http://latin.omdoc.org/logics/model_theory/categorical?CatLog?law_refl" precedence="0" fixity="prefix" arguments="2"/>
-      </notation>
-    </constant>
-    <constant name="law_trans" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMBIND>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-            <om:OMBVAR>
-              <om:OMV position="0" name="A">
-                <type>
-                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"/>
-                </type>
-                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                </attribution>
-              </om:OMV>
-            </om:OMBVAR>
-            <om:OMBIND position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-              <om:OMBVAR>
-                <om:OMV position="2_0" name="B">
-                  <type>
-                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"/>
-                  </type>
-                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                  </attribution>
-                </om:OMV>
-              </om:OMBVAR>
-              <om:OMA position="2_2">
-                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/syntax" module="DFOL" name="|-"/>
-                <om:OMA position="2_2_2">
-                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="DFOL" name="forall"/>
-                  <om:OMA position="2_2_2_2">
-                    <om:OMS position="2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                    <om:OMS position="2_2_2_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="mor"/>
-                    <om:OMV position="2_2_2_2_2" name="A"/>
-                    <om:OMV position="2_2_2_2_3" name="B"/>
-                  </om:OMA>
-                  <om:OMBIND position="2_2_2_3">
-                    <om:OMS position="2_2_2_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-                    <om:OMBVAR>
-                      <om:OMV position="2_2_2_3_0" name="f">
-                        <type>
-                          <om:OMA position="2_2_2_3_0_1">
-                            <om:OMS position="2_2_2_3_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                            <om:OMS position="2_2_2_3_0_1_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="=&gt;"/>
-                            <om:OMV position="2_2_2_3_0_1_2" name="A"/>
-                            <om:OMV position="2_2_2_3_0_1_3" name="B"/>
-                          </om:OMA>
-                        </type>
-                        <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                          <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                        </attribution>
-                      </om:OMV>
-                    </om:OMBVAR>
-                    <om:OMA position="2_2_2_3_2">
-                      <om:OMS position="2_2_2_3_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_2_2_3_2_1" base="http://latin.omdoc.org/logics/syntax" module="DFOL" name="forall"/>
-                      <om:OMA position="2_2_2_3_2_2">
-                        <om:OMS position="2_2_2_3_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                        <om:OMS position="2_2_2_3_2_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="mor"/>
-                        <om:OMV position="2_2_2_3_2_2_2" name="A"/>
-                        <om:OMV position="2_2_2_3_2_2_3" name="B"/>
-                      </om:OMA>
-                      <om:OMBIND position="2_2_2_3_2_3">
-                        <om:OMS position="2_2_2_3_2_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-                        <om:OMBVAR>
-                          <om:OMV position="2_2_2_3_2_3_0" name="g">
-                            <type>
-                              <om:OMA position="2_2_2_3_2_3_0_1">
-                                <om:OMS position="2_2_2_3_2_3_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                                <om:OMS position="2_2_2_3_2_3_0_1_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="=&gt;"/>
-                                <om:OMV position="2_2_2_3_2_3_0_1_2" name="A"/>
-                                <om:OMV position="2_2_2_3_2_3_0_1_3" name="B"/>
-                              </om:OMA>
-                            </type>
-                            <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                            </attribution>
-                          </om:OMV>
-                        </om:OMBVAR>
-                        <om:OMA position="2_2_2_3_2_3_2">
-                          <om:OMS position="2_2_2_3_2_3_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                          <om:OMS position="2_2_2_3_2_3_2_1" base="http://latin.omdoc.org/logics/syntax" module="DFOL" name="forall"/>
-                          <om:OMA position="2_2_2_3_2_3_2_2">
-                            <om:OMS position="2_2_2_3_2_3_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                            <om:OMS position="2_2_2_3_2_3_2_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="mor"/>
-                            <om:OMV position="2_2_2_3_2_3_2_2_2" name="A"/>
-                            <om:OMV position="2_2_2_3_2_3_2_2_3" name="B"/>
-                          </om:OMA>
-                          <om:OMBIND position="2_2_2_3_2_3_2_3">
-                            <om:OMS position="2_2_2_3_2_3_2_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-                            <om:OMBVAR>
-                              <om:OMV position="2_2_2_3_2_3_2_3_0" name="h">
-                                <type>
-                                  <om:OMA position="2_2_2_3_2_3_2_3_0_1">
-                                    <om:OMS position="2_2_2_3_2_3_2_3_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                                    <om:OMS position="2_2_2_3_2_3_2_3_0_1_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="=&gt;"/>
-                                    <om:OMV position="2_2_2_3_2_3_2_3_0_1_2" name="A"/>
-                                    <om:OMV position="2_2_2_3_2_3_2_3_0_1_3" name="B"/>
-                                  </om:OMA>
-                                </type>
-                                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                                </attribution>
-                              </om:OMV>
-                            </om:OMBVAR>
-                            <om:OMA position="2_2_2_3_2_3_2_3_2">
-                              <om:OMS position="2_2_2_3_2_3_2_3_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                              <om:OMS position="2_2_2_3_2_3_2_3_2_1" base="http://latin.omdoc.org/logics/syntax" module="DFOL" name="impl"/>
-                              <om:OMA position="2_2_2_3_2_3_2_3_2_2">
-                                <om:OMS position="2_2_2_3_2_3_2_3_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                                <om:OMS position="2_2_2_3_2_3_2_3_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="DFOL" name="and"/>
-                                <om:OMA position="2_2_2_3_2_3_2_3_2_2_2">
-                                  <om:OMS position="2_2_2_3_2_3_2_3_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                                  <om:OMS position="2_2_2_3_2_3_2_3_2_2_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="CatLog" name="~&gt;"/>
-                                  <om:OMV position="2_2_2_3_2_3_2_3_2_2_2_2" name="A"/>
-                                  <om:OMV position="2_2_2_3_2_3_2_3_2_2_2_3" name="B"/>
-                                  <om:OMV position="2_2_2_3_2_3_2_3_2_2_2_4" name="f"/>
-                                  <om:OMV position="2_2_2_3_2_3_2_3_2_2_2_5" name="g"/>
-                                </om:OMA>
-                                <om:OMA position="2_2_2_3_2_3_2_3_2_2_3">
-                                  <om:OMS position="2_2_2_3_2_3_2_3_2_2_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                                  <om:OMS position="2_2_2_3_2_3_2_3_2_2_3_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="CatLog" name="~&gt;"/>
-                                  <om:OMV position="2_2_2_3_2_3_2_3_2_2_3_2" name="A"/>
-                                  <om:OMV position="2_2_2_3_2_3_2_3_2_2_3_3" name="B"/>
-                                  <om:OMV position="2_2_2_3_2_3_2_3_2_2_3_4" name="g"/>
-                                  <om:OMV position="2_2_2_3_2_3_2_3_2_2_3_5" name="h"/>
-                                </om:OMA>
-                              </om:OMA>
-                              <om:OMA position="2_2_2_3_2_3_2_3_2_3">
-                                <om:OMS position="2_2_2_3_2_3_2_3_2_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                                <om:OMS position="2_2_2_3_2_3_2_3_2_3_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="CatLog" name="~&gt;"/>
-                                <om:OMV position="2_2_2_3_2_3_2_3_2_3_2" name="A"/>
-                                <om:OMV position="2_2_2_3_2_3_2_3_2_3_3" name="B"/>
-                                <om:OMV position="2_2_2_3_2_3_2_3_2_3_4" name="f"/>
-                                <om:OMV position="2_2_2_3_2_3_2_3_2_3_5" name="h"/>
-                              </om:OMA>
-                            </om:OMA>
-                          </om:OMBIND>
-                        </om:OMA>
-                      </om:OMBIND>
-                    </om:OMA>
-                  </om:OMBIND>
-                </om:OMA>
-              </om:OMA>
-            </om:OMBIND>
-          </om:OMBIND>
-        </om:OMOBJ>
-      </type>
-      <notation>
-        <text-notation name="http://latin.omdoc.org/logics/model_theory/categorical?CatLog?law_trans" precedence="0" fixity="prefix" arguments="2"/>
-      </notation>
-    </constant>
-  </theory>
-</omdoc>
+<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><theory name="CatLog" base="http://latin.omdoc.org/logics/model_theory/categorical" meta="http://latin.omdoc.org/logics/proof_theory?DFOL"><import from="http://latin.omdoc.org/logics/model_theory/categorical?Category">
+          
+          
+          
+      </import><constant name="~&gt;" role="constructor">
+       <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT value="predicate for rewrites/preordering" type="http://mmt.kwarc.info/openmath?Base?OMSTR"/></om:OMOBJ></meta></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="=&gt;"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="B"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="=&gt;"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="B"></om:OMV>
+      </om:OMA><om:OMS base="http://latin.omdoc.org/logics/syntax" module="DFOL" name="Form"></om:OMS>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="10" fixity="infix" arguments="0 2"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="Des" role="constructor">
+       <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT value="distinguished object for the smallest designated truth value" type="http://mmt.kwarc.info/openmath?Base?OMSTR"/></om:OMOBJ></meta></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="law_refl" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="DFOL" name="|-"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="DFOL" name="forall"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="mor"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="B"></om:OMV>
+      </om:OMA><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="f"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="=&gt;"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="B"></om:OMV>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="CatLog" name="~&gt;"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="B"></om:OMV><om:OMV name="f"></om:OMV><om:OMV name="f"></om:OMV>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 2"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="law_trans" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="DFOL" name="|-"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="DFOL" name="forall"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="mor"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="B"></om:OMV>
+      </om:OMA><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="f"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="=&gt;"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="B"></om:OMV>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="DFOL" name="forall"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="mor"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="B"></om:OMV>
+      </om:OMA><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="g"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="=&gt;"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="B"></om:OMV>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="DFOL" name="forall"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="mor"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="B"></om:OMV>
+      </om:OMA><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="h"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="=&gt;"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="B"></om:OMV>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="DFOL" name="impl"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="DFOL" name="and"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="CatLog" name="~&gt;"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="B"></om:OMV><om:OMV name="f"></om:OMV><om:OMV name="g"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="CatLog" name="~&gt;"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="B"></om:OMV><om:OMV name="g"></om:OMV><om:OMV name="h"></om:OMV>
+      </om:OMA>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="CatLog" name="~&gt;"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="B"></om:OMV><om:OMV name="f"></om:OMV><om:OMV name="h"></om:OMV>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 2"> <scope languages="" priority="0"/> </notation></notations>
+     </constant></theory></omdoc>

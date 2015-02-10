@@ -1,16 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
-  <view 
-  name="BaseFOL" base="http://latin.omdoc.org/logics/model_theory" from="http://latin.omdoc.org/logics/syntax?UniverseLogic" to="http://latin.omdoc.org/logics/model_theory?FOLMOD">
-    <import from="http://latin.omdoc.org/logics/syntax?Logic">
-      <definition>
-        <om:OMS base="http://latin.omdoc.org/logics/model_theory" module="Base"/>
-      </definition>
-    </import>
-    <import from="http://latin.omdoc.org/math?Universe">
-      <definition>
-        <om:OMS base="http://latin.omdoc.org/logics/model_theory" module="Universe"/>
-      </definition>
-    </import>
-</view>
-</omdoc>
+<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><view name="BaseFOL" base="http://latin.omdoc.org/logics/model_theory" from="http://latin.omdoc.org/logics/syntax?UniverseLogic" to="http://latin.omdoc.org/logics/model_theory?FOLMOD">
+           
+           <import name="[http://latin.omdoc.org/logics/syntax?Logic]" from="http://latin.omdoc.org/logics/syntax?Logic" implicit="true">
+          
+          
+          <definition><om:OMS base="http://latin.omdoc.org/logics/model_theory" module="Base"></om:OMS></definition>
+      </import><import name="[http://latin.omdoc.org/math?Universe]" from="http://latin.omdoc.org/math?Universe" implicit="true">
+          
+          
+          <definition><om:OMS base="http://latin.omdoc.org/logics/model_theory" module="Universe"></om:OMS></definition>
+      </import>
+         </view></omdoc>

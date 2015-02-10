@@ -1,1181 +1,523 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
-  <theory name="CASLSubSorted" base="http://latin.omdoc.org/logics/syntax" meta="http://cds.omdoc.org/urtheories?LF">
-    <import from="http://latin.omdoc.org/logics/syntax?CASLSorted"> </import>
-    <constant name="&lt;" role="type">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMA>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-            <om:OMS position="1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"/>
-            <om:OMA position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-              <om:OMS position="2_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"/>
-              <om:OMS position="2_2" base="http://cds.omdoc.org/urtheories" module="Typed" name="type"/>
-            </om:OMA>
-          </om:OMA>
-        </om:OMOBJ>
-      </type>
-      <notation>
-        <text-notation name="http://latin.omdoc.org/logics/syntax?CASLSubSorted?&lt;" precedence="25" fixity="infix" arguments="0"/>
-      </notation>
-    </constant>
-    <constant name="as" role="constructor">
-      <metadata>
-        <meta property="http://purl.org/dc/terms?_?description">
-          <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-            <om:OMSTR>Downwards casting from B to A, abstract syntax is 'cast'</om:OMSTR>
-          </om:OMOBJ>
-        </meta>
-      </metadata>
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMA>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-            <om:OMS position="1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="tm"/>
-            <om:OMA position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-              <om:OMS position="2_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"/>
-              <om:OMS position="2_2" base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="tm"/>
-            </om:OMA>
-          </om:OMA>
-        </om:OMOBJ>
-      </type>
-      <notation>
-        <text-notation name="http://latin.omdoc.org/logics/syntax?CASLSubSorted?as" precedence="25" fixity="infix" arguments="0"/>
-      </notation>
-    </constant>
-    <constant name="%23as" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMBIND>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-            <om:OMBVAR>
-              <om:OMV position="0" name="A">
-                <type>
-                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"/>
-                </type>
-                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                </attribution>
-              </om:OMV>
-            </om:OMBVAR>
-            <om:OMBIND position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-              <om:OMBVAR>
-                <om:OMV position="2_0" name="B">
-                  <type>
-                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"/>
-                  </type>
-                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                  </attribution>
-                </om:OMV>
-              </om:OMBVAR>
-              <om:OMBIND position="2_2">
-                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-                <om:OMBVAR>
-                  <om:OMV position="2_2_0" name="T">
-                    <type>
-                      <om:OMS position="2_2_0_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="tm"/>
-                    </type>
-                    <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                      <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                    </attribution>
-                  </om:OMV>
-                </om:OMBVAR>
-                <om:OMA position="2_2_2">
-                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-                  <om:OMA position="2_2_2_1">
-                    <om:OMS position="2_2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                    <om:OMS position="2_2_2_1_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSubSorted" name="&lt;"/>
-                    <om:OMV position="2_2_2_1_2" name="A"/>
-                    <om:OMV position="2_2_2_1_3" name="B"/>
-                  </om:OMA>
-                  <om:OMA position="2_2_2_2">
-                    <om:OMS position="2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-                    <om:OMA position="2_2_2_2_1">
-                      <om:OMS position="2_2_2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_2_2_2_1_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="%23"/>
-                      <om:OMV position="2_2_2_2_1_2" name="T"/>
-                      <om:OMV position="2_2_2_2_1_3" name="B"/>
-                    </om:OMA>
-                    <om:OMA position="2_2_2_2_2">
-                      <om:OMS position="2_2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_2_2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="%23"/>
-                      <om:OMA position="2_2_2_2_2_2">
-                        <om:OMS position="2_2_2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                        <om:OMS position="2_2_2_2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSubSorted" name="as"/>
-                        <om:OMV position="2_2_2_2_2_2_2" name="T"/>
-                        <om:OMV position="2_2_2_2_2_2_3" name="A"/>
-                      </om:OMA>
-                      <om:OMV position="2_2_2_2_2_3" name="A"/>
-                    </om:OMA>
-                  </om:OMA>
-                </om:OMA>
-              </om:OMBIND>
-            </om:OMBIND>
-          </om:OMBIND>
-        </om:OMOBJ>
-      </type>
-      <notation>
-        <text-notation name="http://latin.omdoc.org/logics/syntax?CASLSubSorted?%23as" precedence="0" fixity="prefix" arguments="3"/>
-      </notation>
-    </constant>
-    <constant name="in" role="constructor">
-      <metadata>
-        <meta property="http://purl.org/dc/terms?_?description">
-          <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-            <om:OMSTR>'membership' in the abstract syntax</om:OMSTR>
-          </om:OMOBJ>
-        </meta>
-      </metadata>
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMA>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-            <om:OMS position="1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="tm"/>
-            <om:OMA position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-              <om:OMS position="2_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"/>
-              <om:OMS position="2_2" base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="o"/>
-            </om:OMA>
-          </om:OMA>
-        </om:OMOBJ>
-      </type>
-      <notation>
-        <text-notation name="http://latin.omdoc.org/logics/syntax?CASLSubSorted?in" precedence="25" fixity="infix" arguments="0"/>
-      </notation>
-    </constant>
-    <constant name="%23in" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMBIND>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-            <om:OMBVAR>
-              <om:OMV position="0" name="A">
-                <type>
-                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"/>
-                </type>
-                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                </attribution>
-              </om:OMV>
-            </om:OMBVAR>
-            <om:OMBIND position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-              <om:OMBVAR>
-                <om:OMV position="2_0" name="B">
-                  <type>
-                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"/>
-                  </type>
-                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                  </attribution>
-                </om:OMV>
-              </om:OMBVAR>
-              <om:OMBIND position="2_2">
-                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-                <om:OMBVAR>
-                  <om:OMV position="2_2_0" name="T">
-                    <type>
-                      <om:OMS position="2_2_0_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="tm"/>
-                    </type>
-                    <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                      <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                    </attribution>
-                  </om:OMV>
-                </om:OMBVAR>
-                <om:OMA position="2_2_2">
-                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-                  <om:OMA position="2_2_2_1">
-                    <om:OMS position="2_2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                    <om:OMS position="2_2_2_1_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSubSorted" name="&lt;"/>
-                    <om:OMV position="2_2_2_1_2" name="A"/>
-                    <om:OMV position="2_2_2_1_3" name="B"/>
-                  </om:OMA>
-                  <om:OMA position="2_2_2_2">
-                    <om:OMS position="2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-                    <om:OMA position="2_2_2_2_1">
-                      <om:OMS position="2_2_2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_2_2_2_1_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="%23"/>
-                      <om:OMV position="2_2_2_2_1_2" name="T"/>
-                      <om:OMV position="2_2_2_2_1_3" name="B"/>
-                    </om:OMA>
-                    <om:OMA position="2_2_2_2_2">
-                      <om:OMS position="2_2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_2_2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="wff"/>
-                      <om:OMA position="2_2_2_2_2_2">
-                        <om:OMS position="2_2_2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                        <om:OMS position="2_2_2_2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSubSorted" name="in"/>
-                        <om:OMV position="2_2_2_2_2_2_2" name="T"/>
-                        <om:OMV position="2_2_2_2_2_2_3" name="A"/>
-                      </om:OMA>
-                    </om:OMA>
-                  </om:OMA>
-                </om:OMA>
-              </om:OMBIND>
-            </om:OMBIND>
-          </om:OMBIND>
-        </om:OMOBJ>
-      </type>
-      <notation>
-        <text-notation name="http://latin.omdoc.org/logics/syntax?CASLSubSorted?%23in" precedence="0" fixity="prefix" arguments="3"/>
-      </notation>
-    </constant>
-    <constant name="sorted-term" role="constructor">
-      <metadata>
-        <meta property="http://purl.org/dc/terms?_?description">
-          <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-            <om:OMSTR>'sorted-term' in the abstract syntax</om:OMSTR>
-          </om:OMOBJ>
-        </meta>
-      </metadata>
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMA>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-            <om:OMS position="1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="tm"/>
-            <om:OMA position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-              <om:OMS position="2_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"/>
-              <om:OMS position="2_2" base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="tm"/>
-            </om:OMA>
-          </om:OMA>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="%23sorted-term" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMBIND>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-            <om:OMBVAR>
-              <om:OMV position="0" name="A">
-                <type>
-                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"/>
-                </type>
-                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                </attribution>
-              </om:OMV>
-            </om:OMBVAR>
-            <om:OMBIND position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-              <om:OMBVAR>
-                <om:OMV position="2_0" name="B">
-                  <type>
-                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"/>
-                  </type>
-                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                  </attribution>
-                </om:OMV>
-              </om:OMBVAR>
-              <om:OMBIND position="2_2">
-                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-                <om:OMBVAR>
-                  <om:OMV position="2_2_0" name="T">
-                    <type>
-                      <om:OMS position="2_2_0_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="tm"/>
-                    </type>
-                    <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                      <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                    </attribution>
-                  </om:OMV>
-                </om:OMBVAR>
-                <om:OMA position="2_2_2">
-                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-                  <om:OMA position="2_2_2_1">
-                    <om:OMS position="2_2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                    <om:OMS position="2_2_2_1_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSubSorted" name="&lt;"/>
-                    <om:OMV position="2_2_2_1_2" name="A"/>
-                    <om:OMV position="2_2_2_1_3" name="B"/>
-                  </om:OMA>
-                  <om:OMA position="2_2_2_2">
-                    <om:OMS position="2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-                    <om:OMA position="2_2_2_2_1">
-                      <om:OMS position="2_2_2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_2_2_2_1_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="%23"/>
-                      <om:OMV position="2_2_2_2_1_2" name="T"/>
-                      <om:OMV position="2_2_2_2_1_3" name="A"/>
-                    </om:OMA>
-                    <om:OMA position="2_2_2_2_2">
-                      <om:OMS position="2_2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_2_2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="%23"/>
-                      <om:OMA position="2_2_2_2_2_2">
-                        <om:OMS position="2_2_2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                        <om:OMS position="2_2_2_2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSubSorted" name="sorted-term"/>
-                        <om:OMV position="2_2_2_2_2_2_2" name="T"/>
-                        <om:OMV position="2_2_2_2_2_2_3" name="B"/>
-                      </om:OMA>
-                      <om:OMV position="2_2_2_2_2_3" name="B"/>
-                    </om:OMA>
-                  </om:OMA>
-                </om:OMA>
-              </om:OMBIND>
-            </om:OMBIND>
-          </om:OMBIND>
-        </om:OMOBJ>
-      </type>
-      <notation>
-        <text-notation name="http://latin.omdoc.org/logics/syntax?CASLSubSorted?%23sorted-term" precedence="0" fixity="prefix" arguments="3"/>
-      </notation>
-    </constant>
-    <constant name="&lt;&lt;" role="type">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMA>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-            <om:OMS position="1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"/>
-            <om:OMA position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-              <om:OMS position="2_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"/>
-              <om:OMS position="2_2" base="http://cds.omdoc.org/urtheories" module="Typed" name="type"/>
-            </om:OMA>
-          </om:OMA>
-        </om:OMOBJ>
-      </type>
-      <notation>
-        <text-notation name="http://latin.omdoc.org/logics/syntax?CASLSubSorted?&lt;&lt;" precedence="25" fixity="infix" arguments="0"/>
-      </notation>
-    </constant>
-    <constant name="&lt;&lt;nil" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMA>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-            <om:OMS position="1" base="http://latin.omdoc.org/logics/syntax" module="CASLSubSorted" name="&lt;&lt;"/>
-            <om:OMS position="2" base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortnil"/>
-            <om:OMS position="3" base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortnil"/>
-          </om:OMA>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="&lt;&lt;cons" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMBIND>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-            <om:OMBVAR>
-              <om:OMV position="0" name="S">
-                <type>
-                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"/>
-                </type>
-                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                </attribution>
-              </om:OMV>
-            </om:OMBVAR>
-            <om:OMBIND position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-              <om:OMBVAR>
-                <om:OMV position="2_0" name="S'">
-                  <type>
-                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"/>
-                  </type>
-                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                  </attribution>
-                </om:OMV>
-              </om:OMBVAR>
-              <om:OMBIND position="2_2">
-                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-                <om:OMBVAR>
-                  <om:OMV position="2_2_0" name="SS">
-                    <type>
-                      <om:OMS position="2_2_0_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"/>
-                    </type>
-                    <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                      <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                    </attribution>
-                  </om:OMV>
-                </om:OMBVAR>
-                <om:OMBIND position="2_2_2">
-                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-                  <om:OMBVAR>
-                    <om:OMV position="2_2_2_0" name="SS'">
-                      <type>
-                        <om:OMS position="2_2_2_0_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"/>
-                      </type>
-                      <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                        <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                      </attribution>
-                    </om:OMV>
-                  </om:OMBVAR>
-                  <om:OMA position="2_2_2_2">
-                    <om:OMS position="2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-                    <om:OMA position="2_2_2_2_1">
-                      <om:OMS position="2_2_2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_2_2_2_1_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSubSorted" name="&lt;"/>
-                      <om:OMV position="2_2_2_2_1_2" name="S"/>
-                      <om:OMV position="2_2_2_2_1_3" name="S'"/>
-                    </om:OMA>
-                    <om:OMA position="2_2_2_2_2">
-                      <om:OMS position="2_2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-                      <om:OMA position="2_2_2_2_2_1">
-                        <om:OMS position="2_2_2_2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                        <om:OMS position="2_2_2_2_2_1_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSubSorted" name="&lt;&lt;"/>
-                        <om:OMV position="2_2_2_2_2_1_2" name="SS"/>
-                        <om:OMV position="2_2_2_2_2_1_3" name="SS'"/>
-                      </om:OMA>
-                      <om:OMA position="2_2_2_2_2_2">
-                        <om:OMS position="2_2_2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                        <om:OMS position="2_2_2_2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSubSorted" name="&lt;&lt;"/>
-                        <om:OMA position="2_2_2_2_2_2_2">
-                          <om:OMS position="2_2_2_2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                          <om:OMS position="2_2_2_2_2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="*"/>
-                          <om:OMV position="2_2_2_2_2_2_2_2" name="S"/>
-                          <om:OMV position="2_2_2_2_2_2_2_3" name="SS"/>
-                        </om:OMA>
-                        <om:OMA position="2_2_2_2_2_2_3">
-                          <om:OMS position="2_2_2_2_2_2_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                          <om:OMS position="2_2_2_2_2_2_3_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="*"/>
-                          <om:OMV position="2_2_2_2_2_2_3_2" name="S'"/>
-                          <om:OMV position="2_2_2_2_2_2_3_3" name="SS'"/>
-                        </om:OMA>
-                      </om:OMA>
-                    </om:OMA>
-                  </om:OMA>
-                </om:OMBIND>
-              </om:OMBIND>
-            </om:OMBIND>
-          </om:OMBIND>
-        </om:OMOBJ>
-      </type>
-      <notation>
-        <text-notation name="http://latin.omdoc.org/logics/syntax?CASLSubSorted?&lt;&lt;cons" precedence="0" fixity="prefix" arguments="4"/>
-      </notation>
-    </constant>
-    <constant name="%23&lt;" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMBIND>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-            <om:OMBVAR>
-              <om:OMV position="0" name="S">
-                <type>
-                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"/>
-                </type>
-                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                </attribution>
-              </om:OMV>
-            </om:OMBVAR>
-            <om:OMBIND position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-              <om:OMBVAR>
-                <om:OMV position="2_0" name="S'">
-                  <type>
-                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"/>
-                  </type>
-                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                  </attribution>
-                </om:OMV>
-              </om:OMBVAR>
-              <om:OMBIND position="2_2">
-                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-                <om:OMBVAR>
-                  <om:OMV position="2_2_0" name="X">
-                    <type>
-                      <om:OMS position="2_2_0_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="tm"/>
-                    </type>
-                    <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                      <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                    </attribution>
-                  </om:OMV>
-                </om:OMBVAR>
-                <om:OMA position="2_2_2">
-                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-                  <om:OMA position="2_2_2_1">
-                    <om:OMS position="2_2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                    <om:OMS position="2_2_2_1_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSubSorted" name="&lt;"/>
-                    <om:OMV position="2_2_2_1_2" name="S"/>
-                    <om:OMV position="2_2_2_1_3" name="S'"/>
-                  </om:OMA>
-                  <om:OMA position="2_2_2_2">
-                    <om:OMS position="2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-                    <om:OMA position="2_2_2_2_1">
-                      <om:OMS position="2_2_2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_2_2_2_1_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="%23"/>
-                      <om:OMV position="2_2_2_2_1_2" name="X"/>
-                      <om:OMV position="2_2_2_2_1_3" name="S"/>
-                    </om:OMA>
-                    <om:OMA position="2_2_2_2_2">
-                      <om:OMS position="2_2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_2_2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="%23"/>
-                      <om:OMV position="2_2_2_2_2_2" name="X"/>
-                      <om:OMV position="2_2_2_2_2_3" name="S'"/>
-                    </om:OMA>
-                  </om:OMA>
-                </om:OMA>
-              </om:OMBIND>
-            </om:OMBIND>
-          </om:OMBIND>
-        </om:OMOBJ>
-      </type>
-      <notation>
-        <text-notation name="http://latin.omdoc.org/logics/syntax?CASLSubSorted?%23&lt;" precedence="0" fixity="prefix" arguments="3"/>
-      </notation>
-    </constant>
-    <constant name="%23&lt;&lt;" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMBIND>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-            <om:OMBVAR>
-              <om:OMV position="0" name="XX">
-                <type>
-                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="tmlist"/>
-                </type>
-                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                </attribution>
-              </om:OMV>
-            </om:OMBVAR>
-            <om:OMBIND position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-              <om:OMBVAR>
-                <om:OMV position="2_0" name="SS">
-                  <type>
-                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"/>
-                  </type>
-                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                  </attribution>
-                </om:OMV>
-              </om:OMBVAR>
-              <om:OMBIND position="2_2">
-                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-                <om:OMBVAR>
-                  <om:OMV position="2_2_0" name="SS'">
-                    <type>
-                      <om:OMS position="2_2_0_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"/>
-                    </type>
-                    <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                      <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                    </attribution>
-                  </om:OMV>
-                </om:OMBVAR>
-                <om:OMA position="2_2_2">
-                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-                  <om:OMA position="2_2_2_1">
-                    <om:OMS position="2_2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                    <om:OMS position="2_2_2_1_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="%23%23"/>
-                    <om:OMV position="2_2_2_1_2" name="XX"/>
-                    <om:OMV position="2_2_2_1_3" name="SS"/>
-                  </om:OMA>
-                  <om:OMA position="2_2_2_2">
-                    <om:OMS position="2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-                    <om:OMA position="2_2_2_2_1">
-                      <om:OMS position="2_2_2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_2_2_2_1_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSubSorted" name="&lt;&lt;"/>
-                      <om:OMV position="2_2_2_2_1_2" name="SS"/>
-                      <om:OMV position="2_2_2_2_1_3" name="SS'"/>
-                    </om:OMA>
-                    <om:OMA position="2_2_2_2_2">
-                      <om:OMS position="2_2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_2_2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="%23%23"/>
-                      <om:OMV position="2_2_2_2_2_2" name="XX"/>
-                      <om:OMV position="2_2_2_2_2_3" name="SS'"/>
-                    </om:OMA>
-                  </om:OMA>
-                </om:OMA>
-              </om:OMBIND>
-            </om:OMBIND>
-          </om:OMBIND>
-        </om:OMOBJ>
-      </type>
-      <notation>
-        <text-notation name="http://latin.omdoc.org/logics/syntax?CASLSubSorted?%23&lt;&lt;" precedence="0" fixity="prefix" arguments="3"/>
-      </notation>
-    </constant>
-    <constant name="sameF" role="type">
-      <metadata>
-        <meta property="http://purl.org/dc/terms?_?description">
-          <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-            <om:OMSTR>overloading relation</om:OMSTR>
-          </om:OMOBJ>
-        </meta>
-      </metadata>
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMBIND>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-            <om:OMBVAR>
-              <om:OMV position="0" name="SS">
-                <type>
-                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"/>
-                </type>
-                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                </attribution>
-              </om:OMV>
-            </om:OMBVAR>
-            <om:OMBIND position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-              <om:OMBVAR>
-                <om:OMV position="2_0" name="S">
-                  <type>
-                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"/>
-                  </type>
-                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                  </attribution>
-                </om:OMV>
-              </om:OMBVAR>
-              <om:OMBIND position="2_2">
-                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-                <om:OMBVAR>
-                  <om:OMV position="2_2_0" name="SS'">
-                    <type>
-                      <om:OMS position="2_2_0_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"/>
-                    </type>
-                    <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                      <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                    </attribution>
-                  </om:OMV>
-                </om:OMBVAR>
-                <om:OMBIND position="2_2_2">
-                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-                  <om:OMBVAR>
-                    <om:OMV position="2_2_2_0" name="S'">
-                      <type>
-                        <om:OMS position="2_2_2_0_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"/>
-                      </type>
-                      <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                        <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                      </attribution>
-                    </om:OMV>
-                  </om:OMBVAR>
-                  <om:OMA position="2_2_2_2">
-                    <om:OMS position="2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-                    <om:OMA position="2_2_2_2_1">
-                      <om:OMS position="2_2_2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_2_2_2_1_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="=&gt;"/>
-                      <om:OMV position="2_2_2_2_1_2" name="SS"/>
-                      <om:OMV position="2_2_2_2_1_3" name="S"/>
-                    </om:OMA>
-                    <om:OMA position="2_2_2_2_2">
-                      <om:OMS position="2_2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-                      <om:OMA position="2_2_2_2_2_1">
-                        <om:OMS position="2_2_2_2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                        <om:OMS position="2_2_2_2_2_1_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="=&gt;"/>
-                        <om:OMV position="2_2_2_2_2_1_2" name="SS'"/>
-                        <om:OMV position="2_2_2_2_2_1_3" name="S'"/>
-                      </om:OMA>
-                      <om:OMS position="2_2_2_2_2_2" base="http://cds.omdoc.org/urtheories" module="Typed" name="type"/>
-                    </om:OMA>
-                  </om:OMA>
-                </om:OMBIND>
-              </om:OMBIND>
-            </om:OMBIND>
-          </om:OMBIND>
-        </om:OMOBJ>
-      </type>
-      <notation>
-        <text-notation name="http://latin.omdoc.org/logics/syntax?CASLSubSorted?sameF" precedence="0" fixity="prefix" arguments="4"/>
-      </notation>
-    </constant>
-    <constant name="~F" role="type">
-      <metadata>
-        <meta property="http://purl.org/dc/terms?_?description">
-          <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-            <om:OMSTR>sameF is equivalence relation</om:OMSTR>
-          </om:OMOBJ>
-        </meta>
-      </metadata>
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMBIND>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-            <om:OMBVAR>
-              <om:OMV position="0" name="SS">
-                <type>
-                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"/>
-                </type>
-                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                </attribution>
-              </om:OMV>
-            </om:OMBVAR>
-            <om:OMBIND position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-              <om:OMBVAR>
-                <om:OMV position="2_0" name="S">
-                  <type>
-                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"/>
-                  </type>
-                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                  </attribution>
-                </om:OMV>
-              </om:OMBVAR>
-              <om:OMBIND position="2_2">
-                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-                <om:OMBVAR>
-                  <om:OMV position="2_2_0" name="SS'">
-                    <type>
-                      <om:OMS position="2_2_0_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"/>
-                    </type>
-                    <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                      <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                    </attribution>
-                  </om:OMV>
-                </om:OMBVAR>
-                <om:OMBIND position="2_2_2">
-                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-                  <om:OMBVAR>
-                    <om:OMV position="2_2_2_0" name="S'">
-                      <type>
-                        <om:OMS position="2_2_2_0_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"/>
-                      </type>
-                      <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                        <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                      </attribution>
-                    </om:OMV>
-                  </om:OMBVAR>
-                  <om:OMA position="2_2_2_2">
-                    <om:OMS position="2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-                    <om:OMA position="2_2_2_2_1">
-                      <om:OMS position="2_2_2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_2_2_2_1_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="=&gt;"/>
-                      <om:OMV position="2_2_2_2_1_2" name="SS"/>
-                      <om:OMV position="2_2_2_2_1_3" name="S"/>
-                    </om:OMA>
-                    <om:OMA position="2_2_2_2_2">
-                      <om:OMS position="2_2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-                      <om:OMA position="2_2_2_2_2_1">
-                        <om:OMS position="2_2_2_2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                        <om:OMS position="2_2_2_2_2_1_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="=&gt;"/>
-                        <om:OMV position="2_2_2_2_2_1_2" name="SS'"/>
-                        <om:OMV position="2_2_2_2_2_1_3" name="S'"/>
-                      </om:OMA>
-                      <om:OMS position="2_2_2_2_2_2" base="http://cds.omdoc.org/urtheories" module="Typed" name="type"/>
-                    </om:OMA>
-                  </om:OMA>
-                </om:OMBIND>
-              </om:OMBIND>
-            </om:OMBIND>
-          </om:OMBIND>
-        </om:OMOBJ>
-      </type>
-      <notation>
-        <text-notation name="http://latin.omdoc.org/logics/syntax?CASLSubSorted?~F" precedence="25" fixity="infix" arguments="4"/>
-      </notation>
-    </constant>
-    <constant name="~FI" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMBIND>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-            <om:OMBVAR>
-              <om:OMV position="0" name="SS">
-                <type>
-                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"/>
-                </type>
-                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                </attribution>
-              </om:OMV>
-            </om:OMBVAR>
-            <om:OMBIND position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-              <om:OMBVAR>
-                <om:OMV position="2_0" name="S">
-                  <type>
-                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"/>
-                  </type>
-                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                  </attribution>
-                </om:OMV>
-              </om:OMBVAR>
-              <om:OMBIND position="2_2">
-                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-                <om:OMBVAR>
-                  <om:OMV position="2_2_0" name="SS'">
-                    <type>
-                      <om:OMS position="2_2_0_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"/>
-                    </type>
-                    <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                      <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                    </attribution>
-                  </om:OMV>
-                </om:OMBVAR>
-                <om:OMBIND position="2_2_2">
-                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-                  <om:OMBVAR>
-                    <om:OMV position="2_2_2_0" name="S'">
-                      <type>
-                        <om:OMS position="2_2_2_0_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"/>
-                      </type>
-                      <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                        <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                      </attribution>
-                    </om:OMV>
-                  </om:OMBVAR>
-                  <om:OMBIND position="2_2_2_2">
-                    <om:OMS position="2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-                    <om:OMBVAR>
-                      <om:OMV position="2_2_2_2_0" name="CC">
-                        <type>
-                          <om:OMS position="2_2_2_2_0_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"/>
-                        </type>
-                        <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                          <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                        </attribution>
-                      </om:OMV>
-                    </om:OMBVAR>
-                    <om:OMBIND position="2_2_2_2_2">
-                      <om:OMS position="2_2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-                      <om:OMBVAR>
-                        <om:OMV position="2_2_2_2_2_0" name="C">
-                          <type>
-                            <om:OMS position="2_2_2_2_2_0_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"/>
-                          </type>
-                          <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                            <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                          </attribution>
-                        </om:OMV>
-                      </om:OMBVAR>
-                      <om:OMBIND position="2_2_2_2_2_2">
-                        <om:OMS position="2_2_2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-                        <om:OMBVAR>
-                          <om:OMV position="2_2_2_2_2_2_0" name="f">
-                            <type>
-                              <om:OMA position="2_2_2_2_2_2_0_1">
-                                <om:OMS position="2_2_2_2_2_2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                                <om:OMS position="2_2_2_2_2_2_0_1_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="=&gt;"/>
-                                <om:OMV position="2_2_2_2_2_2_0_1_2" name="SS"/>
-                                <om:OMV position="2_2_2_2_2_2_0_1_3" name="S"/>
-                              </om:OMA>
-                            </type>
-                            <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                            </attribution>
-                          </om:OMV>
-                        </om:OMBVAR>
-                        <om:OMBIND position="2_2_2_2_2_2_2">
-                          <om:OMS position="2_2_2_2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-                          <om:OMBVAR>
-                            <om:OMV position="2_2_2_2_2_2_2_0" name="f'">
-                              <type>
-                                <om:OMA position="2_2_2_2_2_2_2_0_1">
-                                  <om:OMS position="2_2_2_2_2_2_2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                                  <om:OMS position="2_2_2_2_2_2_2_0_1_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="=&gt;"/>
-                                  <om:OMV position="2_2_2_2_2_2_2_0_1_2" name="SS'"/>
-                                  <om:OMV position="2_2_2_2_2_2_2_0_1_3" name="S'"/>
-                                </om:OMA>
-                              </type>
-                              <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                                <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                              </attribution>
-                            </om:OMV>
-                          </om:OMBVAR>
-                          <om:OMA position="2_2_2_2_2_2_2_2">
-                            <om:OMS position="2_2_2_2_2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-                            <om:OMA position="2_2_2_2_2_2_2_2_1">
-                              <om:OMS position="2_2_2_2_2_2_2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                              <om:OMS position="2_2_2_2_2_2_2_2_1_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSubSorted" name="sameF"/>
-                              <om:OMV position="2_2_2_2_2_2_2_2_1_2" name="SS"/>
-                              <om:OMV position="2_2_2_2_2_2_2_2_1_3" name="S"/>
-                              <om:OMV position="2_2_2_2_2_2_2_2_1_4" name="SS'"/>
-                              <om:OMV position="2_2_2_2_2_2_2_2_1_5" name="S'"/>
-                              <om:OMV position="2_2_2_2_2_2_2_2_1_6" name="f"/>
-                              <om:OMV position="2_2_2_2_2_2_2_2_1_7" name="f'"/>
-                            </om:OMA>
-                            <om:OMA position="2_2_2_2_2_2_2_2_2">
-                              <om:OMS position="2_2_2_2_2_2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-                              <om:OMA position="2_2_2_2_2_2_2_2_2_1">
-                                <om:OMS position="2_2_2_2_2_2_2_2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                                <om:OMS position="2_2_2_2_2_2_2_2_2_1_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSubSorted" name="&lt;&lt;"/>
-                                <om:OMV position="2_2_2_2_2_2_2_2_2_1_2" name="CC"/>
-                                <om:OMV position="2_2_2_2_2_2_2_2_2_1_3" name="SS"/>
-                              </om:OMA>
-                              <om:OMA position="2_2_2_2_2_2_2_2_2_2">
-                                <om:OMS position="2_2_2_2_2_2_2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-                                <om:OMA position="2_2_2_2_2_2_2_2_2_2_1">
-                                  <om:OMS position="2_2_2_2_2_2_2_2_2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                                  <om:OMS position="2_2_2_2_2_2_2_2_2_2_1_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSubSorted" name="&lt;&lt;"/>
-                                  <om:OMV position="2_2_2_2_2_2_2_2_2_2_1_2" name="CC"/>
-                                  <om:OMV position="2_2_2_2_2_2_2_2_2_2_1_3" name="SS'"/>
-                                </om:OMA>
-                                <om:OMA position="2_2_2_2_2_2_2_2_2_2_2">
-                                  <om:OMS position="2_2_2_2_2_2_2_2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-                                  <om:OMA position="2_2_2_2_2_2_2_2_2_2_2_1">
-                                    <om:OMS position="2_2_2_2_2_2_2_2_2_2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                                    <om:OMS position="2_2_2_2_2_2_2_2_2_2_2_1_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSubSorted" name="&lt;"/>
-                                    <om:OMV position="2_2_2_2_2_2_2_2_2_2_2_1_2" name="S"/>
-                                    <om:OMV position="2_2_2_2_2_2_2_2_2_2_2_1_3" name="C"/>
-                                  </om:OMA>
-                                  <om:OMA position="2_2_2_2_2_2_2_2_2_2_2_2">
-                                    <om:OMS position="2_2_2_2_2_2_2_2_2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-                                    <om:OMA position="2_2_2_2_2_2_2_2_2_2_2_2_1">
-                                      <om:OMS position="2_2_2_2_2_2_2_2_2_2_2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                                      <om:OMS position="2_2_2_2_2_2_2_2_2_2_2_2_1_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSubSorted" name="&lt;"/>
-                                      <om:OMV position="2_2_2_2_2_2_2_2_2_2_2_2_1_2" name="S'"/>
-                                      <om:OMV position="2_2_2_2_2_2_2_2_2_2_2_2_1_3" name="C"/>
-                                    </om:OMA>
-                                    <om:OMA position="2_2_2_2_2_2_2_2_2_2_2_2_2">
-                                      <om:OMS position="2_2_2_2_2_2_2_2_2_2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                                      <om:OMS position="2_2_2_2_2_2_2_2_2_2_2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSubSorted" name="~F"/>
-                                      <om:OMV position="2_2_2_2_2_2_2_2_2_2_2_2_2_2" name="SS"/>
-                                      <om:OMV position="2_2_2_2_2_2_2_2_2_2_2_2_2_3" name="S"/>
-                                      <om:OMV position="2_2_2_2_2_2_2_2_2_2_2_2_2_4" name="SS'"/>
-                                      <om:OMV position="2_2_2_2_2_2_2_2_2_2_2_2_2_5" name="S'"/>
-                                      <om:OMV position="2_2_2_2_2_2_2_2_2_2_2_2_2_6" name="f"/>
-                                      <om:OMV position="2_2_2_2_2_2_2_2_2_2_2_2_2_7" name="f'"/>
-                                    </om:OMA>
-                                  </om:OMA>
-                                </om:OMA>
-                              </om:OMA>
-                            </om:OMA>
-                          </om:OMA>
-                        </om:OMBIND>
-                      </om:OMBIND>
-                    </om:OMBIND>
-                  </om:OMBIND>
-                </om:OMBIND>
-              </om:OMBIND>
-            </om:OMBIND>
-          </om:OMBIND>
-        </om:OMOBJ>
-      </type>
-      <notation>
-        <text-notation name="http://latin.omdoc.org/logics/syntax?CASLSubSorted?~FI" precedence="0" fixity="prefix" arguments="6"/>
-      </notation>
-    </constant>
-    <constant name="sameP" role="type">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMBIND>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-            <om:OMBVAR>
-              <om:OMV position="0" name="SS">
-                <type>
-                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"/>
-                </type>
-                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                </attribution>
-              </om:OMV>
-            </om:OMBVAR>
-            <om:OMBIND position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-              <om:OMBVAR>
-                <om:OMV position="2_0" name="SS'">
-                  <type>
-                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"/>
-                  </type>
-                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                  </attribution>
-                </om:OMV>
-              </om:OMBVAR>
-              <om:OMA position="2_2">
-                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-                <om:OMA position="2_2_1">
-                  <om:OMS position="2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                  <om:OMS position="2_2_1_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="pred"/>
-                  <om:OMV position="2_2_1_2" name="SS"/>
-                </om:OMA>
-                <om:OMA position="2_2_2">
-                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-                  <om:OMA position="2_2_2_1">
-                    <om:OMS position="2_2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                    <om:OMS position="2_2_2_1_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="pred"/>
-                    <om:OMV position="2_2_2_1_2" name="SS'"/>
-                  </om:OMA>
-                  <om:OMS position="2_2_2_2" base="http://cds.omdoc.org/urtheories" module="Typed" name="type"/>
-                </om:OMA>
-              </om:OMA>
-            </om:OMBIND>
-          </om:OMBIND>
-        </om:OMOBJ>
-      </type>
-      <notation>
-        <text-notation name="http://latin.omdoc.org/logics/syntax?CASLSubSorted?sameP" precedence="0" fixity="prefix" arguments="2"/>
-      </notation>
-    </constant>
-    <constant name="~P" role="type">
-      <metadata>
-        <meta property="http://purl.org/dc/terms?_?description">
-          <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-            <om:OMSTR>sameP is equivalence relation</om:OMSTR>
-          </om:OMOBJ>
-        </meta>
-      </metadata>
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMBIND>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-            <om:OMBVAR>
-              <om:OMV position="0" name="SS">
-                <type>
-                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"/>
-                </type>
-                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                </attribution>
-              </om:OMV>
-            </om:OMBVAR>
-            <om:OMBIND position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-              <om:OMBVAR>
-                <om:OMV position="2_0" name="SS'">
-                  <type>
-                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"/>
-                  </type>
-                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                  </attribution>
-                </om:OMV>
-              </om:OMBVAR>
-              <om:OMA position="2_2">
-                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-                <om:OMA position="2_2_1">
-                  <om:OMS position="2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                  <om:OMS position="2_2_1_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="pred"/>
-                  <om:OMV position="2_2_1_2" name="SS"/>
-                </om:OMA>
-                <om:OMA position="2_2_2">
-                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-                  <om:OMA position="2_2_2_1">
-                    <om:OMS position="2_2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                    <om:OMS position="2_2_2_1_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="pred"/>
-                    <om:OMV position="2_2_2_1_2" name="SS'"/>
-                  </om:OMA>
-                  <om:OMS position="2_2_2_2" base="http://cds.omdoc.org/urtheories" module="Typed" name="type"/>
-                </om:OMA>
-              </om:OMA>
-            </om:OMBIND>
-          </om:OMBIND>
-        </om:OMOBJ>
-      </type>
-      <notation>
-        <text-notation name="http://latin.omdoc.org/logics/syntax?CASLSubSorted?~P" precedence="25" fixity="infix" arguments="2"/>
-      </notation>
-    </constant>
-    <constant name="~PI" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMBIND>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-            <om:OMBVAR>
-              <om:OMV position="0" name="SS">
-                <type>
-                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"/>
-                </type>
-                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                </attribution>
-              </om:OMV>
-            </om:OMBVAR>
-            <om:OMBIND position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-              <om:OMBVAR>
-                <om:OMV position="2_0" name="SS'">
-                  <type>
-                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"/>
-                  </type>
-                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                  </attribution>
-                </om:OMV>
-              </om:OMBVAR>
-              <om:OMBIND position="2_2">
-                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-                <om:OMBVAR>
-                  <om:OMV position="2_2_0" name="CC">
-                    <type>
-                      <om:OMS position="2_2_0_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"/>
-                    </type>
-                    <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                      <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                    </attribution>
-                  </om:OMV>
-                </om:OMBVAR>
-                <om:OMBIND position="2_2_2">
-                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-                  <om:OMBVAR>
-                    <om:OMV position="2_2_2_0" name="p">
-                      <type>
-                        <om:OMA position="2_2_2_0_1">
-                          <om:OMS position="2_2_2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                          <om:OMS position="2_2_2_0_1_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="pred"/>
-                          <om:OMV position="2_2_2_0_1_2" name="SS"/>
-                        </om:OMA>
-                      </type>
-                      <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                        <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                      </attribution>
-                    </om:OMV>
-                  </om:OMBVAR>
-                  <om:OMBIND position="2_2_2_2">
-                    <om:OMS position="2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-                    <om:OMBVAR>
-                      <om:OMV position="2_2_2_2_0" name="p'">
-                        <type>
-                          <om:OMA position="2_2_2_2_0_1">
-                            <om:OMS position="2_2_2_2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                            <om:OMS position="2_2_2_2_0_1_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="pred"/>
-                            <om:OMV position="2_2_2_2_0_1_2" name="SS'"/>
-                          </om:OMA>
-                        </type>
-                        <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                          <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                        </attribution>
-                      </om:OMV>
-                    </om:OMBVAR>
-                    <om:OMA position="2_2_2_2_2">
-                      <om:OMS position="2_2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-                      <om:OMA position="2_2_2_2_2_1">
-                        <om:OMS position="2_2_2_2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                        <om:OMS position="2_2_2_2_2_1_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSubSorted" name="sameP"/>
-                        <om:OMV position="2_2_2_2_2_1_2" name="SS"/>
-                        <om:OMV position="2_2_2_2_2_1_3" name="SS'"/>
-                        <om:OMV position="2_2_2_2_2_1_4" name="p"/>
-                        <om:OMV position="2_2_2_2_2_1_5" name="p'"/>
-                      </om:OMA>
-                      <om:OMA position="2_2_2_2_2_2">
-                        <om:OMS position="2_2_2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-                        <om:OMA position="2_2_2_2_2_2_1">
-                          <om:OMS position="2_2_2_2_2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                          <om:OMS position="2_2_2_2_2_2_1_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSubSorted" name="&lt;&lt;"/>
-                          <om:OMV position="2_2_2_2_2_2_1_2" name="CC"/>
-                          <om:OMV position="2_2_2_2_2_2_1_3" name="SS"/>
-                        </om:OMA>
-                        <om:OMA position="2_2_2_2_2_2_2">
-                          <om:OMS position="2_2_2_2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-                          <om:OMA position="2_2_2_2_2_2_2_1">
-                            <om:OMS position="2_2_2_2_2_2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                            <om:OMS position="2_2_2_2_2_2_2_1_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSubSorted" name="&lt;&lt;"/>
-                            <om:OMV position="2_2_2_2_2_2_2_1_2" name="CC"/>
-                            <om:OMV position="2_2_2_2_2_2_2_1_3" name="SS'"/>
-                          </om:OMA>
-                          <om:OMA position="2_2_2_2_2_2_2_2">
-                            <om:OMS position="2_2_2_2_2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                            <om:OMS position="2_2_2_2_2_2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="CASLSubSorted" name="~P"/>
-                            <om:OMV position="2_2_2_2_2_2_2_2_2" name="SS"/>
-                            <om:OMV position="2_2_2_2_2_2_2_2_3" name="SS'"/>
-                            <om:OMV position="2_2_2_2_2_2_2_2_4" name="p"/>
-                            <om:OMV position="2_2_2_2_2_2_2_2_5" name="p'"/>
-                          </om:OMA>
-                        </om:OMA>
-                      </om:OMA>
-                    </om:OMA>
-                  </om:OMBIND>
-                </om:OMBIND>
-              </om:OMBIND>
-            </om:OMBIND>
-          </om:OMBIND>
-        </om:OMOBJ>
-      </type>
-      <notation>
-        <text-notation name="http://latin.omdoc.org/logics/syntax?CASLSubSorted?~PI" precedence="0" fixity="prefix" arguments="3"/>
-      </notation>
-    </constant>
-  </theory>
-</omdoc>
+<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><theory name="CASLSubSorted" base="http://latin.omdoc.org/logics/syntax" meta="http://cds.omdoc.org/urtheories?LF"><import from="http://latin.omdoc.org/logics/syntax?CASLSorted">
+          
+          
+          
+      </import><constant name="&lt;" role="type">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS><om:OMS base="http://cds.omdoc.org/urtheories" module="Typed" name="type"></om:OMS>
+      </om:OMA>
+      </om:OMA></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="25" fixity="infix" arguments="0 0"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="as" role="constructor">
+       <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT value="Downwards casting from B to A, abstract syntax is 'cast'" type="http://mmt.kwarc.info/openmath?Base?OMSTR"/></om:OMOBJ></meta></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="tm"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="tm"></om:OMS>
+      </om:OMA>
+      </om:OMA></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="25" fixity="infix" arguments="0 0"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="%23as" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="T"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="tm"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSubSorted" name="&lt;"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="B"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="%23"></om:OMS><om:OMV name="T"></om:OMV><om:OMV name="B"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="%23"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSubSorted" name="as"></om:OMS><om:OMV name="T"></om:OMV><om:OMV name="A"></om:OMV>
+      </om:OMA><om:OMV name="A"></om:OMV>
+      </om:OMA>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 3"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="in" role="constructor">
+       <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT value="'membership' in the abstract syntax" type="http://mmt.kwarc.info/openmath?Base?OMSTR"/></om:OMOBJ></meta></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="tm"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="o"></om:OMS>
+      </om:OMA>
+      </om:OMA></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="25" fixity="infix" arguments="0 0"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="%23in" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="T"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="tm"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSubSorted" name="&lt;"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="B"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="%23"></om:OMS><om:OMV name="T"></om:OMV><om:OMV name="B"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="wff"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSubSorted" name="in"></om:OMS><om:OMV name="T"></om:OMV><om:OMV name="A"></om:OMV>
+      </om:OMA>
+      </om:OMA>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 3"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="sorted-term" role="constructor">
+       <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT value="'sorted-term' in the abstract syntax" type="http://mmt.kwarc.info/openmath?Base?OMSTR"/></om:OMOBJ></meta></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="tm"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="tm"></om:OMS>
+      </om:OMA>
+      </om:OMA></om:OMOBJ></type>
+       
+       
+     </constant><constant name="%23sorted-term" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="T"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="tm"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSubSorted" name="&lt;"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="B"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="%23"></om:OMS><om:OMV name="T"></om:OMV><om:OMV name="A"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="%23"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSubSorted" name="sorted-term"></om:OMS><om:OMV name="T"></om:OMV><om:OMV name="B"></om:OMV>
+      </om:OMA><om:OMV name="B"></om:OMV>
+      </om:OMA>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 3"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="&lt;&lt;" role="type">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"></om:OMS><om:OMS base="http://cds.omdoc.org/urtheories" module="Typed" name="type"></om:OMS>
+      </om:OMA>
+      </om:OMA></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="25" fixity="infix" arguments="0 0"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="&lt;&lt;nil" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSubSorted" name="&lt;&lt;"></om:OMS><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortnil"></om:OMS><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortnil"></om:OMS>
+      </om:OMA></om:OMOBJ></type>
+       
+       
+     </constant><constant name="&lt;&lt;cons" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="S'"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="SS"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="SS'"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSubSorted" name="&lt;"></om:OMS><om:OMV name="S"></om:OMV><om:OMV name="S'"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSubSorted" name="&lt;&lt;"></om:OMS><om:OMV name="SS"></om:OMV><om:OMV name="SS'"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSubSorted" name="&lt;&lt;"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="*"></om:OMS><om:OMV name="S"></om:OMV><om:OMV name="SS"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="*"></om:OMS><om:OMV name="S'"></om:OMV><om:OMV name="SS'"></om:OMV>
+      </om:OMA>
+      </om:OMA>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 4"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="%23&lt;" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="S'"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="X"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="tm"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSubSorted" name="&lt;"></om:OMS><om:OMV name="S"></om:OMV><om:OMV name="S'"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="%23"></om:OMS><om:OMV name="X"></om:OMV><om:OMV name="S"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="%23"></om:OMS><om:OMV name="X"></om:OMV><om:OMV name="S'"></om:OMV>
+      </om:OMA>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 3"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="%23&lt;&lt;" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="XX"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="tmlist"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="SS"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="SS'"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="%23%23"></om:OMS><om:OMV name="XX"></om:OMV><om:OMV name="SS"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSubSorted" name="&lt;&lt;"></om:OMS><om:OMV name="SS"></om:OMV><om:OMV name="SS'"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="%23%23"></om:OMS><om:OMV name="XX"></om:OMV><om:OMV name="SS'"></om:OMV>
+      </om:OMA>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 3"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="sameF" role="type">
+       <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT value="overloading relation" type="http://mmt.kwarc.info/openmath?Base?OMSTR"/></om:OMOBJ></meta></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="SS"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="SS'"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="S'"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="=&gt;"></om:OMS><om:OMV name="SS"></om:OMV><om:OMV name="S"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="=&gt;"></om:OMS><om:OMV name="SS'"></om:OMV><om:OMV name="S'"></om:OMV>
+      </om:OMA><om:OMS base="http://cds.omdoc.org/urtheories" module="Typed" name="type"></om:OMS>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 4"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="~F" role="type">
+       <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT value="sameF is equivalence relation" type="http://mmt.kwarc.info/openmath?Base?OMSTR"/></om:OMOBJ></meta></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="SS"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="SS'"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="S'"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="=&gt;"></om:OMS><om:OMV name="SS"></om:OMV><om:OMV name="S"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="=&gt;"></om:OMS><om:OMV name="SS'"></om:OMV><om:OMV name="S'"></om:OMV>
+      </om:OMA><om:OMS base="http://cds.omdoc.org/urtheories" module="Typed" name="type"></om:OMS>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="25" fixity="infix" arguments="0 4"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="~FI" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="SS"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="SS'"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="S'"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="CC"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="C"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="f"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="=&gt;"></om:OMS><om:OMV name="SS"></om:OMV><om:OMV name="S"></om:OMV>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="f'"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="=&gt;"></om:OMS><om:OMV name="SS'"></om:OMV><om:OMV name="S'"></om:OMV>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSubSorted" name="sameF"></om:OMS><om:OMV name="SS"></om:OMV><om:OMV name="S"></om:OMV><om:OMV name="SS'"></om:OMV><om:OMV name="S'"></om:OMV><om:OMV name="f"></om:OMV><om:OMV name="f'"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSubSorted" name="&lt;&lt;"></om:OMS><om:OMV name="CC"></om:OMV><om:OMV name="SS"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSubSorted" name="&lt;&lt;"></om:OMS><om:OMV name="CC"></om:OMV><om:OMV name="SS'"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSubSorted" name="&lt;"></om:OMS><om:OMV name="S"></om:OMV><om:OMV name="C"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSubSorted" name="&lt;"></om:OMS><om:OMV name="S'"></om:OMV><om:OMV name="C"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSubSorted" name="~F"></om:OMS><om:OMV name="SS"></om:OMV><om:OMV name="S"></om:OMV><om:OMV name="SS'"></om:OMV><om:OMV name="S'"></om:OMV><om:OMV name="f"></om:OMV><om:OMV name="f'"></om:OMV>
+      </om:OMA>
+      </om:OMA>
+      </om:OMA>
+      </om:OMA>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND>
+      </om:OMBIND>
+      </om:OMBIND>
+      </om:OMBIND>
+      </om:OMBIND>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 6"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="sameP" role="type">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="SS"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="SS'"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="pred"></om:OMS><om:OMV name="SS"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="pred"></om:OMS><om:OMV name="SS'"></om:OMV>
+      </om:OMA><om:OMS base="http://cds.omdoc.org/urtheories" module="Typed" name="type"></om:OMS>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 2"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="~P" role="type">
+       <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT value="sameP is equivalence relation" type="http://mmt.kwarc.info/openmath?Base?OMSTR"/></om:OMOBJ></meta></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="SS"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="SS'"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="pred"></om:OMS><om:OMV name="SS"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="pred"></om:OMS><om:OMV name="SS'"></om:OMV>
+      </om:OMA><om:OMS base="http://cds.omdoc.org/urtheories" module="Typed" name="type"></om:OMS>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="25" fixity="infix" arguments="0 2"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="~PI" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="SS"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="SS'"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="CC"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="p"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="pred"></om:OMS><om:OMV name="SS"></om:OMV>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="p'"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="pred"></om:OMS><om:OMV name="SS'"></om:OMV>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSubSorted" name="sameP"></om:OMS><om:OMV name="SS"></om:OMV><om:OMV name="SS'"></om:OMV><om:OMV name="p"></om:OMV><om:OMV name="p'"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSubSorted" name="&lt;&lt;"></om:OMS><om:OMV name="CC"></om:OMV><om:OMV name="SS"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSubSorted" name="&lt;&lt;"></om:OMS><om:OMV name="CC"></om:OMV><om:OMV name="SS'"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSubSorted" name="~P"></om:OMS><om:OMV name="SS"></om:OMV><om:OMV name="SS'"></om:OMV><om:OMV name="p"></om:OMV><om:OMV name="p'"></om:OMV>
+      </om:OMA>
+      </om:OMA>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND>
+      </om:OMBIND>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 3"> <scope languages="" priority="0"/> </notation></notations>
+     </constant></theory></omdoc>

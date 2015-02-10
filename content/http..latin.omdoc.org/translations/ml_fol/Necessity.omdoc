@@ -1,79 +1,40 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
-  <view 
-  name="Necessity" base="http://latin.omdoc.org/translations/ml_fol" from="http://latin.omdoc.org/logics/syntax?Necessity" to="http://latin.omdoc.org/translations/ml_fol?ML-FOL">
-    <import from="http://latin.omdoc.org/logics/syntax?Logic">
-      <definition>
-        <om:OMS base="http://latin.omdoc.org/translations/ml_fol" module="Base"/>
-      </definition>
-    </import>
-    <constant name="□">
-      <definition>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMBIND>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-            <om:OMBVAR>
-              <om:OMV position="0" name="f">
-                <type>
-                  <om:OMA position="0_1">
-                    <om:OMS position="0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-                    <om:OMS position="0_1_1" base="http://latin.omdoc.org/math" module="Universe" name="u"/>
-                    <om:OMS position="0_1_2" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
-                  </om:OMA>
-                </type>
-                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                </attribution>
-              </om:OMV>
-            </om:OMBVAR>
-            <om:OMBIND position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-              <om:OMBVAR>
-                <om:OMV position="2_0" name="x">
-                  <type>
-                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/math" module="Universe" name="u"/>
-                  </type>
-                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                  </attribution>
-                </om:OMV>
-              </om:OMBVAR>
-              <om:OMA position="2_2">
-                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/syntax" module="Forall" name="forall"/>
-                <om:OMBIND position="2_2_2">
-                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-                  <om:OMBVAR>
-                    <om:OMV position="2_2_2_0" name="y">
-                      <type>
-                        <om:OMS position="2_2_2_0_1" base="http://latin.omdoc.org/math" module="Universe" name="u"/>
-                      </type>
-                      <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                        <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                      </attribution>
-                    </om:OMV>
-                  </om:OMBVAR>
-                  <om:OMA position="2_2_2_2">
-                    <om:OMS position="2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                    <om:OMS position="2_2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="IMP" name="imp"/>
-                    <om:OMA position="2_2_2_2_2">
-                      <om:OMS position="2_2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_2_2_2_2_1" base="http://latin.omdoc.org/translations/ml_fol" module="ML-FOL" name="rel"/>
-                      <om:OMV position="2_2_2_2_2_2" name="x"/>
-                      <om:OMV position="2_2_2_2_2_3" name="y"/>
-                    </om:OMA>
-                    <om:OMA position="2_2_2_2_3">
-                      <om:OMS position="2_2_2_2_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMV position="2_2_2_2_3_1" name="f"/>
-                      <om:OMV position="2_2_2_2_3_2" name="y"/>
-                    </om:OMA>
-                  </om:OMA>
-                </om:OMBIND>
-              </om:OMA>
-            </om:OMBIND>
-          </om:OMBIND>
-        </om:OMOBJ>
-      </definition>
-    </constant>
-</view>
-</omdoc>
+<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><view name="Necessity" base="http://latin.omdoc.org/translations/ml_fol" from="http://latin.omdoc.org/logics/syntax?Necessity" to="http://latin.omdoc.org/translations/ml_fol?ML-FOL">
+           
+           <import name="[http://latin.omdoc.org/logics/syntax?Logic]" from="http://latin.omdoc.org/logics/syntax?Logic" implicit="true">
+          
+          
+          <definition><om:OMS base="http://latin.omdoc.org/translations/ml_fol" module="Base"></om:OMS></definition>
+      </import><constant name="□">
+       
+       
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="f"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS><om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"></om:OMS>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="Forall" name="forall"></om:OMS><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="y"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="IMP" name="imp"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/translations/ml_fol" module="ML-FOL" name="rel"></om:OMS><om:OMV name="x"></om:OMV><om:OMV name="y"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMV name="f"></om:OMV><om:OMV name="y"></om:OMV>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></definition>
+       
+     </constant>
+         </view></omdoc>

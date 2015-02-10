@@ -1,24 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
-  <theory name="ML-FOL" base="http://latin.omdoc.org/translations/ml_fol" meta="http://cds.omdoc.org/urtheories?LF">
-    <import from="http://latin.omdoc.org/logics/syntax?FOL"> </import>
-    <constant name="rel" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMA>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-            <om:OMS position="1" base="http://latin.omdoc.org/math" module="Universe" name="u"/>
-            <om:OMA position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-              <om:OMS position="2_1" base="http://latin.omdoc.org/math" module="Universe" name="u"/>
-              <om:OMS position="2_2" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
-            </om:OMA>
-          </om:OMA>
-        </om:OMOBJ>
-      </type>
-      <notation>
-        <text-notation name="http://latin.omdoc.org/translations/ml_fol?ML-FOL?rel" precedence="100" fixity="infix" arguments="0"/>
-      </notation>
-    </constant>
-  </theory>
-</omdoc>
+<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><theory name="ML-FOL" base="http://latin.omdoc.org/translations/ml_fol" meta="http://cds.omdoc.org/urtheories?LF"><import from="http://latin.omdoc.org/logics/syntax?FOL">
+          
+          
+          
+      </import><constant name="rel" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS><om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"></om:OMS>
+      </om:OMA>
+      </om:OMA></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="100" fixity="infix" arguments="0 0"> <scope languages="" priority="0"/> </notation></notations>
+     </constant></theory></omdoc>

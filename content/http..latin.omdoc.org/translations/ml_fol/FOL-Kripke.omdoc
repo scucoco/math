@@ -1,57 +1,30 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
-  <view 
-  name="FOL-Kripke" base="http://latin.omdoc.org/translations/ml_fol" from="http://latin.omdoc.org/translations/ml_fol?ML-FOLMOD" to="http://latin.omdoc.org/logics/model_theory/kripke?Kripke">
-    <import from="http://latin.omdoc.org/logics/model_theory/kripke?FOLMOD">
-      <definition>
-        <om:OMS base="http://latin.omdoc.org/translations/ml_fol" module="FOLMOD-Kripke"/>
-      </definition>
-    </import>
-    <constant name="po/rel">
-      <definition>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMBIND>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-            <om:OMBVAR>
-              <om:OMV position="0" name="x">
-                <type>
-                  <om:OMA position="0_1">
-                    <om:OMS position="0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                    <om:OMS position="0_1_1" base="http://latin.omdoc.org/foundations/minimal" module="STTIFOLEQ" name="elem"/>
-                    <om:OMS position="0_1_2" base="http://latin.omdoc.org/logics/model_theory/kripke" module="Kripke" name="world"/>
-                  </om:OMA>
-                </type>
-                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                </attribution>
-              </om:OMV>
-            </om:OMBVAR>
-            <om:OMBIND position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-              <om:OMBVAR>
-                <om:OMV position="2_0" name="x1">
-                  <type>
-                    <om:OMA position="2_0_1">
-                      <om:OMS position="2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_0_1_1" base="http://latin.omdoc.org/foundations/minimal" module="STTIFOLEQ" name="elem"/>
-                      <om:OMS position="2_0_1_2" base="http://latin.omdoc.org/logics/model_theory/kripke" module="Kripke" name="world"/>
-                    </om:OMA>
-                  </type>
-                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                  </attribution>
-                </om:OMV>
-              </om:OMBVAR>
-              <om:OMA position="2_2">
-                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/model_theory/kripke" module="Kripke" name="acc"/>
-                <om:OMV position="2_2_2" name="x"/>
-                <om:OMV position="2_2_3" name="x1"/>
-              </om:OMA>
-            </om:OMBIND>
-          </om:OMBIND>
-        </om:OMOBJ>
-      </definition>
-    </constant>
-</view>
-</omdoc>
+<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><view name="FOL-Kripke" base="http://latin.omdoc.org/translations/ml_fol" from="http://latin.omdoc.org/translations/ml_fol?ML-FOLMOD" to="http://latin.omdoc.org/logics/model_theory/kripke?Kripke">
+           
+           <import name="[http://latin.omdoc.org/logics/model_theory/kripke?FOLMOD]" from="http://latin.omdoc.org/logics/model_theory/kripke?FOLMOD" implicit="true">
+          
+          
+          <definition><om:OMS base="http://latin.omdoc.org/translations/ml_fol" module="FOLMOD-Kripke"></om:OMS></definition>
+      </import><constant name="po/rel">
+       
+       
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/minimal" module="STTIFOLEQ" name="elem"></om:OMS><om:OMS base="http://latin.omdoc.org/logics/model_theory/kripke" module="Kripke" name="world"></om:OMS>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="x1"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/minimal" module="STTIFOLEQ" name="elem"></om:OMS><om:OMS base="http://latin.omdoc.org/logics/model_theory/kripke" module="Kripke" name="world"></om:OMS>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/model_theory/kripke" module="Kripke" name="acc"></om:OMS><om:OMV name="x"></om:OMV><om:OMV name="x1"></om:OMV>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></definition>
+       
+     </constant>
+         </view></omdoc>

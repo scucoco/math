@@ -1,49 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
-  <view 
-  name="IMP" base="http://latin.omdoc.org/translations/prop_stt" from="http://latin.omdoc.org/logics/syntax?IMP" to="http://latin.omdoc.org/type_theories?SimpTypes">
-    <import from="http://latin.omdoc.org/logics/syntax?Logic">
-      <definition>
-        <om:OMS base="http://latin.omdoc.org/translations/prop_stt" module="Base"/>
-      </definition>
-    </import>
-    <constant name="imp">
-      <definition>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMBIND>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-            <om:OMBVAR>
-              <om:OMV position="0" name="x">
-                <type>
-                  <om:OMS position="0_1" base="http://latin.omdoc.org/type_theories" module="TypesTerms" name="types/cl"/>
-                </type>
-                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                </attribution>
-              </om:OMV>
-            </om:OMBVAR>
-            <om:OMBIND position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-              <om:OMBVAR>
-                <om:OMV position="2_0" name="y">
-                  <type>
-                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/type_theories" module="TypesTerms" name="types/cl"/>
-                  </type>
-                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                  </attribution>
-                </om:OMV>
-              </om:OMBVAR>
-              <om:OMA position="2_2">
-                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                <om:OMS position="2_2_1" base="http://latin.omdoc.org/type_theories" module="SimpTypes" name="funtypes/→"/>
-                <om:OMV position="2_2_2" name="x"/>
-                <om:OMV position="2_2_3" name="y"/>
-              </om:OMA>
-            </om:OMBIND>
-          </om:OMBIND>
-        </om:OMOBJ>
-      </definition>
-    </constant>
-</view>
-</omdoc>
+<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><view name="IMP" base="http://latin.omdoc.org/translations/prop_stt" from="http://latin.omdoc.org/logics/syntax?IMP" to="http://latin.omdoc.org/type_theories?SimpTypes">
+           
+           <import name="[http://latin.omdoc.org/logics/syntax?Logic]" from="http://latin.omdoc.org/logics/syntax?Logic" implicit="true">
+          
+          
+          <definition><om:OMS base="http://latin.omdoc.org/translations/prop_stt" module="Base"></om:OMS></definition>
+      </import><constant name="imp">
+       
+       
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/type_theories" module="TypesTerms" name="types/cl"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="y"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/type_theories" module="TypesTerms" name="types/cl"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/type_theories" module="SimpTypes" name="funtypes/→"></om:OMS><om:OMV name="x"></om:OMV><om:OMV name="y"></om:OMV>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></definition>
+       
+     </constant>
+         </view></omdoc>
