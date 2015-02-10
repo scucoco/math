@@ -2,26 +2,38 @@
 
 log console
 log file build.log
-//log+ debug
+//log+ presenter
+//log+ backend
 log+ controller
 log+ extman
+//log+ reader
 log+ archive
 //log+ lfcatalog
 log+ twelf-omdoc
-log+ narration-svg
+//log+ index
+//log+ narration-svg
 //log+ checker
 //log+ object-checker
+//log+ query
+//log+ catalog
+//log+ server
+//log+ uom
+//log+ abox
+//log+ structure-parser
+//log+ parser
+//log+ scanner
+//log+ lf
 
 // replace argument with the correct path to Twelf
-extension info.kwarc.mmt.lf.Twelf C:\other\twelf-mod\bin\twelf-server.bat
+extension info.kwarc.mmt.lf.Twelf /usr/local/share/twelf-mod/bin/twelf-server
 
 // replace argument with the correct path to graphviz
-extension info.kwarc.mmt.api.archives.GraphViz "C:\Program Files\Graphviz 2.28\bin\dot.exe"
+// extension info.kwarc.mmt.api.archives.GraphViz "C:\Program Files\Graphviz 2.28\bin\dot.exe"
 
 archive add ../urtheories
 archive add .
 
-build latin twelf-omdoc
+build latin twelf-omdoc foundations
 
 //archive latin relational
 //build latin narration-svg*
