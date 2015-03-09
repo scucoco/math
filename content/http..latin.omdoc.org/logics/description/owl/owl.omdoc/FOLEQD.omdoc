@@ -1,404 +1,274 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
-  <theory name="FOLEQD" base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" meta="http://cds.omdoc.org/urtheories?LF">
-    <import from="http://latin.omdoc.org/logics/syntax?FOLEQ"> </import>
-    <constant name="dataType" role="type">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS base="http://cds.omdoc.org/urtheories" module="Typed" name="type"/>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="is" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMA>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-            <om:OMS position="1" base="http://latin.omdoc.org/math" module="Universe" name="u"/>
-            <om:OMA position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-              <om:OMS position="2_1" base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"/>
-              <om:OMS position="2_2" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
-            </om:OMA>
-          </om:OMA>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="tm" role="type">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMA>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-            <om:OMS position="1" base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"/>
-            <om:OMS position="2" base="http://cds.omdoc.org/urtheories" module="Typed" name="type"/>
-          </om:OMA>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="string" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"/>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="normalizedString" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"/>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="boolean" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"/>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="decimal" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"/>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="float" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"/>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="double" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"/>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="integer" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"/>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="nonNegativeInteger" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"/>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="nonPositiveInteger" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"/>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="positiveInteger" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"/>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="negativeInteger" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"/>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="long" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"/>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="int" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"/>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="short" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"/>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="byte" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"/>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="unsignedLong" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"/>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="unsignedInt" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"/>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="unsignedShort" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"/>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="unsignedByte" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"/>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="hexBinary" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"/>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="base64Binary" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"/>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="dateTime" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"/>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="time" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"/>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="date" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"/>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="gYearMonth" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"/>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="gYear" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"/>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="gMonthDay" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"/>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="gDay" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"/>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="gMonth" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"/>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="anyURI" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"/>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="token" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"/>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="language" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"/>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="NMToken" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"/>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="name" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"/>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="NCName" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"/>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="literal" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"/>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="rational" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"/>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="real" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"/>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="plainLiteral" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"/>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="dateTimeStamp" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"/>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="xmlLiteral" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"/>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="zero" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"/>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="one" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"/>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="zeroisNonnegativeInteger" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMBIND>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-            <om:OMBVAR>
-              <om:OMV position="0" name="NonnegativeInteger">
-                <type>
-                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"/>
-                </type>
-                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                </attribution>
-              </om:OMV>
-            </om:OMBVAR>
-            <om:OMA position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-              <om:OMS position="2_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
-              <om:OMA position="2_2">
-                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="is"/>
-                <om:OMS position="2_2_2" base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="zero"/>
-                <om:OMV position="2_2_3" name="NonnegativeInteger"/>
-              </om:OMA>
-            </om:OMA>
-          </om:OMBIND>
-        </om:OMOBJ>
-      </type>
-      <notation>
-        <text-notation name="http://latin.omdoc.org/logics/description/owl/owl.omdoc?FOLEQD?zeroisNonnegativeInteger" precedence="0" fixity="prefix" arguments="1"/>
-      </notation>
-    </constant>
-    <constant name="oneisNnonnegativeInteger" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMBIND>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-            <om:OMBVAR>
-              <om:OMV position="0" name="NonnegativeInteger">
-                <type>
-                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"/>
-                </type>
-                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                </attribution>
-              </om:OMV>
-            </om:OMBVAR>
-            <om:OMA position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-              <om:OMS position="2_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
-              <om:OMA position="2_2">
-                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="is"/>
-                <om:OMS position="2_2_2" base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="one"/>
-                <om:OMV position="2_2_3" name="NonnegativeInteger"/>
-              </om:OMA>
-            </om:OMA>
-          </om:OMBIND>
-        </om:OMOBJ>
-      </type>
-      <notation>
-        <text-notation name="http://latin.omdoc.org/logics/description/owl/owl.omdoc?FOLEQD?oneisNnonnegativeInteger" precedence="0" fixity="prefix" arguments="1"/>
-      </notation>
-    </constant>
-  </theory>
-</omdoc>
+<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><theory name="FOLEQD" base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" meta="http://cds.omdoc.org/urtheories?LF"><import from="http://latin.omdoc.org/logics/syntax?FOLEQ">
+          
+          
+          
+      </import><constant name="dataType" role="type">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://cds.omdoc.org/urtheories" module="Typed" name="type"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="is" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"></om:OMS><om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"></om:OMS>
+      </om:OMA>
+      </om:OMA></om:OMOBJ></type>
+       
+       
+     </constant><constant name="tm" role="type">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"></om:OMS><om:OMS base="http://cds.omdoc.org/urtheories" module="Typed" name="type"></om:OMS>
+      </om:OMA></om:OMOBJ></type>
+       
+       
+     </constant><constant name="string" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="normalizedString" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="boolean" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="decimal" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="float" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="double" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="integer" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="nonNegativeInteger" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="nonPositiveInteger" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="positiveInteger" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="negativeInteger" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="long" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="int" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="short" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="byte" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="unsignedLong" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="unsignedInt" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="unsignedShort" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="unsignedByte" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="hexBinary" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="base64Binary" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="dateTime" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="time" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="date" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="gYearMonth" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="gYear" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="gMonthDay" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="gDay" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="gMonth" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="anyURI" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="token" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="language" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="NMToken" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="name" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="NCName" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="literal" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="rational" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="real" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="plainLiteral" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="dateTimeStamp" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="xmlLiteral" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="zero" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="one" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="zeroisNonnegativeInteger" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="NonnegativeInteger"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="is"></om:OMS><om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="zero"></om:OMS><om:OMV name="NonnegativeInteger"></om:OMV>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 1"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="oneisNnonnegativeInteger" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="NonnegativeInteger"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="dataType"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="is"></om:OMS><om:OMS base="http://latin.omdoc.org/logics/description/owl/owl.omdoc" module="FOLEQD" name="one"></om:OMS><om:OMV name="NonnegativeInteger"></om:OMV>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 1"> <scope languages="" priority="0"/> </notation></notations>
+     </constant></theory></omdoc>

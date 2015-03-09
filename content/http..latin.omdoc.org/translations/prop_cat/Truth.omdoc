@@ -1,25 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
-  <view 
-  name="Truth" base="http://latin.omdoc.org/translations/prop_cat" from="http://latin.omdoc.org/logics/syntax?Truth" to="http://latin.omdoc.org/category_theory/dfol_based?CatTop">
-    <metadata>
-      <meta property="http://purl.org/dc/terms?_?description">
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMSTR>View from a proof system with truth to a category with a top. Truth is mapped to top.</om:OMSTR>
-        </om:OMOBJ>
-      </meta>
-    </metadata>
-    <import from="http://latin.omdoc.org/logics/syntax?Logic">
-      <definition>
-        <om:OMS base="http://latin.omdoc.org/translations/prop_cat" module="Base"/>
-      </definition>
-    </import>
-    <constant name="true">
-      <definition>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="CatTop" name="top"/>
-        </om:OMOBJ>
-      </definition>
-    </constant>
-</view>
-</omdoc>
+<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><view name="Truth" base="http://latin.omdoc.org/translations/prop_cat" from="http://latin.omdoc.org/logics/syntax?Truth" to="http://latin.omdoc.org/category_theory/dfol_based?CatTop">
+           <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT value="View from a proof system with truth to a category with a top. Truth is mapped to top." type="http://mmt.kwarc.info/openmath?Base?OMSTR"/></om:OMOBJ></meta></metadata>
+           <import name="[http://latin.omdoc.org/logics/syntax?Logic]" from="http://latin.omdoc.org/logics/syntax?Logic" implicit="true">
+          
+          
+          <definition><om:OMS base="http://latin.omdoc.org/translations/prop_cat" module="Base"></om:OMS></definition>
+      </import><constant name="true">
+       
+       
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="CatTop" name="top"></om:OMS></om:OMOBJ></definition>
+       
+     </constant>
+         </view></omdoc>

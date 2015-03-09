@@ -1,16 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
-  <view 
-  name="BaseFOLPF" base="http://latin.omdoc.org/translations/fol_ifol" from="http://latin.omdoc.org/logics/proof_theory?BaseFOL" to="http://latin.omdoc.org/translations/fol_ifol?DN-IFOL">
-    <import from="http://latin.omdoc.org/logics/proof_theory?Base">
-      <definition>
-        <om:OMS base="http://latin.omdoc.org/translations/prop_iprop" module="BasePF"/>
-      </definition>
-    </import>
-    <import from="http://latin.omdoc.org/logics/syntax?UniverseLogic">
-      <definition>
-        <om:OMS base="http://latin.omdoc.org/translations/fol_ifol" module="UniverseLogic"/>
-      </definition>
-    </import>
-</view>
-</omdoc>
+<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><view name="BaseFOLPF" base="http://latin.omdoc.org/translations/fol_ifol" from="http://latin.omdoc.org/logics/proof_theory?BaseFOL" to="http://latin.omdoc.org/translations/fol_ifol?DN-IFOL">
+           
+           <import name="[http://latin.omdoc.org/logics/proof_theory?Base]" from="http://latin.omdoc.org/logics/proof_theory?Base" implicit="true">
+          
+          
+          <definition><om:OMS base="http://latin.omdoc.org/translations/prop_iprop" module="BasePF"></om:OMS></definition>
+      </import><import name="[http://latin.omdoc.org/logics/syntax?UniverseLogic]" from="http://latin.omdoc.org/logics/syntax?UniverseLogic" implicit="true">
+          
+          
+          <definition><om:OMS base="http://latin.omdoc.org/translations/fol_ifol" module="UniverseLogic"></om:OMS></definition>
+      </import>
+         </view></omdoc>

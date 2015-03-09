@@ -1,1215 +1,631 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
-  <view 
-  name="FirstToHigherArithmetic" base="http://latin.omdoc.org/logics/tptp" from="http://latin.omdoc.org/logics/tptp?TFF-Arithmetic" to="http://latin.omdoc.org/logics/tptp?THF-Arithmetic">
-    <import from="http://latin.omdoc.org/logics/tptp?TFF">
-      <definition>
-        <om:OMS base="http://latin.omdoc.org/logics/tptp" module="FirstToHigher"/>
-      </definition>
-    </import>
-    <constant name="$less">
-      <definition>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMBIND>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-            <om:OMBVAR>
-              <om:OMV position="0" name="D">
-                <type>
-                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithdom"/>
-                </type>
-                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                </attribution>
-              </om:OMV>
-            </om:OMBVAR>
-            <om:OMBIND position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-              <om:OMBVAR>
-                <om:OMV position="2_0" name="x">
-                  <type>
-                    <om:OMA position="2_0_1">
-                      <om:OMS position="2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_0_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
-                      <om:OMA position="2_0_1_2">
-                        <om:OMS position="2_0_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                        <om:OMS position="2_0_1_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                        <om:OMV position="2_0_1_2_2" name="D"/>
-                      </om:OMA>
-                    </om:OMA>
-                  </type>
-                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                  </attribution>
-                </om:OMV>
-              </om:OMBVAR>
-              <om:OMBIND position="2_2">
-                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-                <om:OMBVAR>
-                  <om:OMV position="2_2_0" name="y">
-                    <type>
-                      <om:OMA position="2_2_0_1">
-                        <om:OMS position="2_2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                        <om:OMS position="2_2_0_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
-                        <om:OMA position="2_2_0_1_2">
-                          <om:OMS position="2_2_0_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                          <om:OMS position="2_2_0_1_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                          <om:OMV position="2_2_0_1_2_2" name="D"/>
-                        </om:OMA>
-                      </om:OMA>
-                    </type>
-                    <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                      <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                    </attribution>
-                  </om:OMV>
-                </om:OMBVAR>
-                <om:OMA position="2_2_2">
-                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="@"/>
-                  <om:OMA position="2_2_2_2">
-                    <om:OMS position="2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                    <om:OMS position="2_2_2_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                    <om:OMV position="2_2_2_2_2" name="D"/>
-                  </om:OMA>
-                  <om:OMS position="2_2_2_3" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
-                  <om:OMA position="2_2_2_4">
-                    <om:OMS position="2_2_2_4_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                    <om:OMS position="2_2_2_4_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="@"/>
-                    <om:OMA position="2_2_2_4_2">
-                      <om:OMS position="2_2_2_4_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_2_2_4_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                      <om:OMV position="2_2_2_4_2_2" name="D"/>
-                    </om:OMA>
-                    <om:OMA position="2_2_2_4_3">
-                      <om:OMS position="2_2_2_4_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_2_2_4_3_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="&gt;"/>
-                      <om:OMA position="2_2_2_4_3_2">
-                        <om:OMS position="2_2_2_4_3_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                        <om:OMS position="2_2_2_4_3_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                        <om:OMV position="2_2_2_4_3_2_2" name="D"/>
-                      </om:OMA>
-                      <om:OMS position="2_2_2_4_3_3" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
-                    </om:OMA>
-                    <om:OMA position="2_2_2_4_4">
-                      <om:OMS position="2_2_2_4_4_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_2_2_4_4_1" base="http://latin.omdoc.org/logics/tptp" module="THF-Arithmetic" name="$less"/>
-                      <om:OMV position="2_2_2_4_4_2" name="D"/>
-                    </om:OMA>
-                    <om:OMV position="2_2_2_4_5" name="x"/>
-                  </om:OMA>
-                  <om:OMV position="2_2_2_5" name="y"/>
-                </om:OMA>
-              </om:OMBIND>
-            </om:OMBIND>
-          </om:OMBIND>
-        </om:OMOBJ>
-      </definition>
-    </constant>
-    <constant name="$lesseq">
-      <definition>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMBIND>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-            <om:OMBVAR>
-              <om:OMV position="0" name="D">
-                <type>
-                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithdom"/>
-                </type>
-                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                </attribution>
-              </om:OMV>
-            </om:OMBVAR>
-            <om:OMBIND position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-              <om:OMBVAR>
-                <om:OMV position="2_0" name="x">
-                  <type>
-                    <om:OMA position="2_0_1">
-                      <om:OMS position="2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_0_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
-                      <om:OMA position="2_0_1_2">
-                        <om:OMS position="2_0_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                        <om:OMS position="2_0_1_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                        <om:OMV position="2_0_1_2_2" name="D"/>
-                      </om:OMA>
-                    </om:OMA>
-                  </type>
-                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                  </attribution>
-                </om:OMV>
-              </om:OMBVAR>
-              <om:OMBIND position="2_2">
-                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-                <om:OMBVAR>
-                  <om:OMV position="2_2_0" name="y">
-                    <type>
-                      <om:OMA position="2_2_0_1">
-                        <om:OMS position="2_2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                        <om:OMS position="2_2_0_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
-                        <om:OMA position="2_2_0_1_2">
-                          <om:OMS position="2_2_0_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                          <om:OMS position="2_2_0_1_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                          <om:OMV position="2_2_0_1_2_2" name="D"/>
-                        </om:OMA>
-                      </om:OMA>
-                    </type>
-                    <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                      <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                    </attribution>
-                  </om:OMV>
-                </om:OMBVAR>
-                <om:OMA position="2_2_2">
-                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="@"/>
-                  <om:OMA position="2_2_2_2">
-                    <om:OMS position="2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                    <om:OMS position="2_2_2_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                    <om:OMV position="2_2_2_2_2" name="D"/>
-                  </om:OMA>
-                  <om:OMS position="2_2_2_3" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
-                  <om:OMA position="2_2_2_4">
-                    <om:OMS position="2_2_2_4_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                    <om:OMS position="2_2_2_4_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="@"/>
-                    <om:OMA position="2_2_2_4_2">
-                      <om:OMS position="2_2_2_4_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_2_2_4_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                      <om:OMV position="2_2_2_4_2_2" name="D"/>
-                    </om:OMA>
-                    <om:OMA position="2_2_2_4_3">
-                      <om:OMS position="2_2_2_4_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_2_2_4_3_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="&gt;"/>
-                      <om:OMA position="2_2_2_4_3_2">
-                        <om:OMS position="2_2_2_4_3_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                        <om:OMS position="2_2_2_4_3_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                        <om:OMV position="2_2_2_4_3_2_2" name="D"/>
-                      </om:OMA>
-                      <om:OMS position="2_2_2_4_3_3" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
-                    </om:OMA>
-                    <om:OMA position="2_2_2_4_4">
-                      <om:OMS position="2_2_2_4_4_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_2_2_4_4_1" base="http://latin.omdoc.org/logics/tptp" module="THF-Arithmetic" name="$lesseq"/>
-                      <om:OMV position="2_2_2_4_4_2" name="D"/>
-                    </om:OMA>
-                    <om:OMV position="2_2_2_4_5" name="x"/>
-                  </om:OMA>
-                  <om:OMV position="2_2_2_5" name="y"/>
-                </om:OMA>
-              </om:OMBIND>
-            </om:OMBIND>
-          </om:OMBIND>
-        </om:OMOBJ>
-      </definition>
-    </constant>
-    <constant name="$greater">
-      <definition>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMBIND>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-            <om:OMBVAR>
-              <om:OMV position="0" name="D">
-                <type>
-                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithdom"/>
-                </type>
-                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                </attribution>
-              </om:OMV>
-            </om:OMBVAR>
-            <om:OMBIND position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-              <om:OMBVAR>
-                <om:OMV position="2_0" name="x">
-                  <type>
-                    <om:OMA position="2_0_1">
-                      <om:OMS position="2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_0_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
-                      <om:OMA position="2_0_1_2">
-                        <om:OMS position="2_0_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                        <om:OMS position="2_0_1_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                        <om:OMV position="2_0_1_2_2" name="D"/>
-                      </om:OMA>
-                    </om:OMA>
-                  </type>
-                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                  </attribution>
-                </om:OMV>
-              </om:OMBVAR>
-              <om:OMBIND position="2_2">
-                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-                <om:OMBVAR>
-                  <om:OMV position="2_2_0" name="y">
-                    <type>
-                      <om:OMA position="2_2_0_1">
-                        <om:OMS position="2_2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                        <om:OMS position="2_2_0_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
-                        <om:OMA position="2_2_0_1_2">
-                          <om:OMS position="2_2_0_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                          <om:OMS position="2_2_0_1_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                          <om:OMV position="2_2_0_1_2_2" name="D"/>
-                        </om:OMA>
-                      </om:OMA>
-                    </type>
-                    <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                      <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                    </attribution>
-                  </om:OMV>
-                </om:OMBVAR>
-                <om:OMA position="2_2_2">
-                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="@"/>
-                  <om:OMA position="2_2_2_2">
-                    <om:OMS position="2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                    <om:OMS position="2_2_2_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                    <om:OMV position="2_2_2_2_2" name="D"/>
-                  </om:OMA>
-                  <om:OMS position="2_2_2_3" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
-                  <om:OMA position="2_2_2_4">
-                    <om:OMS position="2_2_2_4_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                    <om:OMS position="2_2_2_4_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="@"/>
-                    <om:OMA position="2_2_2_4_2">
-                      <om:OMS position="2_2_2_4_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_2_2_4_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                      <om:OMV position="2_2_2_4_2_2" name="D"/>
-                    </om:OMA>
-                    <om:OMA position="2_2_2_4_3">
-                      <om:OMS position="2_2_2_4_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_2_2_4_3_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="&gt;"/>
-                      <om:OMA position="2_2_2_4_3_2">
-                        <om:OMS position="2_2_2_4_3_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                        <om:OMS position="2_2_2_4_3_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                        <om:OMV position="2_2_2_4_3_2_2" name="D"/>
-                      </om:OMA>
-                      <om:OMS position="2_2_2_4_3_3" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
-                    </om:OMA>
-                    <om:OMA position="2_2_2_4_4">
-                      <om:OMS position="2_2_2_4_4_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_2_2_4_4_1" base="http://latin.omdoc.org/logics/tptp" module="THF-Arithmetic" name="$greater"/>
-                      <om:OMV position="2_2_2_4_4_2" name="D"/>
-                    </om:OMA>
-                    <om:OMV position="2_2_2_4_5" name="x"/>
-                  </om:OMA>
-                  <om:OMV position="2_2_2_5" name="y"/>
-                </om:OMA>
-              </om:OMBIND>
-            </om:OMBIND>
-          </om:OMBIND>
-        </om:OMOBJ>
-      </definition>
-    </constant>
-    <constant name="$greatereq">
-      <definition>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMBIND>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-            <om:OMBVAR>
-              <om:OMV position="0" name="D">
-                <type>
-                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithdom"/>
-                </type>
-                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                </attribution>
-              </om:OMV>
-            </om:OMBVAR>
-            <om:OMBIND position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-              <om:OMBVAR>
-                <om:OMV position="2_0" name="x">
-                  <type>
-                    <om:OMA position="2_0_1">
-                      <om:OMS position="2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_0_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
-                      <om:OMA position="2_0_1_2">
-                        <om:OMS position="2_0_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                        <om:OMS position="2_0_1_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                        <om:OMV position="2_0_1_2_2" name="D"/>
-                      </om:OMA>
-                    </om:OMA>
-                  </type>
-                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                  </attribution>
-                </om:OMV>
-              </om:OMBVAR>
-              <om:OMBIND position="2_2">
-                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-                <om:OMBVAR>
-                  <om:OMV position="2_2_0" name="y">
-                    <type>
-                      <om:OMA position="2_2_0_1">
-                        <om:OMS position="2_2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                        <om:OMS position="2_2_0_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
-                        <om:OMA position="2_2_0_1_2">
-                          <om:OMS position="2_2_0_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                          <om:OMS position="2_2_0_1_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                          <om:OMV position="2_2_0_1_2_2" name="D"/>
-                        </om:OMA>
-                      </om:OMA>
-                    </type>
-                    <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                      <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                    </attribution>
-                  </om:OMV>
-                </om:OMBVAR>
-                <om:OMA position="2_2_2">
-                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="@"/>
-                  <om:OMA position="2_2_2_2">
-                    <om:OMS position="2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                    <om:OMS position="2_2_2_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                    <om:OMV position="2_2_2_2_2" name="D"/>
-                  </om:OMA>
-                  <om:OMS position="2_2_2_3" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
-                  <om:OMA position="2_2_2_4">
-                    <om:OMS position="2_2_2_4_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                    <om:OMS position="2_2_2_4_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="@"/>
-                    <om:OMA position="2_2_2_4_2">
-                      <om:OMS position="2_2_2_4_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_2_2_4_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                      <om:OMV position="2_2_2_4_2_2" name="D"/>
-                    </om:OMA>
-                    <om:OMA position="2_2_2_4_3">
-                      <om:OMS position="2_2_2_4_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_2_2_4_3_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="&gt;"/>
-                      <om:OMA position="2_2_2_4_3_2">
-                        <om:OMS position="2_2_2_4_3_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                        <om:OMS position="2_2_2_4_3_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                        <om:OMV position="2_2_2_4_3_2_2" name="D"/>
-                      </om:OMA>
-                      <om:OMS position="2_2_2_4_3_3" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
-                    </om:OMA>
-                    <om:OMA position="2_2_2_4_4">
-                      <om:OMS position="2_2_2_4_4_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_2_2_4_4_1" base="http://latin.omdoc.org/logics/tptp" module="THF-Arithmetic" name="$greatereq"/>
-                      <om:OMV position="2_2_2_4_4_2" name="D"/>
-                    </om:OMA>
-                    <om:OMV position="2_2_2_4_5" name="x"/>
-                  </om:OMA>
-                  <om:OMV position="2_2_2_5" name="y"/>
-                </om:OMA>
-              </om:OMBIND>
-            </om:OMBIND>
-          </om:OMBIND>
-        </om:OMOBJ>
-      </definition>
-    </constant>
-    <constant name="$uminus">
-      <definition>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMBIND>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-            <om:OMBVAR>
-              <om:OMV position="0" name="D">
-                <type>
-                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithdom"/>
-                </type>
-                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                </attribution>
-              </om:OMV>
-            </om:OMBVAR>
-            <om:OMBIND position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-              <om:OMBVAR>
-                <om:OMV position="2_0" name="x">
-                  <type>
-                    <om:OMA position="2_0_1">
-                      <om:OMS position="2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_0_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
-                      <om:OMA position="2_0_1_2">
-                        <om:OMS position="2_0_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                        <om:OMS position="2_0_1_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                        <om:OMV position="2_0_1_2_2" name="D"/>
-                      </om:OMA>
-                    </om:OMA>
-                  </type>
-                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                  </attribution>
-                </om:OMV>
-              </om:OMBVAR>
-              <om:OMA position="2_2">
-                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="@"/>
-                <om:OMA position="2_2_2">
-                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                  <om:OMV position="2_2_2_2" name="D"/>
-                </om:OMA>
-                <om:OMA position="2_2_3">
-                  <om:OMS position="2_2_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                  <om:OMS position="2_2_3_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                  <om:OMV position="2_2_3_2" name="D"/>
-                </om:OMA>
-                <om:OMA position="2_2_4">
-                  <om:OMS position="2_2_4_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                  <om:OMS position="2_2_4_1" base="http://latin.omdoc.org/logics/tptp" module="THF-Arithmetic" name="$uminus"/>
-                  <om:OMV position="2_2_4_2" name="D"/>
-                </om:OMA>
-                <om:OMV position="2_2_5" name="x"/>
-              </om:OMA>
-            </om:OMBIND>
-          </om:OMBIND>
-        </om:OMOBJ>
-      </definition>
-    </constant>
-    <constant name="$sum">
-      <definition>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMBIND>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-            <om:OMBVAR>
-              <om:OMV position="0" name="D">
-                <type>
-                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithdom"/>
-                </type>
-                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                </attribution>
-              </om:OMV>
-            </om:OMBVAR>
-            <om:OMBIND position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-              <om:OMBVAR>
-                <om:OMV position="2_0" name="x">
-                  <type>
-                    <om:OMA position="2_0_1">
-                      <om:OMS position="2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_0_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
-                      <om:OMA position="2_0_1_2">
-                        <om:OMS position="2_0_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                        <om:OMS position="2_0_1_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                        <om:OMV position="2_0_1_2_2" name="D"/>
-                      </om:OMA>
-                    </om:OMA>
-                  </type>
-                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                  </attribution>
-                </om:OMV>
-              </om:OMBVAR>
-              <om:OMBIND position="2_2">
-                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-                <om:OMBVAR>
-                  <om:OMV position="2_2_0" name="y">
-                    <type>
-                      <om:OMA position="2_2_0_1">
-                        <om:OMS position="2_2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                        <om:OMS position="2_2_0_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
-                        <om:OMA position="2_2_0_1_2">
-                          <om:OMS position="2_2_0_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                          <om:OMS position="2_2_0_1_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                          <om:OMV position="2_2_0_1_2_2" name="D"/>
-                        </om:OMA>
-                      </om:OMA>
-                    </type>
-                    <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                      <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                    </attribution>
-                  </om:OMV>
-                </om:OMBVAR>
-                <om:OMA position="2_2_2">
-                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="@"/>
-                  <om:OMA position="2_2_2_2">
-                    <om:OMS position="2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                    <om:OMS position="2_2_2_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                    <om:OMV position="2_2_2_2_2" name="D"/>
-                  </om:OMA>
-                  <om:OMA position="2_2_2_3">
-                    <om:OMS position="2_2_2_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                    <om:OMS position="2_2_2_3_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                    <om:OMV position="2_2_2_3_2" name="D"/>
-                  </om:OMA>
-                  <om:OMA position="2_2_2_4">
-                    <om:OMS position="2_2_2_4_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                    <om:OMS position="2_2_2_4_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="@"/>
-                    <om:OMA position="2_2_2_4_2">
-                      <om:OMS position="2_2_2_4_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_2_2_4_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                      <om:OMV position="2_2_2_4_2_2" name="D"/>
-                    </om:OMA>
-                    <om:OMA position="2_2_2_4_3">
-                      <om:OMS position="2_2_2_4_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_2_2_4_3_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="&gt;"/>
-                      <om:OMA position="2_2_2_4_3_2">
-                        <om:OMS position="2_2_2_4_3_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                        <om:OMS position="2_2_2_4_3_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                        <om:OMV position="2_2_2_4_3_2_2" name="D"/>
-                      </om:OMA>
-                      <om:OMA position="2_2_2_4_3_3">
-                        <om:OMS position="2_2_2_4_3_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                        <om:OMS position="2_2_2_4_3_3_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                        <om:OMV position="2_2_2_4_3_3_2" name="D"/>
-                      </om:OMA>
-                    </om:OMA>
-                    <om:OMA position="2_2_2_4_4">
-                      <om:OMS position="2_2_2_4_4_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_2_2_4_4_1" base="http://latin.omdoc.org/logics/tptp" module="THF-Arithmetic" name="$sum"/>
-                      <om:OMV position="2_2_2_4_4_2" name="D"/>
-                    </om:OMA>
-                    <om:OMV position="2_2_2_4_5" name="x"/>
-                  </om:OMA>
-                  <om:OMV position="2_2_2_5" name="y"/>
-                </om:OMA>
-              </om:OMBIND>
-            </om:OMBIND>
-          </om:OMBIND>
-        </om:OMOBJ>
-      </definition>
-    </constant>
-    <constant name="$difference">
-      <definition>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMBIND>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-            <om:OMBVAR>
-              <om:OMV position="0" name="D">
-                <type>
-                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithdom"/>
-                </type>
-                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                </attribution>
-              </om:OMV>
-            </om:OMBVAR>
-            <om:OMBIND position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-              <om:OMBVAR>
-                <om:OMV position="2_0" name="x">
-                  <type>
-                    <om:OMA position="2_0_1">
-                      <om:OMS position="2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_0_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
-                      <om:OMA position="2_0_1_2">
-                        <om:OMS position="2_0_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                        <om:OMS position="2_0_1_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                        <om:OMV position="2_0_1_2_2" name="D"/>
-                      </om:OMA>
-                    </om:OMA>
-                  </type>
-                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                  </attribution>
-                </om:OMV>
-              </om:OMBVAR>
-              <om:OMBIND position="2_2">
-                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-                <om:OMBVAR>
-                  <om:OMV position="2_2_0" name="y">
-                    <type>
-                      <om:OMA position="2_2_0_1">
-                        <om:OMS position="2_2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                        <om:OMS position="2_2_0_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
-                        <om:OMA position="2_2_0_1_2">
-                          <om:OMS position="2_2_0_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                          <om:OMS position="2_2_0_1_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                          <om:OMV position="2_2_0_1_2_2" name="D"/>
-                        </om:OMA>
-                      </om:OMA>
-                    </type>
-                    <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                      <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                    </attribution>
-                  </om:OMV>
-                </om:OMBVAR>
-                <om:OMA position="2_2_2">
-                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="@"/>
-                  <om:OMA position="2_2_2_2">
-                    <om:OMS position="2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                    <om:OMS position="2_2_2_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                    <om:OMV position="2_2_2_2_2" name="D"/>
-                  </om:OMA>
-                  <om:OMA position="2_2_2_3">
-                    <om:OMS position="2_2_2_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                    <om:OMS position="2_2_2_3_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                    <om:OMV position="2_2_2_3_2" name="D"/>
-                  </om:OMA>
-                  <om:OMA position="2_2_2_4">
-                    <om:OMS position="2_2_2_4_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                    <om:OMS position="2_2_2_4_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="@"/>
-                    <om:OMA position="2_2_2_4_2">
-                      <om:OMS position="2_2_2_4_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_2_2_4_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                      <om:OMV position="2_2_2_4_2_2" name="D"/>
-                    </om:OMA>
-                    <om:OMA position="2_2_2_4_3">
-                      <om:OMS position="2_2_2_4_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_2_2_4_3_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="&gt;"/>
-                      <om:OMA position="2_2_2_4_3_2">
-                        <om:OMS position="2_2_2_4_3_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                        <om:OMS position="2_2_2_4_3_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                        <om:OMV position="2_2_2_4_3_2_2" name="D"/>
-                      </om:OMA>
-                      <om:OMA position="2_2_2_4_3_3">
-                        <om:OMS position="2_2_2_4_3_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                        <om:OMS position="2_2_2_4_3_3_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                        <om:OMV position="2_2_2_4_3_3_2" name="D"/>
-                      </om:OMA>
-                    </om:OMA>
-                    <om:OMA position="2_2_2_4_4">
-                      <om:OMS position="2_2_2_4_4_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_2_2_4_4_1" base="http://latin.omdoc.org/logics/tptp" module="THF-Arithmetic" name="$difference"/>
-                      <om:OMV position="2_2_2_4_4_2" name="D"/>
-                    </om:OMA>
-                    <om:OMV position="2_2_2_4_5" name="x"/>
-                  </om:OMA>
-                  <om:OMV position="2_2_2_5" name="y"/>
-                </om:OMA>
-              </om:OMBIND>
-            </om:OMBIND>
-          </om:OMBIND>
-        </om:OMOBJ>
-      </definition>
-    </constant>
-    <constant name="$product">
-      <definition>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMBIND>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-            <om:OMBVAR>
-              <om:OMV position="0" name="D">
-                <type>
-                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithdom"/>
-                </type>
-                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                </attribution>
-              </om:OMV>
-            </om:OMBVAR>
-            <om:OMBIND position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-              <om:OMBVAR>
-                <om:OMV position="2_0" name="x">
-                  <type>
-                    <om:OMA position="2_0_1">
-                      <om:OMS position="2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_0_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
-                      <om:OMA position="2_0_1_2">
-                        <om:OMS position="2_0_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                        <om:OMS position="2_0_1_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                        <om:OMV position="2_0_1_2_2" name="D"/>
-                      </om:OMA>
-                    </om:OMA>
-                  </type>
-                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                  </attribution>
-                </om:OMV>
-              </om:OMBVAR>
-              <om:OMBIND position="2_2">
-                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-                <om:OMBVAR>
-                  <om:OMV position="2_2_0" name="y">
-                    <type>
-                      <om:OMA position="2_2_0_1">
-                        <om:OMS position="2_2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                        <om:OMS position="2_2_0_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
-                        <om:OMA position="2_2_0_1_2">
-                          <om:OMS position="2_2_0_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                          <om:OMS position="2_2_0_1_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                          <om:OMV position="2_2_0_1_2_2" name="D"/>
-                        </om:OMA>
-                      </om:OMA>
-                    </type>
-                    <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                      <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                    </attribution>
-                  </om:OMV>
-                </om:OMBVAR>
-                <om:OMA position="2_2_2">
-                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="@"/>
-                  <om:OMA position="2_2_2_2">
-                    <om:OMS position="2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                    <om:OMS position="2_2_2_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                    <om:OMV position="2_2_2_2_2" name="D"/>
-                  </om:OMA>
-                  <om:OMA position="2_2_2_3">
-                    <om:OMS position="2_2_2_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                    <om:OMS position="2_2_2_3_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                    <om:OMV position="2_2_2_3_2" name="D"/>
-                  </om:OMA>
-                  <om:OMA position="2_2_2_4">
-                    <om:OMS position="2_2_2_4_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                    <om:OMS position="2_2_2_4_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="@"/>
-                    <om:OMA position="2_2_2_4_2">
-                      <om:OMS position="2_2_2_4_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_2_2_4_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                      <om:OMV position="2_2_2_4_2_2" name="D"/>
-                    </om:OMA>
-                    <om:OMA position="2_2_2_4_3">
-                      <om:OMS position="2_2_2_4_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_2_2_4_3_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="&gt;"/>
-                      <om:OMA position="2_2_2_4_3_2">
-                        <om:OMS position="2_2_2_4_3_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                        <om:OMS position="2_2_2_4_3_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                        <om:OMV position="2_2_2_4_3_2_2" name="D"/>
-                      </om:OMA>
-                      <om:OMA position="2_2_2_4_3_3">
-                        <om:OMS position="2_2_2_4_3_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                        <om:OMS position="2_2_2_4_3_3_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                        <om:OMV position="2_2_2_4_3_3_2" name="D"/>
-                      </om:OMA>
-                    </om:OMA>
-                    <om:OMA position="2_2_2_4_4">
-                      <om:OMS position="2_2_2_4_4_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_2_2_4_4_1" base="http://latin.omdoc.org/logics/tptp" module="THF-Arithmetic" name="$product"/>
-                      <om:OMV position="2_2_2_4_4_2" name="D"/>
-                    </om:OMA>
-                    <om:OMV position="2_2_2_4_5" name="x"/>
-                  </om:OMA>
-                  <om:OMV position="2_2_2_5" name="y"/>
-                </om:OMA>
-              </om:OMBIND>
-            </om:OMBIND>
-          </om:OMBIND>
-        </om:OMOBJ>
-      </definition>
-    </constant>
-    <constant name="$quotient">
-      <definition>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMBIND>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-            <om:OMBVAR>
-              <om:OMV position="0" name="D">
-                <type>
-                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithdom"/>
-                </type>
-                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                </attribution>
-              </om:OMV>
-            </om:OMBVAR>
-            <om:OMBIND position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-              <om:OMBVAR>
-                <om:OMV position="2_0" name="x">
-                  <type>
-                    <om:OMA position="2_0_1">
-                      <om:OMS position="2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_0_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
-                      <om:OMA position="2_0_1_2">
-                        <om:OMS position="2_0_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                        <om:OMS position="2_0_1_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                        <om:OMV position="2_0_1_2_2" name="D"/>
-                      </om:OMA>
-                    </om:OMA>
-                  </type>
-                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                  </attribution>
-                </om:OMV>
-              </om:OMBVAR>
-              <om:OMBIND position="2_2">
-                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-                <om:OMBVAR>
-                  <om:OMV position="2_2_0" name="y">
-                    <type>
-                      <om:OMA position="2_2_0_1">
-                        <om:OMS position="2_2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                        <om:OMS position="2_2_0_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
-                        <om:OMA position="2_2_0_1_2">
-                          <om:OMS position="2_2_0_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                          <om:OMS position="2_2_0_1_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                          <om:OMV position="2_2_0_1_2_2" name="D"/>
-                        </om:OMA>
-                      </om:OMA>
-                    </type>
-                    <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                      <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                    </attribution>
-                  </om:OMV>
-                </om:OMBVAR>
-                <om:OMA position="2_2_2">
-                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="@"/>
-                  <om:OMA position="2_2_2_2">
-                    <om:OMS position="2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                    <om:OMS position="2_2_2_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                    <om:OMV position="2_2_2_2_2" name="D"/>
-                  </om:OMA>
-                  <om:OMA position="2_2_2_3">
-                    <om:OMS position="2_2_2_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                    <om:OMS position="2_2_2_3_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                    <om:OMV position="2_2_2_3_2" name="D"/>
-                  </om:OMA>
-                  <om:OMA position="2_2_2_4">
-                    <om:OMS position="2_2_2_4_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                    <om:OMS position="2_2_2_4_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="@"/>
-                    <om:OMA position="2_2_2_4_2">
-                      <om:OMS position="2_2_2_4_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_2_2_4_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                      <om:OMV position="2_2_2_4_2_2" name="D"/>
-                    </om:OMA>
-                    <om:OMA position="2_2_2_4_3">
-                      <om:OMS position="2_2_2_4_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_2_2_4_3_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="&gt;"/>
-                      <om:OMA position="2_2_2_4_3_2">
-                        <om:OMS position="2_2_2_4_3_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                        <om:OMS position="2_2_2_4_3_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                        <om:OMV position="2_2_2_4_3_2_2" name="D"/>
-                      </om:OMA>
-                      <om:OMA position="2_2_2_4_3_3">
-                        <om:OMS position="2_2_2_4_3_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                        <om:OMS position="2_2_2_4_3_3_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                        <om:OMV position="2_2_2_4_3_3_2" name="D"/>
-                      </om:OMA>
-                    </om:OMA>
-                    <om:OMA position="2_2_2_4_4">
-                      <om:OMS position="2_2_2_4_4_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_2_2_4_4_1" base="http://latin.omdoc.org/logics/tptp" module="THF-Arithmetic" name="$quotient"/>
-                      <om:OMV position="2_2_2_4_4_2" name="D"/>
-                    </om:OMA>
-                    <om:OMV position="2_2_2_4_5" name="x"/>
-                  </om:OMA>
-                  <om:OMV position="2_2_2_5" name="y"/>
-                </om:OMA>
-              </om:OMBIND>
-            </om:OMBIND>
-          </om:OMBIND>
-        </om:OMOBJ>
-      </definition>
-    </constant>
-    <constant name="$is_int">
-      <definition>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMBIND>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-            <om:OMBVAR>
-              <om:OMV position="0" name="D">
-                <type>
-                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithdom"/>
-                </type>
-                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                </attribution>
-              </om:OMV>
-            </om:OMBVAR>
-            <om:OMBIND position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-              <om:OMBVAR>
-                <om:OMV position="2_0" name="x">
-                  <type>
-                    <om:OMA position="2_0_1">
-                      <om:OMS position="2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_0_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
-                      <om:OMA position="2_0_1_2">
-                        <om:OMS position="2_0_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                        <om:OMS position="2_0_1_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                        <om:OMV position="2_0_1_2_2" name="D"/>
-                      </om:OMA>
-                    </om:OMA>
-                  </type>
-                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                  </attribution>
-                </om:OMV>
-              </om:OMBVAR>
-              <om:OMA position="2_2">
-                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="@"/>
-                <om:OMA position="2_2_2">
-                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                  <om:OMV position="2_2_2_2" name="D"/>
-                </om:OMA>
-                <om:OMS position="2_2_3" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
-                <om:OMA position="2_2_4">
-                  <om:OMS position="2_2_4_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                  <om:OMS position="2_2_4_1" base="http://latin.omdoc.org/logics/tptp" module="THF-Arithmetic" name="$is_int"/>
-                  <om:OMV position="2_2_4_2" name="D"/>
-                </om:OMA>
-                <om:OMV position="2_2_5" name="x"/>
-              </om:OMA>
-            </om:OMBIND>
-          </om:OMBIND>
-        </om:OMOBJ>
-      </definition>
-    </constant>
-    <constant name="$is_rat">
-      <definition>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMBIND>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-            <om:OMBVAR>
-              <om:OMV position="0" name="D">
-                <type>
-                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithdom"/>
-                </type>
-                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                </attribution>
-              </om:OMV>
-            </om:OMBVAR>
-            <om:OMBIND position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-              <om:OMBVAR>
-                <om:OMV position="2_0" name="x">
-                  <type>
-                    <om:OMA position="2_0_1">
-                      <om:OMS position="2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_0_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
-                      <om:OMA position="2_0_1_2">
-                        <om:OMS position="2_0_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                        <om:OMS position="2_0_1_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                        <om:OMV position="2_0_1_2_2" name="D"/>
-                      </om:OMA>
-                    </om:OMA>
-                  </type>
-                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                  </attribution>
-                </om:OMV>
-              </om:OMBVAR>
-              <om:OMA position="2_2">
-                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="@"/>
-                <om:OMA position="2_2_2">
-                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                  <om:OMV position="2_2_2_2" name="D"/>
-                </om:OMA>
-                <om:OMS position="2_2_3" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
-                <om:OMA position="2_2_4">
-                  <om:OMS position="2_2_4_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                  <om:OMS position="2_2_4_1" base="http://latin.omdoc.org/logics/tptp" module="THF-Arithmetic" name="$is_rat"/>
-                  <om:OMV position="2_2_4_2" name="D"/>
-                </om:OMA>
-                <om:OMV position="2_2_5" name="x"/>
-              </om:OMA>
-            </om:OMBIND>
-          </om:OMBIND>
-        </om:OMOBJ>
-      </definition>
-    </constant>
-    <constant name="$is_real">
-      <definition>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMBIND>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-            <om:OMBVAR>
-              <om:OMV position="0" name="D">
-                <type>
-                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithdom"/>
-                </type>
-                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                </attribution>
-              </om:OMV>
-            </om:OMBVAR>
-            <om:OMBIND position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-              <om:OMBVAR>
-                <om:OMV position="2_0" name="x">
-                  <type>
-                    <om:OMA position="2_0_1">
-                      <om:OMS position="2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_0_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
-                      <om:OMA position="2_0_1_2">
-                        <om:OMS position="2_0_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                        <om:OMS position="2_0_1_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                        <om:OMV position="2_0_1_2_2" name="D"/>
-                      </om:OMA>
-                    </om:OMA>
-                  </type>
-                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                  </attribution>
-                </om:OMV>
-              </om:OMBVAR>
-              <om:OMA position="2_2">
-                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="@"/>
-                <om:OMA position="2_2_2">
-                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                  <om:OMV position="2_2_2_2" name="D"/>
-                </om:OMA>
-                <om:OMS position="2_2_3" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"/>
-                <om:OMA position="2_2_4">
-                  <om:OMS position="2_2_4_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                  <om:OMS position="2_2_4_1" base="http://latin.omdoc.org/logics/tptp" module="THF-Arithmetic" name="$is_real"/>
-                  <om:OMV position="2_2_4_2" name="D"/>
-                </om:OMA>
-                <om:OMV position="2_2_5" name="x"/>
-              </om:OMA>
-            </om:OMBIND>
-          </om:OMBIND>
-        </om:OMOBJ>
-      </definition>
-    </constant>
-    <constant name="$to_int">
-      <definition>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMBIND>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-            <om:OMBVAR>
-              <om:OMV position="0" name="D">
-                <type>
-                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithdom"/>
-                </type>
-                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                </attribution>
-              </om:OMV>
-            </om:OMBVAR>
-            <om:OMBIND position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-              <om:OMBVAR>
-                <om:OMV position="2_0" name="x">
-                  <type>
-                    <om:OMA position="2_0_1">
-                      <om:OMS position="2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_0_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
-                      <om:OMA position="2_0_1_2">
-                        <om:OMS position="2_0_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                        <om:OMS position="2_0_1_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                        <om:OMV position="2_0_1_2_2" name="D"/>
-                      </om:OMA>
-                    </om:OMA>
-                  </type>
-                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                  </attribution>
-                </om:OMV>
-              </om:OMBVAR>
-              <om:OMA position="2_2">
-                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="@"/>
-                <om:OMA position="2_2_2">
-                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                  <om:OMV position="2_2_2_2" name="D"/>
-                </om:OMA>
-                <om:OMS position="2_2_3" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$int"/>
-                <om:OMA position="2_2_4">
-                  <om:OMS position="2_2_4_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                  <om:OMS position="2_2_4_1" base="http://latin.omdoc.org/logics/tptp" module="THF-Arithmetic" name="$to_int"/>
-                  <om:OMV position="2_2_4_2" name="D"/>
-                </om:OMA>
-                <om:OMV position="2_2_5" name="x"/>
-              </om:OMA>
-            </om:OMBIND>
-          </om:OMBIND>
-        </om:OMOBJ>
-      </definition>
-    </constant>
-    <constant name="$to_rat">
-      <definition>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMBIND>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-            <om:OMBVAR>
-              <om:OMV position="0" name="D">
-                <type>
-                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithdom"/>
-                </type>
-                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                </attribution>
-              </om:OMV>
-            </om:OMBVAR>
-            <om:OMBIND position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-              <om:OMBVAR>
-                <om:OMV position="2_0" name="x">
-                  <type>
-                    <om:OMA position="2_0_1">
-                      <om:OMS position="2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_0_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
-                      <om:OMA position="2_0_1_2">
-                        <om:OMS position="2_0_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                        <om:OMS position="2_0_1_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                        <om:OMV position="2_0_1_2_2" name="D"/>
-                      </om:OMA>
-                    </om:OMA>
-                  </type>
-                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                  </attribution>
-                </om:OMV>
-              </om:OMBVAR>
-              <om:OMA position="2_2">
-                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="@"/>
-                <om:OMA position="2_2_2">
-                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                  <om:OMV position="2_2_2_2" name="D"/>
-                </om:OMA>
-                <om:OMS position="2_2_3" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$rat"/>
-                <om:OMA position="2_2_4">
-                  <om:OMS position="2_2_4_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                  <om:OMS position="2_2_4_1" base="http://latin.omdoc.org/logics/tptp" module="THF-Arithmetic" name="$to_rat"/>
-                  <om:OMV position="2_2_4_2" name="D"/>
-                </om:OMA>
-                <om:OMV position="2_2_5" name="x"/>
-              </om:OMA>
-            </om:OMBIND>
-          </om:OMBIND>
-        </om:OMOBJ>
-      </definition>
-    </constant>
-    <constant name="$to_real">
-      <definition>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMBIND>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-            <om:OMBVAR>
-              <om:OMV position="0" name="D">
-                <type>
-                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithdom"/>
-                </type>
-                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                </attribution>
-              </om:OMV>
-            </om:OMBVAR>
-            <om:OMBIND position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-              <om:OMBVAR>
-                <om:OMV position="2_0" name="x">
-                  <type>
-                    <om:OMA position="2_0_1">
-                      <om:OMS position="2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_0_1_1" base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"/>
-                      <om:OMA position="2_0_1_2">
-                        <om:OMS position="2_0_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                        <om:OMS position="2_0_1_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                        <om:OMV position="2_0_1_2_2" name="D"/>
-                      </om:OMA>
-                    </om:OMA>
-                  </type>
-                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                  </attribution>
-                </om:OMV>
-              </om:OMBVAR>
-              <om:OMA position="2_2">
-                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/tptp" module="THF0" name="@"/>
-                <om:OMA position="2_2_2">
-                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"/>
-                  <om:OMV position="2_2_2_2" name="D"/>
-                </om:OMA>
-                <om:OMS position="2_2_3" base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$real"/>
-                <om:OMA position="2_2_4">
-                  <om:OMS position="2_2_4_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                  <om:OMS position="2_2_4_1" base="http://latin.omdoc.org/logics/tptp" module="THF-Arithmetic" name="$to_real"/>
-                  <om:OMV position="2_2_4_2" name="D"/>
-                </om:OMA>
-                <om:OMV position="2_2_5" name="x"/>
-              </om:OMA>
-            </om:OMBIND>
-          </om:OMBIND>
-        </om:OMOBJ>
-      </definition>
-    </constant>
-</view>
-</omdoc>
+<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><view name="FirstToHigherArithmetic" base="http://latin.omdoc.org/logics/tptp" from="http://latin.omdoc.org/logics/tptp?TFF-Arithmetic" to="http://latin.omdoc.org/logics/tptp?THF-Arithmetic">
+           
+           <import name="[http://latin.omdoc.org/logics/tptp?TFF]" from="http://latin.omdoc.org/logics/tptp?TFF" implicit="true">
+          
+          
+          <definition><om:OMS base="http://latin.omdoc.org/logics/tptp" module="FirstToHigher"></om:OMS></definition>
+      </import><constant name="$less">
+       
+       
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="D"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithdom"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="y"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF0" name="@"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA><om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF0" name="@"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF0" name="&gt;"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA><om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"></om:OMS>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF-Arithmetic" name="$less"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA><om:OMV name="x"></om:OMV>
+      </om:OMA><om:OMV name="y"></om:OMV>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></definition>
+       
+     </constant><constant name="$lesseq">
+       
+       
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="D"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithdom"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="y"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF0" name="@"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA><om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF0" name="@"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF0" name="&gt;"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA><om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"></om:OMS>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF-Arithmetic" name="$lesseq"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA><om:OMV name="x"></om:OMV>
+      </om:OMA><om:OMV name="y"></om:OMV>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></definition>
+       
+     </constant><constant name="$greater">
+       
+       
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="D"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithdom"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="y"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF0" name="@"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA><om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF0" name="@"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF0" name="&gt;"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA><om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"></om:OMS>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF-Arithmetic" name="$greater"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA><om:OMV name="x"></om:OMV>
+      </om:OMA><om:OMV name="y"></om:OMV>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></definition>
+       
+     </constant><constant name="$greatereq">
+       
+       
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="D"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithdom"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="y"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF0" name="@"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA><om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF0" name="@"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF0" name="&gt;"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA><om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"></om:OMS>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF-Arithmetic" name="$greatereq"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA><om:OMV name="x"></om:OMV>
+      </om:OMA><om:OMV name="y"></om:OMV>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></definition>
+       
+     </constant><constant name="$uminus">
+       
+       
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="D"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithdom"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF0" name="@"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF-Arithmetic" name="$uminus"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA><om:OMV name="x"></om:OMV>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></definition>
+       
+     </constant><constant name="$sum">
+       
+       
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="D"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithdom"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="y"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF0" name="@"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF0" name="@"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF0" name="&gt;"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF-Arithmetic" name="$sum"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA><om:OMV name="x"></om:OMV>
+      </om:OMA><om:OMV name="y"></om:OMV>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></definition>
+       
+     </constant><constant name="$difference">
+       
+       
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="D"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithdom"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="y"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF0" name="@"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF0" name="@"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF0" name="&gt;"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF-Arithmetic" name="$difference"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA><om:OMV name="x"></om:OMV>
+      </om:OMA><om:OMV name="y"></om:OMV>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></definition>
+       
+     </constant><constant name="$product">
+       
+       
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="D"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithdom"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="y"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF0" name="@"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF0" name="@"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF0" name="&gt;"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF-Arithmetic" name="$product"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA><om:OMV name="x"></om:OMV>
+      </om:OMA><om:OMV name="y"></om:OMV>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></definition>
+       
+     </constant><constant name="$quotient">
+       
+       
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="D"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithdom"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="y"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF0" name="@"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF0" name="@"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF0" name="&gt;"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF-Arithmetic" name="$quotient"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA><om:OMV name="x"></om:OMV>
+      </om:OMA><om:OMV name="y"></om:OMV>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></definition>
+       
+     </constant><constant name="$is_int">
+       
+       
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="D"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithdom"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF0" name="@"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA><om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF-Arithmetic" name="$is_int"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA><om:OMV name="x"></om:OMV>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></definition>
+       
+     </constant><constant name="$is_rat">
+       
+       
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="D"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithdom"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF0" name="@"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA><om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF-Arithmetic" name="$is_rat"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA><om:OMV name="x"></om:OMV>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></definition>
+       
+     </constant><constant name="$is_real">
+       
+       
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="D"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithdom"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF0" name="@"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA><om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF0" name="$o"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF-Arithmetic" name="$is_real"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA><om:OMV name="x"></om:OMV>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></definition>
+       
+     </constant><constant name="$to_int">
+       
+       
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="D"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithdom"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF0" name="@"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA><om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$int"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF-Arithmetic" name="$to_int"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA><om:OMV name="x"></om:OMV>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></definition>
+       
+     </constant><constant name="$to_rat">
+       
+       
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="D"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithdom"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF0" name="@"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA><om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$rat"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF-Arithmetic" name="$to_rat"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA><om:OMV name="x"></om:OMV>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></definition>
+       
+     </constant><constant name="$to_real">
+       
+       
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="D"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithdom"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF0" name="@"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA><om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$real"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="THF-Arithmetic" name="$to_real"></om:OMS><om:OMV name="D"></om:OMV>
+      </om:OMA><om:OMV name="x"></om:OMV>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></definition>
+       
+     </constant>
+         </view></omdoc>

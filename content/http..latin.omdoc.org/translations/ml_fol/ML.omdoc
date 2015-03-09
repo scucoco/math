@@ -1,21 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
-  <view 
-  name="ML" base="http://latin.omdoc.org/translations/ml_fol" from="http://latin.omdoc.org/logics/syntax?ML" to="http://latin.omdoc.org/translations/ml_fol?ML-FOL">
-    <import from="http://latin.omdoc.org/logics/syntax?MPL">
-      <definition>
-        <om:OMS base="http://latin.omdoc.org/translations/ml_fol" module="MPL"/>
-      </definition>
-    </import>
-    <import from="http://latin.omdoc.org/logics/syntax?Necessity">
-      <definition>
-        <om:OMS base="http://latin.omdoc.org/translations/ml_fol" module="Necessity"/>
-      </definition>
-    </import>
-    <import from="http://latin.omdoc.org/logics/syntax?Possibility">
-      <definition>
-        <om:OMS base="http://latin.omdoc.org/translations/ml_fol" module="Possibility"/>
-      </definition>
-    </import>
-</view>
-</omdoc>
+<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><view name="ML" base="http://latin.omdoc.org/translations/ml_fol" from="http://latin.omdoc.org/logics/syntax?ML" to="http://latin.omdoc.org/translations/ml_fol?ML-FOL">
+           
+           <import name="[http://latin.omdoc.org/logics/syntax?MPL]" from="http://latin.omdoc.org/logics/syntax?MPL" implicit="true">
+          
+          
+          <definition><om:OMS base="http://latin.omdoc.org/translations/ml_fol" module="MPL"></om:OMS></definition>
+      </import><import name="[http://latin.omdoc.org/logics/syntax?Necessity]" from="http://latin.omdoc.org/logics/syntax?Necessity" implicit="true">
+          
+          
+          <definition><om:OMS base="http://latin.omdoc.org/translations/ml_fol" module="Necessity"></om:OMS></definition>
+      </import><import name="[http://latin.omdoc.org/logics/syntax?Possibility]" from="http://latin.omdoc.org/logics/syntax?Possibility" implicit="true">
+          
+          
+          <definition><om:OMS base="http://latin.omdoc.org/translations/ml_fol" module="Possibility"></om:OMS></definition>
+      </import>
+         </view></omdoc>

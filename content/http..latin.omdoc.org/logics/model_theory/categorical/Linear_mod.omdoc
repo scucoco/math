@@ -1,219 +1,100 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
-  <view 
-  name="Linear_mod" base="http://latin.omdoc.org/logics/model_theory/categorical" from="http://latin.omdoc.org/logics/syntax?Linear_Syn" to="http://latin.omdoc.org/logics/model_theory/categorical?ILL">
-    <metadata>
-      <meta property="http://purl.org/dc/terms?_?description">
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMSTR>
-            Categorical models\n Formulas are interpreted as objects of a fixed category C. In particular, C has\n - objects Ob : type and morphisms A =&gt;B : type\n - monoidal closed structure (\226\138\151, I, \226\138\184),\n - finite products (*, top),\n - finite coproducts (+, bot),\n - a monoidal endofunctor !.\n Proofs of the linear formula A are interpreted as morphisms I =&gt;A.\n In particular, due to the monoidal closed structure,\n proofs of A1 \226\138\151 ... \226\138\151 An \226\138\184 A can be interpreted as morphisms A1 \226\138\151 ... \226\138\151 An =&gt;A.
-          </om:OMSTR>
-        </om:OMOBJ>
-      </meta>
-    </metadata>
-    <constant name="o">
-      <definition>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"/>
-        </om:OMOBJ>
-      </definition>
-    </constant>
-    <constant name="⊗">
-      <definition>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMBIND>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-            <om:OMBVAR>
-              <om:OMV position="0" name="a">
-                <type>
-                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"/>
-                </type>
-                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                </attribution>
-              </om:OMV>
-            </om:OMBVAR>
-            <om:OMBIND position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-              <om:OMBVAR>
-                <om:OMV position="2_0" name="b">
-                  <type>
-                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"/>
-                  </type>
-                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                  </attribution>
-                </om:OMV>
-              </om:OMBVAR>
-              <om:OMA position="2_2">
-                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Monoidal" name="⊗"/>
-                <om:OMV position="2_2_2" name="a"/>
-                <om:OMV position="2_2_3" name="b"/>
-              </om:OMA>
-            </om:OMBIND>
-          </om:OMBIND>
-        </om:OMOBJ>
-      </definition>
-    </constant>
-    <constant name="1">
-      <definition>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Monoidal" name="I"/>
-        </om:OMOBJ>
-      </definition>
-    </constant>
-    <constant name="&amp;">
-      <definition>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMBIND>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-            <om:OMBVAR>
-              <om:OMV position="0" name="a">
-                <type>
-                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"/>
-                </type>
-                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                </attribution>
-              </om:OMV>
-            </om:OMBVAR>
-            <om:OMBIND position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-              <om:OMBVAR>
-                <om:OMV position="2_0" name="b">
-                  <type>
-                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"/>
-                  </type>
-                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                  </attribution>
-                </om:OMV>
-              </om:OMBVAR>
-              <om:OMA position="2_2">
-                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Cartesian" name="*"/>
-                <om:OMV position="2_2_2" name="a"/>
-                <om:OMV position="2_2_3" name="b"/>
-              </om:OMA>
-            </om:OMBIND>
-          </om:OMBIND>
-        </om:OMOBJ>
-      </definition>
-    </constant>
-    <constant name="⊤">
-      <definition>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Cartesian" name="top"/>
-        </om:OMOBJ>
-      </definition>
-    </constant>
-    <constant name="⊕">
-      <definition>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMBIND>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-            <om:OMBVAR>
-              <om:OMV position="0" name="a">
-                <type>
-                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"/>
-                </type>
-                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                </attribution>
-              </om:OMV>
-            </om:OMBVAR>
-            <om:OMBIND position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-              <om:OMBVAR>
-                <om:OMV position="2_0" name="b">
-                  <type>
-                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"/>
-                  </type>
-                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                  </attribution>
-                </om:OMV>
-              </om:OMBVAR>
-              <om:OMA position="2_2">
-                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="CoCartesian" name="+"/>
-                <om:OMV position="2_2_2" name="a"/>
-                <om:OMV position="2_2_3" name="b"/>
-              </om:OMA>
-            </om:OMBIND>
-          </om:OMBIND>
-        </om:OMOBJ>
-      </definition>
-    </constant>
-    <constant name="0">
-      <definition>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="CoCartesian" name="bot"/>
-        </om:OMOBJ>
-      </definition>
-    </constant>
-    <constant name="⊸">
-      <definition>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMBIND>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-            <om:OMBVAR>
-              <om:OMV position="0" name="a">
-                <type>
-                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"/>
-                </type>
-                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                </attribution>
-              </om:OMV>
-            </om:OMBVAR>
-            <om:OMBIND position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-              <om:OMBVAR>
-                <om:OMV position="2_0" name="b">
-                  <type>
-                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"/>
-                  </type>
-                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                  </attribution>
-                </om:OMV>
-              </om:OMBVAR>
-              <om:OMA position="2_2">
-                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="MonoidalClosed" name="⊸"/>
-                <om:OMV position="2_2_2" name="a"/>
-                <om:OMV position="2_2_3" name="b"/>
-              </om:OMA>
-            </om:OMBIND>
-          </om:OMBIND>
-        </om:OMOBJ>
-      </definition>
-    </constant>
-    <constant name="!">
-      <definition>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMBIND>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-            <om:OMBVAR>
-              <om:OMV position="0" name="a">
-                <type>
-                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"/>
-                </type>
-                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                </attribution>
-              </om:OMV>
-            </om:OMBVAR>
-            <om:OMA position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-              <om:OMS position="2_1" base="http://latin.omdoc.org/logics/model_theory/categorical" module="MILL" name="mc/fun"/>
-              <om:OMV position="2_2" name="a"/>
-            </om:OMA>
-          </om:OMBIND>
-        </om:OMOBJ>
-      </definition>
-    </constant>
-</view>
-</omdoc>
+<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><view name="Linear_mod" base="http://latin.omdoc.org/logics/model_theory/categorical" from="http://latin.omdoc.org/syntax?Linear_Syn" to="http://latin.omdoc.org/logics/syntax?ILL">
+           <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT value="Categorical models\n Formulas are interpreted as objects of a fixed category C. In particular, C has\n - objects Ob : type and morphisms A =&gt;B : type\n - monoidal closed structure (\226\138\151, I, \226\138\184),\n - finite products (*, top),\n - finite coproducts (+, bot),\n - a monoidal endofunctor !.\n Proofs of the linear formula A are interpreted as morphisms I =&gt;A.\n In particular, due to the monoidal closed structure,\n proofs of A1 \226\138\151 ... \226\138\151 An \226\138\184 A can be interpreted as morphisms A1 \226\138\151 ... \226\138\151 An =&gt;A." type="http://mmt.kwarc.info/openmath?Base?OMSTR"/></om:OMOBJ></meta></metadata>
+           <constant name="o">
+       
+       
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/syntax" module="Category" name="Ob"></om:OMS></om:OMOBJ></definition>
+       
+     </constant><constant name="⊗">
+       
+       
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="a"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="Category" name="Ob"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="b"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="Category" name="Ob"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="Monoidal" name="⊗"></om:OMS><om:OMV name="a"></om:OMV><om:OMV name="b"></om:OMV>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></definition>
+       
+     </constant><constant name="1">
+       
+       
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/syntax" module="Monoidal" name="I"></om:OMS></om:OMOBJ></definition>
+       
+     </constant><constant name="&amp;">
+       
+       
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="a"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="Category" name="Ob"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="b"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="Category" name="Ob"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="Cartesian" name="*"></om:OMS><om:OMV name="a"></om:OMV><om:OMV name="b"></om:OMV>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></definition>
+       
+     </constant><constant name="⊤">
+       
+       
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/syntax" module="Cartesian" name="top"></om:OMS></om:OMOBJ></definition>
+       
+     </constant><constant name="⊕">
+       
+       
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="a"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="Category" name="Ob"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="b"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="Category" name="Ob"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CoCartesian" name="+"></om:OMS><om:OMV name="a"></om:OMV><om:OMV name="b"></om:OMV>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></definition>
+       
+     </constant><constant name="0">
+       
+       
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CoCartesian" name="bot"></om:OMS></om:OMOBJ></definition>
+       
+     </constant><constant name="⊸">
+       
+       
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="a"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="Category" name="Ob"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="b"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="Category" name="Ob"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="MonoidalClosed" name="⊸"></om:OMS><om:OMV name="a"></om:OMV><om:OMV name="b"></om:OMV>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></definition>
+       
+     </constant><constant name="!">
+       
+       
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="a"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="Category" name="Ob"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="MILL" name="mc/fun"></om:OMS><om:OMV name="a"></om:OMV>
+      </om:OMA>
+      </om:OMBIND></om:OMOBJ></definition>
+       
+     </constant>
+         </view></omdoc>

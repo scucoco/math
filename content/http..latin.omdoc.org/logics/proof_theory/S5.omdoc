@@ -1,50 +1,29 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
-  <theory name="S5" base="http://latin.omdoc.org/logics/proof_theory" meta="http://cds.omdoc.org/urtheories?LF">
-    <import from="http://latin.omdoc.org/logics/proof_theory?T"> </import>
-    <constant name="ax_5" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMBIND>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-            <om:OMBVAR>
-              <om:OMV position="0" name="P">
-                <type>
-                  <om:OMS position="0_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"/>
-                </type>
-                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                </attribution>
-              </om:OMV>
-            </om:OMBVAR>
-            <om:OMA position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-              <om:OMS position="2_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"/>
-              <om:OMA position="2_2">
-                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                <om:OMS position="2_2_1" base="http://latin.omdoc.org/logics/syntax" module="MPL" name="⇒"/>
-                <om:OMA position="2_2_2">
-                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="Possibility" name="◇"/>
-                  <om:OMV position="2_2_2_2" name="P"/>
-                </om:OMA>
-                <om:OMA position="2_2_3">
-                  <om:OMS position="2_2_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                  <om:OMS position="2_2_3_1" base="http://latin.omdoc.org/logics/syntax" module="Necessity" name="□"/>
-                  <om:OMA position="2_2_3_2">
-                    <om:OMS position="2_2_3_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                    <om:OMS position="2_2_3_2_1" base="http://latin.omdoc.org/logics/syntax" module="Possibility" name="◇"/>
-                    <om:OMV position="2_2_3_2_2" name="P"/>
-                  </om:OMA>
-                </om:OMA>
-              </om:OMA>
-            </om:OMA>
-          </om:OMBIND>
-        </om:OMOBJ>
-      </type>
-      <notation>
-        <text-notation name="http://latin.omdoc.org/logics/proof_theory?S5?ax_5" precedence="0" fixity="prefix" arguments="1"/>
-      </notation>
-    </constant>
-  </theory>
-</omdoc>
+<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><theory name="S5" base="http://latin.omdoc.org/logics/proof_theory" meta="http://cds.omdoc.org/urtheories?LF"><import from="http://latin.omdoc.org/logics/proof_theory?T">
+          
+          
+          
+      </import><constant name="ax_5" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="P"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="MPL" name="⇒"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="Possibility" name="◇"></om:OMS><om:OMV name="P"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="Necessity" name="□"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="Possibility" name="◇"></om:OMS><om:OMV name="P"></om:OMV>
+      </om:OMA>
+      </om:OMA>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 1"> <scope languages="" priority="0"/> </notation></notations>
+     </constant></theory></omdoc>

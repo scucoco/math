@@ -1,16 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
-  <view 
-  name="LambdaOmega_ToPOmega_" base="http://latin.omdoc.org/type_theories" from="http://latin.omdoc.org/type_theories?LambdaOmega_" to="http://latin.omdoc.org/type_theories?LambdaPOmega_">
-    <import from="http://latin.omdoc.org/type_theories?LambdaArrow">
-      <definition>
-        <om:OMS base="http://latin.omdoc.org/type_theories" module="LambdaArrowToP"/>
-      </definition>
-    </import>
-    <import from="http://latin.omdoc.org/type_theories?SimpKinds">
-      <definition>
-        <om:OMS base="http://latin.omdoc.org/type_theories" module="SimpToOper"/>
-      </definition>
-    </import>
-</view>
-</omdoc>
+<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><view name="LambdaOmega_ToPOmega_" base="http://latin.omdoc.org/type_theories" from="http://latin.omdoc.org/type_theories?LambdaOmega_" to="http://latin.omdoc.org/type_theories?LambdaPOmega_">
+           
+           <import name="[http://latin.omdoc.org/type_theories?LambdaArrow]" from="http://latin.omdoc.org/type_theories?LambdaArrow" implicit="true">
+          
+          
+          <definition><om:OMS base="http://latin.omdoc.org/type_theories" module="LambdaArrowToP"></om:OMS></definition>
+      </import><import name="[http://latin.omdoc.org/type_theories?SimpKinds]" from="http://latin.omdoc.org/type_theories?SimpKinds" implicit="true">
+          
+          
+          <definition><om:OMS base="http://latin.omdoc.org/type_theories" module="SimpToOper"></om:OMS></definition>
+      </import>
+         </view></omdoc>
