@@ -7,6 +7,7 @@ log+ controller
 log+ extman
 log+ archive
 log+ twelf-omdoc
+log+ mmt-omdoc
 //log+ lfcatalog
 //log+ index
 //log+ svg
@@ -18,14 +19,22 @@ log+ twelf-omdoc
 // extension info.kwarc.mmt.lf.Twelf /usr/local/share/twelf-mod/bin/twelf-server
 extension info.kwarc.mmt.lf.Twelf C:\other\twelf-mod\bin\twelf-server.bat
 
+extension info.kwarc.mmt.lf.Plugin
+extension info.kwarc.mmt.lf.hollight.Plugin
+
 // replace argument with the correct path to graphviz
 // extension info.kwarc.mmt.api.archives.GraphViz "C:\Program Files\Graphviz 2.28\bin\dot.exe"
 
-archive add ../urtheories
-archive add .
+mathpath archive ../urtheories
+mathpath archive .
 
 define build
   build latin twelf-omdoc
+end
+
+define build-mmt
+  build latin mmt-omdoc
+  // foundations/hollight
 end
 
 define export
