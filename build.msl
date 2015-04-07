@@ -24,6 +24,7 @@ extension info.kwarc.mmt.lf.hollight.Plugin
 
 // replace argument with the correct path to graphviz
 extension info.kwarc.mmt.api.archives.GraphViz "C:\Program Files\Graphviz 2.28\bin\dot.exe"
+extension info.kwarc.mmt.lf.ScalaExporter
 
 mathpath archive ../urtheories
 mathpath archive .
@@ -43,5 +44,9 @@ define export
   build latin mws
 end
 
+define literals
+  build latin mmt-omdoc literals 
+  build latin lf-scala http..latin.omdoc.org/literals
+end
 
 
