@@ -1,0 +1,50 @@
+namespace "http://latin.omdoc.org/logics/syntax".
+
+// Syntax of propositional dynamic logic (see
+// e.g. http://plato.stanford.edu/entries/logic-dynamic/)
+    @author Michael Kohlhase
+
+
+
+theory PDLPrograms : http://cds.omdoc.org/urtheories?LF =
+  PDLProg : type
+  seqence : PDLProg → PDLProg → PDLProg  #1 ; #2
+  distribution : PDLProg → PDLProg → PDLProg   #1 ∪ #2
+  iteration : PDLProg → PDLProg   * #1
+  ? : Bool → PDLProg  #1 ?.
+  ifte : Bool → PDLProg → PDLProg → PDLProg = [a][t][e] (a?;t) ∪ (¬ a;e)  if #1 then #2 else #3 end
+  while : Bool → PDLProg → PDLProg =  [a][p] *(a?;p);¬ a  while #1 do #2 end
+  repeat : Bool → PDLProg → PDLProg =  [a][p] *(p;¬a?);a?  repeat #2 until #1 end
+
+
+theory PDLNecessity : http://cds.omdoc.org/urtheories?LF =
+  include ?PDLPrograms
+  include ?Logic
+   iftermterm : PDLProg → o → o  [[#1]] #2 
+
+
+theory PDLPossibility : http://cds.omdoc.org/urtheories?LF =
+  include ?PDLPrograms
+  include ?Logic
+  termwith : PDLProg → o → o  <<#1>> #2 
+
+
+theory PDL : http://cds.omdoc.org/urtheories?LF =
+  include ?MPL
+  include ?PDLNecessity
+  include ?PDLPossibility 
+
+
+// Proof theory, after http://plato.stanford.edu/entries/logic-dynamic/ which also has a
+     nice proof for a view to HOARE logic 
+
+
+theory PDLPf http://cds.omdoc.org/urtheories?LF =
+     include MLPf
+     include PDL
+    a1 : ded [[p;q]] A ⇔ [[p]] [[q]] A
+    a2 : ded [[p∪q]] A ⇔ [[p]]A ∧ [[q]] A
+    a3 : ded [[p*]]A ⇔ [[p]] [[p*]]A
+    a4 : ded [[A?]] B ⇔ A ⇒ B
+    loop_invariance : ded (A ⇒ [[p]]A) → ded (A ⇒ [[p*]]A)
+
