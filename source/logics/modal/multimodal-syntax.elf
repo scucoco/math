@@ -1,0 +1,24 @@
+%* Syntax of modal logic *%
+%namespace "http://latin.omdoc.org/logics/syntax".
+
+%sig MultiModalBase = {
+  modality: type	   
+}.
+
+%sig MultiNecessity = {
+  %include MultiModalBase %open.
+  %include Logic %open.
+   □ : modality - > o -> o.           %prefix 30 □.
+}.
+
+%sig MultiPossibility = {
+  %include MultiModalBase %open.
+  %include Logic %open.
+   ◇ : modality -> o -> o.           %prefix 30 ◇.
+}.
+
+%sig MML = {
+  %include MPL.
+  %include MultiNecessity.
+  %include MultiPossibility. 
+}.
