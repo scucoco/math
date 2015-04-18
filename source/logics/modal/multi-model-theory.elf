@@ -1,5 +1,7 @@
 %* Model theory of modal logic using the Kripke universes
-   @author Michael Kohlhase after Florian Rabe *%
+   @author Michael Kohlhase after Florian Rabe
+this is very experimental *%
+   
    
 %namespace "http://latin.omdoc.org/logics/model_theory/kripke".
 %namespace syn = "../syntax".
@@ -9,11 +11,12 @@
 %sig MultiKripke = {
   %include minimal.STTIFOLEQExt.
   %include minimal.Universes.
+  %include MultiModalBase.
   
   world : set.
   %% accessibility relation
-  acc'  : elem (world → world → bool').
-  acc   : elem world -> elem world -> elem bool' = [v][w] acc' @ v @ w.
+  acc'  : modality -> elem (world → world → bool').
+  acc   : modality -> elem world -> elem world -> elem bool' = [m][v][w] acc' @ m @ v @ w.
   exists_world : ded exists [x : elem world] true.
 }.
 
@@ -30,12 +33,12 @@
 
 %view Necessity : syn.Necessity -> Kripke = {
   %include Base.
-  □ := [f] λ[w] ∀[w'] (acc w w') ⇒ (f @ w').
+  □ := [m] [f] λ[w] ∀[w'] (acc m w w') ⇒ (f @ w').
 }.
 
 %view Possibility : syn.Possibility -> Kripke = {
   %include Base.
-  ◇ := [f] λ[w] ∃[w'] (acc w w') ∧ (f @ w').
+  ◇ := [m] [f] λ[w] ∃[w'] (acc m w w') ∧ (f @ w').
 }.
 
 %view ML : syn.ML -> Kripke = {
