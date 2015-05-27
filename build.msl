@@ -16,14 +16,15 @@ log+ mws
 //log+ lf
 
 // use envar Twelf PATH to give the path to Twelf
-// extension info.kwarc.mmt.lf.Twelf /usr/local/share/twelf-mod/bin/twelf-server
+envvar Twelf "/usr/local/share/twelf-mod/bin/twelf-server"
 extension info.kwarc.mmt.lf.Twelf
 
 extension info.kwarc.mmt.lf.Plugin
 extension info.kwarc.mmt.lf.hollight.Plugin
 
-// use envar GraphViz PATH to give the path to graphviz
+envvar GraphViz "dot"
 extension info.kwarc.mmt.api.archives.GraphViz
+extension info.kwarc.mmt.api.archives.MWSHarvestExporter
 extension info.kwarc.mmt.lf.ScalaExporter
 
 mathpath archive ../urtheories
@@ -45,8 +46,6 @@ define export
 end
 
 define literals
-  build latin mmt-omdoc literals 
+  build latin mmt-omdoc literals
   build latin lf-scala http..latin.omdoc.org/literals
 end
-
-
