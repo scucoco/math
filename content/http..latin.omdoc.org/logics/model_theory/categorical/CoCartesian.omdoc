@@ -1,9 +1,5 @@
-<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><theory name="CoCartesian" base="http://latin.omdoc.org/logics/model_theory/categorical" meta="http://cds.omdoc.org/urtheories?LF"><import from="http://latin.omdoc.org/logics/model_theory/categorical?CatLog">
-          
-          
-          
-      </import><constant name="bot" role="constructor">
-       <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT value="falsity" type="http://mmt.kwarc.info/openmath?Base?OMSTR"/></om:OMOBJ></meta></metadata>
+<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><theory name="CoCartesian" base="http://latin.omdoc.org/logics/model_theory/categorical" meta="http://cds.omdoc.org/urtheories?LF"><import from="http://latin.omdoc.org/logics/model_theory/categorical?CatLog"></import><constant name="bot" role="constructor">
+       <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT value="  falsity " type="http://www.openmath.org/cd?OpenMath?OMSTR"/></om:OMOBJ></meta></metadata>
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"></om:OMS></om:OMOBJ></type>
        
        
@@ -11,16 +7,16 @@
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="=&gt;"></om:OMS><om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="CoCartesian" name="bot"></om:OMS><om:OMV name="A"></om:OMV>
       </om:OMA>
       </om:OMBIND></om:OMOBJ></type>
        
-       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 1"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="1 0"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="+" role="constructor">
-       <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT value="disjunction" type="http://mmt.kwarc.info/openmath?Base?OMSTR"/></om:OMOBJ></meta></metadata>
+       <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT value="  disjunction " type="http://www.openmath.org/cd?OpenMath?OMSTR"/></om:OMOBJ></meta></metadata>
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"></om:OMS><om:OMA>
@@ -29,15 +25,15 @@
       </om:OMA>
       </om:OMA></om:OMOBJ></type>
        
-       <notations><notation dimension="1" precedence="18" fixity="infix-left" arguments="0 0"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="18" fixity="infix-left" arguments="0 2"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="inl" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="=&gt;"></om:OMS><om:OMV name="A"></om:OMV><om:OMA>
@@ -53,10 +49,10 @@
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="=&gt;"></om:OMS><om:OMV name="B"></om:OMV><om:OMA>
@@ -72,13 +68,13 @@
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="C"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="C"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
               <om:OMA>
@@ -102,12 +98,12 @@
       </om:OMBIND>
       </om:OMBIND></om:OMOBJ></type>
        
-       <notations><notation dimension="1" precedence="18" fixity="infix-left" arguments="0 3"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="18" fixity="infix-left" arguments="3 2"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="rew_bot" role="constructor">
-       <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT value="rewrites for false" type="http://mmt.kwarc.info/openmath?Base?OMSTR"/></om:OMOBJ></meta></metadata>
+       <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT value="  rewrites for false " type="http://www.openmath.org/cd?OpenMath?OMSTR"/></om:OMOBJ></meta></metadata>
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="DFOL" name="|-"></om:OMS><om:OMA>
@@ -117,10 +113,7 @@
               <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="mor"></om:OMS><om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="CoCartesian" name="bot"></om:OMS><om:OMV name="A"></om:OMV>
       </om:OMA><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="f"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="=&gt;"></om:OMS><om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="CoCartesian" name="bot"></om:OMS><om:OMV name="A"></om:OMV>
-      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="f"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="CatLog" name="~&gt;"></om:OMS><om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="CoCartesian" name="bot"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="f"></om:OMV><om:OMA>
@@ -133,18 +126,18 @@
       </om:OMA>
       </om:OMBIND></om:OMOBJ></type>
        
-       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 1"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="1 0"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="rew_disj_1" role="constructor">
-       <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT value="rewrites for disjunction" type="http://mmt.kwarc.info/openmath?Base?OMSTR"/></om:OMOBJ></meta></metadata>
+       <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT value="  rewrites for disjunction " type="http://www.openmath.org/cd?OpenMath?OMSTR"/></om:OMOBJ></meta></metadata>
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="C"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="C"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="DFOL" name="|-"></om:OMS><om:OMA>
@@ -157,13 +150,7 @@
       </om:OMA><om:OMV name="C"></om:OMV>
       </om:OMA><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="f"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="=&gt;"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="CoCartesian" name="+"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="B"></om:OMV>
-      </om:OMA><om:OMV name="C"></om:OMV>
-      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="f"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="CatLog" name="~&gt;"></om:OMS><om:OMA>
@@ -199,18 +186,18 @@
       </om:OMBIND>
       </om:OMBIND></om:OMOBJ></type>
        
-       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 3"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="3 0"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="rew_disj_2" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="C"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="C"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="DFOL" name="|-"></om:OMS><om:OMA>
@@ -220,10 +207,7 @@
               <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="mor"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="C"></om:OMV>
       </om:OMA><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="f"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="=&gt;"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="C"></om:OMV>
-      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="f"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="DFOL" name="forall"></om:OMS><om:OMA>
@@ -231,10 +215,7 @@
               <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="mor"></om:OMS><om:OMV name="B"></om:OMV><om:OMV name="C"></om:OMV>
       </om:OMA><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="g"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="=&gt;"></om:OMS><om:OMV name="B"></om:OMV><om:OMV name="C"></om:OMV>
-      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="g"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="CatLog" name="~&gt;"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="C"></om:OMV><om:OMA>
@@ -260,18 +241,18 @@
       </om:OMBIND>
       </om:OMBIND></om:OMOBJ></type>
        
-       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 3"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="3 0"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="rew_disj_3" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="C"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="C"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="DFOL" name="|-"></om:OMS><om:OMA>
@@ -281,10 +262,7 @@
               <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="mor"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="C"></om:OMV>
       </om:OMA><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="f"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="=&gt;"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="C"></om:OMV>
-      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="f"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="DFOL" name="forall"></om:OMS><om:OMA>
@@ -292,10 +270,7 @@
               <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="mor"></om:OMS><om:OMV name="B"></om:OMV><om:OMV name="C"></om:OMV>
       </om:OMA><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="g"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="=&gt;"></om:OMS><om:OMV name="B"></om:OMV><om:OMV name="C"></om:OMV>
-      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="g"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="CatLog" name="~&gt;"></om:OMS><om:OMV name="B"></om:OMV><om:OMV name="C"></om:OMV><om:OMA>
@@ -321,5 +296,5 @@
       </om:OMBIND>
       </om:OMBIND></om:OMOBJ></type>
        
-       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 3"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="3 0"> <scope languages="" priority="0"/> </notation></notations>
      </constant></theory></omdoc>

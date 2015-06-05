@@ -1,40 +1,30 @@
 <omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><view name="HOLSemantics" base="http://latin.omdoc.org/foundations/isabelle" from="http://latin.omdoc.org/foundations/isabelle?HOL" to="http://latin.omdoc.org/foundations/isabelle?NesetZFC">
            
-           <import name="[http://latin.omdoc.org/foundations/isabelle?Pure]" from="http://latin.omdoc.org/foundations/isabelle?Pure" implicit="true">
-          
-          
-          <definition><om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="PureSemantics"></om:OMS></definition>
-      </import><constant name="bool">
+           <import name="[http://latin.omdoc.org/foundations/isabelle?Pure]" from="http://latin.omdoc.org/foundations/isabelle?Pure" implicit="true"><definition><om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="PureSemantics"></om:OMS></definition></import><constant name="[http://latin.omdoc.org/foundations/isabelle?HOL]/bool">
        
        
        <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="boolne"></om:OMS></om:OMOBJ></definition>
        
-     </constant><constant name="trueprop'">
+     </constant><constant name="[http://latin.omdoc.org/foundations/isabelle?HOL]/trueprop'">
        
        
        <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="lam"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="boolne"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="boolne"></om:OMS><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="elems"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="boolne"></om:OMS>
-      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMV name="x"></om:OMV>
       </om:OMBIND>
       </om:OMA></om:OMOBJ></definition>
        
-     </constant><constant name="~'">
-       <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT value="not" type="http://mmt.kwarc.info/openmath?Base?OMSTR"/></om:OMOBJ></meta></metadata>
+     </constant><constant name="[http://latin.omdoc.org/foundations/isabelle?HOL]/~'">
+       <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT value="  not " type="http://www.openmath.org/cd?OpenMath?OMSTR"/></om:OMOBJ></meta></metadata>
        
        <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="lam"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="boolne"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="boolne"></om:OMS><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="elems"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="boolne"></om:OMS>
-      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="bbne"></om:OMS><om:OMA>
@@ -48,7 +38,7 @@
       </om:OMBIND>
       </om:OMA></om:OMOBJ></definition>
        
-     </constant><constant name="true">
+     </constant><constant name="[http://latin.omdoc.org/foundations/isabelle?HOL]/true">
        
        
        <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
@@ -56,7 +46,7 @@
               <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="bbne"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="⟙"></om:OMS>
       </om:OMA></om:OMOBJ></definition>
        
-     </constant><constant name="false">
+     </constant><constant name="[http://latin.omdoc.org/foundations/isabelle?HOL]/false">
        
        
        <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
@@ -64,12 +54,12 @@
               <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="bbne"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="⟘"></om:OMS>
       </om:OMA></om:OMOBJ></definition>
        
-     </constant><constant name="the'">
-       <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT value="the" type="http://mmt.kwarc.info/openmath?Base?OMSTR"/></om:OMOBJ></meta></metadata>
+     </constant><constant name="[http://latin.omdoc.org/foundations/isabelle?HOL]/the'">
+       <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT value="  the " type="http://www.openmath.org/cd?OpenMath?OMSTR"/></om:OMOBJ></meta></metadata>
        
        <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="neset"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="lam"></om:OMS><om:OMA>
@@ -77,28 +67,19 @@
               <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="fun"></om:OMS><om:OMV name="A"></om:OMV><om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="boolne"></om:OMS>
       </om:OMA><om:OMV name="A"></om:OMV><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="elems"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="fun"></om:OMS><om:OMV name="A"></om:OMV><om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="boolne"></om:OMS>
-      </om:OMA>
-      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="the"></om:OMS><om:OMV name="A"></om:OMV><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="y"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="elems"></om:OMS><om:OMV name="A"></om:OMV>
-      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="y"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="Eq"></om:OMS><om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="cwhich"></om:OMS><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="x1"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="x1"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="nonempty"></om:OMS><om:OMV name="x1"></om:OMV>
@@ -118,12 +99,12 @@
       </om:OMA>
       </om:OMBIND></om:OMOBJ></definition>
        
-     </constant><constant name="all'">
+     </constant><constant name="[http://latin.omdoc.org/foundations/isabelle?HOL]/all'">
        
        
        <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="neset"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="lam"></om:OMS><om:OMA>
@@ -131,13 +112,7 @@
               <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="fun"></om:OMS><om:OMV name="A"></om:OMV><om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="boolne"></om:OMS>
       </om:OMA><om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="boolne"></om:OMS><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="elems"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="fun"></om:OMS><om:OMV name="A"></om:OMV><om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="boolne"></om:OMS>
-      </om:OMA>
-      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="bbne"></om:OMS><om:OMA>
@@ -150,7 +125,7 @@
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="cwhich"></om:OMS><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="x1"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="x1"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="nonempty"></om:OMS><om:OMV name="x1"></om:OMV>
@@ -160,17 +135,14 @@
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="some"></om:OMS><om:OMV name="A"></om:OMV><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="y"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="elems"></om:OMS><om:OMV name="A"></om:OMV>
-      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="y"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="Eq"></om:OMS><om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="cwhich"></om:OMS><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="x1"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="x1"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="nonempty"></om:OMS><om:OMV name="x1"></om:OMV>
@@ -190,7 +162,7 @@
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="cwhich"></om:OMS><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="x1"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="x1"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="nonempty"></om:OMS><om:OMV name="x1"></om:OMV>
@@ -204,12 +176,12 @@
       </om:OMA>
       </om:OMBIND></om:OMOBJ></definition>
        
-     </constant><constant name="ex'">
+     </constant><constant name="[http://latin.omdoc.org/foundations/isabelle?HOL]/ex'">
        
        
        <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="neset"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="lam"></om:OMS><om:OMA>
@@ -217,13 +189,7 @@
               <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="fun"></om:OMS><om:OMV name="A"></om:OMV><om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="boolne"></om:OMS>
       </om:OMA><om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="boolne"></om:OMS><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="elems"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="fun"></om:OMS><om:OMV name="A"></om:OMV><om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="boolne"></om:OMS>
-      </om:OMA>
-      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="bbne"></om:OMS><om:OMA>
@@ -238,7 +204,7 @@
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="cwhich"></om:OMS><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="x1"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="x1"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="nonempty"></om:OMS><om:OMV name="x1"></om:OMV>
@@ -248,17 +214,14 @@
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="some"></om:OMS><om:OMV name="A"></om:OMV><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="y"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="elems"></om:OMS><om:OMV name="A"></om:OMV>
-      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="y"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="Eq"></om:OMS><om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="cwhich"></om:OMS><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="x1"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="x1"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="nonempty"></om:OMS><om:OMV name="x1"></om:OMV>
@@ -283,12 +246,12 @@
       </om:OMA>
       </om:OMBIND></om:OMOBJ></definition>
        
-     </constant><constant name="≐'">
-       <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT value="eq" type="http://mmt.kwarc.info/openmath?Base?OMSTR"/></om:OMOBJ></meta></metadata>
+     </constant><constant name="[http://latin.omdoc.org/foundations/isabelle?HOL]/≐'">
+       <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT value="  eq " type="http://www.openmath.org/cd?OpenMath?OMSTR"/></om:OMOBJ></meta></metadata>
        
        <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="neset"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="lam"></om:OMS><om:OMV name="A"></om:OMV><om:OMA>
@@ -296,18 +259,12 @@
               <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="fun"></om:OMS><om:OMV name="A"></om:OMV><om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="boolne"></om:OMS>
       </om:OMA><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="elems"></om:OMS><om:OMV name="A"></om:OMV>
-      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="lam"></om:OMS><om:OMV name="A"></om:OMV><om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="boolne"></om:OMS><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="y"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="elems"></om:OMS><om:OMV name="A"></om:OMV>
-      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="y"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="bbne"></om:OMS><om:OMA>
@@ -318,7 +275,7 @@
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="cwhich"></om:OMS><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="x1"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="x1"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="nonempty"></om:OMS><om:OMV name="x1"></om:OMV>
@@ -334,8 +291,8 @@
       </om:OMA>
       </om:OMBIND></om:OMOBJ></definition>
        
-     </constant><constant name="&amp;'">
-       <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT value="and" type="http://mmt.kwarc.info/openmath?Base?OMSTR"/></om:OMOBJ></meta></metadata>
+     </constant><constant name="[http://latin.omdoc.org/foundations/isabelle?HOL]/&amp;'">
+       <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT value="  and " type="http://www.openmath.org/cd?OpenMath?OMSTR"/></om:OMOBJ></meta></metadata>
        
        <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
@@ -344,18 +301,12 @@
               <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="fun"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="boolne"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="boolne"></om:OMS>
       </om:OMA><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="elems"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="boolne"></om:OMS>
-      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="lam"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="boolne"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="boolne"></om:OMS><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="y"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="elems"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="boolne"></om:OMS>
-      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="y"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="bbne"></om:OMS><om:OMA>
@@ -374,8 +325,8 @@
       </om:OMBIND>
       </om:OMA></om:OMOBJ></definition>
        
-     </constant><constant name="|'">
-       <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT value="or" type="http://mmt.kwarc.info/openmath?Base?OMSTR"/></om:OMOBJ></meta></metadata>
+     </constant><constant name="[http://latin.omdoc.org/foundations/isabelle?HOL]/|'">
+       <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT value="  or " type="http://www.openmath.org/cd?OpenMath?OMSTR"/></om:OMOBJ></meta></metadata>
        
        <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
@@ -384,18 +335,12 @@
               <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="fun"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="boolne"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="boolne"></om:OMS>
       </om:OMA><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="elems"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="boolne"></om:OMS>
-      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="lam"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="boolne"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="boolne"></om:OMS><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="y"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="elems"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="boolne"></om:OMS>
-      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="y"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="bbne"></om:OMS><om:OMA>
@@ -414,8 +359,8 @@
       </om:OMBIND>
       </om:OMA></om:OMOBJ></definition>
        
-     </constant><constant name="⟶'">
-       <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT value="imp" type="http://mmt.kwarc.info/openmath?Base?OMSTR"/></om:OMOBJ></meta></metadata>
+     </constant><constant name="[http://latin.omdoc.org/foundations/isabelle?HOL]/⟶'">
+       <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT value="  imp " type="http://www.openmath.org/cd?OpenMath?OMSTR"/></om:OMOBJ></meta></metadata>
        
        <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
@@ -424,18 +369,12 @@
               <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="fun"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="boolne"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="boolne"></om:OMS>
       </om:OMA><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="elems"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="boolne"></om:OMS>
-      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="lam"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="boolne"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="boolne"></om:OMS><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="y"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="elems"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="boolne"></om:OMS>
-      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="y"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="bbne"></om:OMS><om:OMA>
@@ -454,12 +393,12 @@
       </om:OMBIND>
       </om:OMA></om:OMOBJ></definition>
        
-     </constant><constant name="eps">
-       <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT value="some" type="http://mmt.kwarc.info/openmath?Base?OMSTR"/></om:OMOBJ></meta></metadata>
+     </constant><constant name="[http://latin.omdoc.org/foundations/isabelle?HOL]/eps">
+       <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT value="  some " type="http://www.openmath.org/cd?OpenMath?OMSTR"/></om:OMOBJ></meta></metadata>
        
        <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="neset"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="lam"></om:OMS><om:OMA>
@@ -467,28 +406,19 @@
               <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="fun"></om:OMS><om:OMV name="A"></om:OMV><om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="boolne"></om:OMS>
       </om:OMA><om:OMV name="A"></om:OMV><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="elems"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="fun"></om:OMS><om:OMV name="A"></om:OMV><om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="boolne"></om:OMS>
-      </om:OMA>
-      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="some"></om:OMS><om:OMV name="A"></om:OMV><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="y"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/foundations/isabelle" module="NesetZFC" name="elems"></om:OMS><om:OMV name="A"></om:OMV>
-      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="y"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="Eq"></om:OMS><om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="cwhich"></om:OMS><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="x1"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="x1"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="nonempty"></om:OMS><om:OMV name="x1"></om:OMV>

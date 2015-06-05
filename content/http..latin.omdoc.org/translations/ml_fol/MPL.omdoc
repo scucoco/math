@@ -1,36 +1,26 @@
 <omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><view name="MPL" base="http://latin.omdoc.org/translations/ml_fol" from="http://latin.omdoc.org/logics/syntax?MPL" to="http://latin.omdoc.org/translations/ml_fol?ML-FOL">
            
-           <import name="[http://latin.omdoc.org/logics/syntax?Logic]" from="http://latin.omdoc.org/logics/syntax?Logic" implicit="true">
-          
-          
-          <definition><om:OMS base="http://latin.omdoc.org/translations/ml_fol" module="Base"></om:OMS></definition>
-      </import><constant name="⊥">
+           <import name="[http://latin.omdoc.org/logics/syntax?Logic]" from="http://latin.omdoc.org/logics/syntax?Logic" implicit="true"><definition><om:OMS base="http://latin.omdoc.org/translations/ml_fol" module="Base"></om:OMS></definition></import><constant name="[http://latin.omdoc.org/logics/syntax?MPL]/⊥">
        
        
        <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMS base="http://latin.omdoc.org/logics/syntax" module="Falsity" name="false"></om:OMS>
       </om:OMBIND></om:OMOBJ></definition>
        
-     </constant><constant name="⇒">
+     </constant><constant name="[http://latin.omdoc.org/logics/syntax?MPL]/⇒">
        
        
        <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="f"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS><om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"></om:OMS>
-      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="f"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="g"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS><om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"></om:OMS>
-      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="g"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="IMP" name="imp"></om:OMS><om:OMA>

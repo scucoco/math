@@ -1,8 +1,4 @@
-<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><theory name="TableauxProp" base="http://latin.omdoc.org/logics/proof_theory" meta="http://cds.omdoc.org/urtheories?LF"><import from="http://latin.omdoc.org/logics/syntax?PL">
-          
-          
-          
-      </import><constant name="%23" role="type">
+<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><theory name="TableauxProp" base="http://latin.omdoc.org/logics/proof_theory" meta="http://cds.omdoc.org/urtheories?LF"><import from="http://latin.omdoc.org/logics/syntax?PL"></import><constant name="%23" role="type">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://cds.omdoc.org/urtheories" module="Typed" name="type"></om:OMS></om:OMOBJ></type>
        
@@ -14,7 +10,7 @@
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"></om:OMS><om:OMS base="http://cds.omdoc.org/urtheories" module="Typed" name="type"></om:OMS>
       </om:OMA></om:OMOBJ></type>
        
-       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 0"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 1"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="neg" role="type">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
@@ -22,12 +18,12 @@
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"></om:OMS><om:OMS base="http://cds.omdoc.org/urtheories" module="Typed" name="type"></om:OMS>
       </om:OMA></om:OMOBJ></type>
        
-       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 0"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 1"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="close" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
               <om:OMA>
@@ -43,7 +39,7 @@
       </om:OMA>
       </om:OMBIND></om:OMOBJ></type>
        
-       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 1"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="1 2"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="true1" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
@@ -70,7 +66,7 @@
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
               <om:OMA>
@@ -92,12 +88,12 @@
       </om:OMA>
       </om:OMBIND></om:OMOBJ></type>
        
-       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 1"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="1 2"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="not0" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
               <om:OMA>
@@ -119,15 +115,15 @@
       </om:OMA>
       </om:OMBIND></om:OMOBJ></type>
        
-       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 1"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="1 2"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="and1" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
               <om:OMA>
@@ -156,15 +152,15 @@
       </om:OMBIND>
       </om:OMBIND></om:OMOBJ></type>
        
-       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 2"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="2 2"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="and0" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
               <om:OMA>
@@ -196,15 +192,15 @@
       </om:OMBIND>
       </om:OMBIND></om:OMOBJ></type>
        
-       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 2"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="2 3"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="or1" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
               <om:OMA>
@@ -236,15 +232,15 @@
       </om:OMBIND>
       </om:OMBIND></om:OMOBJ></type>
        
-       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 2"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="2 3"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="or0" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
               <om:OMA>
@@ -273,15 +269,15 @@
       </om:OMBIND>
       </om:OMBIND></om:OMOBJ></type>
        
-       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 2"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="2 2"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="imp1" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
               <om:OMA>
@@ -313,15 +309,15 @@
       </om:OMBIND>
       </om:OMBIND></om:OMOBJ></type>
        
-       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 2"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="2 3"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="imp0" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
               <om:OMA>
@@ -350,5 +346,5 @@
       </om:OMBIND>
       </om:OMBIND></om:OMOBJ></type>
        
-       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 2"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="2 2"> <scope languages="" priority="0"/> </notation></notations>
      </constant></theory></omdoc>

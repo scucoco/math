@@ -1,8 +1,4 @@
-<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><theory name="CASLSorted" base="http://latin.omdoc.org/logics/syntax" meta="http://cds.omdoc.org/urtheories?LF"><import from="http://latin.omdoc.org/logics/syntax?CASLSorts">
-          
-          
-          
-      </import><constant name="o" role="type">
+<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><theory name="CASLSorted" base="http://latin.omdoc.org/logics/syntax" meta="http://cds.omdoc.org/urtheories?LF"><import from="http://latin.omdoc.org/logics/syntax?CASLSorts"></import><constant name="o" role="type">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://cds.omdoc.org/urtheories" module="Typed" name="type"></om:OMS></om:OMOBJ></type>
        
@@ -14,7 +10,7 @@
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="o"></om:OMS><om:OMS base="http://cds.omdoc.org/urtheories" module="Typed" name="type"></om:OMS>
       </om:OMA></om:OMOBJ></type>
        
-       <notations><notation dimension="1" precedence="1" fixity="prefix" arguments="0 0"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="1" fixity="prefix" arguments="0 1"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="ded" role="type">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
@@ -22,7 +18,7 @@
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="o"></om:OMS><om:OMS base="http://cds.omdoc.org/urtheories" module="Typed" name="type"></om:OMS>
       </om:OMA></om:OMOBJ></type>
        
-       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 0"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 1"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="tm" role="type">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://cds.omdoc.org/urtheories" module="Typed" name="type"></om:OMS></om:OMOBJ></type>
@@ -48,7 +44,7 @@
       </om:OMA>
       </om:OMA></om:OMOBJ></type>
        
-       <notations><notation dimension="1" precedence="30" fixity="infix-right" arguments="0 0"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="30" fixity="infix-right" arguments="0 2"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="&gt;" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
@@ -57,15 +53,15 @@
       </om:OMA></om:OMOBJ></type>
        <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="tm"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name=","></om:OMS><om:OMV name="x"></om:OMV><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="tmnil"></om:OMS>
       </om:OMA>
       </om:OMBIND></om:OMOBJ></definition>
-       <notations><notation dimension="1" precedence="35" fixity="postfix" arguments="0 0"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="35" fixity="postfix" arguments="0 1"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="%23" role="type">
-       <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT value="************ 2.3.1. Sorts *****************" type="http://mmt.kwarc.info/openmath?Base?OMSTR"/></om:OMOBJ></meta></metadata>
+       <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT value="************  2.3.1. Sorts *****************" type="http://www.openmath.org/cd?OpenMath?OMSTR"/></om:OMOBJ></meta></metadata>
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="tm"></om:OMS><om:OMA>
@@ -74,7 +70,7 @@
       </om:OMA>
       </om:OMA></om:OMOBJ></type>
        
-       <notations><notation dimension="1" precedence="25" fixity="infix" arguments="0 0"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="25" fixity="infix" arguments="0 2"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="%23%23" role="type">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
@@ -85,9 +81,9 @@
       </om:OMA>
       </om:OMA></om:OMOBJ></type>
        
-       <notations><notation dimension="1" precedence="25" fixity="infix" arguments="0 0"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="25" fixity="infix" arguments="0 2"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="=&gt;!" role="type">
-       <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT value="************ 2.3.2. Operations" type="http://mmt.kwarc.info/openmath?Base?OMSTR"/></om:OMOBJ></meta></metadata>
+       <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT value="************  2.3.2. Operations " type="http://www.openmath.org/cd?OpenMath?OMSTR"/></om:OMOBJ></meta></metadata>
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"></om:OMS><om:OMA>
@@ -96,7 +92,7 @@
       </om:OMA>
       </om:OMA></om:OMOBJ></type>
        
-       <notations><notation dimension="1" precedence="25" fixity="infix" arguments="0 0"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="25" fixity="infix" arguments="0 2"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="=&gt;%3F" role="type">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
@@ -107,7 +103,7 @@
       </om:OMA>
       </om:OMA></om:OMOBJ></type>
        
-       <notations><notation dimension="1" precedence="25" fixity="infix" arguments="0 0"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="25" fixity="infix" arguments="0 2"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="=&gt;" role="type">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
@@ -118,15 +114,15 @@
       </om:OMA>
       </om:OMA></om:OMOBJ></type>
        
-       <notations><notation dimension="1" precedence="25" fixity="infix" arguments="0 0"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="25" fixity="infix" arguments="0 2"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="!=&gt;" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="SS"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="SS"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
               <om:OMA>
@@ -140,15 +136,15 @@
       </om:OMBIND>
       </om:OMBIND></om:OMOBJ></type>
        
-       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 2"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="2 1"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="%3F=&gt;" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="SS"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="SS"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
               <om:OMA>
@@ -162,15 +158,15 @@
       </om:OMBIND>
       </om:OMBIND></om:OMOBJ></type>
        
-       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 2"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="2 1"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="@" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="SS"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="SS"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
               <om:OMA>
@@ -184,15 +180,15 @@
       </om:OMBIND>
       </om:OMBIND></om:OMOBJ></type>
        
-       <notations><notation dimension="1" precedence="25" fixity="infix" arguments="0 2"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="25" fixity="infix" arguments="2 2"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="@!" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="SS"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="SS"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
               <om:OMA>
@@ -207,19 +203,16 @@
       </om:OMBIND></om:OMOBJ></type>
        <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="SS"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="SS"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="f"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="=&gt;!"></om:OMS><om:OMV name="SS"></om:OMV><om:OMV name="S"></om:OMV>
-      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="f"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="tl"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="tmlist"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="tl"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="@"></om:OMS><om:OMV name="SS"></om:OMV><om:OMV name="S"></om:OMV><om:OMA>
@@ -231,15 +224,15 @@
       </om:OMBIND>
       </om:OMBIND>
       </om:OMBIND></om:OMOBJ></definition>
-       <notations><notation dimension="1" precedence="25" fixity="infix" arguments="0 2"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="25" fixity="infix" arguments="2 2"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="!&lt;" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="SS"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="SS"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
               <om:OMA>
@@ -254,19 +247,16 @@
       </om:OMBIND></om:OMOBJ></type>
        <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="SS"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="SS"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="f"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="=&gt;!"></om:OMS><om:OMV name="SS"></om:OMV><om:OMV name="S"></om:OMV>
-      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="f"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="tl"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="tmlist"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="tl"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="@"></om:OMS><om:OMV name="SS"></om:OMV><om:OMV name="S"></om:OMV><om:OMA>
@@ -278,15 +268,15 @@
       </om:OMBIND>
       </om:OMBIND>
       </om:OMBIND></om:OMOBJ></definition>
-       <notations><notation dimension="1" precedence="25" fixity="infix" arguments="0 2"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="25" fixity="infix" arguments="2 2"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="@!1" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="T"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="T"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
               <om:OMA>
@@ -304,22 +294,16 @@
       </om:OMBIND></om:OMOBJ></type>
        <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="T"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="T"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="f"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="=&gt;!"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="*"></om:OMS><om:OMV name="S"></om:OMV><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortnil"></om:OMS>
-      </om:OMA><om:OMV name="T"></om:OMV>
-      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="f"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="s"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="tm"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="s"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="@!"></om:OMS><om:OMA>
@@ -334,15 +318,15 @@
       </om:OMBIND>
       </om:OMBIND>
       </om:OMBIND></om:OMOBJ></definition>
-       <notations><notation dimension="1" precedence="25" fixity="infix" arguments="0 2"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="25" fixity="infix" arguments="2 2"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="@%3F" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="SS"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="SS"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
               <om:OMA>
@@ -357,19 +341,16 @@
       </om:OMBIND></om:OMOBJ></type>
        <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="SS"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="SS"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="f"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="=&gt;%3F"></om:OMS><om:OMV name="SS"></om:OMV><om:OMV name="S"></om:OMV>
-      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="f"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="tl"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="tmlist"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="tl"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="@"></om:OMS><om:OMV name="SS"></om:OMV><om:OMV name="S"></om:OMV><om:OMA>
@@ -381,15 +362,15 @@
       </om:OMBIND>
       </om:OMBIND>
       </om:OMBIND></om:OMOBJ></definition>
-       <notations><notation dimension="1" precedence="25" fixity="infix" arguments="0 2"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="25" fixity="infix" arguments="2 2"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="%3F&lt;" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="SS"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="SS"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
               <om:OMA>
@@ -404,19 +385,16 @@
       </om:OMBIND></om:OMOBJ></type>
        <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="SS"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="SS"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="f"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="=&gt;%3F"></om:OMS><om:OMV name="SS"></om:OMV><om:OMV name="S"></om:OMV>
-      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="f"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="tl"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="tmlist"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="tl"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="@"></om:OMS><om:OMV name="SS"></om:OMV><om:OMV name="S"></om:OMV><om:OMA>
@@ -428,15 +406,15 @@
       </om:OMBIND>
       </om:OMBIND>
       </om:OMBIND></om:OMOBJ></definition>
-       <notations><notation dimension="1" precedence="25" fixity="infix" arguments="0 2"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="25" fixity="infix" arguments="2 2"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="@%3F1" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="T"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="T"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
               <om:OMA>
@@ -454,22 +432,16 @@
       </om:OMBIND></om:OMOBJ></type>
        <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="T"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="T"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="f"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="=&gt;%3F"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="*"></om:OMS><om:OMV name="S"></om:OMV><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortnil"></om:OMS>
-      </om:OMA><om:OMV name="T"></om:OMV>
-      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="f"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="s"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="tm"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="s"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="@%3F"></om:OMS><om:OMA>
@@ -484,20 +456,20 @@
       </om:OMBIND>
       </om:OMBIND>
       </om:OMBIND></om:OMOBJ></definition>
-       <notations><notation dimension="1" precedence="25" fixity="infix" arguments="0 2"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="25" fixity="infix" arguments="2 2"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="pred" role="type">
-       <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT value="** a. Operation declarations *******************\n ************ b. Operation definitions ********************\n\n ************ 2.3.3. Predicates" type="http://mmt.kwarc.info/openmath?Base?OMSTR"/></om:OMOBJ></meta></metadata>
+       <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT value="**          a. Operation declarations *******************\n   ************ b. Operation definitions ********************\n\n   ************ 2.3.3. Predicates " type="http://www.openmath.org/cd?OpenMath?OMSTR"/></om:OMOBJ></meta></metadata>
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"></om:OMS><om:OMS base="http://cds.omdoc.org/urtheories" module="Typed" name="type"></om:OMS>
       </om:OMA></om:OMOBJ></type>
        
-       <notations><notation dimension="1" precedence="25" fixity="prefix" arguments="0 0"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="25" fixity="prefix" arguments="0 1"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="@pred" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="SS"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="SS"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
               <om:OMA>
@@ -510,12 +482,12 @@
       </om:OMA>
       </om:OMBIND></om:OMOBJ></type>
        
-       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 1"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="1 2"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="*&lt;" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="SS"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="SS"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
               <om:OMA>
@@ -529,16 +501,13 @@
       </om:OMBIND></om:OMOBJ></type>
        <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="SS"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="SS"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="p"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="pred"></om:OMS><om:OMV name="SS"></om:OMV>
-      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="p"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="xx"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="tmlist"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="xx"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="@pred"></om:OMS><om:OMV name="SS"></om:OMV><om:OMV name="p"></om:OMV><om:OMV name="xx"></om:OMV>
@@ -546,21 +515,18 @@
       </om:OMBIND>
       </om:OMBIND>
       </om:OMBIND></om:OMOBJ></definition>
-       <notations><notation dimension="1" precedence="25" fixity="infix" arguments="0 1"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="25" fixity="infix" arguments="1 2"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="wff_@pred" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="SS"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sortlist"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="SS"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="TT"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="tmlist"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="TT"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="P"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="pred"></om:OMS><om:OMV name="SS"></om:OMV>
-      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="P"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
               <om:OMA>
@@ -578,9 +544,9 @@
       </om:OMBIND>
       </om:OMBIND></om:OMOBJ></type>
        
-       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 2"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="2 2"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="Var" role="type">
-       <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT value="*********** a. Predicate declarations ******************\n ************ b. Predicate definitions *******************\n ************ 2.3.4. Datatypes ***************************\n ************ 2.3.5. Sort generation *********************\n ************ 2.4. Variables ***************************" type="http://mmt.kwarc.info/openmath?Base?OMSTR"/></om:OMOBJ></meta></metadata>
+       <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT value="*********** a. Predicate declarations ******************\n   ************ b. Predicate definitions *******************\n   ************ 2.3.4. Datatypes ***************************\n   ************ 2.3.5. Sort generation *********************\n   ************ 2.4. Variables ***************************" type="http://www.openmath.org/cd?OpenMath?OMSTR"/></om:OMOBJ></meta></metadata>
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS><om:OMS base="http://cds.omdoc.org/urtheories" module="Typed" name="type"></om:OMS>
@@ -591,7 +557,7 @@
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
               <om:OMA>
@@ -601,18 +567,15 @@
       </om:OMA>
       </om:OMBIND></om:OMOBJ></type>
        
-       <notations><notation dimension="1" precedence="100" fixity="prefix" arguments="0 1"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="100" fixity="prefix" arguments="1 1"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="%23'" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="X"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="Var"></om:OMS><om:OMV name="S"></om:OMV>
-      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="X"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="%23"></om:OMS><om:OMA>
@@ -623,7 +586,7 @@
       </om:OMBIND>
       </om:OMBIND></om:OMOBJ></type>
        
-       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 1"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="1 1"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="then-when-else" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
@@ -642,7 +605,7 @@
        
        
      </constant><constant name="and" role="constructor">
-       <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT value="2.5. Axioms" type="http://mmt.kwarc.info/openmath?Base?OMSTR"/></om:OMOBJ></meta></metadata>
+       <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT value="  2.5. Axioms " type="http://www.openmath.org/cd?OpenMath?OMSTR"/></om:OMOBJ></meta></metadata>
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="o"></om:OMS><om:OMA>
@@ -651,7 +614,7 @@
       </om:OMA>
       </om:OMA></om:OMOBJ></type>
        
-       <notations><notation dimension="1" precedence="25" fixity="infix" arguments="0 0"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="25" fixity="infix" arguments="0 2"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="or" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
@@ -662,7 +625,7 @@
       </om:OMA>
       </om:OMA></om:OMOBJ></type>
        
-       <notations><notation dimension="1" precedence="25" fixity="infix" arguments="0 0"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="25" fixity="infix" arguments="0 2"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="imp" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
@@ -673,7 +636,7 @@
       </om:OMA>
       </om:OMA></om:OMOBJ></type>
        
-       <notations><notation dimension="1" precedence="20" fixity="infix" arguments="0 0"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="20" fixity="infix" arguments="0 2"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="if" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
@@ -684,7 +647,7 @@
       </om:OMA>
       </om:OMA></om:OMOBJ></type>
        
-       <notations><notation dimension="1" precedence="20" fixity="infix" arguments="0 0"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="20" fixity="infix" arguments="0 2"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="equiv" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
@@ -695,7 +658,7 @@
       </om:OMA>
       </om:OMA></om:OMOBJ></type>
        
-       <notations><notation dimension="1" precedence="20" fixity="infix" arguments="0 0"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="20" fixity="infix" arguments="0 2"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="not" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
@@ -703,7 +666,7 @@
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="o"></om:OMS><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="o"></om:OMS>
       </om:OMA></om:OMOBJ></type>
        
-       <notations><notation dimension="1" precedence="45" fixity="prefix" arguments="0 0"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="45" fixity="prefix" arguments="0 1"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="true" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="o"></om:OMS></om:OMOBJ></type>
@@ -729,7 +692,7 @@
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
               <om:OMA>
@@ -742,12 +705,12 @@
       </om:OMA>
       </om:OMBIND></om:OMOBJ></type>
        
-       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 1"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="1 1"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="exists" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
               <om:OMA>
@@ -760,12 +723,12 @@
       </om:OMA>
       </om:OMBIND></om:OMOBJ></type>
        
-       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 1"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="1 1"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="exists!" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
               <om:OMA>
@@ -779,24 +742,15 @@
       </om:OMBIND></om:OMOBJ></type>
        <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="f"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
-              <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="Var"></om:OMS><om:OMV name="S"></om:OMV>
-      </om:OMA><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="o"></om:OMS>
-      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="f"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="exists"></om:OMS><om:OMV name="S"></om:OMV><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="Var"></om:OMS><om:OMV name="S"></om:OMV>
-      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="and"></om:OMS><om:OMA>
@@ -806,10 +760,7 @@
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="forall"></om:OMS><om:OMV name="S"></om:OMV><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="y"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="Var"></om:OMS><om:OMV name="S"></om:OMV>
-      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="y"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="imp"></om:OMS><om:OMA>
@@ -833,7 +784,7 @@
       </om:OMA>
       </om:OMBIND>
       </om:OMBIND></om:OMOBJ></definition>
-       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 1"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="1 1"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="def" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
@@ -842,13 +793,13 @@
       </om:OMA></om:OMOBJ></type>
        <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="tm"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="=e="></om:OMS><om:OMV name="x"></om:OMV><om:OMV name="x"></om:OMV>
       </om:OMA>
       </om:OMBIND></om:OMOBJ></definition>
-       <notations><notation dimension="1" precedence="15" fixity="prefix" arguments="0 0"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="15" fixity="prefix" arguments="0 1"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="==" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
@@ -860,10 +811,10 @@
       </om:OMA></om:OMOBJ></type>
        <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="tm"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="y"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="tm"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="y"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="and"></om:OMS><om:OMA>
@@ -890,13 +841,13 @@
       </om:OMBIND></om:OMOBJ></definition>
        
      </constant><constant name="wff_and" role="constructor">
-       <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT value="Well-formedness" type="http://mmt.kwarc.info/openmath?Base?OMSTR"/></om:OMOBJ></meta></metadata>
+       <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT value="  Well-formedness " type="http://www.openmath.org/cd?OpenMath?OMSTR"/></om:OMOBJ></meta></metadata>
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="o"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="o"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
               <om:OMA>
@@ -919,15 +870,15 @@
       </om:OMBIND>
       </om:OMBIND></om:OMOBJ></type>
        
-       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 2"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="2 2"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="wff_or" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="o"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="o"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
               <om:OMA>
@@ -950,15 +901,15 @@
       </om:OMBIND>
       </om:OMBIND></om:OMOBJ></type>
        
-       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 2"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="2 2"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="wff_imp" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="o"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="o"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
               <om:OMA>
@@ -981,15 +932,15 @@
       </om:OMBIND>
       </om:OMBIND></om:OMOBJ></type>
        
-       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 2"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="2 2"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="wff_if" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="o"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="o"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
               <om:OMA>
@@ -1012,15 +963,15 @@
       </om:OMBIND>
       </om:OMBIND></om:OMOBJ></type>
        
-       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 2"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="2 2"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="wff_equiv" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="o"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="o"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
               <om:OMA>
@@ -1043,12 +994,12 @@
       </om:OMBIND>
       </om:OMBIND></om:OMOBJ></type>
        
-       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 2"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="2 2"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="wff_not" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="F"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="o"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="F"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
               <om:OMA>
@@ -1064,7 +1015,7 @@
       </om:OMA>
       </om:OMBIND></om:OMOBJ></type>
        
-       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 1"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="1 1"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="wff_true" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
@@ -1085,13 +1036,13 @@
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="tm"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="tm"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
               <om:OMA>
@@ -1115,15 +1066,15 @@
       </om:OMBIND>
       </om:OMBIND></om:OMOBJ></type>
        
-       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 3"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="3 2"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="wff_def" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="tm"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
               <om:OMA>
@@ -1141,16 +1092,13 @@
       </om:OMBIND></om:OMOBJ></type>
        <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="tm"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="p"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="%23"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="S"></om:OMV>
-      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="p"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="wff_=e="></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="S"></om:OMV><om:OMV name="A"></om:OMV><om:OMV name="p"></om:OMV><om:OMV name="p"></om:OMV>
@@ -1158,18 +1106,18 @@
       </om:OMBIND>
       </om:OMBIND>
       </om:OMBIND></om:OMOBJ></definition>
-       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 2"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="2 1"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="wff_==" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="tm"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="tm"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
               <om:OMA>
@@ -1194,25 +1142,19 @@
       </om:OMBIND></om:OMOBJ></type>
        <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="tm"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorts" name="sort"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="tm"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="p"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="%23"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="S"></om:OMV>
-      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="p"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="q"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="%23"></om:OMS><om:OMV name="B"></om:OMV><om:OMV name="S"></om:OMV>
-      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="q"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
                  <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="CASLSorted" name="wff_and"></om:OMS><om:OMA>
@@ -1270,5 +1212,5 @@
       </om:OMBIND>
       </om:OMBIND>
       </om:OMBIND></om:OMOBJ></definition>
-       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="0 3"> <scope languages="" priority="0"/> </notation></notations>
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="3 2"> <scope languages="" priority="0"/> </notation></notations>
      </constant></theory></omdoc>

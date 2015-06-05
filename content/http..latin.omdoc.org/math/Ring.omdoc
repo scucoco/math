@@ -1,22 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
-  <theory name="Ring" base="http://latin.omdoc.org/math" meta="http://latin.omdoc.org/math?EqUniverse">
-    <import from="http://latin.omdoc.org/math?AbelianGroup"> </import>
-    <import name="mult" from="http://latin.omdoc.org/math?Semigroup"> </import>
-    <import name="dis" from="http://latin.omdoc.org/math?Distrib">
-      <import name="mag1" from="http://latin.omdoc.org/math?Magma">
-        <definition>
-          <om:OMA>
-            <om:OMS position="0" base="http://cds.omdoc.org/mmt" module="mmt" name="identity"/>
-            <om:OMS position="1" base="http://latin.omdoc.org/math" module="AbelianGroup"/>
-          </om:OMA>
-        </definition>
-      </import>
-      <import name="mag2" from="http://latin.omdoc.org/math?Magma">
-        <definition>
-          <om:OMS base="http://latin.omdoc.org/math" module="Ring" name="mult"/>
-        </definition>
-      </import>
-    </import>
-  </theory>
-</omdoc>
+<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><theory name="Ring" base="http://latin.omdoc.org/math" meta="http://latin.omdoc.org/math?EqUniverse"><import from="http://latin.omdoc.org/math?AbelianGroup"></import><import name="mult" from="http://latin.omdoc.org/math?Semigroup"><constant name="[http://latin.omdoc.org/math?Semigroup]/∘" alias="*">
+       
+       
+       
+       
+     </constant></import><import name="dis" from="http://latin.omdoc.org/math?Distrib"><import name="[http://latin.omdoc.org/math?Distrib]/mag1" from="http://latin.omdoc.org/math?Magma"><definition><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/mmt" module="mmt" name="identity"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/math" module="AbelianGroup"></om:OMS>
+      </om:OMA></definition></import><import name="[http://latin.omdoc.org/math?Distrib]/mag2" from="http://latin.omdoc.org/math?Magma"><definition><om:OMS base="http://latin.omdoc.org/math" module="Ring" name="mult"></om:OMS></definition></import></import></theory></omdoc>

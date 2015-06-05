@@ -1,159 +1,49 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
-  <theory name="ReflectedEquality" base="http://latin.omdoc.org/foundations/type_theory/church" meta="http://cds.omdoc.org/urtheories?LF">
-    <metadata>
-      <meta property="http://purl.org/dc/terms?_?description">
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMSTR>reflecting a weak meta-level equality into a stronger object-level equality</om:OMSTR>
-        </om:OMOBJ>
-      </meta>
-    </metadata>
-    <import name="meta" from="http://latin.omdoc.org/foundations/type_theory/church?Equality"> </import>
-    <import name="object" from="http://latin.omdoc.org/foundations/type_theory/church?Equality">
-      <import from="http://latin.omdoc.org/foundations/type_theory/church?IndexedUniverse">
-        <definition>
-          <om:OMS 
-          base="http://latin.omdoc.org/foundations/type_theory/church" module="ReflectedEquality" name="meta/[http:%2F%2Flatin.omdoc.org%2Ffoundations%2Ftype_theory%2Fchurch%3FIndexedUniverse]">
-</om:OMS>
-        </definition>
-      </import>
-    </import>
-    <constant name="reflect_tp" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMBIND>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-            <om:OMBVAR>
-              <om:OMV position="0" name="X">
-                <type>
-                  <om:OMS 
-                  position="0_1" base="http://latin.omdoc.org/foundations/type_theory/church" module="ReflectedEquality" name="meta/[http:%2F%2Flatin.omdoc.org%2Ffoundations%2Ftype_theory%2Fchurch%3FIndexedUniverse]/types/u">
-</om:OMS>
-                </type>
-                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                </attribution>
-              </om:OMV>
-            </om:OMBVAR>
-            <om:OMBIND position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-              <om:OMBVAR>
-                <om:OMV position="2_0" name="Y">
-                  <type>
-                    <om:OMS 
-                    position="2_0_1" base="http://latin.omdoc.org/foundations/type_theory/church" module="ReflectedEquality" name="meta/[http:%2F%2Flatin.omdoc.org%2Ffoundations%2Ftype_theory%2Fchurch%3FIndexedUniverse]/types/u">
-</om:OMS>
-                  </type>
-                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                  </attribution>
-                </om:OMV>
-              </om:OMBVAR>
-              <om:OMA position="2_2">
-                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-                <om:OMA position="2_2_1">
-                  <om:OMS position="2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                  <om:OMS 
-                  position="2_2_1_1" base="http://latin.omdoc.org/foundations/type_theory/church" module="ReflectedEquality" name="meta/teq/eq/[http:%2F%2Flatin.omdoc.org%2Fmath%3FRelation]/r">
-</om:OMS>
-                  <om:OMV position="2_2_1_2" name="X"/>
-                  <om:OMV position="2_2_1_3" name="Y"/>
-                </om:OMA>
-                <om:OMA position="2_2_2">
-                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                  <om:OMS 
-                  position="2_2_2_1" base="http://latin.omdoc.org/foundations/type_theory/church" module="ReflectedEquality" name="object/teq/eq/[http:%2F%2Flatin.omdoc.org%2Fmath%3FRelation]/r">
-</om:OMS>
-                  <om:OMV position="2_2_2_2" name="X"/>
-                  <om:OMV position="2_2_2_3" name="Y"/>
-                </om:OMA>
-              </om:OMA>
-            </om:OMBIND>
-          </om:OMBIND>
-        </om:OMOBJ>
-      </type>
-      <notation>
-        <text-notation name="http://latin.omdoc.org/foundations/type_theory/church?ReflectedEquality?reflect_tp" precedence="0" fixity="prefix" arguments="2"/>
-      </notation>
-    </constant>
-    <constant name="reflect_tm" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMBIND>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-            <om:OMBVAR>
-              <om:OMV position="0" name="X1">
-                <type>
-                  <om:OMS 
-                  position="0_1" base="http://latin.omdoc.org/foundations/type_theory/church" module="ReflectedEquality" name="meta/[http:%2F%2Flatin.omdoc.org%2Ffoundations%2Ftype_theory%2Fchurch%3FIndexedUniverse]/types/u">
-</om:OMS>
-                </type>
-                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                </attribution>
-              </om:OMV>
-            </om:OMBVAR>
-            <om:OMBIND position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-              <om:OMBVAR>
-                <om:OMV position="2_0" name="X">
-                  <type>
-                    <om:OMA position="2_0_1">
-                      <om:OMS position="2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS 
-                      position="2_0_1_1" base="http://latin.omdoc.org/foundations/type_theory/church" module="ReflectedEquality" name="meta/[http:%2F%2Flatin.omdoc.org%2Ffoundations%2Ftype_theory%2Fchurch%3FIndexedUniverse]/tm">
-</om:OMS>
-                      <om:OMV position="2_0_1_2" name="X1"/>
-                    </om:OMA>
-                  </type>
-                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                  </attribution>
-                </om:OMV>
-              </om:OMBVAR>
-              <om:OMBIND position="2_2">
-                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-                <om:OMBVAR>
-                  <om:OMV position="2_2_0" name="Y">
-                    <type>
-                      <om:OMA position="2_2_0_1">
-                        <om:OMS position="2_2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                        <om:OMS 
-                        position="2_2_0_1_1" base="http://latin.omdoc.org/foundations/type_theory/church" module="ReflectedEquality" name="meta/[http:%2F%2Flatin.omdoc.org%2Ffoundations%2Ftype_theory%2Fchurch%3FIndexedUniverse]/tm">
-</om:OMS>
-                        <om:OMV position="2_2_0_1_2" name="X1"/>
-                      </om:OMA>
-                    </type>
-                    <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                      <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                    </attribution>
-                  </om:OMV>
-                </om:OMBVAR>
-                <om:OMA position="2_2_2">
-                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-                  <om:OMA position="2_2_2_1">
-                    <om:OMS position="2_2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                    <om:OMS position="2_2_2_1_1" base="http://latin.omdoc.org/foundations/type_theory/church" module="ReflectedEquality" name="meta/=="/>
-                    <om:OMV position="2_2_2_1_2" name="X1"/>
-                    <om:OMV position="2_2_2_1_3" name="X"/>
-                    <om:OMV position="2_2_2_1_4" name="Y"/>
-                  </om:OMA>
-                  <om:OMA position="2_2_2_2">
-                    <om:OMS position="2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                    <om:OMS position="2_2_2_2_1" base="http://latin.omdoc.org/foundations/type_theory/church" module="ReflectedEquality" name="object/=="/>
-                    <om:OMV position="2_2_2_2_2" name="X1"/>
-                    <om:OMV position="2_2_2_2_3" name="X"/>
-                    <om:OMV position="2_2_2_2_4" name="Y"/>
-                  </om:OMA>
-                </om:OMA>
-              </om:OMBIND>
-            </om:OMBIND>
-          </om:OMBIND>
-        </om:OMOBJ>
-      </type>
-      <notation>
-        <text-notation name="http://latin.omdoc.org/foundations/type_theory/church?ReflectedEquality?reflect_tm" precedence="0" fixity="prefix" arguments="3"/>
-      </notation>
-    </constant>
-  </theory>
-</omdoc>
+<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><theory name="ReflectedEquality" base="http://latin.omdoc.org/foundations/type_theory/church" meta="http://cds.omdoc.org/urtheories?LF"><metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT value="  reflecting a weak meta-level equality into a stronger object-level equality " type="http://www.openmath.org/cd?OpenMath?OMSTR"/></om:OMOBJ></meta></metadata><import name="meta" from="http://latin.omdoc.org/foundations/type_theory/church?Equality"></import><import name="object" from="http://latin.omdoc.org/foundations/type_theory/church?Equality"><import name="[http://latin.omdoc.org/foundations/type_theory/church?IndexedUniverse]" from="http://latin.omdoc.org/foundations/type_theory/church?IndexedUniverse" implicit="true"><definition><om:OMS base="http://latin.omdoc.org/foundations/type_theory/church" module="ReflectedEquality" name="meta/[http://latin.omdoc.org/foundations/type_theory/church?IndexedUniverse]"></om:OMS></definition></import></import><constant name="reflect_tp" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="X"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="Y"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/type_theory/church" module="ReflectedEquality" name="meta/teq/eq/[http://latin.omdoc.org/math?Relation]/r"></om:OMS><om:OMV name="X"></om:OMV><om:OMV name="Y"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/type_theory/church" module="ReflectedEquality" name="object/teq/eq/[http://latin.omdoc.org/math?Relation]/r"></om:OMS><om:OMV name="X"></om:OMV><om:OMV name="Y"></om:OMV>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="2 1"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="reflect_tm" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="X1"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="X"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="Y"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/type_theory/church" module="ReflectedEquality" name="meta/=="></om:OMS><om:OMV name="X1"></om:OMV><om:OMV name="X"></om:OMV><om:OMV name="Y"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/type_theory/church" module="ReflectedEquality" name="object/=="></om:OMS><om:OMV name="X1"></om:OMV><om:OMV name="X"></om:OMV><om:OMV name="Y"></om:OMV>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="3 1"> <scope languages="" priority="0"/> </notation></notations>
+     </constant></theory></omdoc>

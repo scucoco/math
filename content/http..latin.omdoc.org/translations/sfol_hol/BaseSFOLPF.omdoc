@@ -1,16 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
-  <view 
-  name="BaseSFOLPF" base="http://latin.omdoc.org/translations/sfol_hol" from="http://latin.omdoc.org/logics/proof_theory?BaseSFOL" to="http://latin.omdoc.org/foundations/hol?SFOL-Pf">
-    <import from="http://latin.omdoc.org/logics/proof_theory?Base">
-      <definition>
-        <om:OMS base="http://latin.omdoc.org/translations/prop_hol" module="BasePF"/>
-      </definition>
-    </import>
-    <import from="http://latin.omdoc.org/logics/syntax?BaseSFOL">
-      <definition>
-        <om:OMS base="http://latin.omdoc.org/translations/sfol_hol" module="BaseSFOL"/>
-      </definition>
-    </import>
-</view>
-</omdoc>
+<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><view name="BaseSFOLPF" base="http://latin.omdoc.org/translations/sfol_hol" from="http://latin.omdoc.org/logics/proof_theory?BaseSFOL" to="http://latin.omdoc.org/foundations/hol?SFOL-Pf">
+           
+           <import name="[http://latin.omdoc.org/logics/proof_theory?Base]" from="http://latin.omdoc.org/logics/proof_theory?Base" implicit="true"><definition><om:OMS base="http://latin.omdoc.org/translations/prop_hol" module="BasePF"></om:OMS></definition></import><import name="[http://latin.omdoc.org/logics/syntax?BaseSFOL]" from="http://latin.omdoc.org/logics/syntax?BaseSFOL" implicit="true"><definition><om:OMS base="http://latin.omdoc.org/translations/sfol_hol" module="BaseSFOL"></om:OMS></definition></import>
+         </view></omdoc>

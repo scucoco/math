@@ -1,30 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
-  <theory name="KindsTypesTerms" base="http://latin.omdoc.org/foundations/type_theory/church" meta="http://cds.omdoc.org/urtheories?LF">
-    <import name="□" from="http://latin.omdoc.org/foundations/type_theory/church?Equality"> </import>
-    <constant name="tp'" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS 
-          base="http://latin.omdoc.org/foundations/type_theory/church" module="KindsTypesTerms" name="□/[http:%2F%2Flatin.omdoc.org%2Ffoundations%2Ftype_theory%2Fchurch%3FIndexedUniverse]/types/u">
-</om:OMS>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <import name="∗" from="http://latin.omdoc.org/foundations/type_theory/church?Equality" implicit="true">
-      <constant name="types/u">
-        <definition>
-          <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-            <om:OMA>
-              <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-              <om:OMS 
-              position="1" base="http://latin.omdoc.org/foundations/type_theory/church" module="KindsTypesTerms" name="□/[http:%2F%2Flatin.omdoc.org%2Ffoundations%2Ftype_theory%2Fchurch%3FIndexedUniverse]/tm">
-</om:OMS>
-              <om:OMS position="2" base="http://latin.omdoc.org/foundations/type_theory/church" module="KindsTypesTerms" name="tp'"/>
-            </om:OMA>
-          </om:OMOBJ>
-        </definition>
-      </constant>
-    </import>
-  </theory>
-</omdoc>
+<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><theory name="KindsTypesTerms" base="http://latin.omdoc.org/foundations/type_theory/church" meta="http://cds.omdoc.org/urtheories?LF"><import name="□" from="http://latin.omdoc.org/foundations/type_theory/church?Equality"><constant name="[http://latin.omdoc.org/foundations/type_theory/church?Equality]/types/u" alias="kd">
+       
+       
+       
+       
+     </constant><constant name="[http://latin.omdoc.org/foundations/type_theory/church?Equality]/tm" alias="tf">
+       
+       
+       
+       
+     </constant></import><constant name="tp'" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/foundations/type_theory/church" module="KindsTypesTerms" name="□/[http://latin.omdoc.org/foundations/type_theory/church?IndexedUniverse]/types/u"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><import name="∗" from="http://latin.omdoc.org/foundations/type_theory/church?Equality" implicit="true"></import></theory></omdoc>

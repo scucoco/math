@@ -1,111 +1,71 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
-  <theory name="CatTop" base="http://latin.omdoc.org/category_theory/lf_based" meta="http://cds.omdoc.org/urtheories?LF">
-    <metadata>
-      <meta property="http://purl.org/dc/terms?_?description">
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMSTR>categories with a distinguished object \&quot;top\&quot;representing truth, i.e. there\n exists a morphism from each object to top</om:OMSTR>
-        </om:OMOBJ>
-      </meta>
-    </metadata>
-    <import name="cat" from="http://latin.omdoc.org/category_theory/lf_based?Category"> </import>
-    <constant name="top" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMS base="http://latin.omdoc.org/category_theory/lf_based" module="CatTop" name="cat/Obj"/>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="bang" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMBIND>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-            <om:OMBVAR>
-              <om:OMV position="0" name="A">
-                <type>
-                  <om:OMS position="0_1" base="http://latin.omdoc.org/category_theory/lf_based" module="CatTop" name="cat/Obj"/>
-                </type>
-                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                </attribution>
-              </om:OMV>
-            </om:OMBVAR>
-            <om:OMA position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-              <om:OMS position="2_1" base="http://latin.omdoc.org/category_theory/lf_based" module="CatTop" name="cat/--&gt;"/>
-              <om:OMV position="2_2" name="A"/>
-              <om:OMS position="2_3" base="http://latin.omdoc.org/category_theory/lf_based" module="CatTop" name="top"/>
-            </om:OMA>
-          </om:OMBIND>
-        </om:OMOBJ>
-      </type>
-    </constant>
-    <constant name="top_ax" role="constructor">
-      <metadata>
-        <meta property="http://purl.org/dc/terms?_?description">
-          <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-            <om:OMSTR>deduction axiom, needed for some curry-howard isomorphisms</om:OMSTR>
-          </om:OMOBJ>
-        </meta>
-      </metadata>
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMBIND>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-            <om:OMBVAR>
-              <om:OMV position="0" name="A">
-                <type>
-                  <om:OMS position="0_1" base="http://latin.omdoc.org/category_theory/lf_based" module="CatTop" name="cat/Obj"/>
-                </type>
-                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                </attribution>
-              </om:OMV>
-            </om:OMBVAR>
-            <om:OMBIND position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-              <om:OMBVAR>
-                <om:OMV position="2_0" name="B">
-                  <type>
-                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/category_theory/lf_based" module="CatTop" name="cat/Obj"/>
-                  </type>
-                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                  </attribution>
-                </om:OMV>
-              </om:OMBVAR>
-              <om:OMA position="2_2">
-                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-                <om:OMA position="2_2_1">
-                  <om:OMS position="2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-                  <om:OMA position="2_2_1_1">
-                    <om:OMS position="2_2_1_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                    <om:OMS position="2_2_1_1_1" base="http://latin.omdoc.org/category_theory/lf_based" module="CatTop" name="cat/--&gt;"/>
-                    <om:OMS position="2_2_1_1_2" base="http://latin.omdoc.org/category_theory/lf_based" module="CatTop" name="top"/>
-                    <om:OMV position="2_2_1_1_3" name="A"/>
-                  </om:OMA>
-                  <om:OMA position="2_2_1_2">
-                    <om:OMS position="2_2_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                    <om:OMS position="2_2_1_2_1" base="http://latin.omdoc.org/category_theory/lf_based" module="CatTop" name="cat/--&gt;"/>
-                    <om:OMS position="2_2_1_2_2" base="http://latin.omdoc.org/category_theory/lf_based" module="CatTop" name="top"/>
-                    <om:OMV position="2_2_1_2_3" name="B"/>
-                  </om:OMA>
-                </om:OMA>
-                <om:OMA position="2_2_2">
-                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/category_theory/lf_based" module="CatTop" name="cat/--&gt;"/>
-                  <om:OMV position="2_2_2_2" name="A"/>
-                  <om:OMV position="2_2_2_3" name="B"/>
-                </om:OMA>
-              </om:OMA>
-            </om:OMBIND>
-          </om:OMBIND>
-        </om:OMOBJ>
-      </type>
-      <notation>
-        <text-notation name="http://latin.omdoc.org/category_theory/lf_based?CatTop?top_ax" precedence="0" fixity="prefix" arguments="2"/>
-      </notation>
-    </constant>
-  </theory>
-</omdoc>
+<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><theory name="CatTop" base="http://latin.omdoc.org/category_theory/lf_based" meta="http://cds.omdoc.org/urtheories?LF"><metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT value="  categories with a distinguished object \&quot;top\&quot; representing truth, i.e. there\n   exists a morphism from each object to top " type="http://www.openmath.org/cd?OpenMath?OMSTR"/></om:OMOBJ></meta></metadata><import name="cat" from="http://latin.omdoc.org/category_theory/lf_based?Category"><constant name="[http://latin.omdoc.org/category_theory/lf_based?Category]/Obj" alias="Obj">
+       
+       
+       
+       
+     </constant><constant name="[http://latin.omdoc.org/category_theory/lf_based?Category]/--&gt;" alias="--&gt;">
+       
+       
+       
+       
+     </constant><constant name="[http://latin.omdoc.org/category_theory/lf_based?Category]/id" alias="id">
+       
+       
+       
+       
+     </constant><constant name="[http://latin.omdoc.org/category_theory/lf_based?Category]/;" alias=";">
+       
+       
+       
+       
+     </constant><constant name="[http://latin.omdoc.org/category_theory/lf_based?Category]/==" alias="==">
+       
+       
+       
+       
+     </constant></import><constant name="top" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/category_theory/lf_based" module="CatTop" name="cat/Obj"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="bang" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/category_theory/lf_based" module="CatTop" name="cat/--&gt;"></om:OMS><om:OMV name="A"></om:OMV><om:OMS base="http://latin.omdoc.org/category_theory/lf_based" module="CatTop" name="top"></om:OMS>
+      </om:OMA>
+      </om:OMBIND></om:OMOBJ></type>
+       
+       
+     </constant><constant name="top_ax" role="constructor">
+       <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT value="  deduction axiom, needed for some curry-howard isomorphisms " type="http://www.openmath.org/cd?OpenMath?OMSTR"/></om:OMOBJ></meta></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/category_theory/lf_based" module="CatTop" name="cat/--&gt;"></om:OMS><om:OMS base="http://latin.omdoc.org/category_theory/lf_based" module="CatTop" name="top"></om:OMS><om:OMV name="A"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/category_theory/lf_based" module="CatTop" name="cat/--&gt;"></om:OMS><om:OMS base="http://latin.omdoc.org/category_theory/lf_based" module="CatTop" name="top"></om:OMS><om:OMV name="B"></om:OMV>
+      </om:OMA>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/category_theory/lf_based" module="CatTop" name="cat/--&gt;"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="B"></om:OMV>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="2 1"> <scope languages="" priority="0"/> </notation></notations>
+     </constant></theory></omdoc>

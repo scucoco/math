@@ -1,100 +1,50 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
-  <theory name="IntegralDomain" base="http://latin.omdoc.org/math" meta="http://latin.omdoc.org/logics/proof_theory?InEqLogic">
-    <import from="http://latin.omdoc.org/math?RingUnitLogic"> </import>
-    <constant name="noZeroDiv" role="constructor">
-      <type>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMBIND>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-            <om:OMBVAR>
-              <om:OMV position="0" name="X">
-                <type>
-                  <om:OMS position="0_1" base="http://latin.omdoc.org/math" module="Universe" name="u"/>
-                </type>
-                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                </attribution>
-              </om:OMV>
-            </om:OMBVAR>
-            <om:OMBIND position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"/>
-              <om:OMBVAR>
-                <om:OMV position="2_0" name="Y">
-                  <type>
-                    <om:OMS position="2_0_1" base="http://latin.omdoc.org/math" module="Universe" name="u"/>
-                  </type>
-                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                  </attribution>
-                </om:OMV>
-              </om:OMBVAR>
-              <om:OMA position="2_2">
-                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-                <om:OMA position="2_2_1">
-                  <om:OMS position="2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                  <om:OMS position="2_2_1_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="⊦"/>
-                  <om:OMA position="2_2_1_2">
-                    <om:OMS position="2_2_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                    <om:OMS position="2_2_1_2_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
-                    <om:OMA position="2_2_1_2_2">
-                      <om:OMS position="2_2_1_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_2_1_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="Equal" name="relation/rel"/>
-                      <om:OMV position="2_2_1_2_2_2" name="X"/>
-                      <om:OMS position="2_2_1_2_2_3" base="http://latin.omdoc.org/math" module="RingUnitLogic" name="ring/[http:%2F%2Flatin.omdoc.org%2Fmath%3FPointedMagma]/point"/>
-                    </om:OMA>
-                  </om:OMA>
-                </om:OMA>
-                <om:OMA position="2_2_2">
-                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"/>
-                  <om:OMA position="2_2_2_1">
-                    <om:OMS position="2_2_2_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                    <om:OMS position="2_2_2_1_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="⊦"/>
-                    <om:OMA position="2_2_2_1_2">
-                      <om:OMS position="2_2_2_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_2_2_1_2_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
-                      <om:OMA position="2_2_2_1_2_2">
-                        <om:OMS position="2_2_2_1_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                        <om:OMS position="2_2_2_1_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="Equal" name="relation/rel"/>
-                        <om:OMV position="2_2_2_1_2_2_2" name="Y"/>
-                        <om:OMS 
-                        position="2_2_2_1_2_2_3" base="http://latin.omdoc.org/math" module="RingUnitLogic" name="ring/[http:%2F%2Flatin.omdoc.org%2Fmath%3FPointedMagma]/point">
-</om:OMS>
-                      </om:OMA>
-                    </om:OMA>
-                  </om:OMA>
-                  <om:OMA position="2_2_2_2">
-                    <om:OMS position="2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                    <om:OMS position="2_2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="Logic" name="⊦"/>
-                    <om:OMA position="2_2_2_2_2">
-                      <om:OMS position="2_2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_2_2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"/>
-                      <om:OMA position="2_2_2_2_2_2">
-                        <om:OMS position="2_2_2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                        <om:OMS position="2_2_2_2_2_2_1" base="http://latin.omdoc.org/logics/syntax" module="Equal" name="relation/rel"/>
-                        <om:OMA position="2_2_2_2_2_2_2">
-                          <om:OMS position="2_2_2_2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                          <om:OMS 
-                          position="2_2_2_2_2_2_2_1" base="http://latin.omdoc.org/math" module="RingUnitLogic" name="ring/[http:%2F%2Flatin.omdoc.org%2Fmath%3FRing]/mult/[http:%2F%2Flatin.omdoc.org%2Fmath%3FMagma]/∘">
-</om:OMS>
-                          <om:OMV position="2_2_2_2_2_2_2_2" name="X"/>
-                          <om:OMV position="2_2_2_2_2_2_2_3" name="Y"/>
-                        </om:OMA>
-                        <om:OMS 
-                        position="2_2_2_2_2_2_3" base="http://latin.omdoc.org/math" module="RingUnitLogic" name="ring/[http:%2F%2Flatin.omdoc.org%2Fmath%3FPointedMagma]/point">
-</om:OMS>
-                      </om:OMA>
-                    </om:OMA>
-                  </om:OMA>
-                </om:OMA>
-              </om:OMA>
-            </om:OMBIND>
-          </om:OMBIND>
-        </om:OMOBJ>
-      </type>
-      <notation>
-        <text-notation name="http://latin.omdoc.org/math?IntegralDomain?noZeroDiv" precedence="0" fixity="prefix" arguments="2"/>
-      </notation>
-    </constant>
-  </theory>
-</omdoc>
+<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><theory name="IntegralDomain" base="http://latin.omdoc.org/math" meta="http://latin.omdoc.org/logics/proof_theory?InEqLogic"><import from="http://latin.omdoc.org/math?RingUnitLogic"></import><constant name="noZeroDiv" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="X"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="Y"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="⊦"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="Equal" name="relation/rel"></om:OMS><om:OMV name="X"></om:OMV><om:OMS base="http://latin.omdoc.org/math" module="RingUnitLogic" name="ring/[http://latin.omdoc.org/math?PointedMagma]/point"></om:OMS>
+      </om:OMA>
+      </om:OMA>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="⊦"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="Equal" name="relation/rel"></om:OMS><om:OMV name="Y"></om:OMV><om:OMS base="http://latin.omdoc.org/math" module="RingUnitLogic" name="ring/[http://latin.omdoc.org/math?PointedMagma]/point"></om:OMS>
+      </om:OMA>
+      </om:OMA>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="⊦"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="Equal" name="relation/rel"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/math" module="RingUnitLogic" name="ring/[http://latin.omdoc.org/math?Ring]/mult/[http://latin.omdoc.org/math?Magma]/∘"></om:OMS><om:OMV name="X"></om:OMV><om:OMV name="Y"></om:OMV>
+      </om:OMA><om:OMS base="http://latin.omdoc.org/math" module="RingUnitLogic" name="ring/[http://latin.omdoc.org/math?PointedMagma]/point"></om:OMS>
+      </om:OMA>
+      </om:OMA>
+      </om:OMA>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="0" fixity="prefix" arguments="2 2"> <scope languages="" priority="0"/> </notation></notations>
+     </constant></theory></omdoc>

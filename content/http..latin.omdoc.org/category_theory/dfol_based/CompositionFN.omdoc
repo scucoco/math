@@ -1,139 +1,54 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<omdoc xmlns:om="http://www.openmath.org/OpenMath" xmlns="http://omdoc.org/ns">
-  <view 
-  name="CompositionFN" base="http://latin.omdoc.org/category_theory/dfol_based" from="http://latin.omdoc.org/category_theory/dfol_based?NatTrans" to="http://latin.omdoc.org/category_theory/dfol_based?CompFunNat">
-    <import name="nt_dom" from="http://latin.omdoc.org/category_theory/dfol_based?Functor">
-      <definition>
-        <om:OMA>
-          <om:OMS position="0" base="http://cds.omdoc.org/mmt" module="mmt" name="composition"/>
-          <om:OMS position="1" base="http://latin.omdoc.org/category_theory/dfol_based" module="Composition"/>
-          <om:OMS position="2" base="http://latin.omdoc.org/category_theory/dfol_based" module="CompFunNat" name="GF"/>
-        </om:OMA>
-      </definition>
-    </import>
-    <import name="nt_cod" from="http://latin.omdoc.org/category_theory/dfol_based?Functor">
-      <definition>
-        <om:OMA>
-          <om:OMS position="0" base="http://cds.omdoc.org/mmt" module="mmt" name="composition"/>
-          <om:OMS position="1" base="http://latin.omdoc.org/category_theory/dfol_based" module="Composition"/>
-          <om:OMS position="2" base="http://latin.omdoc.org/category_theory/dfol_based" module="CompFunNat" name="HF"/>
-        </om:OMA>
-      </definition>
-    </import>
-    <constant name="lam">
-      <definition>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMBIND>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-            <om:OMBVAR>
-              <om:OMV position="0" name="X">
-                <type>
-                  <om:OMA position="0_1">
-                    <om:OMS position="0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                    <om:OMS position="0_1_1" base="http://latin.omdoc.org/logics/syntax" module="DFOL" name="Terms"/>
-                    <om:OMS position="0_1_2" base="http://latin.omdoc.org/category_theory/dfol_based" module="CompFunNat" name="C/obj"/>
-                  </om:OMA>
-                </type>
-                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                </attribution>
-              </om:OMV>
-            </om:OMBVAR>
-            <om:OMA position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-              <om:OMS position="2_1" base="http://latin.omdoc.org/category_theory/dfol_based" module="CompFunNat" name="n/lam"/>
-              <om:OMA position="2_2">
-                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                <om:OMS position="2_2_1" base="http://latin.omdoc.org/category_theory/dfol_based" module="CompFunNat" name="F/FO"/>
-                <om:OMV position="2_2_2" name="X"/>
-              </om:OMA>
-            </om:OMA>
-          </om:OMBIND>
-        </om:OMOBJ>
-      </definition>
-    </constant>
-    <constant name="comp_ax">
-      <definition>
-        <om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath">
-          <om:OMBIND>
-            <om:OMS position="0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-            <om:OMBVAR>
-              <om:OMV position="0" name="X">
-                <type>
-                  <om:OMA position="0_1">
-                    <om:OMS position="0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                    <om:OMS position="0_1_1" base="http://latin.omdoc.org/logics/syntax" module="DFOL" name="Terms"/>
-                    <om:OMS position="0_1_2" base="http://latin.omdoc.org/category_theory/dfol_based" module="CompFunNat" name="C/obj"/>
-                  </om:OMA>
-                </type>
-                <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                </attribution>
-              </om:OMV>
-            </om:OMBVAR>
-            <om:OMBIND position="2">
-              <om:OMS position="2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-              <om:OMBVAR>
-                <om:OMV position="2_0" name="Y">
-                  <type>
-                    <om:OMA position="2_0_1">
-                      <om:OMS position="2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                      <om:OMS position="2_0_1_1" base="http://latin.omdoc.org/logics/syntax" module="DFOL" name="Terms"/>
-                      <om:OMS position="2_0_1_2" base="http://latin.omdoc.org/category_theory/dfol_based" module="CompFunNat" name="C/obj"/>
-                    </om:OMA>
-                  </type>
-                  <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                    <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                  </attribution>
-                </om:OMV>
-              </om:OMBVAR>
-              <om:OMBIND position="2_2">
-                <om:OMS position="2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"/>
-                <om:OMBVAR>
-                  <om:OMV position="2_2_0" name="f">
-                    <type>
-                      <om:OMA position="2_2_0_1">
-                        <om:OMS position="2_2_0_1_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                        <om:OMS position="2_2_0_1_1" base="http://latin.omdoc.org/logics/syntax" module="DFOL" name="Terms"/>
-                        <om:OMA position="2_2_0_1_2">
-                          <om:OMS position="2_2_0_1_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                          <om:OMS position="2_2_0_1_2_1" base="http://latin.omdoc.org/category_theory/dfol_based" module="CompFunNat" name="C/mor"/>
-                          <om:OMV position="2_2_0_1_2_2" name="X"/>
-                          <om:OMV position="2_2_0_1_2_3" name="Y"/>
-                        </om:OMA>
-                      </om:OMA>
-                    </type>
-                    <attribution key="http://cds.omdoc.org/urtheories?LF?omitted">
-                      <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="omitted"/>
-                    </attribution>
-                  </om:OMV>
-                </om:OMBVAR>
-                <om:OMA position="2_2_2">
-                  <om:OMS position="2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                  <om:OMS position="2_2_2_1" base="http://latin.omdoc.org/category_theory/dfol_based" module="CompFunNat" name="n/comp_ax"/>
-                  <om:OMA position="2_2_2_2">
-                    <om:OMS position="2_2_2_2_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                    <om:OMS position="2_2_2_2_1" base="http://latin.omdoc.org/category_theory/dfol_based" module="CompFunNat" name="F/FO"/>
-                    <om:OMV position="2_2_2_2_2" name="X"/>
-                  </om:OMA>
-                  <om:OMA position="2_2_2_3">
-                    <om:OMS position="2_2_2_3_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                    <om:OMS position="2_2_2_3_1" base="http://latin.omdoc.org/category_theory/dfol_based" module="CompFunNat" name="F/FO"/>
-                    <om:OMV position="2_2_2_3_2" name="Y"/>
-                  </om:OMA>
-                  <om:OMA position="2_2_2_4">
-                    <om:OMS position="2_2_2_4_0" base="http://cds.omdoc.org/urtheories" module="LF" name="apply"/>
-                    <om:OMS position="2_2_2_4_1" base="http://latin.omdoc.org/category_theory/dfol_based" module="CompFunNat" name="F/FM"/>
-                    <om:OMV position="2_2_2_4_2" name="X"/>
-                    <om:OMV position="2_2_2_4_3" name="Y"/>
-                    <om:OMV position="2_2_2_4_4" name="f"/>
-                  </om:OMA>
-                </om:OMA>
-              </om:OMBIND>
-            </om:OMBIND>
-          </om:OMBIND>
-        </om:OMOBJ>
-      </definition>
-    </constant>
-</view>
-</omdoc>
+<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><view name="CompositionFN" base="http://latin.omdoc.org/category_theory/dfol_based" from="http://latin.omdoc.org/category_theory/dfol_based?NatTrans" to="http://latin.omdoc.org/category_theory/dfol_based?CompFunNat">
+           
+           <import name="[http://latin.omdoc.org/category_theory/dfol_based?NatTrans]/nt_dom" from="http://latin.omdoc.org/category_theory/dfol_based?Functor"><definition><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/mmt" module="mmt" name="composition"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="Composition"></om:OMS><om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="CompFunNat" name="GF"></om:OMS>
+      </om:OMA></definition></import><import name="[http://latin.omdoc.org/category_theory/dfol_based?NatTrans]/nt_cod" from="http://latin.omdoc.org/category_theory/dfol_based?Functor"><definition><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/mmt" module="mmt" name="composition"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="Composition"></om:OMS><om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="CompFunNat" name="HF"></om:OMS>
+      </om:OMA></definition></import><constant name="[http://latin.omdoc.org/category_theory/dfol_based?NatTrans]/lam">
+       
+       
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="X"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="CompFunNat" name="n/lam"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="CompFunNat" name="F/FO"></om:OMS><om:OMV name="X"></om:OMV>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND></om:OMOBJ></definition>
+       
+     </constant><constant name="[http://latin.omdoc.org/category_theory/dfol_based?NatTrans]/comp_ax">
+       
+       
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="X"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="Y"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="f"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="CompFunNat" name="n/comp_ax"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="CompFunNat" name="F/FO"></om:OMS><om:OMV name="X"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="CompFunNat" name="F/FO"></om:OMS><om:OMV name="Y"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/category_theory/dfol_based" module="CompFunNat" name="F/FM"></om:OMS><om:OMV name="X"></om:OMV><om:OMV name="Y"></om:OMV><om:OMV name="f"></om:OMV>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></definition>
+       
+     </constant>
+         </view></omdoc>
