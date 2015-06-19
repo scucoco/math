@@ -1,0 +1,161 @@
+<errors>
+<error target="twelf-omdoc" sref="file:/var/data/localmh/MathHub/MMT/LATIN/source/type_theories/Church-style/features.elf#-1.73.35:-1.73.50" type="info.kwarc.mmt.api.SourceError" shortMsg="Type mismatch" level="1">
+  source error (twelf-omdoc) at file:/var/data/localmh/MathHub/MMT/LATIN/source/type_theories/Church-style/features.elf#-1.73.35:-1.73.50
+Expected: {x:X5 f a (X4 f a)
+                Equality.== λ ([x:IndexedUniverse.tm (X6 f a)] X5 f a x)
+                               @ X4 f a}
+             X2 f a x Equality.== X1 f a x
+Inferred: λ ([x:IndexedUniverse.tm (X10 f a)] X9 f a x) @ X8 f a
+             Equality.== X11 a
+Constraints:
+X9 f a (X8 f a) = X12 a;
+X15 f @ a = X2 f a (Equality.sym beta);
+X16 f @ a = X1 f a (Equality.sym beta);
+X3 f a (Equality.sym beta) = X17 f.
+Type/kind expression clash
+Non-function was applied to an argument
+/var/data/localmh/MathHub/MMT/LATIN/source/type_theories/Church-style/features.elf:73.12-73.61 Error: 
+Type mismatch
+Expected: {x:IndexedUniverse.tm `A}
+             `T x Equality.== `S x
+                -&gt; λ ([x1:IndexedUniverse.tm `A] `T x1)
+                      Equality.== λ ([x2:IndexedUniverse.tm `A] `S x2)
+Inferred: {f:{x:IndexedUniverse.tm X14} X12 x Equality.== X11 x}
+             X15 f Equality.== X16 f
+Type/kind expression clash
+Ascription in declaration did not hold
+/var/data/localmh/MathHub/MMT/LATIN/source/type_theories/Church-style/features.elf:72.5-73.63 Error: 
+72.5-73.63 Error: 
+ 2 errors found
+%% IGNORE %%
+  <stacktrace>
+    <element>info.kwarc.mmt.api.CompilerError$.apply(Error.scala:102)</element>
+    <element>info.kwarc.mmt.lf.Twelf.importDocument(Twelf.scala:114)</element>
+    <element>info.kwarc.mmt.api.archives.Importer.buildFile(Index.scala:39)</element>
+    <element>info.kwarc.mmt.api.archives.TraversingBuildTarget$$anonfun$info$kwarc$mmt$api$archives$TraversingBuildTarget$$buildAux$2.apply(BuildTarget.scala:184)</element>
+    <element>info.kwarc.mmt.api.archives.TraversingBuildTarget$$anonfun$info$kwarc$mmt$api$archives$TraversingBuildTarget$$buildAux$2.apply(BuildTarget.scala:171)</element>
+    <element>info.kwarc.mmt.api.archives.WritableArchive.traverse(Archive.scala:105)</element>
+    <element>info.kwarc.mmt.api.archives.WritableArchive.info$kwarc$mmt$api$archives$WritableArchive$$recurse$1(Archive.scala:93)</element>
+    <element>info.kwarc.mmt.api.archives.WritableArchive$$anonfun$5.apply(Archive.scala:98)</element>
+    <element>info.kwarc.mmt.api.archives.WritableArchive$$anonfun$5.apply(Archive.scala:98)</element>
+    <element>scala.collection.TraversableLike$$anonfun$flatMap$1.apply(TraversableLike.scala:252)</element>
+    <element>scala.collection.TraversableLike$$anonfun$flatMap$1.apply(TraversableLike.scala:252)</element>
+    <element>scala.collection.IndexedSeqOptimized$class.foreach(IndexedSeqOptimized.scala:33)</element>
+    <element>scala.collection.mutable.ArrayOps$ofRef.foreach(ArrayOps.scala:186)</element>
+    <element>scala.collection.TraversableLike$class.flatMap(TraversableLike.scala:252)</element>
+    <element>scala.collection.mutable.ArrayOps$ofRef.flatMap(ArrayOps.scala:186)</element>
+    <element>info.kwarc.mmt.api.archives.WritableArchive.traverse(Archive.scala:98)</element>
+    <element>info.kwarc.mmt.api.archives.WritableArchive.info$kwarc$mmt$api$archives$WritableArchive$$recurse$1(Archive.scala:93)</element>
+    <element>info.kwarc.mmt.api.archives.WritableArchive$$anonfun$5.apply(Archive.scala:98)</element>
+    <element>info.kwarc.mmt.api.archives.WritableArchive$$anonfun$5.apply(Archive.scala:98)</element>
+    <element>scala.collection.TraversableLike$$anonfun$flatMap$1.apply(TraversableLike.scala:252)</element>
+    <element>scala.collection.TraversableLike$$anonfun$flatMap$1.apply(TraversableLike.scala:252)</element>
+    <element>scala.collection.IndexedSeqOptimized$class.foreach(IndexedSeqOptimized.scala:33)</element>
+    <element>scala.collection.mutable.ArrayOps$ofRef.foreach(ArrayOps.scala:186)</element>
+    <element>scala.collection.TraversableLike$class.flatMap(TraversableLike.scala:252)</element>
+    <element>scala.collection.mutable.ArrayOps$ofRef.flatMap(ArrayOps.scala:186)</element>
+    <element>info.kwarc.mmt.api.archives.WritableArchive.traverse(Archive.scala:98)</element>
+    <element>info.kwarc.mmt.api.archives.WritableArchive.info$kwarc$mmt$api$archives$WritableArchive$$recurse$1(Archive.scala:93)</element>
+    <element>info.kwarc.mmt.api.archives.WritableArchive$$anonfun$5.apply(Archive.scala:98)</element>
+    <element>info.kwarc.mmt.api.archives.WritableArchive$$anonfun$5.apply(Archive.scala:98)</element>
+    <element>scala.collection.TraversableLike$$anonfun$flatMap$1.apply(TraversableLike.scala:252)</element>
+    <element>scala.collection.TraversableLike$$anonfun$flatMap$1.apply(TraversableLike.scala:252)</element>
+    <element>scala.collection.IndexedSeqOptimized$class.foreach(IndexedSeqOptimized.scala:33)</element>
+    <element>scala.collection.mutable.ArrayOps$ofRef.foreach(ArrayOps.scala:186)</element>
+    <element>scala.collection.TraversableLike$class.flatMap(TraversableLike.scala:252)</element>
+    <element>scala.collection.mutable.ArrayOps$ofRef.flatMap(ArrayOps.scala:186)</element>
+    <element>info.kwarc.mmt.api.archives.WritableArchive.traverse(Archive.scala:98)</element>
+    <element>info.kwarc.mmt.api.archives.TraversingBuildTarget.info$kwarc$mmt$api$archives$TraversingBuildTarget$$buildAux(BuildTarget.scala:171)</element>
+    <element>info.kwarc.mmt.api.archives.TraversingBuildTarget.build(BuildTarget.scala:159)</element>
+    <element>info.kwarc.mmt.api.archives.TraversingBuildTarget.build(BuildTarget.scala:157)</element>
+    <element>info.kwarc.mmt.api.archives.BuildTarget.apply(BuildTarget.scala:57)</element>
+    <element>info.kwarc.mmt.api.frontend.Controller$$anonfun$handle$5.apply(Controller.scala:521)</element>
+    <element>info.kwarc.mmt.api.frontend.Controller$$anonfun$handle$5.apply(Controller.scala:495)</element>
+    <element>scala.collection.immutable.List.foreach(List.scala:381)</element>
+    <element>info.kwarc.mmt.api.frontend.Controller.handle(Controller.scala:495)</element>
+    <element>info.kwarc.mmt.api.frontend.Controller$$anonfun$handle$16.apply(Controller.scala:615)</element>
+    <element>info.kwarc.mmt.api.frontend.Controller$$anonfun$handle$16.apply(Controller.scala:615)</element>
+    <element>scala.collection.immutable.List.foreach(List.scala:381)</element>
+    <element>info.kwarc.mmt.api.frontend.Controller.handle(Controller.scala:615)</element>
+    <element>info.kwarc.mmt.api.frontend.Controller$$anonfun$handle$15.apply(Controller.scala:595)</element>
+    <element>info.kwarc.mmt.api.frontend.Controller$$anonfun$handle$15.apply(Controller.scala:594)</element>
+    <element>scala.Option.foreach(Option.scala:257)</element>
+    <element>info.kwarc.mmt.api.frontend.Controller.handle(Controller.scala:594)</element>
+    <element>info.kwarc.mmt.api.frontend.Controller.handleLine(Controller.scala:458)</element>
+    <element>info.kwarc.mmt.api.frontend.Shell$$anonfun$main$1.apply(Shell.scala:79)</element>
+    <element>info.kwarc.mmt.api.frontend.Shell$$anonfun$main$1.apply(Shell.scala:79)</element>
+    <element>scala.collection.IndexedSeqOptimized$class.foreach(IndexedSeqOptimized.scala:33)</element>
+    <element>scala.collection.mutable.ArrayOps$ofRef.foreach(ArrayOps.scala:186)</element>
+    <element>info.kwarc.mmt.api.frontend.Shell.main(Shell.scala:79)</element>
+    <element>info.kwarc.mmt.api.frontend.Run.main(Shell.scala)</element>
+  </stacktrace>
+</error>
+<error 
+target="twelf-omdoc" sref="file:/var/data/localmh/MathHub/MMT/LATIN/source/type_theories/Church-style/features.elf#-1.127.4:-1.127.39" type="info.kwarc.mmt.api.SourceError" shortMsg="Typing ambiguous -- unresolved constraints" level="1">
+  source error (twelf-omdoc) at file:/var/data/localmh/MathHub/MMT/LATIN/source/type_theories/Church-style/features.elf#-1.127.4:-1.127.39
+X1 (pi1 (pair `X `Y)) = X1 `X.
+%% ABORT %%
+  <stacktrace>
+    <element>info.kwarc.mmt.api.CompilerError$.apply(Error.scala:102)</element>
+    <element>info.kwarc.mmt.lf.Twelf.importDocument(Twelf.scala:114)</element>
+    <element>info.kwarc.mmt.api.archives.Importer.buildFile(Index.scala:39)</element>
+    <element>info.kwarc.mmt.api.archives.TraversingBuildTarget$$anonfun$info$kwarc$mmt$api$archives$TraversingBuildTarget$$buildAux$2.apply(BuildTarget.scala:184)</element>
+    <element>info.kwarc.mmt.api.archives.TraversingBuildTarget$$anonfun$info$kwarc$mmt$api$archives$TraversingBuildTarget$$buildAux$2.apply(BuildTarget.scala:171)</element>
+    <element>info.kwarc.mmt.api.archives.WritableArchive.traverse(Archive.scala:105)</element>
+    <element>info.kwarc.mmt.api.archives.WritableArchive.info$kwarc$mmt$api$archives$WritableArchive$$recurse$1(Archive.scala:93)</element>
+    <element>info.kwarc.mmt.api.archives.WritableArchive$$anonfun$5.apply(Archive.scala:98)</element>
+    <element>info.kwarc.mmt.api.archives.WritableArchive$$anonfun$5.apply(Archive.scala:98)</element>
+    <element>scala.collection.TraversableLike$$anonfun$flatMap$1.apply(TraversableLike.scala:252)</element>
+    <element>scala.collection.TraversableLike$$anonfun$flatMap$1.apply(TraversableLike.scala:252)</element>
+    <element>scala.collection.IndexedSeqOptimized$class.foreach(IndexedSeqOptimized.scala:33)</element>
+    <element>scala.collection.mutable.ArrayOps$ofRef.foreach(ArrayOps.scala:186)</element>
+    <element>scala.collection.TraversableLike$class.flatMap(TraversableLike.scala:252)</element>
+    <element>scala.collection.mutable.ArrayOps$ofRef.flatMap(ArrayOps.scala:186)</element>
+    <element>info.kwarc.mmt.api.archives.WritableArchive.traverse(Archive.scala:98)</element>
+    <element>info.kwarc.mmt.api.archives.WritableArchive.info$kwarc$mmt$api$archives$WritableArchive$$recurse$1(Archive.scala:93)</element>
+    <element>info.kwarc.mmt.api.archives.WritableArchive$$anonfun$5.apply(Archive.scala:98)</element>
+    <element>info.kwarc.mmt.api.archives.WritableArchive$$anonfun$5.apply(Archive.scala:98)</element>
+    <element>scala.collection.TraversableLike$$anonfun$flatMap$1.apply(TraversableLike.scala:252)</element>
+    <element>scala.collection.TraversableLike$$anonfun$flatMap$1.apply(TraversableLike.scala:252)</element>
+    <element>scala.collection.IndexedSeqOptimized$class.foreach(IndexedSeqOptimized.scala:33)</element>
+    <element>scala.collection.mutable.ArrayOps$ofRef.foreach(ArrayOps.scala:186)</element>
+    <element>scala.collection.TraversableLike$class.flatMap(TraversableLike.scala:252)</element>
+    <element>scala.collection.mutable.ArrayOps$ofRef.flatMap(ArrayOps.scala:186)</element>
+    <element>info.kwarc.mmt.api.archives.WritableArchive.traverse(Archive.scala:98)</element>
+    <element>info.kwarc.mmt.api.archives.WritableArchive.info$kwarc$mmt$api$archives$WritableArchive$$recurse$1(Archive.scala:93)</element>
+    <element>info.kwarc.mmt.api.archives.WritableArchive$$anonfun$5.apply(Archive.scala:98)</element>
+    <element>info.kwarc.mmt.api.archives.WritableArchive$$anonfun$5.apply(Archive.scala:98)</element>
+    <element>scala.collection.TraversableLike$$anonfun$flatMap$1.apply(TraversableLike.scala:252)</element>
+    <element>scala.collection.TraversableLike$$anonfun$flatMap$1.apply(TraversableLike.scala:252)</element>
+    <element>scala.collection.IndexedSeqOptimized$class.foreach(IndexedSeqOptimized.scala:33)</element>
+    <element>scala.collection.mutable.ArrayOps$ofRef.foreach(ArrayOps.scala:186)</element>
+    <element>scala.collection.TraversableLike$class.flatMap(TraversableLike.scala:252)</element>
+    <element>scala.collection.mutable.ArrayOps$ofRef.flatMap(ArrayOps.scala:186)</element>
+    <element>info.kwarc.mmt.api.archives.WritableArchive.traverse(Archive.scala:98)</element>
+    <element>info.kwarc.mmt.api.archives.TraversingBuildTarget.info$kwarc$mmt$api$archives$TraversingBuildTarget$$buildAux(BuildTarget.scala:171)</element>
+    <element>info.kwarc.mmt.api.archives.TraversingBuildTarget.build(BuildTarget.scala:159)</element>
+    <element>info.kwarc.mmt.api.archives.TraversingBuildTarget.build(BuildTarget.scala:157)</element>
+    <element>info.kwarc.mmt.api.archives.BuildTarget.apply(BuildTarget.scala:57)</element>
+    <element>info.kwarc.mmt.api.frontend.Controller$$anonfun$handle$5.apply(Controller.scala:521)</element>
+    <element>info.kwarc.mmt.api.frontend.Controller$$anonfun$handle$5.apply(Controller.scala:495)</element>
+    <element>scala.collection.immutable.List.foreach(List.scala:381)</element>
+    <element>info.kwarc.mmt.api.frontend.Controller.handle(Controller.scala:495)</element>
+    <element>info.kwarc.mmt.api.frontend.Controller$$anonfun$handle$16.apply(Controller.scala:615)</element>
+    <element>info.kwarc.mmt.api.frontend.Controller$$anonfun$handle$16.apply(Controller.scala:615)</element>
+    <element>scala.collection.immutable.List.foreach(List.scala:381)</element>
+    <element>info.kwarc.mmt.api.frontend.Controller.handle(Controller.scala:615)</element>
+    <element>info.kwarc.mmt.api.frontend.Controller$$anonfun$handle$15.apply(Controller.scala:595)</element>
+    <element>info.kwarc.mmt.api.frontend.Controller$$anonfun$handle$15.apply(Controller.scala:594)</element>
+    <element>scala.Option.foreach(Option.scala:257)</element>
+    <element>info.kwarc.mmt.api.frontend.Controller.handle(Controller.scala:594)</element>
+    <element>info.kwarc.mmt.api.frontend.Controller.handleLine(Controller.scala:458)</element>
+    <element>info.kwarc.mmt.api.frontend.Shell$$anonfun$main$1.apply(Shell.scala:79)</element>
+    <element>info.kwarc.mmt.api.frontend.Shell$$anonfun$main$1.apply(Shell.scala:79)</element>
+    <element>scala.collection.IndexedSeqOptimized$class.foreach(IndexedSeqOptimized.scala:33)</element>
+    <element>scala.collection.mutable.ArrayOps$ofRef.foreach(ArrayOps.scala:186)</element>
+    <element>info.kwarc.mmt.api.frontend.Shell.main(Shell.scala:79)</element>
+    <element>info.kwarc.mmt.api.frontend.Run.main(Shell.scala)</element>
+  </stacktrace>
+</error>
+
+</errors>
