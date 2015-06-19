@@ -34,6 +34,7 @@ define build
   build latin twelf-omdoc
 end
 
+// call this after having "build" twice
 define build-mmt
   build latin mmt-omdoc
   // foundations/hollight
@@ -41,7 +42,7 @@ end
 
 define export
   archive latin relational
-  build latin svg*
+  build latin svg
   build latin mws
 end
 
