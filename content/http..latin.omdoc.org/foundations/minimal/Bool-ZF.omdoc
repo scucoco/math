@@ -1,4 +1,502 @@
 <omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><view name="Bool-ZF" base="http://latin.omdoc.org/foundations/minimal" from="http://latin.omdoc.org/foundations/minimal?Bool" to="http://latin.omdoc.org/foundations/zfc?Boolean">
            
-           <import from="http://latin.omdoc.org/foundations/minimal?STTIFOLEQ"></import>
+           <import name="[http://latin.omdoc.org/foundations/minimal?STTIFOLEQ]" from="http://latin.omdoc.org/foundations/minimal?STTIFOLEQ" implicit="true"><definition><om:OMS base="http://latin.omdoc.org/foundations/minimal" module="STTIFOLEQ-ZF"></om:OMS></definition></import><constant name="[http://latin.omdoc.org/foundations/minimal?Bool]/bool'">
+       
+       
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS></om:OMOBJ></definition>
+       
+     </constant><constant name="[http://latin.omdoc.org/foundations/minimal?Bool]/1">
+       
+       
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="⊤"></om:OMS></om:OMOBJ></definition>
+       
+     </constant><constant name="[http://latin.omdoc.org/foundations/minimal?Bool]/0">
+       
+       
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="⊥"></om:OMS></om:OMOBJ></definition>
+       
+     </constant><constant name="[http://latin.omdoc.org/foundations/minimal?Bool]/cons">
+       
+       
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="ccons"></om:OMS></om:OMOBJ></definition>
+       
+     </constant><constant name="[http://latin.omdoc.org/foundations/minimal?Bool]/boole">
+       
+       
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="ctnd"></om:OMS><om:OMV name="A"></om:OMV>
+      </om:OMA>
+      </om:OMBIND></om:OMOBJ></definition>
+       
+     </constant><constant name="[http://latin.omdoc.org/foundations/minimal?Bool]/ifte">
+       
+       
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Functions" name="Lambda"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Operations" name="func"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Operations" name="func"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS>
+      </om:OMA>
+      </om:OMA><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="c"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Functions" name="Lambda"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Operations" name="func"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS>
+      </om:OMA><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="t"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Functions" name="Lambda"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="e"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="ifte"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMV name="c"></om:OMV><om:OMV name="t"></om:OMV><om:OMV name="e"></om:OMV>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMA></om:OMOBJ></definition>
+       
+     </constant><constant name="[http://latin.omdoc.org/foundations/minimal?Bool]/ifteT">
+       
+       
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="C"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="T"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="E"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/proof_theory" module="IMP" name="impI"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="Equal" name="relation/rel"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="cwhich"></om:OMS><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="in"></om:OMS><om:OMV name="x"></om:OMV><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS>
+      </om:OMA>
+      </om:OMBIND><om:OMV name="C"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="cwhich"></om:OMS><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="in"></om:OMS><om:OMV name="x"></om:OMV><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS>
+      </om:OMA>
+      </om:OMBIND><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="⊤"></om:OMS>
+      </om:OMA>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="Equal" name="relation/rel"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Functions" name="@"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Functions" name="@"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Operations" name="func"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Functions" name="@"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Operations" name="func"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Operations" name="func"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS>
+      </om:OMA>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Functions" name="Lambda"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Operations" name="func"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Operations" name="func"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS>
+      </om:OMA>
+      </om:OMA><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Functions" name="Lambda"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Operations" name="func"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS>
+      </om:OMA><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="y"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Functions" name="Lambda"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="z"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="ifte"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMV name="x"></om:OMV><om:OMV name="y"></om:OMV><om:OMV name="z"></om:OMV>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMA><om:OMV name="C"></om:OMV>
+      </om:OMA><om:OMV name="T"></om:OMV>
+      </om:OMA><om:OMV name="E"></om:OMV>
+      </om:OMA>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMV name="T"></om:OMV>
+      </om:OMA>
+      </om:OMA><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="p"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/proof_theory" module="Equal" name="equniv/eq/[http://latin.omdoc.org/math?Transitive]/trans"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Functions" name="@"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Functions" name="@"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Operations" name="func"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Functions" name="@"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Operations" name="func"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Operations" name="func"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS>
+      </om:OMA>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Functions" name="Lambda"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Operations" name="func"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Operations" name="func"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS>
+      </om:OMA>
+      </om:OMA><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Functions" name="Lambda"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Operations" name="func"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS>
+      </om:OMA><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="y"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Functions" name="Lambda"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="z"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="ifte"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMV name="x"></om:OMV><om:OMV name="y"></om:OMV><om:OMV name="z"></om:OMV>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMA><om:OMV name="C"></om:OMV>
+      </om:OMA><om:OMV name="T"></om:OMV>
+      </om:OMA><om:OMV name="E"></om:OMV>
+      </om:OMA>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="ifte"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMV name="C"></om:OMV><om:OMV name="T"></om:OMV><om:OMV name="E"></om:OMV>
+      </om:OMA>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMV name="T"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Functions" name="beta3"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="x1"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="x2"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="ifte"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMV name="x"></om:OMV><om:OMV name="x1"></om:OMV><om:OMV name="x2"></om:OMV>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND>
+      </om:OMBIND><om:OMV name="C"></om:OMV><om:OMV name="T"></om:OMV><om:OMV name="E"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="EqcongEr"></om:OMS><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="in"></om:OMS><om:OMV name="x"></om:OMV><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS>
+      </om:OMA>
+      </om:OMBIND><om:OMV name="C"></om:OMV><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="⊤"></om:OMS><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="Eq"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="ifte"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMV name="x"></om:OMV><om:OMV name="T"></om:OMV><om:OMV name="E"></om:OMV>
+      </om:OMA><om:OMV name="T"></om:OMV>
+      </om:OMA>
+      </om:OMBIND><om:OMV name="p"></om:OMV><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="ifte1"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMV name="T"></om:OMV><om:OMV name="E"></om:OMV>
+      </om:OMA>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></definition>
+       
+     </constant><constant name="[http://latin.omdoc.org/foundations/minimal?Bool]/ifteE">
+       
+       
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="C"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="T"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="E"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/proof_theory" module="IMP" name="impI"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="Equal" name="relation/rel"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="cwhich"></om:OMS><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="in"></om:OMS><om:OMV name="x"></om:OMV><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS>
+      </om:OMA>
+      </om:OMBIND><om:OMV name="C"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="cwhich"></om:OMS><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="in"></om:OMS><om:OMV name="x"></om:OMV><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS>
+      </om:OMA>
+      </om:OMBIND><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="⊥"></om:OMS>
+      </om:OMA>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="Equal" name="relation/rel"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Functions" name="@"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Functions" name="@"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Operations" name="func"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Functions" name="@"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Operations" name="func"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Operations" name="func"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS>
+      </om:OMA>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Functions" name="Lambda"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Operations" name="func"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Operations" name="func"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS>
+      </om:OMA>
+      </om:OMA><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Functions" name="Lambda"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Operations" name="func"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS>
+      </om:OMA><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="y"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Functions" name="Lambda"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="z"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="ifte"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMV name="x"></om:OMV><om:OMV name="y"></om:OMV><om:OMV name="z"></om:OMV>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMA><om:OMV name="C"></om:OMV>
+      </om:OMA><om:OMV name="T"></om:OMV>
+      </om:OMA><om:OMV name="E"></om:OMV>
+      </om:OMA>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMV name="E"></om:OMV>
+      </om:OMA>
+      </om:OMA><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="p"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/proof_theory" module="Equal" name="equniv/eq/[http://latin.omdoc.org/math?Transitive]/trans"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Functions" name="@"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Functions" name="@"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Operations" name="func"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Functions" name="@"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Operations" name="func"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Operations" name="func"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS>
+      </om:OMA>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Functions" name="Lambda"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Operations" name="func"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Operations" name="func"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS>
+      </om:OMA>
+      </om:OMA><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Functions" name="Lambda"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Operations" name="func"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS>
+      </om:OMA><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="y"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Functions" name="Lambda"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="z"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="ifte"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMV name="x"></om:OMV><om:OMV name="y"></om:OMV><om:OMV name="z"></om:OMV>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMA><om:OMV name="C"></om:OMV>
+      </om:OMA><om:OMV name="T"></om:OMV>
+      </om:OMA><om:OMV name="E"></om:OMV>
+      </om:OMA>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="ifte"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMV name="C"></om:OMV><om:OMV name="T"></om:OMV><om:OMV name="E"></om:OMV>
+      </om:OMA>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMV name="E"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Functions" name="beta3"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="x1"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="x2"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="ifte"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMV name="x"></om:OMV><om:OMV name="x1"></om:OMV><om:OMV name="x2"></om:OMV>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND>
+      </om:OMBIND><om:OMV name="C"></om:OMV><om:OMV name="T"></om:OMV><om:OMV name="E"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="EqcongEr"></om:OMS><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="in"></om:OMS><om:OMV name="x"></om:OMV><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS>
+      </om:OMA>
+      </om:OMBIND><om:OMV name="C"></om:OMV><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="⊥"></om:OMS><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?generated"/></metadata></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="Eq"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="ifte"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMV name="x"></om:OMV><om:OMV name="T"></om:OMV><om:OMV name="E"></om:OMV>
+      </om:OMA><om:OMV name="E"></om:OMV>
+      </om:OMA>
+      </om:OMBIND><om:OMV name="p"></om:OMV><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="ifte0"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Boolean" name="cbool"></om:OMS><om:OMV name="T"></om:OMV><om:OMV name="E"></om:OMV>
+      </om:OMA>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></definition>
+       
+     </constant>
          </view></omdoc>
