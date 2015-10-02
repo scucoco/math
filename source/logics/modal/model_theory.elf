@@ -5,24 +5,28 @@
 %namespace syn = "../syntax".
 %namespace minimal = "../../foundations/minimal".
 
-
-%sig Kripke = {
+%sig Worlds = {
   %include minimal.STTIFOLEQExt.
   %include minimal.Universes.
   
   world : set.
-  %% accessibility relation
-  acc'  : elem (world → world → bool').
-  acc   : elem world -> elem world -> elem bool' = [v][w] acc' @ v @ w.
   exists_world : ded exists [x : elem world] true.
 }.
 
-%view Base : syn.Logic -> Kripke = {
+%sig Kripke = {
+  %include Worlds.
+
+  %% accessibility relation
+  acc'  : elem (world → world → bool').
+  acc   : elem world -> elem world -> elem bool' = [v][w] acc' @ v @ w.
+}.
+
+%view Base : syn.Logic -> Worlds = {
   o   := elem (world → bool').
   ded := [f] ded (∀[w] f @ w) eq 1.
 }.
 
-%view MPL : syn.MPL -> Kripke = {
+%view MPL : syn.MPL -> Worlds = {
   %include Base.
   ⊥ := λ[w] 0.
   ⇒ := [f][g] λ[w] (f @ w) ⇒ (g @ w).
