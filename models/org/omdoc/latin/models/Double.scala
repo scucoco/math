@@ -9,7 +9,7 @@ object IEEEDouble extends Float {
   val Arithmetic_num = new RealizedType {
      type univ = Double
      def fromString(s: String) = s.toDouble
-     override def lex = Some(new NumberLiteralLexer(true))
+     override def lex = Some(new NumberLiteralLexer(true,false))
   }
 
   def Arithmetic_add(x0: Arithmetic_num.univ, x1: Arithmetic_num.univ): Arithmetic_num.univ = x0 + x1
