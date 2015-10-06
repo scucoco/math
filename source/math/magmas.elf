@@ -291,7 +291,7 @@
 	∘ := [x][y] x ∘ (inv y). 
 }.
  
-%view %implicit DG : Division -> Group = {
+%view DG : Division -> Group = {
 	%include MG.
    cancel_denom 	:= [x][z][y] trans4 
    	                                                (cong ([t] (x ∘ (inv z)) ∘ t ) inv_distr)
@@ -305,7 +305,7 @@
                                                    (inv_invE).
 }.
 
-%view %implicit DCG : AbelianDivision -> AbelianGroup = {
+%view DCG : AbelianDivision -> AbelianGroup = {
 	%include DG.
 	cancel_enum := [z][x][y] trans3 (trans4 (commut) (cong ([t] t ∘ (z ∘ (inv x))) inv_distr) (ab∘cd==a∘bc∘d) (cong ([t] ((inv (inv y)) ∘ t) ∘ (inv x) ) (inv_left))) 
 	                                                  (cong ([t] t ∘ (inv x)) idenR) (cong ([t] t ∘ (inv x)) inv_invE).
