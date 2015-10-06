@@ -52,7 +52,7 @@
 		%struct mag2 := mult.
 	}.                                 
 	
-	jordan : (X* Y) * (X * X) == X * ( Y * (X * X)).
+	jordan : (X * Y) * (X * X) == X * (Y * (X * X)).
 	
 }.
 
@@ -90,7 +90,9 @@
 	%include RingUnit.
 	' : u -> u. %postfix 200 '.
 	
-	product : (X*Y)' == X*Y' + X'*Y.		
+	zero : 0 ' == 0.
+	sum : (X + Y)' == X ' + Y '.
+	product : (X * Y)' == X * Y' + X' * Y.		
 }.
 
 
