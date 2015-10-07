@@ -1,0 +1,4 @@
+include(Base.tptp).
+include(syntax/IMP.tptp).
+thf('http://latin.omdoc.org/logics/proof_theory?IMP?impI',type,'http://latin.omdoc.org/logics/proof_theory?IMP?impI' : !>[A:'http://latin.omdoc.org/logics/syntax?Logic?o']: (!>[B:'http://latin.omdoc.org/logics/syntax?Logic?o']: (((('http://latin.omdoc.org/logics/syntax?Logic?ded' @ A) > ('http://latin.omdoc.org/logics/syntax?Logic?ded' @ B)) > ('http://latin.omdoc.org/logics/syntax?Logic?ded' @ (('http://latin.omdoc.org/logics/syntax?IMP?imp' @ A) @ B)))))).
+thf('http://latin.omdoc.org/logics/proof_theory?IMP?impE',type,'http://latin.omdoc.org/logics/proof_theory?IMP?impE' : !>[A:'http://latin.omdoc.org/logics/syntax?Logic?o']: (!>[B:'http://latin.omdoc.org/logics/syntax?Logic?o']: ((('http://latin.omdoc.org/logics/syntax?Logic?ded' @ (('http://latin.omdoc.org/logics/syntax?IMP?imp' @ A) @ B)) > (('http://latin.omdoc.org/logics/syntax?Logic?ded' @ A) > ('http://latin.omdoc.org/logics/syntax?Logic?ded' @ B)))))).

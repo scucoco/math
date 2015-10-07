@@ -1,0 +1,6 @@
+include(EqUniverse.tptp).
+include(Monoid.tptp).
+include(RightInverse.tptp).
+thf('http://latin.omdoc.org/math?Group?inv_left',type,'http://latin.omdoc.org/math?Group?inv_left' : !>[X:'http://latin.omdoc.org/math?Universe?u']: ((('http://latin.omdoc.org/math?EqUniverse?eq/[http://latin.omdoc.org/math?Relation]/r' @ (('http://latin.omdoc.org/math?Magma?∘' @ ('http://latin.omdoc.org/math?Inverse?inv' @ X)) @ X)) @ 'http://latin.omdoc.org/math?PointedMagma?point'))).
+thf('http://latin.omdoc.org/math?Group?inv_invE',type,'http://latin.omdoc.org/math?Group?inv_invE' : !>[X:'http://latin.omdoc.org/math?Universe?u']: ((('http://latin.omdoc.org/math?EqUniverse?eq/[http://latin.omdoc.org/math?Relation]/r' @ ('http://latin.omdoc.org/math?Inverse?inv' @ ('http://latin.omdoc.org/math?Inverse?inv' @ X))) @ X))).
+thf('http://latin.omdoc.org/math?Group?inv_distr',type,'http://latin.omdoc.org/math?Group?inv_distr' : !>[X:'http://latin.omdoc.org/math?Universe?u']: (!>[Y:'http://latin.omdoc.org/math?Universe?u']: ((('http://latin.omdoc.org/math?EqUniverse?eq/[http://latin.omdoc.org/math?Relation]/r' @ ('http://latin.omdoc.org/math?Inverse?inv' @ (('http://latin.omdoc.org/math?Magma?∘' @ X) @ Y))) @ (('http://latin.omdoc.org/math?Magma?∘' @ ('http://latin.omdoc.org/math?Inverse?inv' @ Y)) @ ('http://latin.omdoc.org/math?Inverse?inv' @ X)))))).

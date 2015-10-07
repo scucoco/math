@@ -1,0 +1,7 @@
+include(TypesTerms.tptp).
+include(UNIT.tptp).
+include(DUNION.tptp).
+thf('http://latin.omdoc.org/type_theories?Option?opt',type,'http://latin.omdoc.org/type_theories?Option?opt' : ('http://latin.omdoc.org/type_theories?TypesTerms?types/cl' > 'http://latin.omdoc.org/type_theories?TypesTerms?types/cl')).
+thf('http://latin.omdoc.org/type_theories?Option?none',type,'http://latin.omdoc.org/type_theories?Option?none' : !>[A:'http://latin.omdoc.org/type_theories?TypesTerms?types/cl']: (('http://latin.omdoc.org/type_theories?TypesTerms?types/exp' @ ('http://latin.omdoc.org/type_theories?Option?opt' @ A)))).
+thf('http://latin.omdoc.org/type_theories?Option?some',type,'http://latin.omdoc.org/type_theories?Option?some' : !>[A:'http://latin.omdoc.org/type_theories?TypesTerms?types/cl']: ((('http://latin.omdoc.org/type_theories?TypesTerms?types/exp' @ A) > ('http://latin.omdoc.org/type_theories?TypesTerms?types/exp' @ ('http://latin.omdoc.org/type_theories?Option?opt' @ A))))).
+thf('http://latin.omdoc.org/type_theories?Option?cases',type,'http://latin.omdoc.org/type_theories?Option?cases' : !>[A:'http://latin.omdoc.org/type_theories?TypesTerms?types/cl']: ((('http://latin.omdoc.org/type_theories?TypesTerms?types/exp' @ ('http://latin.omdoc.org/type_theories?Option?opt' @ A)) > (('http://latin.omdoc.org/type_theories?TypesTerms?types/exp' @ A) > ('http://latin.omdoc.org/type_theories?TypesTerms?types/exp' @ A))))).

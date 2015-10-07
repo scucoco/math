@@ -1,0 +1,5 @@
+include(Church.tptp).
+thf('http://latin.omdoc.org/foundations/ftt?OptionTypes?option',type,'http://latin.omdoc.org/foundations/ftt?OptionTypes?option' : ('http://latin.omdoc.org/foundations/ftt?Church?tp' > 'http://latin.omdoc.org/foundations/ftt?Church?tp')).
+thf('http://latin.omdoc.org/foundations/ftt?OptionTypes?Option',type,'http://latin.omdoc.org/foundations/ftt?OptionTypes?Option' : ('http://latin.omdoc.org/foundations/ftt?Church?tp' > $tType)).
+thf('http://latin.omdoc.org/foundations/ftt?OptionTypes?some',type,'http://latin.omdoc.org/foundations/ftt?OptionTypes?some' : !>[A:'http://latin.omdoc.org/foundations/ftt?Church?tp']: ((('http://latin.omdoc.org/foundations/ftt?Church?ttm' @ A) > ('http://latin.omdoc.org/foundations/ftt?OptionTypes?Option' @ A)))).
+thf('http://latin.omdoc.org/foundations/ftt?OptionTypes?none',type,'http://latin.omdoc.org/foundations/ftt?OptionTypes?none' : !>[A:'http://latin.omdoc.org/foundations/ftt?Church?tp']: (('http://latin.omdoc.org/foundations/ftt?OptionTypes?Option' @ A))).

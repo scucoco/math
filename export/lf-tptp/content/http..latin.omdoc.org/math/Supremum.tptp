@@ -1,0 +1,6 @@
+include(Universe.tptp).
+include(Order.tptp).
+thf('http://latin.omdoc.org/math?Supremum?⊔',type,'http://latin.omdoc.org/math?Supremum?⊔' : ('http://latin.omdoc.org/math?Universe?u' > ('http://latin.omdoc.org/math?Universe?u' > 'http://latin.omdoc.org/math?Universe?u'))).
+thf('http://latin.omdoc.org/math?Supremum?upperL',type,'http://latin.omdoc.org/math?Supremum?upperL' : !>[X:'http://latin.omdoc.org/math?Universe?u']: (!>[Y:'http://latin.omdoc.org/math?Universe?u']: ((('http://latin.omdoc.org/math?Relation?r' @ X) @ (('http://latin.omdoc.org/math?Supremum?⊔' @ X) @ Y))))).
+thf('http://latin.omdoc.org/math?Supremum?upperR',type,'http://latin.omdoc.org/math?Supremum?upperR' : !>[Y:'http://latin.omdoc.org/math?Universe?u']: (!>[X:'http://latin.omdoc.org/math?Universe?u']: ((('http://latin.omdoc.org/math?Relation?r' @ Y) @ (('http://latin.omdoc.org/math?Supremum?⊔' @ X) @ Y))))).
+thf('http://latin.omdoc.org/math?Supremum?least',type,'http://latin.omdoc.org/math?Supremum?least' : !>[X:'http://latin.omdoc.org/math?Universe?u']: (!>[Z:'http://latin.omdoc.org/math?Universe?u']: (!>[Y:'http://latin.omdoc.org/math?Universe?u']: (((('http://latin.omdoc.org/math?Relation?r' @ X) @ Z) > ((('http://latin.omdoc.org/math?Relation?r' @ Y) @ Z) > (('http://latin.omdoc.org/math?Relation?r' @ (('http://latin.omdoc.org/math?Supremum?⊔' @ X) @ Y)) @ Z))))))).

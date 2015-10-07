@@ -1,0 +1,6 @@
+thf('http://latin.omdoc.org/logics/syntax?DLBase?atom',type,'http://latin.omdoc.org/logics/syntax?DLBase?atom' : $tType).
+thf('http://latin.omdoc.org/logics/syntax?DLBase?conc',type,'http://latin.omdoc.org/logics/syntax?DLBase?conc' : $tType).
+thf('http://latin.omdoc.org/logics/syntax?DLBase?atomic',type,'http://latin.omdoc.org/logics/syntax?DLBase?atomic' : ('http://latin.omdoc.org/logics/syntax?DLBase?atom' > 'http://latin.omdoc.org/logics/syntax?DLBase?conc')).
+thf('http://latin.omdoc.org/logics/syntax?DLBase?role',type,'http://latin.omdoc.org/logics/syntax?DLBase?role' : $tType).
+thf('http://latin.omdoc.org/logics/syntax?DLBase?subsume',type,'http://latin.omdoc.org/logics/syntax?DLBase?subsume' : ('http://latin.omdoc.org/logics/syntax?DLBase?conc' > ('http://latin.omdoc.org/logics/syntax?DLBase?conc' > $tType))).
+thf('http://latin.omdoc.org/logics/syntax?DLBase?equiv',type,'http://latin.omdoc.org/logics/syntax?DLBase?equiv' : ('http://latin.omdoc.org/logics/syntax?DLBase?conc' > ('http://latin.omdoc.org/logics/syntax?DLBase?conc' > $tType))).

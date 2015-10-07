@@ -1,0 +1,5 @@
+thf('http://latin.omdoc.org/foundations/ftt?Church?tp',type,'http://latin.omdoc.org/foundations/ftt?Church?tp' : $tType).
+thf('http://latin.omdoc.org/foundations/ftt?Church?ttm',type,'http://latin.omdoc.org/foundations/ftt?Church?ttm' : ('http://latin.omdoc.org/foundations/ftt?Church?tp' > $tType)).
+include(../logics/proof_theory/Base.tptp).
+thf('http://latin.omdoc.org/foundations/ftt?Church?==',type,'http://latin.omdoc.org/foundations/ftt?Church?==' : !>[A:'http://latin.omdoc.org/foundations/ftt?Church?tp']: ((('http://latin.omdoc.org/foundations/ftt?Church?ttm' @ A) > (('http://latin.omdoc.org/foundations/ftt?Church?ttm' @ A) > 'http://latin.omdoc.org/logics/syntax?Logic?o')))).
+thf('http://latin.omdoc.org/foundations/ftt?Church?=tp=',type,'http://latin.omdoc.org/foundations/ftt?Church?=tp=' : ('http://latin.omdoc.org/foundations/ftt?Church?tp' > ('http://latin.omdoc.org/foundations/ftt?Church?tp' > 'http://latin.omdoc.org/logics/syntax?Logic?o'))).

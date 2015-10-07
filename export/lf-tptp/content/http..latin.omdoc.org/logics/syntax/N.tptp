@@ -1,0 +1,6 @@
+include(DLBase.tptp).
+thf('http://latin.omdoc.org/logics/syntax?N?nat',type,'http://latin.omdoc.org/logics/syntax?N?nat' : $tType).
+thf('http://latin.omdoc.org/logics/syntax?N?zero',type,'http://latin.omdoc.org/logics/syntax?N?zero' : 'http://latin.omdoc.org/logics/syntax?N?nat').
+thf('http://latin.omdoc.org/logics/syntax?N?succ',type,'http://latin.omdoc.org/logics/syntax?N?succ' : ('http://latin.omdoc.org/logics/syntax?N?nat' > 'http://latin.omdoc.org/logics/syntax?N?nat')).
+thf('http://latin.omdoc.org/logics/syntax?N?atleast',type,'http://latin.omdoc.org/logics/syntax?N?atleast' : ('http://latin.omdoc.org/logics/syntax?N?nat' > ('http://latin.omdoc.org/logics/syntax?DLBase?role' > ('http://latin.omdoc.org/logics/syntax?DLBase?conc' > 'http://latin.omdoc.org/logics/syntax?DLBase?conc')))).
+thf('http://latin.omdoc.org/logics/syntax?N?atmost',type,'http://latin.omdoc.org/logics/syntax?N?atmost' : ('http://latin.omdoc.org/logics/syntax?N?nat' > ('http://latin.omdoc.org/logics/syntax?DLBase?role' > ('http://latin.omdoc.org/logics/syntax?DLBase?conc' > 'http://latin.omdoc.org/logics/syntax?DLBase?conc')))).

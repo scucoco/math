@@ -1,0 +1,6 @@
+thf('http://latin.omdoc.org/foundations/zfc?Church?tp',type,'http://latin.omdoc.org/foundations/zfc?Church?tp' : $tType).
+thf('http://latin.omdoc.org/foundations/zfc?Church?ttm',type,'http://latin.omdoc.org/foundations/zfc?Church?ttm' : ('http://latin.omdoc.org/foundations/zfc?Church?tp' > $tType)).
+thf('http://latin.omdoc.org/foundations/zfc?Church?prop',type,'http://latin.omdoc.org/foundations/zfc?Church?prop' : $tType).
+thf('http://latin.omdoc.org/foundations/zfc?Church?ded',type,'http://latin.omdoc.org/foundations/zfc?Church?ded' : ('http://latin.omdoc.org/foundations/zfc?Church?prop' > $tType)).
+thf('http://latin.omdoc.org/foundations/zfc?Church?==',type,'http://latin.omdoc.org/foundations/zfc?Church?==' : !>[A:'http://latin.omdoc.org/foundations/zfc?Church?tp']: ((('http://latin.omdoc.org/foundations/zfc?Church?ttm' @ A) > (('http://latin.omdoc.org/foundations/zfc?Church?ttm' @ A) > 'http://latin.omdoc.org/foundations/zfc?Church?prop')))).
+thf('http://latin.omdoc.org/foundations/zfc?Church?=tp=',type,'http://latin.omdoc.org/foundations/zfc?Church?=tp=' : ('http://latin.omdoc.org/foundations/zfc?Church?tp' > ('http://latin.omdoc.org/foundations/zfc?Church?tp' > 'http://latin.omdoc.org/foundations/zfc?Church?prop'))).

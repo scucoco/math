@@ -1,0 +1,7 @@
+include(FOL.tptp).
+include(syntax/FOLEQ.tptp).
+include(IFOLEQ.tptp).
+thf('http://latin.omdoc.org/logics/proof_theory?FOLEQ?=>',type,'http://latin.omdoc.org/logics/proof_theory?FOLEQ?=>' : ('http://latin.omdoc.org/logics/syntax?Logic?o' > ('http://latin.omdoc.org/logics/syntax?Logic?o' > 'http://latin.omdoc.org/logics/syntax?Logic?o'))).
+thf('http://latin.omdoc.org/logics/proof_theory?FOLEQ?<=>',type,'http://latin.omdoc.org/logics/proof_theory?FOLEQ?<=>' : ('http://latin.omdoc.org/logics/syntax?Logic?o' > ('http://latin.omdoc.org/logics/syntax?Logic?o' > 'http://latin.omdoc.org/logics/syntax?Logic?o'))).
+thf('http://latin.omdoc.org/logics/proof_theory?FOLEQ?!=',type,'http://latin.omdoc.org/logics/proof_theory?FOLEQ?!=' : ('http://latin.omdoc.org/math?Universe?u' > ('http://latin.omdoc.org/math?Universe?u' > 'http://latin.omdoc.org/logics/syntax?Logic?o'))).
+thf('http://latin.omdoc.org/logics/proof_theory?FOLEQ?|-',type,'http://latin.omdoc.org/logics/proof_theory?FOLEQ?|-' : ('http://latin.omdoc.org/logics/syntax?Logic?o' > $tType)).

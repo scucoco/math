@@ -1,0 +1,9 @@
+include(OWL2Full.tptp).
+include(OWL2EL.tptp).
+include(OWL2QL.tptp).
+include(OWL2ELQL.tptp).
+include(OWL2ELRL.tptp).
+include(OWL2QLRL.tptp).
+thf('http://latin.omdoc.org/logics/description/owl/owl2.omdoc?OWL2?dataUnionOf',type,'http://latin.omdoc.org/logics/description/owl/owl2.omdoc?OWL2?dataUnionOf' : ('http://latin.omdoc.org/logics/description/owl/owl.omdoc?OWL1Datatype?dataType' > ('http://latin.omdoc.org/logics/description/owl/owl.omdoc?OWL1Datatype?dataType' > 'http://latin.omdoc.org/logics/description/owl/owl.omdoc?OWL1Datatype?dataType'))).
+thf('http://latin.omdoc.org/logics/description/owl/owl2.omdoc?OWL2?disjointUnionOf',type,'http://latin.omdoc.org/logics/description/owl/owl2.omdoc?OWL2?disjointUnionOf' : ('http://latin.omdoc.org/logics/description/owl/owl.omdoc?OWLBase?class' > ('http://latin.omdoc.org/logics/description/owl/owl.omdoc?OWLBase?class' > ('http://latin.omdoc.org/logics/description/owl/owl.omdoc?OWLBase?class' > $tType)))).
+thf('http://latin.omdoc.org/logics/description/owl/owl2.omdoc?OWL2?dataComplementOf',type,'http://latin.omdoc.org/logics/description/owl/owl2.omdoc?OWL2?dataComplementOf' : ('http://latin.omdoc.org/logics/description/owl/owl.omdoc?OWL1Datatype?dataType' > 'http://latin.omdoc.org/logics/description/owl/owl.omdoc?OWL1Datatype?dataType')).

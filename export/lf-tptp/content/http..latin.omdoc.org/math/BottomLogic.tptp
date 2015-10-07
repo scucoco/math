@@ -1,0 +1,4 @@
+include(logics/proof_theory/IFOLEQ.tptp).
+include(OrderLogic.tptp).
+thf('http://latin.omdoc.org/math?BottomLogic?botax',type,'http://latin.omdoc.org/math?BottomLogic?botax' : ('http://latin.omdoc.org/logics/syntax?Logic?⊦' @ ('http://latin.omdoc.org/logics/syntax?Exists?exists' @ ^[Xx:'http://latin.omdoc.org/math?Universe?u']: (('http://latin.omdoc.org/math?OrderLogic?lowerbound' @ Xx))))).
+thf('http://latin.omdoc.org/math?BottomLogic?unique',type,'http://latin.omdoc.org/math?BottomLogic?unique' : !>[X:'http://latin.omdoc.org/math?Universe?u']: (!>[Y:'http://latin.omdoc.org/math?Universe?u']: ((('http://latin.omdoc.org/logics/syntax?Logic?⊦' @ ('http://latin.omdoc.org/math?OrderLogic?lowerbound' @ X)) > (('http://latin.omdoc.org/logics/syntax?Logic?⊦' @ ('http://latin.omdoc.org/math?OrderLogic?lowerbound' @ Y)) > ('http://latin.omdoc.org/logics/syntax?Logic?⊦' @ (('http://latin.omdoc.org/logics/syntax?Equal?==' @ X) @ Y))))))).

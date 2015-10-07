@@ -1,0 +1,16 @@
+include(BaseSecOL.tptp).
+include(FOLEQ.tptp).
+thf('http://latin.omdoc.org/logics/syntax?SecOL?nin',type,'http://latin.omdoc.org/logics/syntax?SecOL?nin' : ('http://latin.omdoc.org/math?Universe?u' > ('http://latin.omdoc.org/logics/syntax?BaseSecOL?ii' > 'http://latin.omdoc.org/logics/syntax?Logic?o'))).
+thf('http://latin.omdoc.org/logics/syntax?SecOL?⊆‍',type,'http://latin.omdoc.org/logics/syntax?SecOL?⊆‍' : ('http://latin.omdoc.org/logics/syntax?BaseSecOL?ii' > ('http://latin.omdoc.org/logics/syntax?BaseSecOL?ii' > 'http://latin.omdoc.org/logics/syntax?Logic?o'))).
+thf('http://latin.omdoc.org/logics/syntax?SecOL?∅',type,'http://latin.omdoc.org/logics/syntax?SecOL?∅' : 'http://latin.omdoc.org/logics/syntax?BaseSecOL?ii').
+thf('http://latin.omdoc.org/logics/syntax?SecOL?univ',type,'http://latin.omdoc.org/logics/syntax?SecOL?univ' : 'http://latin.omdoc.org/logics/syntax?BaseSecOL?ii').
+thf('http://latin.omdoc.org/logics/syntax?SecOL?∪',type,'http://latin.omdoc.org/logics/syntax?SecOL?∪' : ('http://latin.omdoc.org/logics/syntax?BaseSecOL?ii' > ('http://latin.omdoc.org/logics/syntax?BaseSecOL?ii' > 'http://latin.omdoc.org/logics/syntax?BaseSecOL?ii'))).
+thf('http://latin.omdoc.org/logics/syntax?SecOL?∩',type,'http://latin.omdoc.org/logics/syntax?SecOL?∩' : ('http://latin.omdoc.org/logics/syntax?BaseSecOL?ii' > ('http://latin.omdoc.org/logics/syntax?BaseSecOL?ii' > 'http://latin.omdoc.org/logics/syntax?BaseSecOL?ii'))).
+thf('http://latin.omdoc.org/logics/syntax?SecOL?∖',type,'http://latin.omdoc.org/logics/syntax?SecOL?∖' : ('http://latin.omdoc.org/logics/syntax?BaseSecOL?ii' > ('http://latin.omdoc.org/logics/syntax?BaseSecOL?ii' > 'http://latin.omdoc.org/logics/syntax?BaseSecOL?ii'))).
+thf('http://latin.omdoc.org/logics/syntax?SecOL?∁',type,'http://latin.omdoc.org/logics/syntax?SecOL?∁' : ('http://latin.omdoc.org/logics/syntax?BaseSecOL?ii' > 'http://latin.omdoc.org/logics/syntax?BaseSecOL?ii')).
+thf('http://latin.omdoc.org/logics/syntax?SecOL?atom',type,'http://latin.omdoc.org/logics/syntax?SecOL?atom' : ('http://latin.omdoc.org/math?Universe?u' > 'http://latin.omdoc.org/logics/syntax?BaseSecOL?ii')).
+
+thf('http://latin.omdoc.org/logics/syntax?SecOL?ff/forall',type,'http://latin.omdoc.org/logics/syntax?SecOL?ff/forall' : (('http://latin.omdoc.org/logics/syntax?SecOL?ff/[http://latin.omdoc.org/math?Universe]/u' > 'http://latin.omdoc.org/logics/syntax?SecOL?ff/[http://latin.omdoc.org/logics/syntax?Logic]/o') > 'http://latin.omdoc.org/logics/syntax?SecOL?ff/[http://latin.omdoc.org/logics/syntax?Logic]/o')).
+
+thf('http://latin.omdoc.org/logics/syntax?SecOL?ee/exists',type,'http://latin.omdoc.org/logics/syntax?SecOL?ee/exists' : (('http://latin.omdoc.org/logics/syntax?SecOL?ee/[http://latin.omdoc.org/math?Universe]/u' > 'http://latin.omdoc.org/logics/syntax?SecOL?ee/[http://latin.omdoc.org/logics/syntax?Logic]/o') > 'http://latin.omdoc.org/logics/syntax?SecOL?ee/[http://latin.omdoc.org/logics/syntax?Logic]/o')).
+include(Equiv.tptp).
