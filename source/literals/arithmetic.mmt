@@ -4,8 +4,12 @@ namespace literals
      @author Florian Rabe
 
 
-theory Arithmetic : ur:?LF =
+theory Numbers : ur:?LF =
   num  : type
+
+
+theory Arithmetic : ur:?LF =
+  include ?Numbers
   add  : num → num → num  # 1 + 2
   sub  : num → num → num  # 1 - 2
   neg  : num → num        # - 1
