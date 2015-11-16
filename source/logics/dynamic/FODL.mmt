@@ -1,0 +1,34 @@
+namespace http://cds.omdoc.org/logic
+
+//   First Order Dynamic Logic 
+
+theory FODLSyntax : http://cds.omdoc.org/urtheories?LF =
+  include ?PDLSyntax 
+  include ?FOLSyntax 
+  assignment : term → term → PDLProg  #1 := #2 prec 37 
+
+
+theory FODLS1 : http://cds.omdoc.org/urtheories?LF =
+	include ?FODLSyntax 
+	include ?FOLPf 
+	include ?PDLPf 
+	assign-sub : {φ,x} [t] ded φ t ⇒ <<x := t>> (φ x) 
+
+	
+theory FODLS2 : http://cds.omdoc.org/urtheories?LF =
+	include ?FODLSyntax 
+	include ?FOLPf 
+	include ?PDLPf 
+	assign-sub : {φ,x} [t] ded φ t ⇔ <<x := t>> (φ x) 
+
+	
+theory PDLRules : http://cds.omdoc.org/urtheories?LF =
+	include ?PDLSyntax 
+	GEN : {alpha,φ} ded φ → ded [[α]] φ 
+
+	
+theory PDLPf http://cds.omdoc.org/urtheories?LF =
+     include ?PLPf 
+     include PDLAxioms 
+     include PDLRules 
+

@@ -1,0 +1,56 @@
+namespace http://cds.omdoc.org/logic
+
+//   intuitionistic first-order logic with natural deduction rules and 
+a few example proofs 
+
+theory FOLSyntax : http://cds.omdoc.org/urtheories?LF =
+  include ?PLSyntax 
+  term  : type
+  forall : (term → prop) → prop# ∀ 1 prec 25 
+  exists : (term → prop) → prop# ∃ 1 prec 25 
+
+  
+theory FOLAxioms : http://cds.omdoc.org/urtheories?LF =
+	include ?FOLSyntax 
+	include ?PLAxioms 
+	FOLAx1 : {x,φ,ψ} ded ∀ x (φ ⇒ ψ) ⇒ (∀ x φ ⇒ ∀ x ψ) 
+	FOLAx2 : {x,φ,t} ded ∀ x φ ⇒ (φ t) 
+	FOLAx3 : {φ,x} ded φ ⇒ ∀ x φ 
+
+	
+theory FOLRules : http://cds.omdoc.org/urtheories?LF =
+	include ?FOLSyntax 
+	include ?PLRules 
+	FOLGEN : {x,φ} ded φ → ∀ x φ 
+
+	
+theory FOLPf : http://cds.omdoc.org/urtheories?LF =
+	include ?FOLAxioms 
+	include ?FOLRules 
+
+	
+
+theory FOLNatDed : http://cds.omdoc.org/urtheories?LF =
+  include ?FOLSyntax 
+  include ?PLNatDed  
+  forallI  : {A} ({x} ded (A x)) → ded ∀ [x] A 
+  forallE  : {A} ded (∀ A) → {x} ded (A x) role Fo
+
+  existsI  : {A} {x} ded (A x) → ded exists [x] (A x) # existsI 2 3
+  existsE  : {A,C} ded (exists [x] A x) → ({x} ded (A x) → ded C) → ded C
+
+  
+theory FOLEQ : http://cds.omdoc.org/urtheories?LF =
+  include ?FOLSyntax 
+  equal  : term → term → prop# 1 ≐ 2 prec 30 
+
+
+theory FOLEQNatDed : http://cds.omdoc.org/urtheories?LF =
+  include ?FOLEQ  
+  include ?FOLNatDed  
+  refl     : {x} ded x ≐ x
+  congT    : {T}{x,y} ded x ≐ y → ded (T x) ≐ (T y)
+  congF    : {F}{x,y} ded x ≐ y → ded (F x) → ded (F y)
+  sym      : {x,y} ded x ≐ y → ded y ≐ x
+  trans    : {x,y,z} ded x ≐ y → ded y ≐ z → ded x ≐ z
+
