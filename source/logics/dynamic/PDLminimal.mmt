@@ -20,7 +20,7 @@ theory PDLAxioms : http://cds.omdoc.org/urtheories?LF =
 	PDLAx1 : {α,φ,ψ} ded ⟦ α ⟧ (φ ⇒ ψ) ⇒ (⟦ α ⟧ φ ⇒ ⟦ α ⟧ ψ) 
 	PDLAx2 : {α,φ,ψ} ded ⟦ α ⟧ (φ ∧ ψ) ⇔ ⟦ α ⟧ φ ∧ ⟦ α ⟧ ψ 
 	PDLAx3 : {α,β,φ} ded ⟦ α ∪ β ⟧ φ ⇔ ⟦ α ⟧ φ ∧ ⟦ β ⟧ φ 
-	PDLAx4 : {α,β,φ} ded ⟦ (α | β) ⟧ φ ⇔ ⟦ α ⟧ ( ⟦ β ⟧ φ ) 
+	PDLAx4 : {α,β,φ} ded ⟦ α | β ⟧ φ ⇔ ⟦ α ⟧  ⟦ β ⟧ φ  
 	PDLAx5 : {φ,ψ} ded ⟦ ψ? ⟧ φ ⇔ (ψ ⇒ φ) 
 	PDLAx6 : {α,φ} ded φ ∧ ⟦ α ⟧ ⟦ α * ⟧ φ ⇔ ⟦ α* ⟧ φ 
 	PDLAx7 : {α,φ} ded φ ∧ ⟦ α * ⟧ (φ ⇒ ⟦ α ⟧ φ) ⇒ ⟦ α * ⟧ φ 
