@@ -29,29 +29,29 @@ mathpath archive ../urtheories
 mathpath archive .
 
 define build
-  build latin twelf-omdoc
+  build MMT/LATIN twelf-omdoc
 end
 
 // call this after having "build" twice
 define build-mmt
-  build latin mmt-omdoc
+  build MMT/LATIN mmt-omdoc
   // foundations/hollight
 end
 
 define export
-  archive latin relational
-  build latin svg
-  build latin mws
+  archive MMT/LATIN relational
+  build MMT/LATIN svg
+  build MMT/LATIN mws
 end
 
 define literals
-  build latin mmt-omdoc literals
-  build latin lf-scala http..latin.omdoc.org/literals
+  build MMT/LATIN mmt-omdoc literals
+  build MMT/LATIN lf-scala http..latin.omdoc.org/literals
 end
 
 define tptp
-  archive urtheories relational
-  archive latin relational
-  build latin lf-tptp
-  //build latin lf-tptp http..latin.omdoc.org/math/Magma.omdoc
+  archive MMT/urtheories relational
+  archive MMT/LATIN relational
+  build MMT/LATIN lf-tptp
+  //build MMT/LATIN lf-tptp http..latin.omdoc.org/math/Magma.omdoc
 end
