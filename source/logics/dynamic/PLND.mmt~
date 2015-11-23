@@ -7,7 +7,7 @@ theory PLSyntax : http://cds.omdoc.org/urtheories?LF =
   prop  : type          
   ded   : prop → type          
   # ded 1  prec 0
-  ## ⊢ 1 prec 0
+  ## ⊦ 1 prec 0
   role Judgment
   contra : type  = {a} ded a # ↯             
   
@@ -55,6 +55,4 @@ theory PLNatDed : http://cds.omdoc.org/urtheories?LF =
   
   imp2E : {A,B,C} ded A ⇒ (B ⇒ C) → ded A → ded B → ded C    
         = [A,B,C] [p,q,r] impE (impE p q) r                   
-        
-  test : {A,B} ded (A ∧ B) → ded (B ∧ A)  = [A, B, p] andI (andEr p) (andEl p) 
 
