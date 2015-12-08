@@ -1,18 +1,17 @@
 namespace literals
 
-//   Representation of HOL Light following http://hol-light.googlecode.com/svn/trunk/fusion.ml
-     @author Florian Rabe
+theory Literals : ur:?LF =
+  lit  : type
 
 
-theory Numbers : ur:?LF =
-  num  : type
+//   theory for numeric literals
 
-
+  
 theory Arithmetic : ur:?LF =
-  include ?Numbers
-  add  : num → num → num  # 1 + 2
-  sub  : num → num → num  # 1 - 2
-  neg  : num → num        # - 1
-  mult : num → num → num  # 1 * 2
-  div  : num → num → num  # 1 / 2
+  include ?Literals
+  add  : lit → lit → lit  # 1 + 2
+  sub  : lit → lit → lit  # 1 - 2
+  neg  : lit → lit        # - 1
+  mult : lit → lit → lit  # 1 * 2
+  div  : lit → lit → lit  # 1 / 2
 
