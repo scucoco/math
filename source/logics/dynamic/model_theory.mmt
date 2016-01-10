@@ -3,17 +3,25 @@ namespace http://cds.omdoc.org/logic/model_theory/kripke
 import syn ..
 import minimal http://latin.omdoc.org/foundations/minimal
 
-//  theory DLFrame : ur:?LF =
-  include http://latin.omdoc.org/foundations/minimal?STTIFOLEQExt
+theory PDLFrame : ur:?LF =
+  include minimal:?STTIFOLEQExt
   include minimal:?Universes
   
-  state : set
+  K : set
+  
+
 
 
 
-//  view PDL : syn.PDLSyntax -> DLFrame =
-  prog = elem state → elem state → elem bool
-  form = elem state → elem bool
+view MeaningFun : http://cds.omdoc.org/logic?PDLMinimalSyntax -> ?PDLFrame =
+  PDLProg = elem K → elem K → bool
+  prop = elem K → bool  
+	true = [w] 1 
+  impl = [kφ][kψ] [w] (kφ w) ⇒ (kψ w) 
+  necessity = [kα] [kφ] [u]  ∀([v] (kα u v) ⇒ (kφ v)) 
+  compos = [kα] [kβ] [u] [v] [w] (kα u w) ∧ (kβ w v) 
+
+  
 
-
+  
 

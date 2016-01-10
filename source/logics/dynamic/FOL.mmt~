@@ -5,23 +5,22 @@ a few example proofs 
 
 theory FOLSyntax : http://cds.omdoc.org/urtheories?LF =
   include ?PLSyntax 
-  term  : type
-  forall : (term → prop) → prop# ∀ 1 prec 25 
-  exists : (term → prop) → prop# ∃ 1 prec 25 
+  term  : type 
+	forall: (term → prop) → prop  # ∀ 1 prec 25 
+	exists: (term → prop) → prop  # ∃ 1 prec 25 
 
   
 theory FOLAxioms : http://cds.omdoc.org/urtheories?LF =
 	include ?FOLSyntax 
-	include ?PLAxioms 
-	FOLAx1 : {x,φ,ψ} ded ∀ x (φ ⇒ ψ) ⇒ (∀ x φ ⇒ ∀ x ψ) 
-	FOLAx2 : {x,φ,t} ded ∀ x φ ⇒ (φ t) 
-	FOLAx3 : {φ,x} ded φ ⇒ ∀ x φ 
+	include ?PLHilbertAxioms 
+	FOLAx1 : {φ,ψ} ded ∀ [x] (φ ⇒ ψ) ⇒ ((∀ [x] φ) ⇒ (∀ [x] ψ)) 
+	FOLAx2 : {φ,t} ded ∀ [x] φ ⇒ ([x]φ) t 
+	FOLAx3 : {φ} ded φ ⇒ ∀ [x] φ 
 
 	
 theory FOLRules : http://cds.omdoc.org/urtheories?LF =
-	include ?FOLSyntax 
-	include ?PLRules 
-	FOLGEN : {x,φ} ded φ → ∀ x φ 
+	include ?PLHilbertRules 
+	FOLGEN : {φ} ded φ → ded ∀ φ 
 
 	
 theory FOLPf : http://cds.omdoc.org/urtheories?LF =
@@ -33,8 +32,8 @@ theory FOLPf : http://cds.omdoc.org/urtheories?LF =
 theory FOLNatDed : http://cds.omdoc.org/urtheories?LF =
   include ?FOLSyntax 
   include ?PLNatDed  
-  forallI  : {A} ({x} ded (A x)) → ded ∀ [x] A 
-  forallE  : {A} ded (∀ A) → {x} ded (A x) role Fo
+	forallI : {A} ({x} ded A x) → ded ∀ A  # forallI 2
+	forallE : {A}{b} ded ∀ A → ded A b  # forallE 3 2
 
   existsI  : {A} {x} ded (A x) → ded exists [x] (A x) # existsI 2 3
   existsE  : {A,C} ded (exists [x] A x) → ({x} ded (A x) → ded C) → ded C
