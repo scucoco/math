@@ -1,37 +1,0 @@
-namespace http://cds.omdoc.org/logic
-
-//   Propositional Dynamic Logic, based on the Chapter 5 of Harel's DL Book 
-
-theory PDLSyntax : http://cds.omdoc.org/urtheories?LF =
-  include ?PLSyntax 
-  PDLProg : type 
-  composition : PDLProg → PDLProg → PDLProg  #1 ; #2 prec 35 
-  choice : PDLProg → PDLProg → PDLProg   #1 ∪ #2 prec 35  
-  iteration : PDLProg → PDLProg   #1 * prec 37 
-  test : prop → PDLProg  #1 ? prec 37 
-  necessity : PDLProg → prop → prop  [[#1]] #2 prec 40 
-  possibility : PDLProp → prop → prop  <<#1>> #2 prec 40 
-              = [α,φ] ¬[[α]]¬φ 
-
-
-theory PDLAxioms : http://cds.omdoc.org/urtheories?LF =
-	include ?PDLSyntax 
-	PDLAx1 : {α,φ,ψ} ded [[α]] (φ ⇒ ψ) ⇒ ([[α]]φ ⇒ [[α]]ψ) 
-	PDLAx2 : {α,φ,ψ} ded [[α]] (φ ∧ ψ) ⇔ [[α]] φ ∧ [[α]] ψ 
-	PDLAx3 : {α,β,φ} ded [[α∪β]] φ ⇔ [[α]] φ ∧ [[β]] φ 
-	PDLAx4 : {α,β,φ} ded [[α;β]] φ ⇔ [[α]] [[β]] φ 
-	PDLAx5 : {φ,ψ} ded [[ψ?]] φ ⇔ (ψ ⇒ φ) 
-	PDLAx6 : {α,φ} ded φ ∧ [[α]][[α*]]φ ⇔ [[α*]] φ 
-	PDLAx7 : {α,φ} ded φ ∧ [[α*]](φ ⇒ [[α]] φ) ⇒ [[α*]] φ 
-
-	
-theory PDLRules : http://cds.omdoc.org/urtheories?LF =
-	include ?PDLSyntax 
-	GEN : {alpha,φ} ded φ → ded [[α]] φ 
-
-	
-theory PDLPf http://cds.omdoc.org/urtheories?LF =
-     include ?PLPf 
-     include PDLAxioms 
-     include PDLRules 
-
