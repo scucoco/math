@@ -1,15 +1,0 @@
-namespace http://cds.omdoc.org/logic
-
-//   Propositional Dynamic Logic 
-
-theory PDLSyntax : http://cds.omdoc.org/urtheories?LF =
-  include ?PDLMinimalSyntax 
-  skip : PDLProg  = true ? 
-  fail : PDLProg  = (¬ true) ? 
-  ifThenElse : prop → PDLProg → PDLProg → PDLProg 
-  	= 
-
-
-
-	
-

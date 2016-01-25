@@ -1,38 +1,0 @@
-namespace http://cds.omdoc.org/logic
-
-//   Hilbert Style Propositional logic 
-
-theory PLSyntax : http://cds.omdoc.org/urtheories?LF =
-  prop  : type          
-  ded   : prop → type          
-  # ded 1  prec 0
-  ## ⊦ 1 prec 0
-  role Judgment
-  contra : type  = {a} ded a # ↯             
-  
-  true  : prop                                  
-  and   : prop → prop → prop   # 1 ∧ 2 prec 15
-  or    : prop → prop → prop   # 1 ∨ 2 prec 15
-  impl  : prop → prop → prop   # 1 ⇒ 2 prec 10
-  not   : prop → prop          # ¬ 1   prec 20
-  equiv : prop → prop → prop   # 1 ⇔ 2 prec 10
-        = [x,y] (x ⇒ y) ∧ (y ⇒ x)
-
-        
-theory PLAxioms : http://cds.omdoc.org/urtheories?LF =
-	include ?PLSyntax 
-	S : {φ,ψ,σ} ded (φ ⇒ (ψ ⇒ σ)) ⇒ ((φ ⇒ ψ) ⇒ (φ ⇒ σ)) 
-	K : {φ, ψ} ded φ ⇒ (ψ ⇒ φ) 
-	DN : {φ} ded ((φ ⇒ ¬ true) ⇒ ¬ true) ⇒ φ 
-
-
-theory PLRules : http://cds.omdoc.org/urtheories?LF =
-	include ?PLSyntax 
-	MP : {φ, ψ} ded φ → ded φ ⇒ ψ → ded ψ 
-
-	
-theory PLPf : http://cds.omdoc.org/urtheories?LF =
-	include ?PLAxioms 
-	include ?PLRules 
-
-	

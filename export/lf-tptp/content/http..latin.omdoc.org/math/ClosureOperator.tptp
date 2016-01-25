@@ -1,6 +1,0 @@
-include(logics/syntax/PowerSorts.tptp).
-thf('http://latin.omdoc.org/math?ClosureOperator?X',type,'http://latin.omdoc.org/math?ClosureOperator?X' : 'http://latin.omdoc.org/logics/syntax?BaseSFOL?sorts/[http://latin.omdoc.org/type_theories?Level\']/cl').
-thf('http://latin.omdoc.org/math?ClosureOperator?cl',type,'http://latin.omdoc.org/math?ClosureOperator?cl' : (('http://latin.omdoc.org/logics/syntax?BaseSFOL?sorts/[http://latin.omdoc.org/type_theories?Level\']/exp' @ $ERROR) > ('http://latin.omdoc.org/logics/syntax?BaseSFOL?sorts/[http://latin.omdoc.org/type_theories?Level\']/exp' @ $ERROR))).
-thf('http://latin.omdoc.org/math?ClosureOperator?extensive',type,'http://latin.omdoc.org/math?ClosureOperator?extensive' : $ERROR).
-thf('http://latin.omdoc.org/math?ClosureOperator?monotonous',type,'http://latin.omdoc.org/math?ClosureOperator?monotonous' : $ERROR).
-thf('http://latin.omdoc.org/math?ClosureOperator?idempotent',type,'http://latin.omdoc.org/math?ClosureOperator?idempotent' : !>[A:('http://latin.omdoc.org/logics/syntax?BaseSFOL?sorts/[http://latin.omdoc.org/type_theories?Level\']/exp' @ $ERROR)]: (('http://latin.omdoc.org/logics/syntax?Logic?ded' @ ((((('http://latin.omdoc.org/math?ClosureOperator?cl' @ ('http://latin.omdoc.org/math?ClosureOperator?cl' @ A)) @ $ERROR) @ $ERROR) @ 'http://latin.omdoc.org/math?ClosureOperator?cl') @ A)))).

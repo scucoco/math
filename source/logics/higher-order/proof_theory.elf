@@ -6,11 +6,12 @@
   %include syn.HOL %open ==.
 
   eqrefl : ⊦ T == T.
-  eqsym  : ⊦ S == T -> ⊦ T == S.
-  eqtrans : ⊦ (A: tm K) == B -> ⊦ B == C -> ⊦ A == C.
   eqapp  : ⊦ F == G -> ⊦ S == T -> ⊦ (F @ S) == (G @ T).
   eqλ    : ({x: tm A} ⊦ (T x) == (S x)) -> ⊦ λ ([x: tm A] T x) == λ ([x: tm A] S x).  %% also called xi
   eq⊦    : ⊦ F == G -> ⊦ F -> ⊦ G.
+
+  eqsym  : ⊦ S == T -> ⊦ T == S = [p] eq⊦ (eqapp (eqapp eqrefl p) eqrefl) eqrefl.
+  eqtrans : ⊦ (A: tm K) == B -> ⊦ B == C -> ⊦ A == C = [p][q] eq⊦ (eqapp eqrefl q) p.
 
   beta   : ⊦ (λ [x: tm A] T x) @ S == (T S).
 
