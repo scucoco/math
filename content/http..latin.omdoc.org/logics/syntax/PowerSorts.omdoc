@@ -1,36 +1,31 @@
 <omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><theory name="PowerSorts" base="http://latin.omdoc.org/logics/syntax"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#49.2.0:410.16.1"/></metadata><import from="http://latin.omdoc.org/logics/syntax?BaseSFOL"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#71.3.2:89.3.20"/></metadata></import><constant name="power">
        <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#95.5.2:130.5.37"/></metadata>
-       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/mmt" module="mmt" name="unknown"></om:OMS>
-                 <om:OMBVAR><om:OMV name="/sort/0"></om:OMV></om:OMBVAR>
-                 <om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/mmt" module="mmt" name="free"></om:OMS>
-                 <om:OMBVAR><om:OMV name="sort"><type><om:OMV name="/sort/0"></om:OMV></type></om:OMV></om:OMBVAR>
-                 <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#103.5.10:113.5.20"/></metadata>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMV name="sort"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#103.5.10:106.5.13"/></metadata></om:OMV><om:OMSF><om:text format="unknown"><![CDATA[→]]></om:text></om:OMSF><om:OMV name="sort"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#110.5.17:113.5.20"/></metadata></om:OMV>
-      </om:OMA>
-      </om:OMBIND>
-      </om:OMBIND></om:OMOBJ></type>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#103.5.10:113.5.20"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="BaseSFOL" name="sorts/[http://latin.omdoc.org/type_theories?Level']/cl"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#103.5.10:106.5.13"/></metadata></om:OMS><om:OMS base="http://latin.omdoc.org/logics/syntax" module="BaseSFOL" name="sorts/[http://latin.omdoc.org/type_theories?Level']/cl"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#110.5.17:113.5.20"/></metadata></om:OMS>
+      </om:OMA></om:OMOBJ></type>
        
        <notations><notation dimension="1" precedence="100" fixity="mixfix" arguments="℘ 1"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="in">
        <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#133.6.2:172.6.41"/></metadata>
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/mmt" module="mmt" name="unknown"></om:OMS>
-                 <om:OMBVAR><om:OMV name="/S/1"></om:OMV><om:OMV name="/tm/0"></om:OMV></om:OMBVAR>
-                 <om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/mmt" module="mmt" name="free"></om:OMS>
-                 <om:OMBVAR><om:OMV name="tm"><type><om:OMV name="/tm/0"></om:OMV></type></om:OMV><om:OMV name="S"><type><om:OMV name="/S/1"></om:OMV></type></om:OMV></om:OMBVAR>
-                 <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#141.6.10:160.6.29"/></metadata>
+                 <om:OMBVAR><om:OMV name="/S/0"></om:OMV></om:OMBVAR>
+                 <om:OMBIND><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#141.6.10:160.6.29"/></metadata>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#142.6.11:142.6.11"/></metadata><type><om:OMV name="/S/0"></om:OMV></type></om:OMV></om:OMBVAR>
+                 <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#145.6.14:160.6.29"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#145.6.14:148.6.17"/></metadata>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMSF><om:text format="unknown"><![CDATA[{]]></om:text></om:OMSF><om:OMV name="S"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#142.6.11:142.6.11"/></metadata></om:OMV><om:OMSF><om:text format="unknown"><![CDATA[}]]></om:text></om:OMSF><om:OMV name="tm"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#145.6.14:146.6.15"/></metadata></om:OMV><om:OMV name="S"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#148.6.17:148.6.17"/></metadata></om:OMV><om:OMSF><om:text format="unknown"><![CDATA[→]]></om:text></om:OMSF><om:OMV name="tm"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#152.6.21:153.6.22"/></metadata></om:OMV><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#155.6.24:160.6.29"/></metadata>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="BaseSFOL" name="sorts/[http://latin.omdoc.org/type_theories?Level']/exp"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#145.6.14:146.6.15"/></metadata></om:OMS><om:OMV name="S"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#148.6.17:148.6.17"/></metadata></om:OMV>
+      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#152.6.21:156.6.25"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="BaseSFOL" name="sorts/[http://latin.omdoc.org/type_theories?Level']/exp"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#152.6.21:153.6.22"/></metadata></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#155.6.24:156.6.25"/></metadata>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="PowerSorts" name="power"></om:OMS>
-              <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#156.6.25:160.6.29"/></metadata>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMV name="S"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#156.6.25:156.6.25"/></metadata></om:OMV><om:OMSF><om:text format="unknown"><![CDATA[→]]></om:text></om:OMSF><om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#160.6.29:160.6.29"/></metadata></om:OMS>
+              <om:OMV name="S"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#156.6.25:156.6.25"/></metadata></om:OMV>
       </om:OMA>
-      </om:OMA>
+      </om:OMA><om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#160.6.29:160.6.29"/></metadata></om:OMS>
       </om:OMA>
       </om:OMBIND>
       </om:OMBIND></om:OMOBJ></type>
@@ -40,25 +35,25 @@
        <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#175.7.2:267.8.57"/></metadata>
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/mmt" module="mmt" name="unknown"></om:OMS>
-                 <om:OMBVAR><om:OMV name="/S/2"></om:OMV><om:OMV name="/tm/1"></om:OMV><om:OMV name="/type/0"></om:OMV></om:OMBVAR>
-                 <om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/mmt" module="mmt" name="free"></om:OMS>
-                 <om:OMBVAR><om:OMV name="type"><type><om:OMV name="/type/0"></om:OMV></type></om:OMV><om:OMV name="tm"><type><om:OMV name="/tm/1"></om:OMV></type></om:OMV><om:OMV name="S"><type><om:OMV name="/S/2"></om:OMV></type></om:OMV></om:OMBVAR>
-                 <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#184.7.11:207.7.34"/></metadata>
+                 <om:OMBVAR><om:OMV name="/S/0"></om:OMV></om:OMBVAR>
+                 <om:OMBIND><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#184.7.11:207.7.34"/></metadata>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#185.7.12:185.7.12"/></metadata><type><om:OMV name="/S/0"></om:OMV></type></om:OMV></om:OMBVAR>
+                 <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#188.7.15:207.7.34"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#188.7.15:192.7.19"/></metadata>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMSF><om:text format="unknown"><![CDATA[{]]></om:text></om:OMSF><om:OMV name="S"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#185.7.12:185.7.12"/></metadata></om:OMV><om:OMSF><om:text format="unknown"><![CDATA[}]]></om:text></om:OMSF><om:OMV name="tm"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#188.7.15:189.7.16"/></metadata></om:OMV><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#191.7.18:207.7.34"/></metadata>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="BaseSFOL" name="sorts/[http://latin.omdoc.org/type_theories?Level']/exp"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#188.7.15:189.7.16"/></metadata></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#191.7.18:192.7.19"/></metadata>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="PowerSorts" name="power"></om:OMS>
-              <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#192.7.19:207.7.34"/></metadata>
+              <om:OMV name="S"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#192.7.19:192.7.19"/></metadata></om:OMV>
+      </om:OMA>
+      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#196.7.23:200.7.27"/></metadata>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMV name="S"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#192.7.19:192.7.19"/></metadata></om:OMV><om:OMSF><om:text format="unknown"><![CDATA[→]]></om:text></om:OMSF><om:OMV name="tm"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#196.7.23:197.7.24"/></metadata></om:OMV><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#199.7.26:207.7.34"/></metadata>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="BaseSFOL" name="sorts/[http://latin.omdoc.org/type_theories?Level']/exp"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#196.7.23:197.7.24"/></metadata></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#199.7.26:200.7.27"/></metadata>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="PowerSorts" name="power"></om:OMS>
-              <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#200.7.27:207.7.34"/></metadata>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMV name="S"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#200.7.27:200.7.27"/></metadata></om:OMV><om:OMSF><om:text format="unknown"><![CDATA[→]]></om:text></om:OMSF><om:OMV name="type"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#204.7.31:207.7.34"/></metadata></om:OMV>
+              <om:OMV name="S"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#200.7.27:200.7.27"/></metadata></om:OMV>
       </om:OMA>
-      </om:OMA>
-      </om:OMA>
-      </om:OMA>
+      </om:OMA><om:OMS base="http://cds.omdoc.org/urtheories" module="Typed" name="type"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#204.7.31:207.7.34"/></metadata></om:OMS>
       </om:OMA>
       </om:OMBIND>
       </om:OMBIND></om:OMOBJ></type>
@@ -67,25 +62,38 @@
                  <om:OMBVAR><om:OMV name="/S/3"></om:OMV><om:OMV name="/A/2"></om:OMV><om:OMV name="/B/1"></om:OMV><om:OMV name="/x/0"></om:OMV></om:OMBVAR>
                  <om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/mmt" module="mmt" name="free"></om:OMS>
-                 <om:OMBVAR><om:OMV name="x"><type><om:OMV name="/x/0"></om:OMV></type></om:OMV><om:OMV name="B"><type><om:OMV name="/B/1"></om:OMV></type></om:OMV><om:OMV name="A"><type><om:OMV name="/A/2"></om:OMV></type></om:OMV><om:OMV name="S"><type><om:OMV name="/S/3"></om:OMV></type></om:OMV></om:OMBVAR>
-                 <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#221.8.11:255.8.45"/></metadata>
-              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="PowerSorts" name="in"></om:OMS>
-              <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#221.8.11:250.8.40"/></metadata>
-              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="PowerSorts" name="in"></om:OMS>
-              <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#221.8.11:237.8.27"/></metadata>
+                 <om:OMBVAR><om:OMV name="B"><type><om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMSF><om:text format="unknown"><![CDATA[[]]></om:text></om:OMSF><om:OMV name="S"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#222.8.12:222.8.12"/></metadata></om:OMV><om:OMSF><om:text format="unknown"><![CDATA[,]]></om:text></om:OMSF><om:OMV name="A"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#224.8.14:224.8.14"/></metadata></om:OMV><om:OMSF><om:text format="unknown"><![CDATA[,]]></om:text></om:OMSF><om:OMV name="B"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#226.8.16:226.8.16"/></metadata></om:OMV><om:OMSF><om:text format="unknown"><![CDATA[}]]></om:text></om:OMSF><om:OMSF><om:text format="unknown"><![CDATA[{]]></om:text></om:OMSF><om:OMV name="x"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#230.8.20:230.8.20"/></metadata></om:OMV><om:OMSF><om:text format="unknown"><![CDATA[}]]></om:text></om:OMSF><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#233.8.23:237.8.27"/></metadata>
+              <om:OMV name="/B/1"></om:OMV><om:OMV name="/x/0"></om:OMV>
+      </om:OMA></type></om:OMV><om:OMV name="A"><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMV name="/A/2"></om:OMV><om:OMV name="/x/0"></om:OMV>
+      </om:OMA></type></om:OMV><om:OMV name="S"><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMV name="/S/3"></om:OMV><om:OMV name="/x/0"></om:OMV>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#221.8.11:255.8.45"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMSF><om:text format="unknown"><![CDATA[[]]></om:text></om:OMSF><om:OMV name="S"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#222.8.12:222.8.12"/></metadata></om:OMV><om:OMSF><om:text format="unknown"><![CDATA[,]]></om:text></om:OMSF><om:OMV name="A"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#224.8.14:224.8.14"/></metadata></om:OMV><om:OMSF><om:text format="unknown"><![CDATA[,]]></om:text></om:OMSF><om:OMV name="B"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#226.8.16:226.8.16"/></metadata></om:OMV><om:OMSF><om:text format="unknown"><![CDATA[}]]></om:text></om:OMSF><om:OMBIND><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#229.8.19:255.8.45"/></metadata>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#230.8.20:230.8.20"/></metadata><type><om:OMV name="/x/0"></om:OMV></type></om:OMV></om:OMBVAR>
+                 <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#233.8.23:255.8.45"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#233.8.23:242.8.32"/></metadata>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="PowerSorts" name="in"></om:OMS>
+              <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#233.8.23:237.8.27"/></metadata>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"></om:OMS><om:OMV name="x"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#237.8.27:237.8.27"/></metadata></om:OMV>
-      </om:OMA>
-      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#242.8.32:250.8.40"/></metadata>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMV name="A"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#242.8.32:242.8.32"/></metadata></om:OMV><om:OMSF><om:text format="unknown"><![CDATA[→]]></om:text></om:OMSF><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#246.8.36:250.8.40"/></metadata>
+      </om:OMA><om:OMV name="A"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#242.8.32:242.8.32"/></metadata></om:OMV>
+      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#246.8.36:255.8.45"/></metadata>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="PowerSorts" name="in"></om:OMS>
+              <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#246.8.36:250.8.40"/></metadata>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"></om:OMS><om:OMV name="x"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#250.8.40:250.8.40"/></metadata></om:OMV>
-      </om:OMA>
-      </om:OMA>
       </om:OMA><om:OMV name="B"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#255.8.45:255.8.45"/></metadata></om:OMV>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND>
       </om:OMA>
       </om:OMBIND>
       </om:OMBIND></om:OMOBJ></definition>
@@ -94,35 +102,29 @@
        <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#271.10.2:320.10.51"/></metadata>
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/mmt" module="mmt" name="unknown"></om:OMS>
-                 <om:OMBVAR><om:OMV name="/S/2"></om:OMV><om:OMV name="/A/1"></om:OMV><om:OMV name="/B/0"></om:OMV></om:OMBVAR>
-                 <om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/mmt" module="mmt" name="free"></om:OMS>
-                 <om:OMBVAR><om:OMV name="B"><type><om:OMV name="/B/0"></om:OMV></type></om:OMV><om:OMV name="A"><type><om:OMV name="/A/1"></om:OMV></type></om:OMV><om:OMV name="S"><type><om:OMV name="/S/2"></om:OMV></type></om:OMV></om:OMBVAR>
-                 <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#279.10.10:318.10.49"/></metadata>
-              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="PowerSorts" name="subset"></om:OMS>
-              <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#279.10.10:300.10.31"/></metadata>
-              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="PowerSorts" name="subset"></om:OMS>
-              <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#279.10.10:291.10.22"/></metadata>
+                 <om:OMBVAR><om:OMV name="/A/1"></om:OMV><om:OMV name="/S/0"></om:OMV></om:OMBVAR>
+                 <om:OMBIND><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#279.10.10:318.10.49"/></metadata>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#280.10.11:280.10.11"/></metadata><type><om:OMV name="/S/0"></om:OMV></type></om:OMV><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#282.10.13:282.10.13"/></metadata><type><om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMSF><om:text format="unknown"><![CDATA[{]]></om:text></om:OMSF><om:OMV name="S"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#280.10.11:280.10.11"/></metadata></om:OMV><om:OMSF><om:text format="unknown"><![CDATA[,]]></om:text></om:OMSF><om:OMV name="A"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#282.10.13:282.10.13"/></metadata></om:OMV><om:OMSF><om:text format="unknown"><![CDATA[,]]></om:text></om:OMSF><om:OMV name="B"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#284.10.15:284.10.15"/></metadata></om:OMV><om:OMSF><om:text format="unknown"><![CDATA[:]]></om:text></om:OMSF><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#287.10.18:291.10.22"/></metadata>
+              <om:OMV name="/A/1"></om:OMV><om:OMV name="S"></om:OMV>
+      </om:OMA></type></om:OMV><om:OMV name="B"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#284.10.15:284.10.15"/></metadata><type><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#287.10.18:288.10.19"/></metadata>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="PowerSorts" name="power"></om:OMS>
-              <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#288.10.19:291.10.22"/></metadata>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMV name="S"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#288.10.19:288.10.19"/></metadata></om:OMV><om:OMSF><om:text format="unknown"><![CDATA[}]]></om:text></om:OMSF><om:OMV name="A"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#291.10.22:291.10.22"/></metadata></om:OMV>
-      </om:OMA>
-      </om:OMA>
-      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#296.10.27:300.10.31"/></metadata>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMV name="B"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#296.10.27:296.10.27"/></metadata></om:OMV><om:OMSF><om:text format="unknown"><![CDATA[→]]></om:text></om:OMSF><om:OMV name="B"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#300.10.31:300.10.31"/></metadata></om:OMV>
-      </om:OMA>
-      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#305.10.36:318.10.49"/></metadata>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMV name="A"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#305.10.36:305.10.36"/></metadata></om:OMV><om:OMSF><om:text format="unknown"><![CDATA[→]]></om:text></om:OMSF><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#309.10.40:318.10.49"/></metadata>
+              <om:OMV name="S"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#288.10.19:288.10.19"/></metadata></om:OMV>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#291.10.22:318.10.49"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#291.10.22:296.10.27"/></metadata>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="PowerSorts" name="subset"></om:OMS>
+              <om:OMV name="A"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#291.10.22:291.10.22"/></metadata></om:OMV><om:OMV name="B"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#296.10.27:296.10.27"/></metadata></om:OMV>
+      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#300.10.31:305.10.36"/></metadata>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="PowerSorts" name="subset"></om:OMS>
+              <om:OMV name="B"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#300.10.31:300.10.31"/></metadata></om:OMV><om:OMV name="A"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#305.10.36:305.10.36"/></metadata></om:OMV>
+      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#309.10.40:318.10.49"/></metadata>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#313.10.44:318.10.49"/></metadata>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMV name="A"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#313.10.44:313.10.44"/></metadata></om:OMV><om:OMSF><om:text format="unknown"><![CDATA[=]]></om:text></om:OMSF><om:OMSF><om:text format="unknown"><![CDATA[=]]></om:text></om:OMSF><om:OMV name="B"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#318.10.49:318.10.49"/></metadata></om:OMV>
-      </om:OMA>
       </om:OMA>
       </om:OMA>
       </om:OMA>
@@ -134,15 +136,24 @@
        <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#323.11.2:354.11.33"/></metadata>
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/mmt" module="mmt" name="unknown"></om:OMS>
-                 <om:OMBVAR><om:OMV name="/S/1"></om:OMV><om:OMV name="/tm/0"></om:OMV></om:OMBVAR>
-                 <om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/mmt" module="mmt" name="free"></om:OMS>
-                 <om:OMBVAR><om:OMV name="tm"><type><om:OMV name="/tm/0"></om:OMV></type></om:OMV><om:OMV name="S"><type><om:OMV name="/S/1"></om:OMV></type></om:OMV></om:OMBVAR>
-                 <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#331.11.10:352.11.31"/></metadata>
+                 <om:OMBVAR><om:OMV name="/S/0"></om:OMV></om:OMBVAR>
+                 <om:OMBIND><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#331.11.10:352.11.31"/></metadata>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#332.11.11:332.11.11"/></metadata><type><om:OMV name="/S/0"></om:OMV></type></om:OMV></om:OMBVAR>
+                 <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#335.11.14:352.11.31"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#335.11.14:344.11.23"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#336.11.15:339.11.18"/></metadata>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMSF><om:text format="unknown"><![CDATA[{]]></om:text></om:OMSF><om:OMV name="S"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#332.11.11:332.11.11"/></metadata></om:OMV><om:OMSF><om:text format="unknown"><![CDATA[}]]></om:text></om:OMSF><om:OMSF><om:text format="unknown"><![CDATA[(]]></om:text></om:OMSF><om:OMV name="tm"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#336.11.15:337.11.16"/></metadata></om:OMV><om:OMV name="S"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#339.11.18:339.11.18"/></metadata></om:OMV><om:OMSF><om:text format="unknown"><![CDATA[→]]></om:text></om:OMSF><om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#343.11.22:343.11.22"/></metadata></om:OMS><om:OMSF><om:text format="unknown"><![CDATA[)]]></om:text></om:OMSF><om:OMSF><om:text format="unknown"><![CDATA[→]]></om:text></om:OMSF><om:OMV name="tm"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#348.11.27:349.11.28"/></metadata></om:OMV><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#351.11.30:352.11.31"/></metadata>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="BaseSFOL" name="sorts/[http://latin.omdoc.org/type_theories?Level']/exp"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#336.11.15:337.11.16"/></metadata></om:OMS><om:OMV name="S"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#339.11.18:339.11.18"/></metadata></om:OMV>
+      </om:OMA><om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#343.11.22:343.11.22"/></metadata></om:OMS>
+      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#348.11.27:352.11.31"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="BaseSFOL" name="sorts/[http://latin.omdoc.org/type_theories?Level']/exp"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#348.11.27:349.11.28"/></metadata></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#351.11.30:352.11.31"/></metadata>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="PowerSorts" name="power"></om:OMS>
               <om:OMV name="S"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#352.11.31:352.11.31"/></metadata></om:OMV>
+      </om:OMA>
       </om:OMA>
       </om:OMA>
       </om:OMBIND>
@@ -153,21 +164,30 @@
        <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#357.12.2:407.14.1"/></metadata>
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/mmt" module="mmt" name="unknown"></om:OMS>
-                 <om:OMBVAR><om:OMV name="/S/2"></om:OMV><om:OMV name="/P/1"></om:OMV><om:OMV name="/x/0"></om:OMV></om:OMBVAR>
-                 <om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/mmt" module="mmt" name="free"></om:OMS>
-                 <om:OMBVAR><om:OMV name="x"><type><om:OMV name="/x/0"></om:OMV></type></om:OMV><om:OMV name="P"><type><om:OMV name="/P/1"></om:OMV></type></om:OMV><om:OMV name="S"><type><om:OMV name="/S/2"></om:OMV></type></om:OMV></om:OMBVAR>
-                 <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#368.12.13:403.12.48"/></metadata>
-              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="PowerSorts" name="in"></om:OMS>
-              <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#368.12.13:380.12.25"/></metadata>
+                 <om:OMBVAR><om:OMV name="/x/2"></om:OMV><om:OMV name="/P/1"></om:OMV><om:OMV name="/S/0"></om:OMV></om:OMBVAR>
+                 <om:OMBIND><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#368.12.13:403.12.48"/></metadata>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#369.12.14:369.12.14"/></metadata><type><om:OMV name="/S/0"></om:OMV></type></om:OMV><om:OMV name="P"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#371.12.16:371.12.16"/></metadata><type><om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMSF><om:text format="unknown"><![CDATA[{]]></om:text></om:OMSF><om:OMV name="S"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#369.12.14:369.12.14"/></metadata></om:OMV><om:OMSF><om:text format="unknown"><![CDATA[,]]></om:text></om:OMSF><om:OMV name="P"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#371.12.16:371.12.16"/></metadata></om:OMV><om:OMSF><om:text format="unknown"><![CDATA[,]]></om:text></om:OMSF><om:OMV name="x"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#373.12.18:373.12.18"/></metadata></om:OMV><om:OMSF><om:text format="unknown"><![CDATA[}]]></om:text></om:OMSF><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#376.12.21:380.12.25"/></metadata>
+              <om:OMV name="/P/1"></om:OMV><om:OMV name="S"></om:OMV>
+      </om:OMA></type></om:OMV><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#373.12.18:373.12.18"/></metadata><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMV name="/x/2"></om:OMV><om:OMV name="S"></om:OMV><om:OMV name="P"></om:OMV>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#376.12.21:403.12.48"/></metadata>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="PowerSorts" name="in"></om:OMS>
+              <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#376.12.21:380.12.25"/></metadata>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"></om:OMS><om:OMV name="x"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#380.12.25:380.12.25"/></metadata></om:OMV>
-      </om:OMA>
       </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#385.12.30:403.12.48"/></metadata>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMSF><om:text format="unknown"><![CDATA[(]]></om:text></om:OMSF><om:OMS base="http://latin.omdoc.org/logics/syntax" module="PowerSorts" name="compr"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#386.12.31:390.12.35"/></metadata></om:OMS><om:OMV name="S"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#392.12.37:392.12.37"/></metadata></om:OMV><om:OMV name="P"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#394.12.39:394.12.39"/></metadata></om:OMV><om:OMSF><om:text format="unknown"><![CDATA[)]]></om:text></om:OMSF><om:OMSF><om:text format="unknown"><![CDATA[⇔]]></om:text></om:OMSF><om:OMSF><om:text format="unknown"><![CDATA[(]]></om:text></om:OMSF><om:OMV name="P"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#400.12.45:400.12.45"/></metadata></om:OMV><om:OMV name="x"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#402.12.47:402.12.47"/></metadata></om:OMV><om:OMSF><om:text format="unknown"><![CDATA[)]]></om:text></om:OMSF>
+              <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#385.12.30:395.12.40"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="PowerSorts" name="compr"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#386.12.31:390.12.35"/></metadata></om:OMS><om:OMV name="S"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#392.12.37:392.12.37"/></metadata></om:OMV><om:OMV name="P"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#394.12.39:394.12.39"/></metadata></om:OMV>
+      </om:OMA><om:OMSF><om:text format="unknown"><![CDATA[⇔]]></om:text></om:OMSF><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#399.12.44:403.12.48"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMV name="P"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#400.12.45:400.12.45"/></metadata></om:OMV><om:OMV name="x"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/first-order/syntax/power_sorts.mmt#402.12.47:402.12.47"/></metadata></om:OMV>
+      </om:OMA>
       </om:OMA>
       </om:OMA>
       </om:OMBIND>
