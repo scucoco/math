@@ -1,0 +1,77 @@
+<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><theory name="Arithmetic" base="http://latin.omdoc.org/logics/tptp" meta="http://cds.omdoc.org/urtheories?LF"><import from="http://latin.omdoc.org/logics/tptp?Types"></import><constant name="$arithdom" role="type">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://cds.omdoc.org/urtheories" module="Typed" name="type"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="$_int" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithdom"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="$_rat" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithdom"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="$_real" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithdom"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="$arithtype" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithdom"></om:OMS><om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tType"></om:OMS>
+      </om:OMA></om:OMOBJ></type>
+       
+       
+     </constant><constant name="$int" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tType"></om:OMS></om:OMOBJ></type>
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$_int"></om:OMS>
+      </om:OMA></om:OMOBJ></definition>
+       
+     </constant><constant name="$rat" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tType"></om:OMS></om:OMOBJ></type>
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$_rat"></om:OMS>
+      </om:OMA></om:OMOBJ></definition>
+       
+     </constant><constant name="$real" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tType"></om:OMS></om:OMOBJ></type>
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$arithtype"></om:OMS><om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$_real"></om:OMS>
+      </om:OMA></om:OMOBJ></definition>
+       
+     </constant><constant name="$intliteral" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"></om:OMS><om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$int"></om:OMS>
+      </om:OMA></om:OMOBJ></type>
+       
+       
+     </constant><constant name="$ratliteral" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"></om:OMS><om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$rat"></om:OMS>
+      </om:OMA></om:OMOBJ></type>
+       
+       
+     </constant><constant name="$realliteral" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"></om:OMS><om:OMS base="http://latin.omdoc.org/logics/tptp" module="Arithmetic" name="$real"></om:OMS>
+      </om:OMA></om:OMOBJ></type>
+       
+       
+     </constant></theory></omdoc>

@@ -1,0 +1,31 @@
+<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><view from="http://latin.omdoc.org/logics/syntax?Forall" to="http://latin.omdoc.org/foundations/mizar?Mizar" name="ForallMizarView" base="http://latin.omdoc.org/foundations/mizar">
+           <import name="[http://latin.omdoc.org/logics/syntax?UniverseLogic]" from="http://latin.omdoc.org/logics/syntax?UniverseLogic" implicit="true"><definition><om:OMS base="http://latin.omdoc.org/foundations/mizar" module="BaseFOLMizarView"></om:OMS></definition></import><constant name="[http://latin.omdoc.org/logics/syntax?Forall]/forall">
+       
+       
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="f"><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/mizar" module="Mizar" name="be"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/mizar" module="Mizar" name="set"></om:OMS>
+      </om:OMA><om:OMS base="http://latin.omdoc.org/foundations/mizar" module="Mizar" name="prop"></om:OMS>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/mizar" module="Mizar" name="for"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/mizar" module="Mizar" name="set"></om:OMS><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/></metadata><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/mizar" module="Mizar" name="be"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/mizar" module="Mizar" name="set"></om:OMS>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMV name="f"></om:OMV><om:OMV name="x"></om:OMV>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMA>
+      </om:OMBIND></om:OMOBJ></definition>
+       
+     </constant>
+         </view></omdoc>
