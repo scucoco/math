@@ -1,0 +1,55 @@
+namespace http://latin.omdoc.org/logics/proof_theory
+
+theory myBaseSFOL : http://cds.omdoc.org/urtheories?LF =
+  include ?Base
+  include http://latin.omdoc.org/logics/syntax?myBaseSFOL
+
+  
+theory mySForAll : http://cds.omdoc.org/urtheories?LF =
+   include ?myBaseSFOL
+   include http://latin.omdoc.org/logics/syntax?mySForAll
+   forallI : {S, F} ({x : tm S} (ded (F x))) → (ded (∀ F))  
+   forallE : {S, F} (ded (∀ F)) → ({x : tm S} ded (F x))
+
+
+theory mySExists : http://cds.omdoc.org/urtheories?LF =
+   include ?myBaseSFOL
+   include http://latin.omdoc.org/logics/syntax?mySExists
+   existsI : {S : sort, F : tm S → o} ({x : tm S} ded (F x)) → (ded (exists S F))
+   existsE : {S : sort, F : tm S → o, H} (ded (∃ F)) → ({x : tm S} ded F x → ded H) → ded H
+
+
+theory mySEqual : http://cds.omdoc.org/urtheories?LF =
+   include ?BaseSFOL
+   include http://latin.omdoc.org/logics/syntax?mySEqual
+   refl  : {S} {A : tm S} ded (A ≐ A)
+   sym   : {S} {A, B} ded (A ≐ B) → ded (B ≐ A)
+   trans : {S} {A, B, C} ded (A ≐ B) → ded (B ≐ C) → ded (A ≐ C)
+   congF : {T} {X, Y} ded (X ≐ Y) → ({F : tm S → tm T} ded ((F X) ≐ (F Y)))
+   congP : {T} {X, Y} ded (X ≐ Y) → ({F : tm S → o} ded (F X) → ded (F Y))
+
+
+theory mySIFOL : http://cds.omdoc.org/urtheories?LF =
+  include ?BaseSFOL
+  include http://latin.omdoc.org/logics/syntax?SFOL
+  include ?IPL
+  include ?SForAll
+  include ?SExists
+
+
+theory mySIFOLEQ : http://cds.omdoc.org/urtheories?LF = 
+  include ?mySIFOL
+  include ?mySEqual
+
+
+theory mySFOL : http://cds.omdoc.org/urtheories?LF =
+ include ?myBaseSFOL
+ include ?SIFOL
+ include ?TND
+ non_empty_universe : ded exists [x: tm S] true
+
+
+theory mySFOLEQ : http://cds.omdoc.org/urtheories?LF =
+ include ?mySFOL
+ include ?mySEqual
+

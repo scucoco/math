@@ -1,16 +1,25 @@
 namespace http://latin.omdoc.org/logics/syntax
 
-theory PowerSorts =
-  include ?BaseSFOL
+theory PowerSorts : http://cds.omdoc.org/urtheories?LF =
+  include ?SFOLEQ
+  equal : {S} tm S → tm S → o= [S,x,y] eq S x y# 2 == 3
   
   power : sort → sort# ℘ 1 prec 100
-  in    : {S} tm S → tm ℘S → o # 1 ‍∈ 2
-  subset : {S} tm ℘S → tm ℘S → type
-         = [S,A,B} {x} ded x ‍∈ A → ded x ‍∈ B # 1 ⊆‍ 2
+  in    : {S} tm S → tm ℘S → o # 2 ‍∈ 3
 
-  ext   : {S,A,B: ℘S} A ⊆‍ B → B ⊆‍ A → ded A == B
-  compr : {S} (tm S → o) → tm ℘S
-  compr_ax : {S,P,x} ded x ‍∈ (compr S P) ⇔ (P x)
+  filter : {A} (tm A → o) → tm ℘A  # filter 2
+  
+  subset : {S} tm ℘S → tm ℘ S → o  # 2 ⊆‍ 3	
+  = [S : sort, A : tm ℘S, B : tm ℘S] forall ([x] ((x ‍∈ A) imp (x ‍∈ B))) 
 
+
+  full : {A} tm ℘ A= [A] filter ([x] true)# id
+  empty : {A} tm ℘ A= [A] filter ([x] false)  # ∅ 
+  union : {S} tm ℘S → tm ℘S → tm ℘S  # 2 ∪ 3 
+  inters : {S} tm ℘S → tm ℘S → tm ℘S  # 2 ∩ 3 
+  
+  compl : {S} tm ℘S → tm ℘S # 2 ᶜ 
+
+  bigunion : {S} tm ℘℘S → tm ℘S  # ⋃ 2 
+  biginters : {S} tm ℘℘S → tm ℘S  # ⋂ 2 
 
-

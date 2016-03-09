@@ -1,23 +1,23 @@
 namespace http://latin.omdoc.org/math
 
-theory ClosureSystem : http://latin.omdoc.org/logics/syntax?PowerSorts =
+theory ClosureSystem : http://latin.omdoc.org/logics/syntax?PowerSFOL =
   X     : sort
-  cl    : tm ℘℘X
+  closed    : tm ℘℘X
   
-  intersection : {Q: tm ℘℘X} Q ⊆‍ OO → (⋂ Q) ‍∈ OO
+  intersection : {Q: tm ℘℘X} Q ⊆‍ cls → (⋂ Q) ‍∈ cls
   // provable 
-  full_closed  : ded (full X) ‍∈ CC
+  full_closed  : ded (full X) ‍∈ cls
 
 
 theory ClosedTopology : http://latin.omdoc.org/logics/syntax?PowerSorts =
   include ?ClosureSystem  
-  empty_closed : ded ∅ ‍∈ CC
-  finite_union : {A,B} ded A ‍∈ CC → ded B ‍∈ CC → ded A ∪ B ‍∈ CC
+  empty_closed : ded ∅ ‍∈ cls
+  finite_union : {A,B} ded A ‍∈ cls → ded B ‍∈ cls → ded A ∪ B ‍∈ cls
 
 
 theory ClosureOperator : http://latin.omdoc.org/logics/syntax?PowerSorts =
   X     : sort
-  cl    : tm ℘X → tm ℘X
+  closure    : tm ℘X → tm ℘X
   
   extensive    : {A} ded A ⊆‍ cl A
   monotonous   : {A,B} ded A ⊆‍ B ⇒ cl A ⊆‍ cl B
@@ -55,7 +55,7 @@ theory ClosenessTopology : http://latin.omdoc.org/logics/syntax?PowerSorts =
 //   empty and full axioms are implied by/correspond to empty union and empty intersection
 theory OpenTopology : http://latin.omdoc.org/logics/syntax?PowerSorts =
   X     : sort
-  OO    : tm ℘℘X
+  open    : tm ℘℘X
   
   empty_open : ded ∅ ‍∈ OO 
   full_open  : ded (full X) ‍∈ OO

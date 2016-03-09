@@ -1,0 +1,36 @@
+namespace http://latin.omdoc.org/logics/syntax
+
+theory myBaseSFOL : http://cds.omdoc.org/urtheories?LF =   
+	include ?PL 
+	include ?Equiv
+
+	structure level : http://latin.omdoc.org/type_theories?Level = 
+		exp @ tm 
+		cl @ sort
+	
+
+	
+theory mySForAll : http://cds.omdoc.org/urtheories?LF = 
+	include ?myBaseSFOL
+	forall : {S : sort} (tm S → o) → o  # ∀ 2  
+
+	
+theory	mySExists : http://cds.omdoc.org/urtheories?LF = 
+	include ?myBaseSFOL
+	exists : {S : sort} (tm S → o) → o  # ∃ 2 
+
+	
+theory mySEqual : http://cds.omdoc.org/urtheories?LF = 
+	include ?myBaseSFOL
+	eq : {S : sort } tm S → tm S → o  # 2 ≐ 3 
+
+
+
+theory mySFOLEQ : http://cds.omdoc.org/urtheories?LF = 
+	include ?myBaseSFOL
+	include ?mySForAll
+	include ?mySExists
+	include ?mySEqual
+
+
+

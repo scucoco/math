@@ -1,0 +1,32 @@
+namespace http://latin.omdoc.org/logics/proof_theory
+
+theory PowerSorts : ur:?LF =
+  include syntax?PowerSorts  
+  include ?SFOLEQ
+
+  ext : {S, A : tm ℘S, B : tm ℘S} ded (A ⊆‍ B) → ded (B ⊆‍ A) → ded (eq A B)
+
+  filter_ax : {S : sort , P: tm S → o, x : tm S} ded ((x ‍∈ (filter P)) equiv (P x))
+  
+  filterI: {S, P : tm S → o, x} ded (P x) → ded (x ‍∈ (filter P))  
+  				= [S, P, x, p] equivEr (filter_ax S P x)
+  filterE: {S, P : tm S → o, x} ded (x ‍∈ (filter P)) → ded (P x)  
+  				= [S, P, x, p] equivEl (filter_ax p)
+  
+  unionIl: ded X in A → ded X in A union B
+             = [p] filterI (orIl p)
+
+  unionIr: {S, X, A : tm ℘S, B : tm ℘S} ded (X ‍∈ B) → ded (X ‍∈ (A ∪ B))
+             = [p] filterI (orIr p)
+
+  unionE: ded X in A union B → (ded x in A → ded C) → (ded x in B → ded C) → ded C
+  				= [p,q,r] orE (filterE p) q r
+
+  
+  
+
+
+theory PowerSFOL : ur:?LF =
+   include ?SFOLEQ
+   include ?PowerSorts
+

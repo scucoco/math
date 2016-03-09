@@ -1,0 +1,82 @@
+namespace http://latin.omdoc.org/math
+
+import pf logics/proof_theory
+
+theory ClosedTopology : pf:?PowerSFOL =
+	X : sort
+	closed : tm ℘℘ X
+	
+ 	emptyset : tm ℘ X  # ∅ 
+	
+    full_closed  : ded ((full X) ‍∈ closed)
+    empty_closed : ded (emptyset ‍∈ closed)	
+    intersection : {Q : tm ℘℘X} ded (Q ⊆‍ closed)→ ded ((⋂ Q) ‍∈ closed)
+    finite_union : {A,B} ded (A ‍∈ closed) → ded (B ‍∈ closed )→ ded ((A ∪ B) ‍∈ closed)	
+
+
+theory OpenTopology : pf:?PowerSFOL =
+    X : sort
+    open : tm ℘℘X
+  
+ 	emptyset : tm ℘ X  # ∅ 
+	
+    empty_open : ded (emptyset ‍∈ open) 
+    full_open  : ded ((full X) ‍∈ open)
+    union : {Q} ded (Q ⊆‍ open) → ded ((⋃ Q) ‍∈ open)
+    finite_intersection : {A,B} ded (A ‍∈ open) → ded (B ‍∈ open) → ded ((A ∩ B) ‍∈ open)
+
+
+theory ClosureTopology : http://latin.omdoc.org/logics/syntax?PowerSorts =
+	X : sort
+	closure : tm ℘X → tm ℘X
+    
+	extensivity : {A : tm ℘X} ded (subset X A (closure A))
+	increasing : {A,B} ded ((A ⊆‍ B) imp (closure A ⊆‍ closure B))
+	idempotency : {A} (closure (closure A)) == (closure A)
+	bin_union : {A, B} (closure (A ∪ B)) == ((closure A) ∪ (closure B))
+	preservation : (closure (∅ X)) == (∅ X)
+	
+
+  
+theory InteriorTopology : http://latin.omdoc.org/logics/syntax?PowerSorts = 
+	X : sort 
+	interior : tm ℘X → tm ℘X
+
+	int_extensivity : {A} ded ( subset X (interior A) A)
+	idempotence : {A} (interior A) == (interior (interior A))
+	bin_inters : {A, B} (interior (A ∩ B)) == ((interior A) ∩ (interior B))
+	preservation : (interior (full X)) == (full X)
+	
+
+
+theory tFilter : http://latin.omdoc.org/logics/syntax?PowerSorts =
+	tfilter : type
+
+	
+	≤ : {X} tm X → tm X → o
+
+
+	
+theory NeighbourhoodTopology : http://latin.omdoc.org/logics/syntax?PowerSorts =
+	X : sort
+	Fx : sort
+	N : tm X → tm ℘℘X
+
+	axiom1 : {U : tm ℘X, x : tm X} ded ((U ‍∈ (N x)) imp (x ‍∈ U))
+	axiom2 : {U : tm ℘X, x : tm X} ded ((U ‍∈ (N x)) imp 
+														(exists (℘X) ([V] ((V ‍∈ (N x)) imp
+														(forall X ([y] ( (y ‍∈ V) imp (U ‍∈ (N y))) ) )
+														))))
+
+
+	
+view closedToOpen : ?ClosedTopology -> ?OpenTopology =
+	X = X
+	emptyset = emptyset
+    closed = filter ( [x] (x ᶜ) ‍∈ open )
+    full_closed = empty_open
+    empty_closed = full_open
+
+
+
+ 
