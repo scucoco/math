@@ -5,13 +5,13 @@ namespace http://cds.omdoc.org/logic
 theory PDLMinimalSyntax : http://cds.omdoc.org/urtheories?LF =
   include ?PLSyntax 
   PDLProg : type 
-  compos : PDLProg → PDLProg → PDLProg  # 1 | 2 prec 35 
-  choice : PDLProg → PDLProg → PDLProg   # 1 ∪ 2 prec 35  
-  iteration : PDLProg → PDLProg   # 1 * prec 37 
-  test : prop → PDLProg  # 1 ? prec 37 
-  necessity : PDLProg → prop → prop  # ⟦ 1 ⟧ 2 prec 30 
-  possibility : PDLProg → prop → prop  # ⟪ 1 ⟫ 2 prec 30 
-  						= [α,φ] ¬ ⟦ α ⟧ ¬ φ 
+  compos : PDLProg → PDLProg → PDLProg  # 1 | 2 prec 6 
+  choice : PDLProg → PDLProg → PDLProg   # 1 ∪ 2 prec 5  
+  iteration : PDLProg → PDLProg   # 1 * prec 7 
+  test : prop → PDLProg  # 1 ? prec 7 
+  necessity : PDLProg → prop → prop  # ⟦ 1 ⟧ 2 prec 2 
+  possibility : PDLProg → prop → prop  # ⟪ 1 ⟫ 2 prec 2 
+  						= [ α, φ ] ¬ ⟦ α ⟧ ¬ φ 
 
 
 
@@ -32,7 +32,7 @@ theory PDLRules : http://cds.omdoc.org/urtheories?LF =
 
 	
 theory PDLPf : http://cds.omdoc.org/urtheories?LF =
-     include ?PLNatDed 
+     include ?PLHilbertPf 
      include ?PDLAxioms 
      include ?PDLRules 
 

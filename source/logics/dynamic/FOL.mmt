@@ -20,9 +20,8 @@ theory FOLAxioms : http://cds.omdoc.org/urtheories?LF =
 	
 theory FOLRules : http://cds.omdoc.org/urtheories?LF =
 	include ?PLHilbertRules 
-	include ?FOLSyntax
-
-	FOLGEN : {φ} ded φ → ded ∀ [x] φ 
+	include ?FOLAxioms 
+	FOLGEN : {φ} ({x} ded φ x) → ded ∀ φ 
 
 	
 theory FOLPf : http://cds.omdoc.org/urtheories?LF =

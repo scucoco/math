@@ -1,0 +1,257 @@
+<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><theory name="TFF" base="http://latin.omdoc.org/logics/tptp" meta="http://cds.omdoc.org/urtheories?LF"><import from="http://latin.omdoc.org/logics/tptp?Types"></import><constant name="$form" role="type">
+       <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT type="http://www.openmath.org/cd?OpenMath?OMSTR" value="  formulas\n     We use external formulas, i.e., $form:type is a meta-level type.\n     The TFF reference would suggest internal formulas, i.e., $o:$tType.\n     But external formulas better match the first-order spirit of the language and in fact appear to be intention of the authors,\n     who explicitly exclude the consequences of internal formulas (e.g., quantification over formulas).\n  "/></om:OMOBJ></meta></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://cds.omdoc.org/urtheories" module="Typed" name="type"></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="==" role="constructor">
+       <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT type="http://www.openmath.org/cd?OpenMath?OMSTR" value="  typed equality "/></om:OMOBJ></meta></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?abstracted"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tType"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"></om:OMS><om:OMV name="A"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"></om:OMS><om:OMV name="A"></om:OMV>
+      </om:OMA><om:OMS base="http://latin.omdoc.org/logics/tptp" module="TFF" name="$form"></om:OMS>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="10" fixity="infix" arguments="1 2"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="!=" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?abstracted"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tType"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"></om:OMS><om:OMV name="A"></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"></om:OMS><om:OMV name="A"></om:OMV>
+      </om:OMA><om:OMS base="http://latin.omdoc.org/logics/tptp" module="TFF" name="$form"></om:OMS>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="10" fixity="infix" arguments="1 2"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="!" role="constructor">
+       <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT type="http://www.openmath.org/cd?OpenMath?OMSTR" value="  typed quantification "/></om:OMOBJ></meta></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?abstracted"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tType"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"></om:OMS><om:OMV name="A"></om:OMV>
+      </om:OMA><om:OMS base="http://latin.omdoc.org/logics/tptp" module="TFF" name="$form"></om:OMS>
+      </om:OMA><om:OMS base="http://latin.omdoc.org/logics/tptp" module="TFF" name="$form"></om:OMS>
+      </om:OMA>
+      </om:OMBIND></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="5" fixity="prefix" arguments="1 1"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="%3F" role="constructor">
+       
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?abstracted"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tType"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"></om:OMS><om:OMV name="A"></om:OMV>
+      </om:OMA><om:OMS base="http://latin.omdoc.org/logics/tptp" module="TFF" name="$form"></om:OMS>
+      </om:OMA><om:OMS base="http://latin.omdoc.org/logics/tptp" module="TFF" name="$form"></om:OMS>
+      </om:OMA>
+      </om:OMBIND></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="5" fixity="prefix" arguments="1 1"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><import name="fof" from="http://latin.omdoc.org/logics/tptp?FOF"><constant name="[http://latin.omdoc.org/logics/tptp?FOF]/$term">
+       
+       
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"></om:OMS><om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$i"></om:OMS>
+      </om:OMA></om:OMOBJ></definition>
+       
+     </constant><constant name="[http://latin.omdoc.org/logics/tptp?FOF]/$form">
+       
+       
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/tptp" module="TFF" name="$form"></om:OMS></om:OMOBJ></definition>
+       
+     </constant><constant name="[http://latin.omdoc.org/logics/tptp?FOF]/==">
+       
+       
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="a"><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"></om:OMS><om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$i"></om:OMS>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="b"><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"></om:OMS><om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$i"></om:OMS>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="TFF" name="=="></om:OMS><om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$i"></om:OMS><om:OMV name="a"></om:OMV><om:OMV name="b"></om:OMV>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></definition>
+       
+     </constant><constant name="[http://latin.omdoc.org/logics/tptp?FOF]/!=">
+       
+       
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="a"><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"></om:OMS><om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$i"></om:OMS>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="b"><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"></om:OMS><om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$i"></om:OMS>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="TFF" name="!="></om:OMS><om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$i"></om:OMS><om:OMV name="a"></om:OMV><om:OMV name="b"></om:OMV>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></definition>
+       
+     </constant><constant name="[http://latin.omdoc.org/logics/tptp?FOF]/!">
+       
+       
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="f"><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"></om:OMS><om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$i"></om:OMS>
+      </om:OMA><om:OMS base="http://latin.omdoc.org/logics/tptp" module="TFF" name="$form"></om:OMS>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="TFF" name="!"></om:OMS><om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$i"></om:OMS><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="x"><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"></om:OMS><om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$i"></om:OMS>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMV name="f"></om:OMV><om:OMV name="x"></om:OMV>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMA>
+      </om:OMBIND></om:OMOBJ></definition>
+       
+     </constant><constant name="[http://latin.omdoc.org/logics/tptp?FOF]/%3F">
+       
+       
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="f"><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"></om:OMS><om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$i"></om:OMS>
+      </om:OMA><om:OMS base="http://latin.omdoc.org/logics/tptp" module="TFF" name="$form"></om:OMS>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="TFF" name="%3F"></om:OMS><om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$i"></om:OMS><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="x"><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$tm"></om:OMS><om:OMS base="http://latin.omdoc.org/logics/tptp" module="Types" name="$i"></om:OMS>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMV name="f"></om:OMV><om:OMV name="x"></om:OMV>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMA>
+      </om:OMBIND></om:OMOBJ></definition>
+       
+     </constant><constant name="[http://latin.omdoc.org/logics/tptp?FOF]/$false" alias="$false">
+       
+       
+       
+       
+     </constant><constant name="[http://latin.omdoc.org/logics/tptp?FOF]/$true" alias="$true">
+       
+       
+       
+       
+     </constant><constant name="[http://latin.omdoc.org/logics/tptp?FOF]/&amp;" alias="&amp;">
+       
+       
+       
+       
+     </constant><constant name="[http://latin.omdoc.org/logics/tptp?FOF]/|" alias="|">
+       
+       
+       
+       
+     </constant><constant name="[http://latin.omdoc.org/logics/tptp?FOF]/~" alias="~">
+       
+       
+       
+       
+     </constant><constant name="[http://latin.omdoc.org/logics/tptp?FOF]/=&gt;" alias="=&gt;">
+       
+       
+       
+       
+     </constant><constant name="[http://latin.omdoc.org/logics/tptp?FOF]/&lt;=" alias="&lt;=">
+       
+       
+       
+       
+     </constant><constant name="[http://latin.omdoc.org/logics/tptp?FOF]/&lt;=&gt;" alias="&lt;=&gt;">
+       
+       
+       
+       
+     </constant><constant name="[http://latin.omdoc.org/logics/tptp?FOF]/&lt;~&gt;" alias="&lt;~&gt;">
+       
+       
+       
+       
+     </constant><constant name="[http://latin.omdoc.org/logics/tptp?FOF]/~&amp;" alias="~&amp;">
+       
+       
+       
+       
+     </constant><constant name="[http://latin.omdoc.org/logics/tptp?FOF]/~|" alias="~|">
+       
+       
+       
+       
+     </constant><constant name="[http://latin.omdoc.org/logics/tptp?FOF]/$istrue" alias="$istrue">
+       
+       
+       
+       
+     </constant></import></theory></omdoc>
