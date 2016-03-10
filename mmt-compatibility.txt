@@ -1,0 +1,15 @@
+MMT flattening produces several errors:
+
+1) When mapping structures to a morphism M, MMT infers aliases for the generated constants from the aliases given by M.
+   Twelf does not do that.
+   The infered aliases will clash because they are also generated when flattening M.
+
+2) Nested theories: http://latin.omdoc.org/logics/proof_theory?IFOL?Classical is not produced by Twelf
+
+3) MMT signals clashes between implicit morphisms even though those can be shown to be equal.
+   These go from LF to some theory T and are induced by an implicit structure in T (http://latin.omdoc.org/math?RingUnitLogic?ring or http://latin.omdoc.org/foundations/type_theory/church?KindsTypesTerms?*).
+   
+4) Certain operations lead to "retrieval failed" errors
+  - http://latin.omdoc.org/math?AbelianGroup?∘  in RingUnit, JordanRing, LieRing
+  - http://latin.omdoc.org/logics/model_theory/categorical?Category?=> in ILL, IS4
+  - http://latin.omdoc.org/math?Addition?+Magma in http://latin.omdoc.org/math?OrderedNat, Addition, Multiplication
