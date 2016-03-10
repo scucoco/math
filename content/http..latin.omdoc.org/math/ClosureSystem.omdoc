@@ -1,80 +1,29 @@
-<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><theory name="ClosureSystem" base="http://latin.omdoc.org/math" meta="http://latin.omdoc.org/logics/syntax?PowerSorts"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/math/topology.mmt#40.2.0:256.9.1"/></metadata><constant name="X">
-       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/math/topology.mmt#115.3.2:128.3.15"/></metadata>
-       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://latin.omdoc.org/logics/syntax" module="BaseSFOL" name="sorts/[http://latin.omdoc.org/type_theories?Level']/cl"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/math/topology.mmt#123.3.10:126.3.13"/></metadata></om:OMS></om:OMOBJ></type>
+<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><theory name="ClosureSystem" base="http://latin.omdoc.org/math" meta="http://latin.omdoc.org/logics/syntax?PowerSFOL"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/math/topology.mmt#40.2.0:262.9.1"/></metadata><constant name="X">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/math/topology.mmt#114.3.2:127.3.15"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/mmt" module="mmt" name="unknown"></om:OMS>
+                 <om:OMBVAR><om:OMV name="/sort/0"></om:OMV></om:OMBVAR>
+                 <om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/mmt" module="mmt" name="free"></om:OMS>
+                 <om:OMBVAR><om:OMV name="sort"><type><om:OMV name="/sort/0"></om:OMV></type></om:OMV></om:OMBVAR>
+                 <om:OMV name="sort"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/math/topology.mmt#122.3.10:125.3.13"/></metadata></om:OMV>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></type>
        
        
-     </constant><constant name="cl">
-       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/math/topology.mmt#131.4.2:146.4.17"/></metadata>
-       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/math/topology.mmt#139.4.10:144.4.15"/></metadata>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="BaseSFOL" name="sorts/[http://latin.omdoc.org/type_theories?Level']/exp"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/math/topology.mmt#139.4.10:140.4.11"/></metadata></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/math/topology.mmt#142.4.13:144.4.15"/></metadata>
-              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="PowerSorts" name="power"></om:OMS>
-              <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/math/topology.mmt#143.4.14:144.4.15"/></metadata>
-              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="PowerSorts" name="power"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/math" module="ClosureSystem" name="X"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/math/topology.mmt#144.4.15:144.4.15"/></metadata></om:OMS>
-      </om:OMA>
-      </om:OMA>
-      </om:OMA></om:OMOBJ></type>
+     </constant><constant name="closed">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/math/topology.mmt#130.4.2:149.4.21"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMSF><om:text format="unparsed"><![CDATA[tm ℘℘X]]></om:text></om:OMSF></om:OMOBJ></type>
        
        
      </constant><constant name="intersection">
-       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/math/topology.mmt#152.6.2:201.6.51"/></metadata>
-       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/mmt" module="mmt" name="unknown"></om:OMS>
-                 <om:OMBVAR><om:OMV name="/OO/0"></om:OMV></om:OMBVAR>
-                 <om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/mmt" module="mmt" name="free"></om:OMS>
-                 <om:OMBVAR><om:OMV name="OO"><type><om:OMV name="/OO/0"></om:OMV></type></om:OMV></om:OMBVAR>
-                 <om:OMBIND><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/math/topology.mmt#167.6.17:199.6.49"/></metadata>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
-                 <om:OMBVAR><om:OMV name="Q"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/math/topology.mmt#168.6.18:168.6.18"/></metadata><type><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/math/topology.mmt#171.6.21:176.6.26"/></metadata>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="BaseSFOL" name="sorts/[http://latin.omdoc.org/type_theories?Level']/exp"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/math/topology.mmt#171.6.21:172.6.22"/></metadata></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/math/topology.mmt#174.6.24:176.6.26"/></metadata>
-              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="PowerSorts" name="power"></om:OMS>
-              <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/math/topology.mmt#175.6.25:176.6.26"/></metadata>
-              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="PowerSorts" name="power"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/math" module="ClosureSystem" name="X"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/math/topology.mmt#176.6.26:176.6.26"/></metadata></om:OMS>
-      </om:OMA>
-      </om:OMA>
-      </om:OMA></type></om:OMV></om:OMBVAR>
-                 <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/math/topology.mmt#179.6.29:199.6.49"/></metadata>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
-              <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/math/topology.mmt#179.6.29:185.6.35"/></metadata>
-              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="PowerSorts" name="subset"></om:OMS>
-              <om:OMV name="Q"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/math/topology.mmt#179.6.29:179.6.29"/></metadata></om:OMV><om:OMV name="OO"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/math/topology.mmt#184.6.34:185.6.35"/></metadata></om:OMV>
-      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/math/topology.mmt#189.6.39:199.6.49"/></metadata>
-              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="PowerSorts" name="in"></om:OMS>
-              <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/math/topology.mmt#189.6.39:193.6.43"/></metadata>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMSF><om:text format="unknown"><![CDATA[⋂]]></om:text></om:OMSF><om:OMV name="Q"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/math/topology.mmt#192.6.42:192.6.42"/></metadata></om:OMV>
-      </om:OMA><om:OMV name="OO"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/math/topology.mmt#198.6.48:199.6.49"/></metadata></om:OMV>
-      </om:OMA>
-      </om:OMA>
-      </om:OMBIND>
-      </om:OMBIND>
-      </om:OMBIND></om:OMOBJ></type>
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/math/topology.mmt#155.6.2:206.6.53"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMSF><om:text format="unparsed"><![CDATA[{Q: tm ℘℘X} Q ⊆‍ cls → (⋂ Q) ‍∈ cls]]></om:text></om:OMSF></om:OMOBJ></type>
        
        
      </constant><constant name="full_closed">
-       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/math/topology.mmt#220.8.2:254.8.36"/></metadata>
-       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/mmt" module="mmt" name="unknown"></om:OMS>
-                 <om:OMBVAR><om:OMV name="/full/1"></om:OMV><om:OMV name="/CC/0"></om:OMV></om:OMBVAR>
-                 <om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/mmt" module="mmt" name="free"></om:OMS>
-                 <om:OMBVAR><om:OMV name="CC"><type><om:OMV name="/CC/0"></om:OMV></type></om:OMV><om:OMV name="full"><type><om:OMV name="/full/1"></om:OMV></type></om:OMV></om:OMBVAR>
-                 <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/math/topology.mmt#235.8.17:252.8.34"/></metadata>
-              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="PowerSorts" name="in"></om:OMS>
-              <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/math/topology.mmt#235.8.17:246.8.28"/></metadata>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/math/topology.mmt#239.8.21:246.8.28"/></metadata>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMV name="full"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/math/topology.mmt#240.8.22:243.8.25"/></metadata></om:OMV><om:OMS base="http://latin.omdoc.org/math" module="ClosureSystem" name="X"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/math/topology.mmt#245.8.27:245.8.27"/></metadata></om:OMS>
-      </om:OMA>
-      </om:OMA><om:OMV name="CC"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/math/topology.mmt#251.8.33:252.8.34"/></metadata></om:OMV>
-      </om:OMA>
-      </om:OMBIND>
-      </om:OMBIND></om:OMOBJ></type>
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/math/topology.mmt#225.8.2:260.8.37"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMSF><om:text format="unparsed"><![CDATA[ded (full X) ‍∈ cls]]></om:text></om:OMSF></om:OMOBJ></type>
        
        
      </constant></theory></omdoc>
