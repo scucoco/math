@@ -1,7 +1,7 @@
 <omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><view from="http://cds.omdoc.org/logic?PDLMinimalSyntax" to="http://cds.omdoc.org/logic/model_theory/kripke?PDLFrame" name="MeaningFun" base="http://cds.omdoc.org/logic/model_theory/kripke">
            <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/model_theory.mmt#246.15.0:553.22.1"/></metadata><constant name="[http://cds.omdoc.org/logic?PDLMinimalSyntax]/PDLProg">
        <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/model_theory.mmt#325.16.2:358.16.35"/></metadata>
-       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMSF><om:text format="unparsed"><![CDATA[type]]></om:text></om:OMSF></om:OMOBJ></type>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://cds.omdoc.org/urtheories" module="Typed" name="type"></om:OMS></om:OMOBJ></type>
        <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
               <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/model_theory.mmt#335.16.12:340.16.17"/></metadata>
@@ -9,7 +9,7 @@
               <om:OMS base="http://latin.omdoc.org/foundations/minimal" module="STTIFOLEQ" name="elem"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/model_theory.mmt#335.16.12:338.16.15"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/logic/model_theory/kripke" module="PDLFrame" name="K"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/model_theory.mmt#340.16.17:340.16.17"/></metadata></om:OMS>
       </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/model_theory.mmt#344.16.21:349.16.26"/></metadata>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/foundations/minimal" module="STTIFOLEQ" name="elem"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/model_theory.mmt#344.16.21:347.16.24"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/logic/model_theory/kripke" module="PDLFrame" name="K"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/model_theory.mmt#349.16.26:349.16.26"/></metadata></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/minimal" module="STTIFOLEQ" name="elem"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/model_theory.mmt#344.16.21:347.16.24"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/logic/model_theory/kripke" module="PDLFrame" name="K"></om:OMS>
       </om:OMA><om:OMS base="http://latin.omdoc.org/foundations/minimal" module="Bool" name="bool"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/model_theory.mmt#353.16.30:356.16.33"/></metadata></om:OMS>
       </om:OMA></om:OMOBJ></definition>
        
@@ -106,13 +106,7 @@
        
      </constant><constant name="[http://cds.omdoc.org/logic?PDLMinimalSyntax]/necessity">
        <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/model_theory.mmt#443.20.2:496.20.55"/></metadata>
-       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/mmt" module="mmt" name="unknown"></om:OMS>
-                 <om:OMBVAR><om:OMV name="prop/0"></om:OMV></om:OMBVAR>
-                 <om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/mmt" module="mmt" name="free"></om:OMS>
-                 <om:OMBVAR><om:OMV name="prop"><type><om:OMV name="prop/0"></om:OMV></type></om:OMV></om:OMBVAR>
-                 <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDLminimal.mmt#445.11.14:465.11.34"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDLminimal.mmt#445.11.14:465.11.34"/></metadata>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
               <om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
@@ -121,12 +115,22 @@
               <om:OMS base="http://latin.omdoc.org/foundations/minimal" module="STTIFOLEQ" name="elem"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/model_theory.mmt#335.16.12:338.16.15"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/logic/model_theory/kripke" module="PDLFrame" name="K"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/model_theory.mmt#340.16.17:340.16.17"/></metadata></om:OMS>
       </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/model_theory.mmt#344.16.21:349.16.26"/></metadata>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/foundations/minimal" module="STTIFOLEQ" name="elem"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/model_theory.mmt#344.16.21:347.16.24"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/logic/model_theory/kripke" module="PDLFrame" name="K"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/model_theory.mmt#349.16.26:349.16.26"/></metadata></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/minimal" module="STTIFOLEQ" name="elem"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/model_theory.mmt#344.16.21:347.16.24"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/logic/model_theory/kripke" module="PDLFrame" name="K"></om:OMS>
       </om:OMA><om:OMS base="http://latin.omdoc.org/foundations/minimal" module="Bool" name="bool"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/model_theory.mmt#353.16.30:356.16.33"/></metadata></om:OMS>
-      </om:OMA><om:OMV name="prop"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDLminimal.mmt#455.11.24:458.11.27"/></metadata></om:OMV><om:OMV name="prop"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDLminimal.mmt#462.11.31:465.11.34"/></metadata></om:OMV>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/minimal" module="STTIFOLEQ" name="elem"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/model_theory.mmt#368.17.9:371.17.12"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/logic/model_theory/kripke" module="PDLFrame" name="K"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/model_theory.mmt#373.17.14:373.17.14"/></metadata></om:OMS>
+      </om:OMA><om:OMS base="http://latin.omdoc.org/foundations/minimal" module="Bool" name="bool"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/model_theory.mmt#377.17.18:380.17.21"/></metadata></om:OMS>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/minimal" module="STTIFOLEQ" name="elem"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/model_theory.mmt#368.17.9:371.17.12"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/logic/model_theory/kripke" module="PDLFrame" name="K"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/model_theory.mmt#373.17.14:373.17.14"/></metadata></om:OMS>
+      </om:OMA><om:OMS base="http://latin.omdoc.org/foundations/minimal" module="Bool" name="bool"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/model_theory.mmt#377.17.18:380.17.21"/></metadata></om:OMS>
       </om:OMA>
-      </om:OMBIND>
-      </om:OMBIND></om:OMOBJ></type>
+      </om:OMA></om:OMOBJ></type>
        <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
                  <om:OMS base="http://cds.omdoc.org/mmt" module="mmt" name="unknown"></om:OMS>
                  <om:OMBVAR><om:OMV name="/kα/4"></om:OMV><om:OMV name="/kφ/3"></om:OMV><om:OMV name="/u/2"></om:OMV><om:OMV name="/I/1"></om:OMV><om:OMV name="/v/0"></om:OMV></om:OMBVAR>
@@ -184,7 +188,7 @@
               <om:OMS base="http://latin.omdoc.org/foundations/minimal" module="STTIFOLEQ" name="elem"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/model_theory.mmt#335.16.12:338.16.15"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/logic/model_theory/kripke" module="PDLFrame" name="K"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/model_theory.mmt#340.16.17:340.16.17"/></metadata></om:OMS>
       </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/model_theory.mmt#344.16.21:349.16.26"/></metadata>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/foundations/minimal" module="STTIFOLEQ" name="elem"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/model_theory.mmt#344.16.21:347.16.24"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/logic/model_theory/kripke" module="PDLFrame" name="K"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/model_theory.mmt#349.16.26:349.16.26"/></metadata></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/minimal" module="STTIFOLEQ" name="elem"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/model_theory.mmt#344.16.21:347.16.24"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/logic/model_theory/kripke" module="PDLFrame" name="K"></om:OMS>
       </om:OMA><om:OMS base="http://latin.omdoc.org/foundations/minimal" module="Bool" name="bool"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/model_theory.mmt#353.16.30:356.16.33"/></metadata></om:OMS>
       </om:OMA><om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
@@ -193,7 +197,7 @@
               <om:OMS base="http://latin.omdoc.org/foundations/minimal" module="STTIFOLEQ" name="elem"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/model_theory.mmt#335.16.12:338.16.15"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/logic/model_theory/kripke" module="PDLFrame" name="K"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/model_theory.mmt#340.16.17:340.16.17"/></metadata></om:OMS>
       </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/model_theory.mmt#344.16.21:349.16.26"/></metadata>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/foundations/minimal" module="STTIFOLEQ" name="elem"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/model_theory.mmt#344.16.21:347.16.24"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/logic/model_theory/kripke" module="PDLFrame" name="K"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/model_theory.mmt#349.16.26:349.16.26"/></metadata></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/minimal" module="STTIFOLEQ" name="elem"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/model_theory.mmt#344.16.21:347.16.24"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/logic/model_theory/kripke" module="PDLFrame" name="K"></om:OMS>
       </om:OMA><om:OMS base="http://latin.omdoc.org/foundations/minimal" module="Bool" name="bool"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/model_theory.mmt#353.16.30:356.16.33"/></metadata></om:OMS>
       </om:OMA><om:OMA>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
@@ -202,7 +206,7 @@
               <om:OMS base="http://latin.omdoc.org/foundations/minimal" module="STTIFOLEQ" name="elem"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/model_theory.mmt#335.16.12:338.16.15"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/logic/model_theory/kripke" module="PDLFrame" name="K"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/model_theory.mmt#340.16.17:340.16.17"/></metadata></om:OMS>
       </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/model_theory.mmt#344.16.21:349.16.26"/></metadata>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMS base="http://latin.omdoc.org/foundations/minimal" module="STTIFOLEQ" name="elem"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/model_theory.mmt#344.16.21:347.16.24"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/logic/model_theory/kripke" module="PDLFrame" name="K"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/model_theory.mmt#349.16.26:349.16.26"/></metadata></om:OMS>
+              <om:OMS base="http://latin.omdoc.org/foundations/minimal" module="STTIFOLEQ" name="elem"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/model_theory.mmt#344.16.21:347.16.24"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/logic/model_theory/kripke" module="PDLFrame" name="K"></om:OMS>
       </om:OMA><om:OMS base="http://latin.omdoc.org/foundations/minimal" module="Bool" name="bool"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/model_theory.mmt#353.16.30:356.16.33"/></metadata></om:OMS>
       </om:OMA>
       </om:OMA></om:OMOBJ></type>

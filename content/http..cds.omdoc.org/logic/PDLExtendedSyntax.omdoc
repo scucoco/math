@@ -1,131 +1,113 @@
 <omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><theory name="PDLExtendedSyntax" base="http://cds.omdoc.org/logic" meta="http://cds.omdoc.org/urtheories?LF"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#75.4.0:475.14.1"/></metadata><import from="http://cds.omdoc.org/logic?PDLMinimalSyntax"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#141.5.2:167.5.28"/></metadata></import><constant name="skip">
        <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#171.6.2:198.6.29"/></metadata>
-       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMSF><om:text format="unparsed"><![CDATA[PDLProg]]></om:text></om:OMSF></om:OMOBJ></type>
-       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/mmt" module="mmt" name="unknown"></om:OMS>
-                 <om:OMBVAR><om:OMV name="/true/0"></om:OMV></om:OMBVAR>
-                 <om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/mmt" module="mmt" name="free"></om:OMS>
-                 <om:OMBVAR><om:OMV name="true"><type><om:OMV name="/true/0"></om:OMV></type></om:OMV></om:OMBVAR>
-                 <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#190.6.21:195.6.26"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://cds.omdoc.org/logic" module="PDLMinimalSyntax" name="PDLProg"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#178.6.9:184.6.15"/></metadata></om:OMS></om:OMOBJ></type>
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#190.6.21:195.6.26"/></metadata>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMV name="true"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#190.6.21:193.6.24"/></metadata></om:OMV><om:OMSF><om:text format="unknown"><![CDATA[?]]></om:text></om:OMSF>
-      </om:OMA>
-      </om:OMBIND>
-      </om:OMBIND></om:OMOBJ></definition>
+              <om:OMS base="http://cds.omdoc.org/logic" module="PDLMinimalSyntax" name="test"></om:OMS><om:OMS base="http://cds.omdoc.org/logic" module="PLSyntax" name="true"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#190.6.21:193.6.24"/></metadata></om:OMS>
+      </om:OMA></om:OMOBJ></definition>
        
      </constant><constant name="fail">
        <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#201.7.2:232.7.33"/></metadata>
-       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/mmt" module="mmt" name="unknown"></om:OMS>
-                 <om:OMBVAR><om:OMV name="/PDLProg/0"></om:OMV></om:OMBVAR>
-                 <om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/mmt" module="mmt" name="free"></om:OMS>
-                 <om:OMBVAR><om:OMV name="PDLProg"><type><om:OMV name="/PDLProg/0"></om:OMV></type></om:OMV></om:OMBVAR>
-                 <om:OMV name="PDLProg"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#208.7.9:214.7.15"/></metadata></om:OMV>
-      </om:OMBIND>
-      </om:OMBIND></om:OMOBJ></type>
-       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/mmt" module="mmt" name="unknown"></om:OMS>
-                 <om:OMBVAR><om:OMV name="/true/0"></om:OMV></om:OMBVAR>
-                 <om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/mmt" module="mmt" name="free"></om:OMS>
-                 <om:OMBVAR><om:OMV name="true"><type><om:OMV name="/true/0"></om:OMV></type></om:OMV></om:OMBVAR>
-                 <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#220.7.21:229.7.30"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://cds.omdoc.org/logic" module="PDLMinimalSyntax" name="PDLProg"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#208.7.9:214.7.15"/></metadata></om:OMS></om:OMOBJ></type>
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#220.7.21:229.7.30"/></metadata>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#220.7.21:227.7.28"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/logic" module="PDLMinimalSyntax" name="test"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#220.7.21:227.7.28"/></metadata>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMSF><om:text format="unknown"><![CDATA[¬]]></om:text></om:OMSF><om:OMV name="true"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#223.7.24:226.7.27"/></metadata></om:OMV>
-      </om:OMA><om:OMSF><om:text format="unknown"><![CDATA[?]]></om:text></om:OMSF>
+              <om:OMS base="http://cds.omdoc.org/logic" module="PLSyntax" name="not"></om:OMS><om:OMS base="http://cds.omdoc.org/logic" module="PLSyntax" name="true"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#223.7.24:226.7.27"/></metadata></om:OMS>
       </om:OMA>
-      </om:OMBIND>
-      </om:OMBIND></om:OMOBJ></definition>
+      </om:OMA></om:OMOBJ></definition>
        
      </constant><constant name="ifThenElse">
        <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#235.8.2:320.9.35"/></metadata>
-       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/mmt" module="mmt" name="free"></om:OMS>
-                 <om:OMBVAR><om:OMV name="PDLProg"><type><om:OMS base="http://cds.omdoc.org/urtheories" module="Typed" name="type"></om:OMS></type></om:OMV><om:OMV name="prop"><type><om:OMS base="http://cds.omdoc.org/urtheories" module="Typed" name="type"></om:OMS></type></om:OMV></om:OMBVAR>
-                 <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#248.8.15:281.8.48"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#248.8.15:281.8.48"/></metadata>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
-              <om:OMV name="prop"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#248.8.15:251.8.18"/></metadata></om:OMV><om:OMV name="PDLProg"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#255.8.22:261.8.28"/></metadata></om:OMV><om:OMV name="PDLProg"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#265.8.32:271.8.38"/></metadata></om:OMV><om:OMV name="PDLProg"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#275.8.42:281.8.48"/></metadata></om:OMV>
-      </om:OMA>
-      </om:OMBIND></om:OMOBJ></type>
-       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/mmt" module="mmt" name="unknown"></om:OMS>
-                 <om:OMBVAR><om:OMV name="/β/2"></om:OMV><om:OMV name="/α/1"></om:OMV><om:OMV name="/φ/0"></om:OMV></om:OMBVAR>
-                 <om:OMBIND><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#290.9.5:317.9.32"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/logic" module="PLSyntax" name="prop"></om:OMS><om:OMS base="http://cds.omdoc.org/logic" module="PDLMinimalSyntax" name="PDLProg"></om:OMS><om:OMS base="http://cds.omdoc.org/logic" module="PDLMinimalSyntax" name="PDLProg"></om:OMS><om:OMS base="http://cds.omdoc.org/logic" module="PDLMinimalSyntax" name="PDLProg"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#275.8.42:281.8.48"/></metadata></om:OMS>
+      </om:OMA></om:OMOBJ></type>
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#290.9.5:317.9.32"/></metadata>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="φ"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#292.9.7:292.9.7"/></metadata><type><om:OMV name="/φ/0"></om:OMV></type></om:OMV><om:OMV name="α"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#295.9.10:295.9.10"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMV name="/α/1"></om:OMV><om:OMV name="φ"></om:OMV>
-      </om:OMA></type></om:OMV><om:OMV name="β"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#298.9.13:298.9.13"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMV name="/β/2"></om:OMV><om:OMV name="φ"></om:OMV><om:OMV name="α"></om:OMV>
-      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="φ"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#292.9.7:292.9.7"/></metadata><type><om:OMS base="http://cds.omdoc.org/logic" module="PLSyntax" name="prop"></om:OMS></type></om:OMV><om:OMV name="α"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#295.9.10:295.9.10"/></metadata><type><om:OMS base="http://cds.omdoc.org/logic" module="PDLMinimalSyntax" name="PDLProg"></om:OMS></type></om:OMV><om:OMV name="β"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#298.9.13:298.9.13"/></metadata><type><om:OMS base="http://cds.omdoc.org/logic" module="PDLMinimalSyntax" name="PDLProg"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#302.9.17:317.9.32"/></metadata>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMV name="φ"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#302.9.17:302.9.17"/></metadata></om:OMV><om:OMSF><om:text format="unknown"><![CDATA[?]]></om:text></om:OMSF><om:OMSF><om:text format="unknown"><![CDATA[|]]></om:text></om:OMSF><om:OMV name="α"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#307.9.22:307.9.22"/></metadata></om:OMV><om:OMSF><om:text format="unknown"><![CDATA[∪]]></om:text></om:OMSF><om:OMSF><om:text format="unknown"><![CDATA[¬]]></om:text></om:OMSF><om:OMV name="φ"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#312.9.27:312.9.27"/></metadata></om:OMV><om:OMSF><om:text format="unknown"><![CDATA[?]]></om:text></om:OMSF><om:OMSF><om:text format="unknown"><![CDATA[|]]></om:text></om:OMSF><om:OMV name="β"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#317.9.32:317.9.32"/></metadata></om:OMV>
+              <om:OMS base="http://cds.omdoc.org/logic" module="PDLMinimalSyntax" name="choice"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#302.9.17:307.9.22"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/logic" module="PDLMinimalSyntax" name="compos"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#302.9.17:303.9.18"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/logic" module="PDLMinimalSyntax" name="test"></om:OMS><om:OMV name="φ"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#302.9.17:302.9.17"/></metadata></om:OMV>
+      </om:OMA><om:OMV name="α"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#307.9.22:307.9.22"/></metadata></om:OMV>
+      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#311.9.26:317.9.32"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/logic" module="PDLMinimalSyntax" name="compos"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#311.9.26:313.9.28"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/logic" module="PDLMinimalSyntax" name="test"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#311.9.26:312.9.27"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/logic" module="PLSyntax" name="not"></om:OMS><om:OMV name="φ"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#312.9.27:312.9.27"/></metadata></om:OMV>
       </om:OMA>
-      </om:OMBIND>
+      </om:OMA><om:OMV name="β"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#317.9.32:317.9.32"/></metadata></om:OMV>
+      </om:OMA>
+      </om:OMA>
       </om:OMBIND></om:OMOBJ></definition>
        
      </constant><constant name="whileDo">
        <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#323.10.2:394.11.33"/></metadata>
-       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/mmt" module="mmt" name="free"></om:OMS>
-                 <om:OMBVAR><om:OMV name="PDLProg"><type><om:OMS base="http://cds.omdoc.org/urtheories" module="Typed" name="type"></om:OMS></type></om:OMV><om:OMV name="prop"><type><om:OMS base="http://cds.omdoc.org/urtheories" module="Typed" name="type"></om:OMS></type></om:OMV></om:OMBVAR>
-                 <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#333.10.12:356.10.35"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#333.10.12:356.10.35"/></metadata>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
-              <om:OMV name="prop"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#333.10.12:336.10.15"/></metadata></om:OMV><om:OMV name="PDLProg"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#340.10.19:346.10.25"/></metadata></om:OMV><om:OMV name="PDLProg"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#350.10.29:356.10.35"/></metadata></om:OMV>
-      </om:OMA>
-      </om:OMBIND></om:OMOBJ></type>
-       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/mmt" module="mmt" name="unknown"></om:OMS>
-                 <om:OMBVAR><om:OMV name="/α/1"></om:OMV><om:OMV name="/φ/0"></om:OMV></om:OMBVAR>
-                 <om:OMBIND><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#366.11.5:391.11.30"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/logic" module="PLSyntax" name="prop"></om:OMS><om:OMS base="http://cds.omdoc.org/logic" module="PDLMinimalSyntax" name="PDLProg"></om:OMS><om:OMS base="http://cds.omdoc.org/logic" module="PDLMinimalSyntax" name="PDLProg"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#350.10.29:356.10.35"/></metadata></om:OMS>
+      </om:OMA></om:OMOBJ></type>
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#366.11.5:391.11.30"/></metadata>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="φ"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#368.11.7:368.11.7"/></metadata><type><om:OMV name="/φ/0"></om:OMV></type></om:OMV><om:OMV name="α"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#371.11.10:371.11.10"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMV name="/α/1"></om:OMV><om:OMV name="φ"></om:OMV>
-      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="φ"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#368.11.7:368.11.7"/></metadata><type><om:OMS base="http://cds.omdoc.org/logic" module="PLSyntax" name="prop"></om:OMS></type></om:OMV><om:OMV name="α"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#371.11.10:371.11.10"/></metadata><type><om:OMS base="http://cds.omdoc.org/logic" module="PDLMinimalSyntax" name="PDLProg"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#375.11.14:391.11.30"/></metadata>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#375.11.14:382.11.21"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/logic" module="PDLMinimalSyntax" name="compos"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#375.11.14:383.11.22"/></metadata>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMV name="φ"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#376.11.15:376.11.15"/></metadata></om:OMV><om:OMSF><om:text format="unknown"><![CDATA[?]]></om:text></om:OMSF><om:OMSF><om:text format="unknown"><![CDATA[|]]></om:text></om:OMSF><om:OMV name="α"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#381.11.20:381.11.20"/></metadata></om:OMV>
-      </om:OMA><om:OMSF><om:text format="unknown"><![CDATA[*]]></om:text></om:OMSF><om:OMSF><om:text format="unknown"><![CDATA[|]]></om:text></om:OMSF><om:OMSF><om:text format="unknown"><![CDATA[¬]]></om:text></om:OMSF><om:OMV name="φ"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#389.11.28:389.11.28"/></metadata></om:OMV><om:OMSF><om:text format="unknown"><![CDATA[?]]></om:text></om:OMSF>
+              <om:OMS base="http://cds.omdoc.org/logic" module="PDLMinimalSyntax" name="iteration"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#375.11.14:382.11.21"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/logic" module="PDLMinimalSyntax" name="compos"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#376.11.15:377.11.16"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/logic" module="PDLMinimalSyntax" name="test"></om:OMS><om:OMV name="φ"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#376.11.15:376.11.15"/></metadata></om:OMV>
+      </om:OMA><om:OMV name="α"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#381.11.20:381.11.20"/></metadata></om:OMV>
       </om:OMA>
-      </om:OMBIND>
+      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#387.11.26:391.11.30"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/logic" module="PDLMinimalSyntax" name="test"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#387.11.26:389.11.28"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/logic" module="PLSyntax" name="not"></om:OMS><om:OMV name="φ"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#389.11.28:389.11.28"/></metadata></om:OMV>
+      </om:OMA>
+      </om:OMA>
+      </om:OMA>
       </om:OMBIND></om:OMOBJ></definition>
        
      </constant><constant name="repeatUntil">
        <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#397.12.2:473.13.35"/></metadata>
-       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/mmt" module="mmt" name="free"></om:OMS>
-                 <om:OMBVAR><om:OMV name="prop"><type><om:OMS base="http://cds.omdoc.org/urtheories" module="Typed" name="type"></om:OMS></type></om:OMV><om:OMV name="PDLProg"><type><om:OMS base="http://cds.omdoc.org/urtheories" module="Typed" name="type"></om:OMS></type></om:OMV></om:OMBVAR>
-                 <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#411.12.16:434.12.39"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#411.12.16:434.12.39"/></metadata>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
-              <om:OMV name="PDLProg"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#411.12.16:417.12.22"/></metadata></om:OMV><om:OMV name="prop"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#421.12.26:424.12.29"/></metadata></om:OMV><om:OMV name="PDLProg"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#428.12.33:434.12.39"/></metadata></om:OMV>
-      </om:OMA>
-      </om:OMBIND></om:OMOBJ></type>
-       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/mmt" module="mmt" name="unknown"></om:OMS>
-                 <om:OMBVAR><om:OMV name="/φ/1"></om:OMV><om:OMV name="/α/0"></om:OMV></om:OMBVAR>
-                 <om:OMBIND><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#443.13.5:470.13.32"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/logic" module="PDLMinimalSyntax" name="PDLProg"></om:OMS><om:OMS base="http://cds.omdoc.org/logic" module="PLSyntax" name="prop"></om:OMS><om:OMS base="http://cds.omdoc.org/logic" module="PDLMinimalSyntax" name="PDLProg"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#428.12.33:434.12.39"/></metadata></om:OMS>
+      </om:OMA></om:OMOBJ></type>
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#443.13.5:470.13.32"/></metadata>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="α"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#445.13.7:445.13.7"/></metadata><type><om:OMV name="/α/0"></om:OMV></type></om:OMV><om:OMV name="φ"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#448.13.10:448.13.10"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMV name="/φ/1"></om:OMV><om:OMV name="α"></om:OMV>
-      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBVAR><om:OMV name="α"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#445.13.7:445.13.7"/></metadata><type><om:OMS base="http://cds.omdoc.org/logic" module="PDLMinimalSyntax" name="PDLProg"></om:OMS></type></om:OMV><om:OMV name="φ"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#448.13.10:448.13.10"/></metadata><type><om:OMS base="http://cds.omdoc.org/logic" module="PLSyntax" name="prop"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#452.13.14:470.13.32"/></metadata>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMV name="α"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#452.13.14:452.13.14"/></metadata></om:OMV><om:OMSF><om:text format="unknown"><![CDATA[|]]></om:text></om:OMSF><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#456.13.18:464.13.26"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/logic" module="PDLMinimalSyntax" name="compos"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#452.13.14:465.13.27"/></metadata>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
-              <om:OMSF><om:text format="unknown"><![CDATA[¬]]></om:text></om:OMSF><om:OMV name="φ"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#458.13.20:458.13.20"/></metadata></om:OMV><om:OMSF><om:text format="unknown"><![CDATA[?]]></om:text></om:OMSF><om:OMSF><om:text format="unknown"><![CDATA[|]]></om:text></om:OMSF><om:OMV name="α"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#463.13.25:463.13.25"/></metadata></om:OMV>
-      </om:OMA><om:OMSF><om:text format="unknown"><![CDATA[*]]></om:text></om:OMSF><om:OMSF><om:text format="unknown"><![CDATA[|]]></om:text></om:OMSF><om:OMV name="φ"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#469.13.31:469.13.31"/></metadata></om:OMV><om:OMSF><om:text format="unknown"><![CDATA[?]]></om:text></om:OMSF>
+              <om:OMS base="http://cds.omdoc.org/logic" module="PDLMinimalSyntax" name="compos"></om:OMS><om:OMV name="α"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#452.13.14:452.13.14"/></metadata></om:OMV><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#456.13.18:465.13.27"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/logic" module="PDLMinimalSyntax" name="iteration"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#456.13.18:464.13.26"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/logic" module="PDLMinimalSyntax" name="compos"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#457.13.19:459.13.21"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/logic" module="PDLMinimalSyntax" name="test"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#457.13.19:458.13.20"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/logic" module="PLSyntax" name="not"></om:OMS><om:OMV name="φ"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#458.13.20:458.13.20"/></metadata></om:OMV>
       </om:OMA>
-      </om:OMBIND>
+      </om:OMA><om:OMV name="α"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#463.13.25:463.13.25"/></metadata></om:OMV>
+      </om:OMA>
+      </om:OMA>
+      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#469.13.31:470.13.32"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/logic" module="PDLMinimalSyntax" name="test"></om:OMS><om:OMV name="φ"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDL.mmt#469.13.31:469.13.31"/></metadata></om:OMV>
+      </om:OMA>
+      </om:OMA>
       </om:OMBIND></om:OMOBJ></definition>
        
      </constant></theory></omdoc>
