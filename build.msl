@@ -31,13 +31,9 @@ mathpath archive ../urtheories
 mathpath archive .
 
 define build
-  build MMT/LATIN twelf-omdoc
-end
-
-// call this after having "build" twice
-define build-mmt
-  build MMT/LATIN mmt-omdoc
-  // foundations/hollight
+  make mmt-omdoc ../urtheories
+  make twelf-omdoc --force
+  make mmt-omdoc --force
 end
 
 define export
