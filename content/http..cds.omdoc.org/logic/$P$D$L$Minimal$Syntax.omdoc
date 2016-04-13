@@ -1,0 +1,67 @@
+<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><theory name="PDLMinimalSyntax" base="http://cds.omdoc.org/logic" meta="http://cds.omdoc.org/urtheories?LF"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDLminimal.mmt#118.4.0:581.14.1"/></metadata><import from="http://cds.omdoc.org/logic?PLSyntax"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDLminimal.mmt#183.5.2:201.5.20"/></metadata></import><constant name="PDLProg">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDLminimal.mmt#205.6.2:221.6.18"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://cds.omdoc.org/urtheories" module="TypedSymbols" name="type"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDLminimal.mmt#215.6.12:218.6.15"/></metadata></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="compos">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDLminimal.mmt#224.7.2:279.7.57"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDLminimal.mmt#233.7.11:259.7.37"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/logic" module="PDLMinimalSyntax" name="PDLProg"></om:OMS><om:OMS base="http://cds.omdoc.org/logic" module="PDLMinimalSyntax" name="PDLProg"></om:OMS><om:OMS base="http://cds.omdoc.org/logic" module="PDLMinimalSyntax" name="PDLProg"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDLminimal.mmt#253.7.31:259.7.37"/></metadata></om:OMS>
+      </om:OMA></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="6" fixity="mixfix" arguments="1 | 2"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="choice">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDLminimal.mmt#282.8.2:338.8.58"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDLminimal.mmt#291.8.11:317.8.37"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/logic" module="PDLMinimalSyntax" name="PDLProg"></om:OMS><om:OMS base="http://cds.omdoc.org/logic" module="PDLMinimalSyntax" name="PDLProg"></om:OMS><om:OMS base="http://cds.omdoc.org/logic" module="PDLMinimalSyntax" name="PDLProg"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDLminimal.mmt#311.8.31:317.8.37"/></metadata></om:OMS>
+      </om:OMA></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="5" fixity="mixfix" arguments="1 ∪ 2"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="iteration">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDLminimal.mmt#342.9.2:389.9.49"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDLminimal.mmt#354.9.14:370.9.30"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/logic" module="PDLMinimalSyntax" name="PDLProg"></om:OMS><om:OMS base="http://cds.omdoc.org/logic" module="PDLMinimalSyntax" name="PDLProg"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDLminimal.mmt#364.9.24:370.9.30"/></metadata></om:OMS>
+      </om:OMA></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="7" fixity="mixfix" arguments="1 *"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="test">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDLminimal.mmt#392.10.2:430.10.40"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDLminimal.mmt#399.10.9:412.10.22"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/logic" module="PLSyntax" name="prop"></om:OMS><om:OMS base="http://cds.omdoc.org/logic" module="PDLMinimalSyntax" name="PDLProg"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDLminimal.mmt#406.10.16:412.10.22"/></metadata></om:OMS>
+      </om:OMA></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="7" fixity="mixfix" arguments="1 ?"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="necessity">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDLminimal.mmt#433.11.2:487.11.56"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDLminimal.mmt#445.11.14:465.11.34"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/logic" module="PDLMinimalSyntax" name="PDLProg"></om:OMS><om:OMS base="http://cds.omdoc.org/logic" module="PLSyntax" name="prop"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDLminimal.mmt#455.11.24:458.11.27"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/logic" module="PLSyntax" name="prop"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDLminimal.mmt#462.11.31:465.11.34"/></metadata></om:OMS>
+      </om:OMA></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="2" fixity="mixfix" arguments="⟦ 1 ⟧ 2"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="possibility">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDLminimal.mmt#490.12.2:579.13.32"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDLminimal.mmt#504.12.16:524.12.36"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/logic" module="PDLMinimalSyntax" name="PDLProg"></om:OMS><om:OMS base="http://cds.omdoc.org/logic" module="PLSyntax" name="prop"></om:OMS><om:OMS base="http://cds.omdoc.org/logic" module="PLSyntax" name="prop"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDLminimal.mmt#521.12.33:524.12.36"/></metadata></om:OMS>
+      </om:OMA></om:OMOBJ></type>
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDLminimal.mmt#557.13.10:576.13.29"/></metadata>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="α"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDLminimal.mmt#559.13.12:559.13.12"/></metadata><type><om:OMS base="http://cds.omdoc.org/logic" module="PDLMinimalSyntax" name="PDLProg"></om:OMS></type></om:OMV><om:OMV name="φ"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDLminimal.mmt#562.13.15:562.13.15"/></metadata><type><om:OMS base="http://cds.omdoc.org/logic" module="PLSyntax" name="prop"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDLminimal.mmt#566.13.19:576.13.29"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/logic" module="PLSyntax" name="not"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDLminimal.mmt#568.13.21:576.13.29"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/logic" module="PDLMinimalSyntax" name="necessity"></om:OMS><om:OMV name="α"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDLminimal.mmt#570.13.23:570.13.23"/></metadata></om:OMV><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDLminimal.mmt#574.13.27:576.13.29"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/logic" module="PLSyntax" name="not"></om:OMS><om:OMV name="φ"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/latin/logics/dynamic/PDLminimal.mmt#576.13.29:576.13.29"/></metadata></om:OMV>
+      </om:OMA>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND></om:OMOBJ></definition>
+       <notations><notation dimension="1" precedence="2" fixity="mixfix" arguments="⟪ 1 ⟫ 2"> <scope languages="" priority="0"/> </notation></notations>
+     </constant></theory></omdoc>
