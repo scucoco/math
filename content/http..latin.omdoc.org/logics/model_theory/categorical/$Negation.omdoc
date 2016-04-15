@@ -1,14 +1,14 @@
 <omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><theory name="Negation" base="http://latin.omdoc.org/logics/model_theory/categorical" meta="http://cds.omdoc.org/urtheories?LF"><import from="http://latin.omdoc.org/logics/model_theory/categorical?CatLog"></import><import from="http://latin.omdoc.org/logics/model_theory/categorical?CoCartesianAlt"></import><constant name="-" role="constructor">
        <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT type="http://www.openmath.org/cd?OpenMath?OMSTR" value="  negation "/></om:OMOBJ></meta></metadata>
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"></om:OMS><om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"></om:OMS>
       </om:OMA></om:OMOBJ></type>
        <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="CartesianClosed" name="--&gt;"></om:OMS><om:OMV name="A"></om:OMV><om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="CoCartesianAlt" name="bot"></om:OMS>
       </om:OMA>
       </om:OMBIND></om:OMOBJ></definition>
@@ -16,23 +16,23 @@
      </constant><constant name="neg" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
                  <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?abstracted"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
                  <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?abstracted"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
               <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="=&gt;"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Cartesian" name="*"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="B"></om:OMV>
       </om:OMA><om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="CoCartesianAlt" name="bot"></om:OMS>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="=&gt;"></om:OMS><om:OMV name="A"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"></om:OMS><om:OMV name="B"></om:OMV>
       </om:OMA>
       </om:OMA>
@@ -40,22 +40,22 @@
       </om:OMBIND>
       </om:OMBIND></om:OMOBJ></type>
        <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?abstracted"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?abstracted"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="x"><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="=&gt;"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Cartesian" name="*"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="B"></om:OMV>
       </om:OMA><om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="CoCartesianAlt" name="bot"></om:OMS>
       </om:OMA></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="CartesianClosed" name="curry"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="B"></om:OMV><om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="CoCartesianAlt" name="bot"></om:OMS><om:OMV name="x"></om:OMV>
       </om:OMA>
       </om:OMBIND>
@@ -65,44 +65,44 @@
      </constant><constant name="contr" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
                  <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?abstracted"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="=&gt;"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Cartesian" name="*"></om:OMS><om:OMV name="A"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"></om:OMS><om:OMV name="A"></om:OMV>
       </om:OMA>
       </om:OMA><om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="CoCartesianAlt" name="bot"></om:OMS>
       </om:OMA>
       </om:OMBIND></om:OMOBJ></type>
        <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?abstracted"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name=";"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Cartesian" name="*"></om:OMS><om:OMV name="A"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="CartesianClosed" name="--&gt;"></om:OMS><om:OMV name="A"></om:OMV><om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="CoCartesianAlt" name="bot"></om:OMS>
       </om:OMA>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Cartesian" name="*"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="CartesianClosed" name="--&gt;"></om:OMS><om:OMV name="A"></om:OMV><om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="CoCartesianAlt" name="bot"></om:OMS>
       </om:OMA><om:OMV name="A"></om:OMV>
       </om:OMA><om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="CoCartesianAlt" name="bot"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Cartesian" name="comm"></om:OMS><om:OMV name="A"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="CartesianClosed" name="--&gt;"></om:OMS><om:OMV name="A"></om:OMV><om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="CoCartesianAlt" name="bot"></om:OMS>
       </om:OMA>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="CartesianClosed" name="eval"></om:OMS><om:OMV name="A"></om:OMV><om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="CoCartesianAlt" name="bot"></om:OMS>
       </om:OMA>
       </om:OMA>
@@ -111,29 +111,29 @@
      </constant><constant name="negneg_i" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
                  <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?abstracted"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="=&gt;"></om:OMS><om:OMV name="A"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"></om:OMS><om:OMV name="A"></om:OMV>
       </om:OMA>
       </om:OMA>
       </om:OMA>
       </om:OMBIND></om:OMOBJ></type>
        <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?abstracted"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Category" name="Ob"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="neg"></om:OMS><om:OMV name="A"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="-"></om:OMS><om:OMV name="A"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/model_theory/categorical" module="Negation" name="contr"></om:OMS><om:OMV name="A"></om:OMV>
       </om:OMA>
       </om:OMA>

@@ -1,14 +1,14 @@
 <omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><theory name="Option" base="http://latin.omdoc.org/foundations/zfc" meta="http://cds.omdoc.org/urtheories?LF"><import from="http://latin.omdoc.org/foundations/zfc?ZFC"></import><import from="http://latin.omdoc.org/foundations/zfc?Powersets"></import><import from="http://latin.omdoc.org/foundations/zfc?Nat"></import><constant name="option" role="constructor">
        <metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT type="http://www.openmath.org/cd?OpenMath?OMSTR" value="  option a = a \\cup {*} "/></om:OMOBJ></meta></metadata>
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS>
       </om:OMA></om:OMOBJ></type>
        <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="a"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/></metadata><type><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="succ"></om:OMS><om:OMV name="a"></om:OMV>
       </om:OMA>
       </om:OMBIND></om:OMOBJ></definition>
@@ -16,16 +16,16 @@
      </constant><constant name="Option" role="type">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS><om:OMS base="http://cds.omdoc.org/urtheories" module="Typed" name="type"></om:OMS>
       </om:OMA></om:OMOBJ></type>
        <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="a"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/></metadata><type><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="Elem"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="a"></om:OMV>
       </om:OMA>
       </om:OMA>
@@ -34,43 +34,43 @@
      </constant><constant name="some" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
                  <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?abstracted"/></metadata><type><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
               <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="Elem"></om:OMS><om:OMV name="A"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="Option"></om:OMS><om:OMV name="A"></om:OMV>
       </om:OMA>
       </om:OMA>
       </om:OMBIND></om:OMOBJ></type>
        <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?abstracted"/></metadata><type><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="Elem"></om:OMS><om:OMV name="A"></om:OMV>
       </om:OMA></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="elem"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="adjoint"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="A"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="x"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="adjointIl"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="x"></om:OMV>
       </om:OMA><om:OMV name="A"></om:OMV><om:OMV name="A"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="why"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="x"></om:OMV>
       </om:OMA>
       </om:OMA>
@@ -81,23 +81,23 @@
      </constant><constant name="none" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
                  <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?abstracted"/></metadata><type><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="Option"></om:OMS><om:OMV name="A"></om:OMV>
       </om:OMA>
       </om:OMBIND></om:OMOBJ></type>
        <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?abstracted"/></metadata><type><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="elem"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="adjoint"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="A"></om:OMV>
       </om:OMA><om:OMV name="A"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="adjointIr"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="A"></om:OMV>
       </om:OMA>
       </om:OMA>
@@ -106,41 +106,41 @@
      </constant><constant name="free_some" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
                  <om:OMBVAR><om:OMV name="X1"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?abstracted"/></metadata><type><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
                  <om:OMBVAR><om:OMV name="X"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?abstracted"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="Elem"></om:OMS><om:OMV name="X1"></om:OMV>
       </om:OMA></type></om:OMV></om:OMBVAR>
                  <om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
                  <om:OMBVAR><om:OMV name="Y"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?abstracted"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="Elem"></om:OMS><om:OMV name="X1"></om:OMV>
       </om:OMA></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
               <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="Eq"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="X1"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="some"></om:OMS><om:OMV name="X1"></om:OMV><om:OMV name="X"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="some"></om:OMS><om:OMV name="X1"></om:OMV><om:OMV name="Y"></om:OMV>
       </om:OMA>
       </om:OMA>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="Eq"></om:OMS><om:OMV name="X1"></om:OMV><om:OMV name="X"></om:OMV><om:OMV name="Y"></om:OMV>
       </om:OMA>
       </om:OMA>
@@ -149,142 +149,142 @@
       </om:OMBIND>
       </om:OMBIND></om:OMOBJ></type>
        <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="X1"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?abstracted"/></metadata><type><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="X"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?abstracted"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="Elem"></om:OMS><om:OMV name="X1"></om:OMV>
       </om:OMA></type></om:OMV></om:OMBVAR>
                  <om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="Y"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?abstracted"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="Elem"></om:OMS><om:OMV name="X1"></om:OMV>
       </om:OMA></type></om:OMV></om:OMBVAR>
                  <om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="p"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="Eq"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="X1"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="some"></om:OMS><om:OMV name="X1"></om:OMV><om:OMV name="X"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="some"></om:OMS><om:OMV name="X1"></om:OMV><om:OMV name="Y"></om:OMV>
       </om:OMA>
       </om:OMA>
       </om:OMA></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/proof_theory" module="Equal" name="equniv/eq/[http://latin.omdoc.org/math?Transitive]/trans3"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMV name="X1"></om:OMV><om:OMV name="X"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="X1"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="elem"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="X1"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMV name="X1"></om:OMV><om:OMV name="X"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="adjointIl"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMV name="X1"></om:OMV><om:OMV name="X"></om:OMV>
       </om:OMA><om:OMV name="X1"></om:OMV><om:OMV name="X1"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="why"></om:OMS><om:OMV name="X1"></om:OMV><om:OMV name="X"></om:OMV>
       </om:OMA>
       </om:OMA>
       </om:OMA>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="X1"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="some"></om:OMS><om:OMV name="X1"></om:OMV><om:OMV name="Y"></om:OMV>
       </om:OMA>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMV name="X1"></om:OMV><om:OMV name="Y"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/proof_theory" module="Equal" name="equniv/eq/[http://latin.omdoc.org/math?Symmetric]/sym"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="X1"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="elem"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="X1"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMV name="X1"></om:OMV><om:OMV name="X"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="adjointIl"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMV name="X1"></om:OMV><om:OMV name="X"></om:OMV>
       </om:OMA><om:OMV name="X1"></om:OMV><om:OMV name="X1"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="why"></om:OMS><om:OMV name="X1"></om:OMV><om:OMV name="X"></om:OMV>
       </om:OMA>
       </om:OMA>
       </om:OMA>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMV name="X1"></om:OMV><om:OMV name="X"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="eq_which"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="X1"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMV name="X1"></om:OMV><om:OMV name="X"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="adjointIl"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMV name="X1"></om:OMV><om:OMV name="X"></om:OMV>
       </om:OMA><om:OMV name="X1"></om:OMV><om:OMV name="X1"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="why"></om:OMS><om:OMV name="X1"></om:OMV><om:OMV name="X"></om:OMV>
       </om:OMA>
       </om:OMA>
       </om:OMA>
       </om:OMA><om:OMV name="p"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="eq_which"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="X1"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMV name="X1"></om:OMV><om:OMV name="Y"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="adjointIl"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMV name="X1"></om:OMV><om:OMV name="Y"></om:OMV>
       </om:OMA><om:OMV name="X1"></om:OMV><om:OMV name="X1"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="why"></om:OMS><om:OMV name="X1"></om:OMV><om:OMV name="Y"></om:OMV>
       </om:OMA>
       </om:OMA>
@@ -298,28 +298,28 @@
      </constant><constant name="free_some_none" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
                  <om:OMBVAR><om:OMV name="X1"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?abstracted"/></metadata><type><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
                  <om:OMBVAR><om:OMV name="X"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?abstracted"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="Elem"></om:OMS><om:OMV name="X1"></om:OMV>
       </om:OMA></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="NEG" name="not"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="Eq"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="X1"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="some"></om:OMS><om:OMV name="X1"></om:OMV><om:OMV name="X"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="none"></om:OMS><om:OMV name="X1"></om:OMV>
       </om:OMA>
       </om:OMA>
@@ -328,100 +328,100 @@
       </om:OMBIND>
       </om:OMBIND></om:OMOBJ></type>
        <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="X1"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?abstracted"/></metadata><type><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="X"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?abstracted"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="Elem"></om:OMS><om:OMV name="X1"></om:OMV>
       </om:OMA></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/proof_theory" module="NEG" name="notI"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="Equal" name="relation/rel"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="X1"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="elem"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="X1"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMV name="X1"></om:OMV><om:OMV name="X"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="adjointIl"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMV name="X1"></om:OMV><om:OMV name="X"></om:OMV>
       </om:OMA><om:OMV name="X1"></om:OMV><om:OMV name="X1"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="why"></om:OMS><om:OMV name="X1"></om:OMV><om:OMV name="X"></om:OMV>
       </om:OMA>
       </om:OMA>
       </om:OMA>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="X1"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="elem"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="X1"></om:OMV>
       </om:OMA><om:OMV name="X1"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="adjointIr"></om:OMS><om:OMV name="X1"></om:OMV><om:OMV name="X1"></om:OMV>
       </om:OMA>
       </om:OMA>
       </om:OMA>
       </om:OMA><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="p"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="Equal" name="relation/rel"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="X1"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="elem"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="X1"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMV name="X1"></om:OMV><om:OMV name="X"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="adjointIl"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMV name="X1"></om:OMV><om:OMV name="X"></om:OMV>
       </om:OMA><om:OMV name="X1"></om:OMV><om:OMV name="X1"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="why"></om:OMS><om:OMV name="X1"></om:OMV><om:OMV name="X"></om:OMV>
       </om:OMA>
       </om:OMA>
       </om:OMA>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="X1"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="elem"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="X1"></om:OMV>
       </om:OMA><om:OMV name="X1"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="adjointIr"></om:OMS><om:OMV name="X1"></om:OMV><om:OMV name="X1"></om:OMV>
       </om:OMA>
       </om:OMA>
@@ -429,127 +429,127 @@
       </om:OMA>
       </om:OMA></type></om:OMV></om:OMBVAR>
                  <om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="F"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/></metadata><type><om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/proof_theory" module="Falsity" name="falseE"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="in_acyclic0"></om:OMS><om:OMV name="X1"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="eq_in"></om:OMS><om:OMV name="X1"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMV name="X1"></om:OMV><om:OMV name="X"></om:OMV>
       </om:OMA><om:OMV name="X1"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/proof_theory" module="Equal" name="equniv/eq/[http://latin.omdoc.org/math?Symmetric]/sym"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMV name="X1"></om:OMV><om:OMV name="X"></om:OMV>
       </om:OMA><om:OMV name="X1"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/proof_theory" module="Equal" name="equniv/eq/[http://latin.omdoc.org/math?Transitive]/trans3"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMV name="X1"></om:OMV><om:OMV name="X"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="X1"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="elem"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="X1"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMV name="X1"></om:OMV><om:OMV name="X"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="adjointIl"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMV name="X1"></om:OMV><om:OMV name="X"></om:OMV>
       </om:OMA><om:OMV name="X1"></om:OMV><om:OMV name="X1"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="why"></om:OMS><om:OMV name="X1"></om:OMV><om:OMV name="X"></om:OMV>
       </om:OMA>
       </om:OMA>
       </om:OMA>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="X1"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="elem"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="X1"></om:OMV>
       </om:OMA><om:OMV name="X1"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="adjointIr"></om:OMS><om:OMV name="X1"></om:OMV><om:OMV name="X1"></om:OMV>
       </om:OMA>
       </om:OMA>
       </om:OMA><om:OMV name="X1"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/proof_theory" module="Equal" name="equniv/eq/[http://latin.omdoc.org/math?Symmetric]/sym"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="X1"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="elem"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="X1"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMV name="X1"></om:OMV><om:OMV name="X"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="adjointIl"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMV name="X1"></om:OMV><om:OMV name="X"></om:OMV>
       </om:OMA><om:OMV name="X1"></om:OMV><om:OMV name="X1"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="why"></om:OMS><om:OMV name="X1"></om:OMV><om:OMV name="X"></om:OMV>
       </om:OMA>
       </om:OMA>
       </om:OMA>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMV name="X1"></om:OMV><om:OMV name="X"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="eq_which"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="X1"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMV name="X1"></om:OMV><om:OMV name="X"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="adjointIl"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMV name="X1"></om:OMV><om:OMV name="X"></om:OMV>
       </om:OMA><om:OMV name="X1"></om:OMV><om:OMV name="X1"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="why"></om:OMS><om:OMV name="X1"></om:OMV><om:OMV name="X"></om:OMV>
       </om:OMA>
       </om:OMA>
       </om:OMA>
       </om:OMA><om:OMV name="p"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="eq_which"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="X1"></om:OMV>
       </om:OMA><om:OMV name="X1"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="adjointIr"></om:OMS><om:OMV name="X1"></om:OMV><om:OMV name="X1"></om:OMV>
       </om:OMA>
       </om:OMA>
       </om:OMA>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="why"></om:OMS><om:OMV name="X1"></om:OMV><om:OMV name="X"></om:OMV>
       </om:OMA>
       </om:OMA>
@@ -564,68 +564,68 @@
      </constant><constant name="induct_proof" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
                  <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?abstracted"/></metadata><type><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
                  <om:OMBVAR><om:OMV name="P"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?abstracted"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
               <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="Option"></om:OMS><om:OMV name="A"></om:OMV>
       </om:OMA><om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"></om:OMS>
       </om:OMA></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
               <om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
                  <om:OMBVAR><om:OMV name="a"><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="Elem"></om:OMS><om:OMV name="A"></om:OMV>
       </om:OMA></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMV name="P"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="some"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="a"></om:OMV>
       </om:OMA>
       </om:OMA>
       </om:OMA>
       </om:OMBIND><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
               <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMV name="P"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="none"></om:OMS><om:OMV name="A"></om:OMV>
       </om:OMA>
       </om:OMA>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="UniversalQuantifier" name="tforall"></om:OMS><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="x"><type><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="in"></om:OMS><om:OMV name="x"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="A"></om:OMV>
       </om:OMA>
       </om:OMA>
       </om:OMBIND><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="aO"><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="Option"></om:OMS><om:OMV name="A"></om:OMV>
       </om:OMA></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMV name="P"></om:OMV><om:OMV name="aO"></om:OMV>
       </om:OMA>
       </om:OMBIND>
@@ -636,179 +636,179 @@
       </om:OMBIND>
       </om:OMBIND></om:OMOBJ></type>
        <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?abstracted"/></metadata><type><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="P"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?abstracted"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
               <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="Option"></om:OMS><om:OMV name="A"></om:OMV>
       </om:OMA><om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="o"></om:OMS>
       </om:OMA></type></om:OMV></om:OMBVAR>
                  <om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="f"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/></metadata><type><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
                  <om:OMBVAR><om:OMV name="a"><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="Elem"></om:OMS><om:OMV name="A"></om:OMV>
       </om:OMA></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMV name="P"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="some"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="a"></om:OMV>
       </om:OMA>
       </om:OMA>
       </om:OMA>
       </om:OMBIND></type></om:OMV></om:OMBVAR>
                  <om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="p"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMV name="P"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="none"></om:OMS><om:OMV name="A"></om:OMV>
       </om:OMA>
       </om:OMA>
       </om:OMA></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="UniversalQuantifier" name="tforallI"></om:OMS><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="x"><type><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="in"></om:OMS><om:OMV name="x"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="adjoint"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="A"></om:OMV>
       </om:OMA>
       </om:OMA>
       </om:OMBIND><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="x"><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="Class"></om:OMS><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="x"><type><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="in"></om:OMS><om:OMV name="x"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="adjoint"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="A"></om:OMV>
       </om:OMA>
       </om:OMA>
       </om:OMBIND>
       </om:OMA></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMV name="P"></om:OMV><om:OMV name="x"></om:OMV>
       </om:OMA>
       </om:OMBIND><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="aO"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="Class"></om:OMS><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="x"><type><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="in"></om:OMS><om:OMV name="x"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="adjoint"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="A"></om:OMV>
       </om:OMA>
       </om:OMA>
       </om:OMBIND>
       </om:OMA></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/proof_theory" module="DISJ" name="orE"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="in"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="adjoint"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="A"></om:OMV>
       </om:OMA><om:OMV name="aO"></om:OMV>
       </om:OMA><om:OMV name="A"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="Equal" name="relation/rel"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="adjoint"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="A"></om:OMV>
       </om:OMA><om:OMV name="aO"></om:OMV>
       </om:OMA><om:OMV name="A"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMV name="P"></om:OMV><om:OMV name="aO"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="adjointE"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="adjoint"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="A"></om:OMV>
       </om:OMA><om:OMV name="aO"></om:OMV>
       </om:OMA><om:OMV name="A"></om:OMV><om:OMV name="A"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="why"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="adjoint"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="A"></om:OMV>
       </om:OMA><om:OMV name="aO"></om:OMV>
       </om:OMA>
       </om:OMA><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="q"><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="in"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="adjoint"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="A"></om:OMV>
       </om:OMA><om:OMV name="aO"></om:OMV>
       </om:OMA><om:OMV name="A"></om:OMV>
       </om:OMA>
       </om:OMA></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="EqcongEl"></om:OMS><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="x"><type><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="in"></om:OMS><om:OMV name="x"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="A"></om:OMV>
       </om:OMA>
       </om:OMA>
       </om:OMBIND><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="elem"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="A"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMV name="A"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="elem"></om:OMS><om:OMV name="A"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="cwhich"></om:OMS><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="x"><type><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="in"></om:OMS><om:OMV name="x"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="A"></om:OMV>
       </om:OMA>
       </om:OMA>
@@ -816,27 +816,27 @@
       </om:OMA><om:OMV name="q"></om:OMV>
       </om:OMA>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="adjointIl"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMV name="A"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="elem"></om:OMS><om:OMV name="A"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="adjoint"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="A"></om:OMV>
       </om:OMA><om:OMV name="aO"></om:OMV>
       </om:OMA><om:OMV name="q"></om:OMV>
       </om:OMA>
       </om:OMA><om:OMV name="A"></om:OMV><om:OMV name="A"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="why"></om:OMS><om:OMV name="A"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="elem"></om:OMS><om:OMV name="A"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="adjoint"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="A"></om:OMV>
       </om:OMA><om:OMV name="aO"></om:OMV>
       </om:OMA><om:OMV name="q"></om:OMV>
@@ -844,50 +844,50 @@
       </om:OMA>
       </om:OMA>
       </om:OMA><om:OMV name="aO"></om:OMV><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="x"><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="Class"></om:OMS><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="x"><type><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="in"></om:OMS><om:OMV name="x"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="A"></om:OMV>
       </om:OMA>
       </om:OMA>
       </om:OMBIND>
       </om:OMA></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMV name="P"></om:OMV><om:OMV name="x"></om:OMV>
       </om:OMA>
       </om:OMBIND><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/proof_theory" module="Equal" name="equniv/eq/[http://latin.omdoc.org/math?Transitive]/trans"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="A"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="elem"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="A"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMV name="A"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="elem"></om:OMS><om:OMV name="A"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="cwhich"></om:OMS><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="x"><type><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="in"></om:OMS><om:OMV name="x"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="A"></om:OMV>
       </om:OMA>
       </om:OMA>
@@ -895,27 +895,27 @@
       </om:OMA><om:OMV name="q"></om:OMV>
       </om:OMA>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="adjointIl"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMV name="A"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="elem"></om:OMS><om:OMV name="A"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="adjoint"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="A"></om:OMV>
       </om:OMA><om:OMV name="aO"></om:OMV>
       </om:OMA><om:OMV name="q"></om:OMV>
       </om:OMA>
       </om:OMA><om:OMV name="A"></om:OMV><om:OMV name="A"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="why"></om:OMS><om:OMV name="A"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="elem"></om:OMS><om:OMV name="A"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="adjoint"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="A"></om:OMV>
       </om:OMA><om:OMV name="aO"></om:OMV>
       </om:OMA><om:OMV name="q"></om:OMV>
@@ -924,18 +924,18 @@
       </om:OMA>
       </om:OMA>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMV name="A"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="elem"></om:OMS><om:OMV name="A"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="cwhich"></om:OMS><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="x"><type><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="in"></om:OMS><om:OMV name="x"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="A"></om:OMV>
       </om:OMA>
       </om:OMA>
@@ -943,36 +943,36 @@
       </om:OMA><om:OMV name="q"></om:OMV>
       </om:OMA>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="cwhich"></om:OMS><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="x"><type><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="in"></om:OMS><om:OMV name="x"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="A"></om:OMV>
       </om:OMA>
       </om:OMA>
       </om:OMBIND><om:OMV name="aO"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="eq_which"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="A"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMV name="A"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="elem"></om:OMS><om:OMV name="A"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="cwhich"></om:OMS><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="x"><type><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="in"></om:OMS><om:OMV name="x"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="A"></om:OMV>
       </om:OMA>
       </om:OMA>
@@ -980,27 +980,27 @@
       </om:OMA><om:OMV name="q"></om:OMV>
       </om:OMA>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="adjointIl"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMV name="A"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="elem"></om:OMS><om:OMV name="A"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="adjoint"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="A"></om:OMV>
       </om:OMA><om:OMV name="aO"></om:OMV>
       </om:OMA><om:OMV name="q"></om:OMV>
       </om:OMA>
       </om:OMA><om:OMV name="A"></om:OMV><om:OMV name="A"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="why"></om:OMS><om:OMV name="A"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="elem"></om:OMS><om:OMV name="A"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="adjoint"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="A"></om:OMV>
       </om:OMA><om:OMV name="aO"></om:OMV>
       </om:OMA><om:OMV name="q"></om:OMV>
@@ -1008,16 +1008,16 @@
       </om:OMA>
       </om:OMA>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="eq_which"></om:OMS><om:OMV name="A"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="cwhich"></om:OMS><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="x"><type><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="in"></om:OMS><om:OMV name="x"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="A"></om:OMV>
       </om:OMA>
       </om:OMA>
@@ -1025,13 +1025,13 @@
       </om:OMA><om:OMV name="q"></om:OMV>
       </om:OMA>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMV name="f"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="elem"></om:OMS><om:OMV name="A"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="adjoint"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="A"></om:OMV>
       </om:OMA><om:OMV name="aO"></om:OMV>
       </om:OMA><om:OMV name="q"></om:OMV>
@@ -1039,99 +1039,99 @@
       </om:OMA>
       </om:OMA>
       </om:OMBIND><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="q"><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="Equal" name="relation/rel"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="adjoint"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="A"></om:OMV>
       </om:OMA><om:OMV name="aO"></om:OMV>
       </om:OMA><om:OMV name="A"></om:OMV>
       </om:OMA>
       </om:OMA></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="EqcongEl"></om:OMS><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="x"><type><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="in"></om:OMS><om:OMV name="x"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="A"></om:OMV>
       </om:OMA>
       </om:OMA>
       </om:OMBIND><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="elem"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="A"></om:OMV>
       </om:OMA><om:OMV name="A"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="adjointIr"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="A"></om:OMV>
       </om:OMA>
       </om:OMA><om:OMV name="aO"></om:OMV><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="x"><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="Class"></om:OMS><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="x"><type><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="in"></om:OMS><om:OMV name="x"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="A"></om:OMV>
       </om:OMA>
       </om:OMA>
       </om:OMBIND>
       </om:OMA></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMV name="P"></om:OMV><om:OMV name="x"></om:OMV>
       </om:OMA>
       </om:OMBIND><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/proof_theory" module="Equal" name="equniv/eq/[http://latin.omdoc.org/math?Transitive]/trans"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="A"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="elem"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="A"></om:OMV>
       </om:OMA><om:OMV name="A"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="adjointIr"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="A"></om:OMV>
       </om:OMA>
       </om:OMA>
       </om:OMA><om:OMV name="A"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="adjoint"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="A"></om:OMV>
       </om:OMA><om:OMV name="aO"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="eq_which"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="A"></om:OMV>
       </om:OMA><om:OMV name="A"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="adjointIr"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="A"></om:OMV>
       </om:OMA>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/proof_theory" module="Equal" name="equniv/eq/[http://latin.omdoc.org/math?Symmetric]/sym"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="which"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="ZFC" name="adjoint"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="A"></om:OMV>
       </om:OMA><om:OMV name="aO"></om:OMV>
       </om:OMA><om:OMV name="A"></om:OMV><om:OMV name="q"></om:OMV>
@@ -1150,34 +1150,34 @@
      </constant><constant name="induct_def" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
                  <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?abstracted"/></metadata><type><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
                  <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?abstracted"/></metadata><type><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
               <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
               <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="Elem"></om:OMS><om:OMV name="A"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="Elem"></om:OMS><om:OMV name="B"></om:OMV>
       </om:OMA>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
               <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="Elem"></om:OMS><om:OMV name="B"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
               <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="Option"></om:OMS><om:OMV name="A"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="Elem"></om:OMS><om:OMV name="B"></om:OMV>
       </om:OMA>
       </om:OMA>
@@ -1190,57 +1190,57 @@
      </constant><constant name="induct_def_some" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
                  <om:OMBVAR><om:OMV name="X1"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?abstracted"/></metadata><type><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
                  <om:OMBVAR><om:OMV name="X2"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?abstracted"/></metadata><type><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
                  <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?abstracted"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
               <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="Elem"></om:OMS><om:OMV name="X2"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="Elem"></om:OMS><om:OMV name="X1"></om:OMV>
       </om:OMA>
       </om:OMA></type></om:OMV></om:OMBVAR>
                  <om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
                  <om:OMBVAR><om:OMV name="N"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?abstracted"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="Elem"></om:OMS><om:OMV name="X1"></om:OMV>
       </om:OMA></type></om:OMV></om:OMBVAR>
                  <om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
                  <om:OMBVAR><om:OMV name="X"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?abstracted"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="Elem"></om:OMS><om:OMV name="X2"></om:OMV>
       </om:OMA></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="Eq"></om:OMS><om:OMV name="X1"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="induct_def"></om:OMS><om:OMV name="X2"></om:OMV><om:OMV name="X1"></om:OMV><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="x"><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="Elem"></om:OMS><om:OMV name="X2"></om:OMV>
       </om:OMA></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMV name="S"></om:OMV><om:OMV name="x"></om:OMV>
       </om:OMA>
       </om:OMBIND><om:OMV name="N"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="some"></om:OMS><om:OMV name="X2"></om:OMV><om:OMV name="X"></om:OMV>
       </om:OMA>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMV name="S"></om:OMV><om:OMV name="X"></om:OMV>
       </om:OMA>
       </om:OMA>
@@ -1255,47 +1255,47 @@
      </constant><constant name="induct_def_none" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
                  <om:OMBVAR><om:OMV name="X1"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?abstracted"/></metadata><type><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
                  <om:OMBVAR><om:OMV name="X2"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?abstracted"/></metadata><type><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
                  <om:OMBVAR><om:OMV name="S"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?abstracted"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
               <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="Elem"></om:OMS><om:OMV name="X2"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="Elem"></om:OMS><om:OMV name="X1"></om:OMV>
       </om:OMA>
       </om:OMA></type></om:OMV></om:OMBVAR>
                  <om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
                  <om:OMBVAR><om:OMV name="N"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?abstracted"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="Elem"></om:OMS><om:OMV name="X1"></om:OMV>
       </om:OMA></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/logics/syntax" module="Logic" name="ded"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="Eq"></om:OMS><om:OMV name="X1"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="induct_def"></om:OMS><om:OMV name="X2"></om:OMV><om:OMV name="X1"></om:OMV><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="x"><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="Elem"></om:OMS><om:OMV name="X2"></om:OMV>
       </om:OMA></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMV name="S"></om:OMV><om:OMV name="x"></om:OMV>
       </om:OMA>
       </om:OMBIND><om:OMV name="N"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="none"></om:OMS><om:OMV name="X2"></om:OMV>
       </om:OMA>
       </om:OMA><om:OMV name="N"></om:OMV>
@@ -1310,29 +1310,29 @@
      </constant><constant name="optionM" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
                  <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?abstracted"/></metadata><type><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
                  <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?abstracted"/></metadata><type><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
               <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
               <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="Elem"></om:OMS><om:OMV name="A"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="Elem"></om:OMS><om:OMV name="B"></om:OMV>
       </om:OMA>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
               <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="Option"></om:OMS><om:OMV name="A"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="Option"></om:OMS><om:OMV name="B"></om:OMV>
       </om:OMA>
       </om:OMA>
@@ -1340,49 +1340,49 @@
       </om:OMBIND>
       </om:OMBIND></om:OMOBJ></type>
        <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?abstracted"/></metadata><type><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?abstracted"/></metadata><type><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="f"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
               <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="Elem"></om:OMS><om:OMV name="A"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="Elem"></om:OMS><om:OMV name="B"></om:OMV>
       </om:OMA>
       </om:OMA></type></om:OMV></om:OMBVAR>
                  <om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="x"><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="Option"></om:OMS><om:OMV name="A"></om:OMV>
       </om:OMA></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="induct_def"></om:OMS><om:OMV name="A"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="B"></om:OMV>
       </om:OMA><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="a"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="Elem"></om:OMS><om:OMV name="A"></om:OMV>
       </om:OMA></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="some"></om:OMS><om:OMV name="B"></om:OMV><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMV name="f"></om:OMV><om:OMV name="a"></om:OMV>
       </om:OMA>
       </om:OMA>
       </om:OMBIND><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="none"></om:OMS><om:OMV name="B"></om:OMV>
       </om:OMA><om:OMV name="x"></om:OMV>
       </om:OMA>
@@ -1394,54 +1394,54 @@
      </constant><constant name="reduce" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
                  <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?abstracted"/></metadata><type><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
               <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="Option"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="A"></om:OMV>
       </om:OMA>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="Option"></om:OMS><om:OMV name="A"></om:OMV>
       </om:OMA>
       </om:OMA>
       </om:OMBIND></om:OMOBJ></type>
        <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?abstracted"/></metadata><type><om:OMS base="http://latin.omdoc.org/math" module="Universe" name="u"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="x"><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="Option"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="A"></om:OMV>
       </om:OMA>
       </om:OMA></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="induct_def"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="A"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="A"></om:OMV>
       </om:OMA><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="lambda"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
                  <om:OMBVAR><om:OMV name="aO"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="TypedZFBase" name="Elem"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="option"></om:OMS><om:OMV name="A"></om:OMV>
       </om:OMA>
       </om:OMA></type></om:OMV></om:OMBVAR>
                  <om:OMV name="aO"></om:OMV>
       </om:OMBIND><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/zfc" module="Option" name="none"></om:OMS><om:OMV name="A"></om:OMV>
       </om:OMA><om:OMV name="x"></om:OMV>
       </om:OMA>

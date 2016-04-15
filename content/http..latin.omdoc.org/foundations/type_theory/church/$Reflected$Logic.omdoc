@@ -1,7 +1,7 @@
 <omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><theory name="ReflectedLogic" base="http://latin.omdoc.org/foundations/type_theory/church" meta="http://cds.omdoc.org/urtheories?LF"><metadata><meta property="http://purl.org/dc/terms?_?description"><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT type="http://www.openmath.org/cd?OpenMath?OMSTR" value="  reflecting a weak meta-level logic into a stronger object-level logic "/></om:OMOBJ></meta></metadata><import name="meta" from="http://latin.omdoc.org/foundations/type_theory/church?Logic"></import><import name="object" from="http://latin.omdoc.org/foundations/type_theory/church?Logic"><import name="[http://latin.omdoc.org/foundations/type_theory/church?IndexedUniverse]" from="http://latin.omdoc.org/foundations/type_theory/church?IndexedUniverse" implicit="true"><definition><om:OMS base="http://latin.omdoc.org/foundations/type_theory/church" module="ReflectedLogic" name="meta/[http://latin.omdoc.org/foundations/type_theory/church?IndexedUniverse]"></om:OMS></definition></import></import><constant name="reflect_o" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/type_theory/church" module="ReflectedLogic" name="meta/[http://latin.omdoc.org/logics/syntax?Logic]/o"></om:OMS><om:OMS base="http://latin.omdoc.org/foundations/type_theory/church" module="ReflectedLogic" name="object/[http://latin.omdoc.org/logics/syntax?Logic]/o"></om:OMS>
       </om:OMA></om:OMOBJ></type>
        
@@ -9,17 +9,17 @@
      </constant><constant name="reflect_ded" role="constructor">
        
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
-                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="Pi"></om:OMS>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
                  <om:OMBVAR><om:OMV name="X"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?abstracted"/></metadata><type><om:OMS base="http://latin.omdoc.org/foundations/type_theory/church" module="ReflectedLogic" name="meta/[http://latin.omdoc.org/logics/syntax?Logic]/o"></om:OMS></type></om:OMV></om:OMBVAR>
                  <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
               <om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/type_theory/church" module="ReflectedLogic" name="meta/[http://latin.omdoc.org/logics/syntax?Logic]/ded"></om:OMS><om:OMV name="X"></om:OMV>
       </om:OMA><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/type_theory/church" module="ReflectedLogic" name="object/[http://latin.omdoc.org/logics/syntax?Logic]/ded"></om:OMS><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LF" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://latin.omdoc.org/foundations/type_theory/church" module="ReflectedLogic" name="reflect_o"></om:OMS><om:OMV name="X"></om:OMV>
       </om:OMA>
       </om:OMA>
