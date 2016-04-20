@@ -17,6 +17,9 @@ theory Kernel : http://cds.omdoc.org/urtheories?LF =
   // application
   Comb : {A,B} term (A ⇒ B) → term A → term B # 3 ' 4 prec 1000 ## 3 %w 4 prec 1000
 
+  // higher-order abstract syntax for notations
+  rule info.kwarc.mmt.lf.hollight.HOLLightHOAS
+   
   // type of propositions/formulas  
   bool  : holtype
   equal : {A} term A ⇒ (A ⇒ bool)# meta ?Kernel 2 = 3 prec 12## meta ?Kernel 2 = _ %I1 3 prec 12
@@ -73,9 +76,7 @@ theory HOL : http://cds.omdoc.org/urtheories?LF =
   SELECT_AX : {A, P: term A ⇒ bool, x: term A} ⊦ P ' x → ⊦ P ' ((@ A)' P)
 
   ETA_AX : {A,B, F: term A ⇒ B} ⊦ (λ [x] (F ' x)) = F
-
-  rule info.kwarc.mmt.lf.hollight.HOLLightHOAS
-  
+ 
   // actually in much later theory (natural numbers)
   // definition of ONE_ONE,  ONTO 
   // INFINITY_AX  
